@@ -496,100 +496,105 @@ export default function TumblrStyleProfilePage() {
                         </div>
                     </div>
                     
-                    {/* Profile Info */}
+                    {/* Profile Info - mit weißem Text für Lesbarkeit auf Banner */}
                     <div className="flex-1 min-w-0 pb-2">
                         <div className="flex items-center gap-2 flex-wrap">
-                            <h1 className="text-xl font-heading truncate">{profile.displayName || "Anonymer Künstler"}</h1>
+                            <h1 className="text-xl font-heading truncate text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">{profile.displayName || "Anonymer Künstler"}</h1>
                             {profile.verificationStatus === 'verified' && (
-                                <span className="px-1.5 py-0.5 text-xs border-2 border-black bg-accent text-black">✓</span>
+                                <span className="px-1.5 py-0.5 text-xs border-2 border-white bg-accent text-black">✓</span>
                             )}
                         </div>
                         {profile.username && (
-                            <p className="text-sm text-gray-600">@{profile.username}</p>
+                            <p className="text-sm text-white/80 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">@{profile.username}</p>
                         )}
                     </div>
                 </div>
                 
-                {/* Stats Row */}
-                <div className="flex gap-6 mt-4 mb-4">
-                    <div className="text-center">
-                        <p className="font-heading text-lg">{posts.length}</p>
-                        <p className="text-xs text-gray-600">Posts</p>
+                {/* Stats & Info Card - mit Hintergrund */}
+                <div className="mt-4 bg-white border-4 border-black shadow-comic p-4">
+                    {/* Stats Row */}
+                    <div className="flex gap-6 mb-4">
+                        <div className="text-center">
+                            <p className="font-heading text-lg">{posts.length}</p>
+                            <p className="text-xs text-gray-600">Posts</p>
+                        </div>
+                        <div className="text-center">
+                            <p className="font-heading text-lg">{followerCount}</p>
+                            <p className="text-xs text-gray-600">Followers</p>
+                        </div>
+                        <div className="text-center">
+                            <p className="font-heading text-lg">{followingCount}</p>
+                            <p className="text-xs text-gray-600">Following</p>
+                        </div>
                     </div>
-                    <div className="text-center">
-                        <p className="font-heading text-lg">{followerCount}</p>
-                        <p className="text-xs text-gray-600">Followers</p>
-                    </div>
-                    <div className="text-center">
-                        <p className="font-heading text-lg">{followingCount}</p>
-                        <p className="text-xs text-gray-600">Following</p>
-                    </div>
-                </div>
-                
-                {/* Bio & Location */}
-                {profile.bio && (
-                    <p className="text-sm mb-2 line-clamp-3 text-gray-700">{profile.bio}</p>
-                )}
-                <div className="flex flex-wrap gap-3 text-sm mb-4 text-gray-600">
-                    {profile.location && (
-                        <span className="flex items-center gap-1">📍 {profile.location}</span>
+                    
+                    {/* Bio & Location */}
+                    {profile.bio && (
+                        <p className="text-sm mb-2 line-clamp-3 text-gray-700">{profile.bio}</p>
                     )}
-                    {profile.website && (
-                        <a href={profile.website} target="_blank" rel="noopener" className="flex items-center gap-1" style={{ color: accentColor }}>
-                            🔗 {profile.website.replace(/^https?:\/\//, '')}
-                        </a>
+                    {(profile.location || profile.website) && (
+                        <div className="flex flex-wrap gap-3 text-sm mb-4 text-gray-600">
+                            {profile.location && (
+                                <span className="flex items-center gap-1">📍 {profile.location}</span>
+                            )}
+                            {profile.website && (
+                                <a href={profile.website} target="_blank" rel="noopener" className="flex items-center gap-1" style={{ color: accentColor }}>
+                                    🔗 {profile.website.replace(/^https?:\/\//, '')}
+                                </a>
+                            )}
+                        </div>
                     )}
-                </div>
                 
-                {/* Action Buttons - Mobile */}
-                <div className="flex gap-2 mb-4">
-                    {isOwnProfile ? (
-                        <Link href="/profile/settings" className="flex-1">
-                            <Button variant="secondary" className="w-full text-sm py-2">
-                                Profil bearbeiten
-                            </Button>
-                        </Link>
-                    ) : currentUser ? (
-                        <>
-                            <Button
-                                onClick={handleFollowToggle}
-                                disabled={followLoading}
-                                variant={isFollowing ? "secondary" : "accent"}
-                                className="flex-1 text-sm py-2"
-                            >
-                                {followLoading ? '...' : isFollowing ? '✓ Folge ich' : '+ Folgen'}
-                            </Button>
-                            <Button 
-                                onClick={handleSendDM}
-                                disabled={dmLoading}
-                                variant="secondary" 
-                                className="text-sm py-2 px-4"
-                            >
-                                {dmLoading ? '...' : '✉️'}
-                            </Button>
-                        </>
-                    ) : (
-                        <Link href="/auth/login" className="flex-1">
-                            <Button variant="accent" className="w-full text-sm py-2">
-                                Anmelden zum Folgen
-                            </Button>
-                        </Link>
-                    )}
-                </div>
-                
-                {/* Showcased Badges */}
-                {profile.achievementData?.showcasedBadges && profile.achievementData.showcasedBadges.length > 0 && (
-                    <div className="flex gap-2 mb-4 overflow-x-auto scrollbar-hide pb-1">
-                        {profile.achievementData.showcasedBadges.slice(0, 5).map(badgeId => (
-                            <div 
-                                key={badgeId}
-                                className="w-10 h-10 rounded-full border-2 border-black flex items-center justify-center text-lg bg-white flex-shrink-0"
-                            >
-                                🏆
-                            </div>
-                        ))}
+                    {/* Action Buttons */}
+                    <div className="flex gap-2">
+                        {isOwnProfile ? (
+                            <Link href="/profile/settings" className="flex-1">
+                                <Button variant="secondary" className="w-full text-sm py-2">
+                                    Profil bearbeiten
+                                </Button>
+                            </Link>
+                        ) : currentUser ? (
+                            <>
+                                <Button
+                                    onClick={handleFollowToggle}
+                                    disabled={followLoading}
+                                    variant={isFollowing ? "secondary" : "accent"}
+                                    className="flex-1 text-sm py-2"
+                                >
+                                    {followLoading ? '...' : isFollowing ? '✓ Folge ich' : '+ Folgen'}
+                                </Button>
+                                <Button 
+                                    onClick={handleSendDM}
+                                    disabled={dmLoading}
+                                    variant="secondary" 
+                                    className="text-sm py-2 px-4"
+                                >
+                                    {dmLoading ? '...' : '✉️'}
+                                </Button>
+                            </>
+                        ) : (
+                            <Link href="/auth/login" className="flex-1">
+                                <Button variant="accent" className="w-full text-sm py-2">
+                                    Anmelden zum Folgen
+                                </Button>
+                            </Link>
+                        )}
                     </div>
-                )}
+                    
+                    {/* Showcased Badges */}
+                    {profile.achievementData?.showcasedBadges && profile.achievementData.showcasedBadges.length > 0 && (
+                        <div className="flex gap-2 mt-4 overflow-x-auto scrollbar-hide pb-1">
+                            {profile.achievementData.showcasedBadges.slice(0, 5).map(badgeId => (
+                                <div 
+                                    key={badgeId}
+                                    className="w-10 h-10 rounded-full border-2 border-black flex items-center justify-center text-lg bg-gray-100 flex-shrink-0"
+                                >
+                                    🏆
+                                </div>
+                            ))}
+                        </div>
+                    )}
+                </div>
             </div>
             
             {/* ========== DESKTOP Profile Header - Schwarzes Band ========== */}
