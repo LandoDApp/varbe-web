@@ -1,0 +1,2393 @@
+{
+  "common": {
+    "loading": "Lädt...",
+    "error": "Fehler",
+    "success": "Erfolg",
+    "cancel": "Abbrechen",
+    "save": "Speichern",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "submit": "Absenden",
+    "back": "Zurück",
+    "next": "Weiter",
+    "previous": "Zurück",
+    "close": "Schließen",
+    "yes": "Ja",
+    "no": "Nein"
+  },
+  "nav": {
+    "home": "Startseite",
+    "buyArt": "Kunst kaufen",
+    "sellArt": "Kunst verkaufen",
+    "artists": "Künstler",
+    "admin": "Admin",
+    "artistDashboard": "Künstler-Dashboard",
+    "messages": "Nachrichten",
+    "login": "Anmelden",
+    "join": "Registrieren",
+    "profile": "Profil",
+    "searchPlaceholder": "Kunst, Posts, Künstler suchen..."
+  },
+  "search": {
+    "title": "Suche",
+    "placeholder": "Suche nach Kunstwerken, Künstlern, Kategorien...",
+    "search": "Suchen",
+    "results": "{count} Ergebnisse für \"{query}\"",
+    "loading": "Suche läuft...",
+    "noResults": "Keine Ergebnisse gefunden",
+    "noResultsDesc": "Versuche es mit anderen Suchbegriffen oder durchstöbere unsere Kategorien."
+  },
+  "home": {
+    "hero": {
+      "line1": "KUNST ENTDECKEN.",
+      "line2": "KÜNSTLER SUPPORTEN.",
+      "line3": "KEINE KI-SCHEISSE.",
+      "description": "Die Artist-Community wo echte Kunst gefeiert wird. Ohne Algorithmus-Bullshit. Ohne AI-Theft. Nur Kunst, Künstler und Community.",
+      "joinNow": "JETZT BEITRETEN",
+      "discoverFeed": "FEED ENTDECKEN →"
+    },
+    "badges": {
+      "noAi": "KEINE KI-KUNST",
+      "lowFees": "NUR 10% GEBÜHREN",
+      "artistOwned": "KÜNSTLER-OWNED"
+    },
+    "problems": {
+      "title": "WARUM KÜNSTLER INSTAGRAM, DEVIANTART & ETSY VERLASSEN",
+      "ai": {
+        "title": "AI-SCHEISSE ÜBERALL",
+        "desc": "DeviantArt promotet AI-Bots die $25k verdienen. Instagram trainiert auf deiner Kunst. Pinterest ist voll mit AI-Slop. Deine echte Arbeit geht unter."
+      },
+      "algorithm": {
+        "title": "ALGORITHMUS-HÖLLE",
+        "desc": "Poste täglich oder stirb. Instagram Engagement down 70%. Keine Kontrolle über Sichtbarkeit. Du bist Sklave vom Algo."
+      },
+      "fees": {
+        "title": "ABZOCK-GEBÜHREN",
+        "desc": "Etsy nimmt 35-40%. PayPal auch noch 3%. Print-Shops nehmen 60%. Am Ende bleiben dir Krümel."
+      }
+    },
+    "butNotHere": "ABER NICHT HIER.",
+    "solutions": {
+      "aiFree": {
+        "title": "100% AI-FREE",
+        "desc": "Wir detecten AI-Kunst automatisch. Null Toleranz. Jeder Künstler wird verifiziert. Hier gibt's nur echte Kunst von echten Menschen."
+      },
+      "noAlgo": {
+        "title": "KEINE ALGO-MANIPULATION",
+        "desc": "Chronologischer Feed + Human Curation. Kein \"Post täglich\" Zwang. Keine versteckten Rules. Quality over Quantity. Immer."
+      },
+      "fairFees": {
+        "title": "FAIRE 10% GEBÜHREN",
+        "desc": "Keine versteckten Kosten. Keine Abo-Zwänge. Du behältst 90% von allem was du verkaufst. So einfach ist das."
+      }
+    },
+    "features": {
+      "title": "WAS MACHT VARBE ANDERS?",
+      "swipe": {
+        "title": "SWIPE DISCOVERY",
+        "desc": "TikTok-Style Feed. Swipe durch Kunst. Nicht suchen, finden.",
+        "link": "MEHR ERFAHREN →"
+      },
+      "local": {
+        "title": "LOCAL RADAR",
+        "desc": "Kunst in deiner Nähe. Artists treffen. Lokale Events finden.",
+        "link": "MEHR ERFAHREN →"
+      },
+      "story": {
+        "title": "STORY-DRIVEN",
+        "desc": "Jede Kunst hat eine Story. Voice Notes. Process. Kontext, nicht nur Bild.",
+        "link": "MEHR ERFAHREN →"
+      },
+      "challenges": {
+        "title": "ART CHALLENGES",
+        "desc": "Weekly Prompts. Community Voting. Badges & Recognition.",
+        "link": "MEHR ERFAHREN →"
+      }
+    },
+    "promise": {
+      "title": "UNSER VERSPRECHEN",
+      "noAi": {
+        "title": "0% AI-CONTENT",
+        "desc": "Nur echte Kunst von echten Menschen. Keine Kompromisse."
+      },
+      "forYou": {
+        "title": "90% FÜR DICH",
+        "desc": "Die fairsten Gebühren der Branche. Du behältst was dir gehört."
+      },
+      "community": {
+        "title": "COMMUNITY FIRST",
+        "desc": "Gebaut von Künstlern, für Künstler. Kein Corporate-Bullshit."
+      },
+      "subtext": "Wir bauen die Plattform die wir selbst immer wollten."
+    },
+    "cta": {
+      "title": "READY TO JOIN?",
+      "description": "Werde Teil der Movement. Keine AI. Kein Bullshit. Nur echte Kunst von echten Menschen.",
+      "emailPlaceholder": "deine@email.com",
+      "joinButton": "JETZT BEITRETEN",
+      "registerButton": "JETZT ANMELDEN",
+      "discoverButton": "FEED ENTDECKEN →"
+    }
+  },
+  "marketplace": {
+    "title": "Marktplatz",
+    "noListings": "Keine Kunstwerke gefunden",
+    "searchPlaceholder": "Kunst, Posts, Künstler suchen...",
+    "foundArtworks": "Gefunden",
+    "artworks": "Kunstwerke",
+    "loadingArtworks": "Lade Kunstwerke...",
+    "tryFilters": "Versuchen Sie, Ihre Filter anzupassen",
+    "listFirstArtwork": "Ihr erstes Kunstwerk listen",
+    "filter": {
+      "all": "Alle",
+      "buyNow": "Sofort kaufen",
+      "auction": "Auktion",
+      "category": "Kategorie",
+      "priceRange": "Preisspanne",
+      "allCategories": "Alle Kategorien",
+      "allTechniques": "Alle Techniken",
+      "sortBy": "Sortieren nach",
+      "newest": "Neueste zuerst",
+      "priceAsc": "Preis: Niedrig bis Hoch",
+      "priceDesc": "Preis: Hoch bis Niedrig",
+      "endingSoon": "Endet bald"
+    },
+    "listing": {
+      "buyNow": "Jetzt kaufen",
+      "placeBid": "Gebot abgeben",
+      "currentBid": "Aktuelles Gebot",
+      "startingBid": "Startgebot",
+      "buyNowPrice": "Sofort-Kauf-Preis",
+      "favorite": "Favorit",
+      "favorites": "Favoriten",
+      "views": "Aufrufe",
+      "linkCopied": "Link kopiert!",
+      "endsIn": "Endet in",
+      "endingIn": "Endet in",
+      "sold": "Verkauft",
+      "ended": "Beendet",
+      "auctionEnded": "Auktion beendet",
+      "finalPrice": "Endpreis",
+      "by": "von",
+      "shipping": "Versand",
+      "pickup": "Abholung",
+      "freeShipping": "Kostenloser Versand",
+      "digital": "Digital",
+      "price": "Preis",
+      "loading": "Lade Kunstwerk...",
+      "notFound": "Kunstwerk nicht gefunden",
+      "backToMarketplace": "Zurück zum Marktplatz",
+      "minimumBid": "Mindestgebot",
+      "bidding": "Bietet...",
+      "bid": "Gebot",
+      "report": "Melden",
+      "description": "Beschreibung",
+      "details": "Details",
+      "location": "Standort",
+      "artist": "Künstler",
+      "soldBy": "Verkauft von",
+      "anonymousArtist": "Anonymer Künstler",
+      "quantity": "Stückzahl",
+      "bids": "Gebote",
+      "noBids": "Noch keine Gebote",
+      "bidHistory": "Gebotshistorie",
+      "bidAmount": "Gebotshöhe",
+      "bidder": "Bieter",
+      "bidTime": "Zeit",
+      "loginToBid": "Anmelden, um zu bieten",
+      "loginToBuy": "Anmelden, um zu kaufen",
+      "alreadySold": "Dieses Kunstwerk wurde bereits verkauft",
+      "notEnoughQuantity": "Nicht genug Stückzahl verfügbar",
+      "available": "Verfügbar",
+      "totalPrice": "Gesamtpreis",
+      "processing": "Wird verarbeitet..."
+    }
+  },
+  "createListing": {
+    "title": "Ihr Kunstwerk listen",
+    "loading": "Lädt...",
+    "verificationRequired": "Künstler-Verifizierung erforderlich",
+    "verificationMessage": "Nur verifizierte Künstler können Kunstwerke listen. Bitte schließen Sie zuerst den Verifizierungsprozess ab.",
+    "goToVerification": "Zur Verifizierung",
+    "redirecting": "Automatische Weiterleitung in 3 Sekunden...",
+    "becomeVerified": "Werden Sie ein verifizierter Künstler",
+    "unlockFeatures": "um alle Funktionen freizuschalten.",
+    "basicInfo": "1. Grundinformationen",
+    "sellingOptions": "2. Verkaufsoptionen",
+    "shipping": "3. Versand",
+    "images": "4. Bilder",
+    "fields": {
+      "title": "Titel des Werks",
+      "titlePlaceholder": "z.B., Abstract Dreams #42",
+      "description": "Beschreibung",
+      "descriptionPlaceholder": "Beschreiben Sie Ihr Kunstwerk (max. 2000 Zeichen)",
+      "category": "Kategorie",
+      "technique": "Technik",
+      "dimensions": "Abmessungen (cm)",
+      "dimensionsPlaceholder": "z.B., 50x70 oder 30x40x20",
+      "year": "Jahr",
+      "yearPlaceholder": "2024",
+      "condition": "Zustand",
+      "price": "Preis (€)",
+      "startingBid": "Startgebot (€)",
+      "minBidIncrement": "Mindestgebotserhöhung (€)",
+      "minBidIncrementPlaceholder": "z.B., 10",
+      "buyNowPrice": "Sofort-Kauf-Preis (€)",
+      "auctionDays": "Auktionstage",
+      "auctionDuration": "Auktionsdauer",
+      "shippingCost": "Versandkosten (€)",
+      "shippingCostPlaceholder": "z.B., 15.00",
+      "location": "Standort",
+      "country": "Land",
+      "selectCountry": "Land auswählen...",
+      "city": "Stadt",
+      "cityPlaceholder": "Stadt eingeben (z.B. Bremen)...",
+      "locationPlaceholder": "Stadt eingeben (z.B. Bremen)...",
+      "locationHint": "Wähle das Land und gib dann die Stadt ein - es wird automatisch vervollständigt",
+      "quantity": "Menge (Anzahl identischer Artikel)",
+      "quantityPlaceholder": "z.B. 5 Poster",
+      "quantityDesc": "Anzahl der identischen Artikel, die Sie verkaufen möchten (z.B. 5 Poster)",
+      "isDigital": "Digitale Kunst",
+      "isDigitalDesc": "Dies ist ein digitales Kunstwerk (kein Versand erforderlich)",
+      "packageInfo": "Paketgröße für Versand",
+      "packageInfoHint": "Bitte geben Sie die Abmessungen und das Gewicht des Pakets an, in dem Sie das Kunstwerk versenden werden. Diese Informationen werden verwendet, um die besten Versandoptionen zu berechnen.",
+      "packageLength": "Länge",
+      "packageWidth": "Breite",
+      "packageHeight": "Höhe",
+      "packageWeight": "Gewicht",
+      "uploadImages": "Bilder hochladen (1-5)",
+      "imagesSelected": "Bild(er) ausgewählt. Laden Sie hochauflösende Bilder für beste Ergebnisse hoch.",
+      "select": "Auswählen...",
+      "howToSell": "Wie möchten Sie verkaufen?"
+    },
+    "listingTypes": {
+      "buyNow": "⚡ Sofort kaufen",
+      "buyNowDesc": "Fester Preis, sofortiger Kauf",
+      "auction": "🔨 Auktion",
+      "auctionDesc": "Gebote beginnen bei Ihrem Preis",
+      "both": "⚡🔨 Beides",
+      "bothDesc": "Auktion mit Sofort-Kauf-Option"
+    },
+    "shippingOptions": {
+      "shipping": "📦 Versand",
+      "shippingDesc": "Kunde zahlt Versand",
+      "free": "🆓 Kostenloser Versand",
+      "freeDesc": "Sie übernehmen die Versandkosten",
+      "pickup": "📍 Nur Abholung",
+      "pickupDesc": "Kunde holt persönlich ab"
+    },
+    "shippingZones": {
+      "description": "Wohin versendest du? Wähle die Regionen aus, in die du versenden möchtest, und gib die Versandkosten an.",
+      "germany": "Deutschland",
+      "eu": "Europäische Union",
+      "europe": "Europa (nicht-EU)",
+      "worldwide": "Weltweit",
+      "pickup": "Selbstabholung möglich",
+      "pickupUsesLocation": "Die Selbstabholung verwendet den Standort, den du oben in den Grundinformationen angegeben hast.",
+      "pickupLocation": "z.B. Bremen, Deutschland",
+      "free": "Kostenlos",
+      "other": "Andere",
+      "tip": "Tipp",
+      "tipText": "DHL Deutschland kostet ~2-4€, EU ~5-9€, Weltweit ~15-30€"
+    },
+    "conditions": {
+      "like_new": "Wie neu",
+      "excellent": "Ausgezeichnet",
+      "good": "Gut",
+      "fair": "Akzeptabel",
+      "poor": "Schlecht"
+    },
+    "errors": {
+      "minPrice": "Der Mindestpreis beträgt 10€. Dies ist notwendig, damit die Stripe-Gebühren fair sind.",
+      "minBuyNowPrice": "Der Mindestpreis für 'Sofort Kaufen' beträgt 10€.",
+      "buyNowHigher": "Sofort-Kauf-Preis muss höher sein als das Startgebot.",
+      "digitalOnlyBuyNow": "Digitale Kunst ist nur bei Sofortkauf möglich.",
+      "quantityMin": "Menge muss mindestens 1 sein.",
+      "imagesRequired": "Bitte laden Sie mindestens ein Bild hoch",
+      "invalidPrice": "Ungültiger Preis. Bitte geben Sie einen gültigen Preis ein.",
+      "permissionDenied": "Zugriff verweigert. Bitte überprüfen Sie die Firestore-Regeln.",
+      "firestoreOffline": "Firestore ist offline. Bitte überprüfen Sie Ihre Verbindung.",
+      "failed": "Fehler beim Erstellen des Listings. Bitte versuchen Sie es erneut.",
+      "noShippingZones": "Bitte wähle mindestens eine Versandregion aus.",
+      "pickupLocationRequired": "Bitte wähle einen Standort für die Selbstabholung aus.",
+      "locationRequired": "Bitte wähle einen Standort aus.",
+      "invalidPackageLength": "Ungültige Paketlänge. Bitte geben Sie einen Wert zwischen 0,1 und 200 cm ein.",
+      "invalidPackageWidth": "Ungültige Paketbreite. Bitte geben Sie einen Wert zwischen 0,1 und 200 cm ein.",
+      "invalidPackageHeight": "Ungültige Pakethöhe. Bitte geben Sie einen Wert zwischen 0,1 und 200 cm ein.",
+      "invalidPackageWeight": "Ungültiges Paketgewicht. Bitte geben Sie einen Wert zwischen 0,01 und 100 kg ein."
+    },
+    "buttons": {
+      "cancel": "Abbrechen",
+      "postListing": "Listing veröffentlichen",
+      "creating": "Wird erstellt..."
+    },
+    "conditions": {
+      "new": "Neu",
+      "like_new": "Wie neu",
+      "good": "Gut",
+      "used": "Gebraucht"
+    },
+    "auctionDays": {
+      "3": "3 Tage",
+      "5": "5 Tage",
+      "7": "7 Tage",
+      "10": "10 Tage"
+    }
+  },
+  "order": {
+    "title": "Bestellung",
+    "notFound": "Bestellung nicht gefunden",
+    "unauthorized": "Nicht autorisiert",
+    "loading": "Lade Bestellung...",
+    "status": {
+      "pending": "Ausstehend",
+      "paid": "Bezahlt",
+      "shipped": "Versandt",
+      "delivered": "Geliefert",
+      "cancelled": "Storniert",
+      "refunded": "Erstattet"
+    },
+    "shippingAddress": "Versandadresse",
+    "shippingAddressRequired": "Bitte geben Sie eine vollständige Versandadresse an, bevor Sie bezahlen.",
+    "name": "Name",
+    "street": "Straße",
+    "city": "Stadt",
+    "postalCode": "Postleitzahl",
+    "country": "Land",
+    "saveAddress": "Adresse speichern",
+    "payment": "Zahlung",
+    "total": "Gesamt",
+    "artworkPrice": "Kunstwerk-Preis",
+    "shippingCost": "Versandkosten",
+    "freeShipping": "Kostenloser Versand",
+    "payNow": "Jetzt bezahlen",
+    "processing": "Wird verarbeitet...",
+    "success": "Zahlung erfolgreich!",
+    "error": "Fehler bei der Zahlung",
+    "paymentCanceled": "Zahlung wurde abgebrochen. Bitte versuchen Sie es erneut.",
+    "congratulations": "🎉 Glückwunsch! Sie haben dieses Kunstwerk erfolgreich gekauft.",
+    "paymentProcessed": "Ihre Zahlung wurde erfolgreich verarbeitet. Der Verkäufer wird Ihre Bestellung bald versenden.",
+    "paymentProcessing": "Ihre Zahlung wird verarbeitet. Bitte warten Sie einen Moment, während wir Ihre Zahlung bestätigen.",
+    "paymentProcessingHelp": "Wenn diese Nachricht bestehen bleibt, aktualisieren Sie bitte die Seite oder kontaktieren Sie den Support.",
+    "paymentReceived": "Zahlung erhalten",
+      "paymentPending": "Zahlung ausstehend",
+      "completePayment": "Bitte schließen Sie Ihre Zahlung ab, um mit der Bestellung fortzufahren.",
+      "orderCreated": "Bestellung erstellt!",
+      "orderCreatedMessage": "Du hast den Artikel bestellt. Bitte schließe die Zahlung ab, um die Bestellung zu bestätigen.",
+      "trackingNotificationInfo": "Sobald der Künstler die Tracking-ID hinzufügt, wirst du benachrichtigt.",
+    "orderDetails": "Bestelldetails",
+    "orderNumber": "Bestellnummer",
+    "orderDate": "Bestelldatum",
+    "artwork": "Kunstwerk",
+    "fees": "Gebühren",
+    "varbeFee": "Varbe-Gebühr",
+    "stripeFee": "Stripe-Gebühr",
+    "artistEarnings": "Künstler-Einnahmen",
+    "tracking": "Tracking",
+    "trackingNumber": "Tracking-Nummer",
+    "shippingProvider": "Versanddienstleister",
+    "trackingStatus": "Tracking-Status",
+    "pending": "Ausstehend",
+    "approved": "Genehmigt",
+    "rejected": "Abgelehnt",
+    "trackingPending": "⏳ Die Tracking-Informationen werden von unserem Team überprüft. Sie werden benachrichtigt, sobald sie bestätigt wurden.",
+    "trackingRejected": "❌ Die Tracking-Informationen wurden abgelehnt. Der Verkäufer wird aktualisierte Informationen bereitstellen.",
+    "reason": "Grund",
+    "shippedAt": "Versandt am",
+    "deliveredAt": "Geliefert am",
+    "backToOrders": "Zurück zu Bestellungen",
+    "shippingNotAvailable": "Versand in dieses Land ist nicht verfügbar",
+    "invalidCountry": "Ungültiges Land",
+    "selectCountry": "Land auswählen..."
+  },
+  "profile": {
+    "title": "Profil",
+    "listings": "Meine Listings",
+    "orders": "Meine Bestellungen",
+    "sales": "Meine Verkäufe",
+    "loading": "Lädt...",
+    "anonymousArtist": "Anonymer Künstler",
+    "role": "Rolle",
+    "member": "Mitglied",
+    "verified": "Verifiziert",
+    "logOut": "Abmelden",
+    "stats": {
+      "activeListings": "Aktive Listings",
+      "pending": "pending",
+      "sold": "Verkauft",
+      "totalSales": "Gesamtverkäufe",
+      "earnings": "Einnahmen"
+    },
+    "actions": {
+      "listNewArtwork": "➕ Neues Kunstwerk listen",
+      "createNewListing": "Neues Listing erstellen",
+      "myListings": "📊 Meine Listings",
+      "listingsCount": "{count} {count, plural, one {Listing} other {Listings}}",
+      "awaitingApproval": "{count} wartet auf Genehmigung",
+      "verificationPending": "⏳ Verifizierung ausstehend",
+      "verificationPendingDesc": "Ihre Künstler-Verifizierung wird überprüft.",
+      "becomeVerified": "🎨 Verifizierter Künstler werden",
+      "startSelling": "Starten Sie den Verkauf Ihrer Kunst",
+      "myOrders": "🛒 Meine Bestellungen",
+      "ordersCount": "{count} {count, plural, one {Bestellung} other {Bestellungen}}"
+    },
+    "savedArtworks": {
+      "title": "❤️ Gespeicherte Kunstwerke",
+      "description": "Ihre Sammlung von Favoriten",
+      "comingSoon": "Demnächst"
+    },
+    "profilePicture": {
+      "change": "Ändern",
+      "invalidFileType": "Bitte wählen Sie ein Bild aus.",
+      "fileTooLarge": "Das Bild ist zu groß. Maximale Größe: 5MB",
+      "uploadError": "Fehler beim Hochladen des Profilbilds."
+    },
+    "listings": {
+      "title": "Meine Listings",
+      "listingsCount": "{count} {count, plural, one {Listing} other {Listings}}",
+      "noListings": "Noch keine Listings",
+      "createFirst": "Erstellen Sie Ihr erstes Listing",
+      "status": {
+        "pending": "Pending",
+        "rejected": "Abgelehnt",
+        "sold": "Verkauft",
+        "active": "Aktiv"
+      },
+      "rejection": "Ablehnung",
+      "category": "Kategorie",
+      "technique": "Technik"
+    },
+    "orders": {
+      "title": "Meine Bestellungen",
+      "ordersCount": "{count} {count, plural, one {Bestellung} other {Bestellungen}}",
+      "noOrders": "Noch keine Bestellungen",
+      "browseMarketplace": "Marktplatz durchsuchen",
+      "orderNumber": "Order #{id}",
+      "listingId": "Listing ID",
+      "inclShipping": "inkl. €{amount} Versand",
+      "clickToPay": "Zum Bezahlen klicken →",
+      "status": {
+        "pending": "Pending",
+        "paid": "Bezahlt",
+        "shipped": "Versandt",
+        "delivered": "Geliefert",
+        "cancelled": "Storniert"
+      }
+    }
+  },
+  "artist": {
+    "dashboard": {
+      "title": "Künstler-Dashboard",
+      "loading": "Lade Dashboard...",
+      "availableBalance": "Verfügbares Guthaben",
+      "pendingBalance": "im Käuferschutz",
+      "totalEarnings": "Gesamteinnahmen",
+      "lifetimeTotal": "Lebenszeit-Gesamtsumme",
+      "nextPayout": "Nächste Auszahlung",
+      "activeListings": "Aktive Listings",
+      "pendingApproval": "pending approval",
+      "soldArtworks": "Verkaufte Kunstwerke",
+      "totalApproved": "total approved",
+      "totalSales": "Gesamtverkäufe",
+      "completed": "completed",
+      "quickActions": "Quick Actions",
+      "listNewArtwork": "➕ Neues Kunstwerk listen",
+      "viewAllListings": "📋 Alle Listings anzeigen",
+      "ordersTracking": "📦 Bestellungen & Tracking",
+      "ordersNeedTracking": "Order benötigt Tracking",
+      "ordersNeedTrackingPlural": "Orders benötigen Tracking",
+      "syncOrders": "🔄 Orders mit Stripe synchronisieren",
+      "syncConfirm": "Alle ausstehenden Orders mit Stripe synchronisieren? Dies prüft, ob Zahlungen tatsächlich abgeschlossen wurden.",
+      "syncSuccess": "✅ {count} Orders synchronisiert!",
+      "syncErrors": "⚠️ {count} Fehler aufgetreten.",
+      "syncFailed": "❌ Synchronisierung fehlgeschlagen",
+      "migrateOrders": "🔧 Orders migrieren",
+      "migrateConfirm": "Bestehende Orders migrieren? Dies fügt Gebührenaufschlüsselung und Guthaben-Berechnung zu alten Orders hinzu.",
+      "migrateSuccess": "✅ {count} Orders migriert!",
+      "migrateErrors": "⚠️ {count} Fehler.",
+      "migrateFailed": "❌ Migration fehlgeschlagen",
+      "ordersNeedingTracking": "📦 Orders mit Tracking benötigt ({count})",
+      "orderNumber": "Order #{id}",
+      "deadlinePassed": "⚠️ Versand-Deadline überschritten! ({days} Werktage)",
+      "daysUntilDeadline": "⏰ Noch {days} {days, plural, one {Tag} other {Tage}} bis zur Tracking-Deadline",
+      "deadline": "Deadline",
+      "salePrice": "Verkaufspreis",
+      "yourShare": "Dein Anteil",
+      "addTracking": "Tracking hinzufügen →",
+      "details": "Details →",
+      "recentSales": "Recent Sales",
+      "status": "Status",
+      "trackingNeeded": "📦 Tracking benötigt - Noch {days} {days, plural, one {Tag} other {Tage}}"
+    },
+    "orders": {
+      "title": "Meine Verkäufe",
+      "loading": "Lade Bestellungen...",
+      "noSales": "Noch keine Verkäufe",
+      "listFirstArtwork": "Erste Kunstwerke auflisten",
+      "order": "Bestellung",
+      "statusLabel": "Status",
+      "status": {
+        "pending": "Ausstehend",
+        "paid": "Bezahlt",
+        "shipped": "Versandt",
+        "delivered": "Geliefert",
+        "cancelled": "Storniert"
+      },
+      "pickup": "Selbstabholung",
+      "trackingRequiredUrgent": "TRACKING BENÖTIGT! Deadline überschritten ({days} Werktage)",
+      "trackingRequired": "Tracking benötigt - Noch {days} {days, plural, one {Tag} other {Tage}} bis zur Deadline",
+      "deadline": "Deadline",
+      "notSet": "Nicht gesetzt",
+      "reminder": "Erinnerung: Bitte versenden Sie innerhalb von 5 Werktagen",
+      "finalWarning": "Letzte Warnung: Versand-Deadline morgen!",
+      "trackingAdded": "Tracking bereits hinzugefügt",
+      "tracking": "Tracking",
+      "shippingProvider": "Versanddienstleister",
+      "pendingReview": "Wartet auf Admin-Prüfung",
+      "approved": "Genehmigt - An Käufer weitergegeben",
+      "rejected": "Abgelehnt",
+      "reason": "Grund",
+      "salePrice": "Verkaufspreis",
+      "yourEarnings": "Dein Anteil",
+      "buyerProtectionUntil": "Käuferschutz bis",
+      "earningsStatus": "Guthaben-Status",
+      "earningsStatuses": {
+        "available": "Verfügbar",
+        "pending": "Im Käuferschutz",
+        "paidOut": "Ausgezahlt"
+      },
+      "details": "Details",
+      "trackingNumberPlaceholder": "Tracking-Nummer",
+      "selectShippingProvider": "Versanddienstleister wählen",
+      "other": "Andere",
+      "save": "Speichern",
+      "cancel": "Abbrechen",
+      "addTracking": "Tracking hinzufügen",
+      "markAsPickedUp": "Als abgeholt markieren",
+      "markAsDelivered": "Als zugestellt markieren",
+      "confirmMarkDelivered": "Möchten Sie diese Bestellung als zugestellt markieren? Der 14-Tage-Käuferschutz beginnt dann.",
+      "markedDelivered": "✅ Bestellung als zugestellt markiert! Der Käuferschutz läuft jetzt 14 Tage.",
+      "confirmMarkPickedUp": "Möchten Sie diese Bestellung als abgeholt markieren? Der 14-Tage-Käuferschutz beginnt dann.",
+      "markedPickedUp": "✅ Bestellung als abgeholt markiert! Der Käuferschutz läuft jetzt 14 Tage.",
+      "trackingRequired": "Bitte geben Sie Tracking-Nummer und Versanddienstleister ein.",
+      "trackingAdded": "✅ Tracking-Informationen hinzugefügt!",
+      "error": "Fehler",
+      "addTrackingManually": "Tracking-Nummer hinzufügen",
+      "manualTracking": "Tracking-Nummer hinzufügen:",
+      "packageLength": "Länge",
+      "packageWidth": "Breite",
+      "packageHeight": "Höhe",
+      "packageWeight": "Gewicht",
+      "invalidPackageLength": "Ungültige Paketlänge. Bitte geben Sie einen Wert zwischen 0,1 und 200 cm ein.",
+      "invalidPackageWidth": "Ungültige Paketbreite. Bitte geben Sie einen Wert zwischen 0,1 und 200 cm ein.",
+      "invalidPackageHeight": "Ungültige Pakethöhe. Bitte geben Sie einen Wert zwischen 0,1 und 200 cm ein.",
+      "invalidPackageWeight": "Ungültiges Paketgewicht. Bitte geben Sie einen Wert zwischen 0,01 und 100 kg ein."
+    },
+    "verify": {
+      "title": "Verifizierter Künstler werden",
+      "pleaseLogin": "Bitte melden Sie sich zuerst an",
+      "pending": "Antrag ausstehend!",
+      "pendingMessage": "Wir prüfen Ihre Kunst. Bitte haben Sie etwas Geduld!",
+      "step1": "1. Künstler-Details",
+      "step2": "2. Portfolio hochladen",
+      "artistName": "Künstlername / Alias",
+      "artStyle": "Kunststil",
+      "selectStyle": "Stil auswählen...",
+      "styles": {
+        "painting": "Malerei",
+        "digital": "Digitale Kunst",
+        "sculpture": "Skulptur",
+        "mixed": "Mixed Media"
+      },
+      "bio": "Biografie (max. 500 Zeichen)",
+      "portfolioHint": "Laden Sie mindestens 3 Werke zur Überprüfung hoch.",
+      "submitting": "Wird eingereicht...",
+      "submit": "Zur Überprüfung einreichen",
+      "error": "Etwas ist schiefgelaufen!"
+    }
+  },
+  "admin": {
+    "dashboard": {
+      "title": "Admin-Dashboard",
+      "subtitle": "Verwalten Sie Ihre Plattform",
+      "revenue": "Umsatz",
+      "totalListings": "Gesamt Listings",
+      "pendingApproval": "Ausstehende Genehmigung",
+      "tracking": "Tracking",
+      "refresh": "🔄 Aktualisieren",
+      "refreshing": "Aktualisiert...",
+      "tabs": {
+        "overview": "Übersicht",
+        "pending": "Ausstehend",
+        "featured": "Ausgewählt",
+        "reports": "Meldungen",
+        "verifications": "Verifizierungen",
+        "tracking": "Tracking",
+        "moderation": "Moderation",
+        "chatrooms": "Chatrooms",
+        "statistics": "Statistiken"
+      },
+      "stats": {
+        "pendingListings": "Ausstehende Listings",
+        "pendingReports": "Ausstehende Meldungen",
+        "pendingVerifications": "Ausstehende Verifizierungen",
+        "pendingTracking": "Ausstehendes Tracking",
+        "totalUsers": "Gesamt Benutzer",
+        "totalRevenue": "Gesamtumsatz"
+      },
+      "quickActions": {
+        "title": "Schnellaktionen",
+        "reviewListings": "Listings prüfen",
+        "reviewArtists": "Künstler prüfen",
+        "reviewReports": "Meldungen prüfen",
+        "manageFeatured": "Ausgewählte verwalten",
+        "fixListings": "🔧 Falsch markierte Listings korrigieren",
+        "fixListingsDesc": "Listings zurücksetzen, die als \"verkauft\" markiert sind, aber keine bezahlten Bestellungen haben",
+        "stripeWebhook": "💳 Stripe Webhook Setup",
+        "stripeWebhookDesc": "Einfacher Webhook-Setup für Stripe-Zahlungen",
+        "checkWebhook": "🔍 Webhook-Status prüfen",
+        "checkWebhookDesc": "Prüfen Sie, ob der Webhook korrekt konfiguriert ist",
+        "dangerZone": "Gefahrenzone",
+        "deleteAllOrders": "🗑️ Alle Orders löschen",
+        "deleteOrdersDesc": "Löscht ALLE Orders aus der Datenbank. Diese Aktion kann nicht rückgängig gemacht werden!",
+        "confirmDeleteOrders": "Sind Sie sicher, dass Sie ALLE Orders löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden!",
+        "ordersDeleted": "Orders gelöscht",
+        "deleteAllRevenue": "💰 Alle Revenue löschen",
+        "deleteRevenueDesc": "Löscht ALLE Seller Balances (Revenue) aus der Datenbank. Diese Aktion kann nicht rückgängig gemacht werden!",
+        "confirmDeleteRevenue": "Sind Sie sicher, dass Sie ALLE Revenue löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden!",
+        "revenueDeleted": "Revenue gelöscht",
+        "deleteAllNotifications": "🔔 Alle Benachrichtigungen löschen",
+        "deleteNotificationsDesc": "Löscht ALLE Benachrichtigungen aus der Datenbank. Diese Aktion kann nicht rückgängig gemacht werden!",
+        "confirmDeleteNotifications": "Sind Sie sicher, dass Sie ALLE Benachrichtigungen löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden!",
+        "notificationsDeleted": "Benachrichtigungen gelöscht",
+        "deleting": "Wird gelöscht...",
+        "deleteError": "Fehler beim Löschen"
+      },
+      "pending": {
+        "title": "Listings prüfen",
+        "description": "Genehmigen oder ablehnen Sie Listings von verifizierten Künstlern. Nur genehmigte Listings erscheinen im Marktplatz.",
+        "goToDetailed": "Zur detaillierten Prüfseite",
+        "noPending": "✅ Keine ausstehenden Listings",
+        "allReviewed": "Alle Listings wurden geprüft!",
+        "noImage": "Kein Bild",
+        "byArtist": "von Künstler ID",
+        "category": "Kategorie",
+        "technique": "Technik",
+        "price": "Preis",
+        "dimensions": "Abmessungen",
+        "type": "Typ",
+        "status": "Status",
+        "approval": "Genehmigung",
+        "rejectionReason": "Ablehnungsgrund (optional)",
+        "rejectionPlaceholder": "Grund für die Ablehnung...",
+        "approve": "Genehmigen",
+        "reject": "Ablehnen",
+        "viewDetails": "Vollständige Details anzeigen"
+      },
+      "featured": {
+        "title": "Ausgewählte Kunstwerke (Startseite)",
+        "description": "Wählen Sie Kunstwerke aus, die auf der Startseite hervorgehoben werden sollen. Ausgewählte Kunstwerke erscheinen zuerst im Marktplatz.",
+        "noImage": "Kein Bild",
+        "removeFeatured": "⭐ Von Ausgewählten entfernen",
+        "addFeatured": "⭐ Auf Startseite auswählen"
+      },
+      "verifications": {
+        "noPending": "✅ Keine ausstehenden Verifizierungen",
+        "allReviewed": "Alle Künstler-Anfragen wurden geprüft!",
+        "portfolioImages": "Portfolio-Bilder",
+        "noImages": "Keine Bilder hochgeladen",
+        "unknownArtist": "Unbekannter Künstler",
+        "email": "E-Mail",
+        "userId": "Benutzer-ID",
+        "artStyle": "Kunststil",
+        "notSpecified": "Nicht angegeben",
+        "submitted": "Eingereicht",
+        "bio": "Biografie",
+        "noBio": "Keine Biografie vorhanden",
+        "rejectionReason": "Ablehnungsgrund (optional)",
+        "rejectionPlaceholder": "Grund für die Ablehnung...",
+        "approve": "Genehmigen",
+        "reject": "Ablehnen"
+      },
+      "reports": {
+        "noReports": "Keine Meldungen",
+        "reportNumber": "Meldung #{id}",
+        "listingId": "Listing-ID",
+        "reportedBy": "Gemeldet von",
+        "reason": "Grund",
+        "description": "Beschreibung",
+        "viewListing": "Listing anzeigen",
+        "resolve": "Lösen",
+        "dismiss": "Ablehnen"
+      },
+      "tracking": {
+        "title": "📦 Tracking-Prüfung",
+        "noPending": "Keine ausstehenden Tracking-Nummern",
+        "orderNumber": "Order #{id}",
+        "trackingNumber": "Tracking-Nummer",
+        "shippingProvider": "Versanddienstleister",
+        "submitted": "Eingereicht",
+        "unknown": "Unbekannt",
+        "salePrice": "Verkaufspreis",
+        "deadline": "Versand-Deadline",
+        "orderDetails": "Order-Details",
+        "approveConfirm": "Tracking-Nummer \"{number}\" genehmigen? Die Nummer wird dann an den Käufer weitergegeben.",
+        "approveSuccess": "✅ Tracking-Nummer genehmigt! Die Nummer wurde an den Käufer weitergegeben.",
+        "approve": "Genehmigen",
+        "rejectionPlaceholder": "Ablehnungsgrund (optional)",
+        "noReason": "Kein Grund angegeben",
+        "rejectConfirm": "Tracking-Nummer \"{number}\" ablehnen?",
+        "rejectSuccess": "❌ Tracking-Nummer abgelehnt. Der Künstler kann eine neue Nummer eingeben.",
+        "reject": "Ablehnen",
+        "error": "Fehler"
+      },
+      "statistics": {
+        "totalListings": "Gesamt Listings",
+        "approved": "Genehmigt",
+        "sold": "Verkauft",
+        "totalUsers": "Gesamt Benutzer",
+        "verifiedArtists": "verifizierte Künstler",
+        "totalOrders": "Gesamt Bestellungen",
+        "revenue": "Umsatz"
+      }
+    }
+  },
+  "legal": {
+    "agb": {
+      "title": "Allgemeine Geschäftsbedingungen"
+    },
+    "datenschutz": {
+      "title": "Datenschutzerklärung",
+      "asOf": "Stand",
+      "date": "Dezember 2024",
+      "lastUpdated": "Zuletzt aktualisiert",
+      "s1": {
+        "title": "1. Datenschutz auf einen Blick",
+        "general": {
+          "title": "Allgemeine Hinweise",
+          "p1": "Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie Varbe nutzen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.",
+          "p2": "Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen Datenschutzbestimmungen sowie dieser Datenschutzerklärung. Varbe erfasst nur die Daten, die für den Betrieb der Plattform absolut notwendig sind. Wir verkaufen keine Daten an Dritte und nutzen keine invasiven Tracking-Technologien."
+        },
+        "whatWeCollect": {
+          "title": "Was erfassen wir?",
+          "current": "Aktuell (Early Access)",
+          "currentItems": {
+            "account": "Account-Daten bei Registrierung (Email, Passwort verschlüsselt, Nutzername)",
+            "profile": "Profil-Informationen (Bio, Künstlername, Profilbild, Standort optional)",
+            "usage": "Nutzungsverhalten (Likes, Follows, Kommentare, Chat-Nachrichten)",
+            "technical": "Technische Daten (IP-Adresse, Browser-Typ, Gerät)"
+          },
+          "future": "Zukünftig (wenn Features live gehen)",
+          "futureItems": {
+            "discovery": "Discovery Feed Interaktionen (Views, Swipes, Präferenzen)",
+            "marketplace": "Marketplace-Daten (Transaktionen, Versandadressen, Zahlungsinformationen über Stripe)",
+            "location": "Standortdaten (nur wenn Sie Local Art Radar nutzen und Berechtigung erteilen)"
+          }
+        },
+        "howWeUse": {
+          "title": "Wie nutzen wir Ihre Daten?",
+          "items": {
+            "platform": "Bereitstellung und Betrieb der Plattform",
+            "account": "Account-Verwaltung und Authentifizierung",
+            "personalization": "Personalisierung des Discovery Feeds (wenn aktiv)",
+            "communication": "Kommunikation (Updates, Feature-Launches, Support)",
+            "transactions": "Abwicklung von Transaktionen (sobald Marketplace aktiv)",
+            "improvement": "Verbesserung der Plattform durch Analyse des Nutzungsverhaltens",
+            "protection": "Schutz vor Missbrauch und Betrug"
+          }
+        },
+        "yourRights": {
+          "title": "Ihre Rechte",
+          "intro": "Sie haben jederzeit das Recht auf:",
+          "items": {
+            "access": "Auskunft über Ihre gespeicherten Daten",
+            "correction": "Berichtigung unrichtiger Daten",
+            "deletion": "Löschung Ihrer Daten",
+            "restriction": "Einschränkung der Verarbeitung",
+            "portability": "Datenübertragbarkeit",
+            "objection": "Widerspruch gegen die Verarbeitung",
+            "complaint": "Beschwerde bei einer Aufsichtsbehörde"
+          }
+        }
+      },
+      "s2": {
+        "title": "2. Verantwortliche Stelle",
+        "intro": "Verantwortlich für die Datenverarbeitung auf dieser Website ist:",
+        "germany": "Deutschland",
+        "phone": "Telefon",
+        "responsibility": "Die verantwortliche Stelle entscheidet allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z.B. Namen, E-Mail-Adressen o. Ä.)."
+      },
+      "s3": {
+        "title": "3. Hosting und technische Infrastruktur",
+        "firebase": {
+          "intro": "Varbe wird auf Firebase (Google Cloud Platform) gehostet. Anbieter ist:",
+          "ireland": "Irland",
+          "processing": "Wenn Sie Varbe nutzen, erfasst Firebase verschiedene Logfiles inklusive Ihrer IP-Adresse. Dies ist technisch notwendig für den Betrieb der Website. Firebase verarbeitet Daten in unserem Auftrag und ist durch einen Auftragsverarbeitungsvertrag (AVV) gebunden.",
+          "usaTransfer": "Datenübermittlung in die USA",
+          "usaTransferText": "Google ist nach dem EU-US Data Privacy Framework zertifiziert. Die Datenübermittlung in die USA erfolgt auf Basis von Standardvertragsklauseln der EU-Kommission.",
+          "legalBasis": "Rechtsgrundlage",
+          "legalBasisText": "Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einem zuverlässigen Hosting)",
+          "moreInfo": "Mehr Informationen",
+          "firebasePrivacy": "Firebase Datenschutz"
+        },
+        "firestore": "Wir nutzen Cloud Firestore von Firebase zur Speicherung von Nutzerdaten, Profilen, Kunstwerken, Kommentaren und weiteren Inhaltsstrukturen. Die Daten werden verschlüsselt gespeichert und unterliegen den Firebase-Datenschutzbestimmungen.",
+        "storage": "Hochgeladene Bilder und Medien werden in Firebase Storage gespeichert. Die Daten werden verschlüsselt übertragen und gespeichert."
+      },
+      "s4": {
+        "title": "4. Datenerfassung und Verarbeitung",
+        "legalBasis": "Rechtsgrundlage",
+        "storageDuration": "Speicherdauer",
+        "registration": {
+          "title": "4.1 Registrierung und Account-Erstellung",
+          "intro": "Wenn Sie sich bei Varbe registrieren, erfassen wir folgende Daten:",
+          "required": "Pflichtangaben",
+          "requiredItems": {
+            "email": "E-Mail-Adresse",
+            "password": "Passwort (verschlüsselt gespeichert, nie im Klartext)",
+            "username": "Nutzername / Display Name"
+          },
+          "optional": "Optional",
+          "optionalItems": {
+            "profilePic": "Profilbild",
+            "bio": "Bio / Künstlerbeschreibung",
+            "artistName": "Künstlername",
+            "location": "Standort (Stadt/Land) für Local Art Radar",
+            "social": "Links zu Social Media Profilen",
+            "background": "Künstlerischer Hintergrund (bei Verifizierung)"
+          },
+          "legalBasisText": "Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung)",
+          "storageDurationText": "Bis zur Löschung des Accounts oder auf Ihren Wunsch"
+        },
+        "auth": {
+          "title": "4.2 Firebase Authentication",
+          "intro": "Wir verwenden Firebase Authentication für die Benutzerauthentifizierung. Firebase speichert:",
+          "items": {
+            "email": "E-Mail-Adresse",
+            "password": "Verschlüsseltes Passwort",
+            "userId": "User ID (eindeutige Kennung)",
+            "timestamps": "Zeitstempel der Registrierung und letzten Anmeldung"
+          },
+          "socialLogin": "Bei Nutzung von Social Login (Google OAuth, falls implementiert) werden zusätzlich die vom Anbieter bereitgestellten Profildaten (Name, Profilbild) erfasst.",
+          "legalBasisText": "Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung)"
+        },
+        "verification": {
+          "title": "4.3 Künstler-Verifizierung",
+          "intro": "Bei der Künstler-Verifizierung erfassen wir zusätzlich:",
+          "items": {
+            "artworks": "Mindestens 3 Beispiel-Kunstwerke (Bilder)",
+            "background": "Beschreibung des künstlerischen Hintergrunds",
+            "details": "Angaben zu Technik, Stil, bisherigen Ausstellungen",
+            "aiDetection": "AI-Detection Ergebnisse (automatisiert)"
+          },
+          "review": "Diese Daten werden manuell von unserem Team geprüft und nach Verifizierung teilweise gelöscht (nur relevante Profilinformationen bleiben gespeichert).",
+          "legalBasisText": "Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung) und lit. f DSGVO (berechtigtes Interesse an einer AI-freien Plattform)"
+        },
+        "content": {
+          "title": "4.4 Inhalte (Kunstwerke, Posts, Kommentare)",
+          "intro": "Wenn Sie Inhalte auf Varbe hochladen, speichern wir:",
+          "items": {
+            "media": "Bilder / Medien",
+            "details": "Titel, Beschreibung, Tags",
+            "voiceNotes": "Voice Notes (optional, als Audio-Datei)",
+            "processVideos": "Process Videos (optional)",
+            "metadata": "Metadaten (Upload-Zeitpunkt, Auflösung, Dateigröße)"
+          },
+          "visibility": "Öffentliche Sichtbarkeit",
+          "visibilityText": "Alle hochgeladenen Kunstwerke und Posts sind standardmäßig öffentlich sichtbar. Kommentare sind mit Ihrem Profil verknüpft und öffentlich.",
+          "legalBasisText": "Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung)"
+        },
+        "usage": {
+          "title": "4.5 Nutzungsverhalten und Interaktionen",
+          "intro": "Wir erfassen Ihr Nutzungsverhalten, um die Plattform zu verbessern und den Discovery Feed zu personalisieren:",
+          "items": {
+            "likes": "Likes und Favoriten",
+            "follows": "Follows (Künstler denen Sie folgen)",
+            "comments": "Kommentare",
+            "views": "Views auf Kunstwerken",
+            "swipes": "Swipe-Verhalten im Discovery Feed (wenn aktiv)",
+            "searches": "Suchverläufe"
+          },
+          "purpose": "Diese Daten werden verwendet, um Ihnen relevante Inhalte anzuzeigen und Empfehlungen zu generieren.",
+          "legalBasisText": "Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer personalisierten Nutzererfahrung)",
+          "optOut": "Sie können der Personalisierung widersprechen unter info@varbe.org. In diesem Fall erhalten Sie nicht-personalisierte Inhalte."
+        },
+        "chat": {
+          "title": "4.6 Chat und Direct Messages",
+          "intro": "Nachrichten in Chat-Bereichen und Direct Messages (wenn aktiv) werden gespeichert, um die Kommunikation zu ermöglichen. Wir lesen Ihre Nachrichten nicht, außer bei gemeldeten Verstößen gegen Community-Richtlinien.",
+          "legalBasisText": "Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung)",
+          "storageDurationText": "Nachrichten werden gespeichert bis Sie diese löschen oder Ihren Account schließen."
+        }
+      },
+      "s5": {
+        "title": "5. Zukünftige Features und Datenverarbeitung",
+        "notice": "Die folgenden Datenverarbeitungen treten erst in Kraft, wenn die entsprechenden Features aktiv sind. Sie werden rechtzeitig per Email informiert.",
+        "discovery": {
+          "title": "5.1 Discovery Feed Personalisierung",
+          "intro": "Sobald der Discovery Feed live geht, analysieren wir Ihr Nutzungsverhalten detaillierter:",
+          "items": {
+            "viewTime": "Verweildauer bei Kunstwerken",
+            "swipes": "Swipe-Richtungen (up/down)",
+            "preferences": "Präferenzen für Kategorien, Stile, Techniken",
+            "stories": "Interaktion mit Stories (Voice Notes anhören, Process Videos ansehen)"
+          },
+          "purpose": "Diese Daten werden verwendet, um den \"For You\" Feed zu personalisieren. Sie können jederzeit zu nicht-personalisierten Feeds wechseln.",
+          "legalBasisText": "Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse)"
+        },
+        "local": {
+          "title": "5.2 Local Art Radar",
+          "intro": "Wenn Sie den Local Art Radar nutzen möchten, benötigen wir Ihre Standortdaten:",
+          "items": {
+            "current": "Aktueller Standort (GPS-Koordinaten, nur bei aktiver Nutzung)",
+            "saved": "Standort-Präferenzen (gespeicherte Orte)"
+          },
+          "important": "Wichtig: Standortdaten werden nur erfasst, wenn Sie explizit die Berechtigung erteilen und das Feature aktiv nutzen. Sie können die Berechtigung jederzeit in Ihren Geräteeinstellungen widerrufen.",
+          "legalBasisText": "Art. 6 Abs. 1 lit. a DSGVO (Einwilligung)"
+        },
+        "marketplace": {
+          "title": "5.3 Marketplace und Zahlungen",
+          "intro": "Sobald der Marketplace aktiv ist, verarbeiten wir zusätzlich:",
+          "sellers": "Für Verkäufer (Künstler)",
+          "sellerItems": {
+            "stripe": "Stripe Connect Account-Daten (Bankverbindung, Steuer-ID)",
+            "transactions": "Transaktionshistorie (Verkäufe, Auszahlungen)",
+            "shipping": "Versandinformationen"
+          },
+          "buyers": "Für Käufer",
+          "buyerItems": {
+            "address": "Versandadresse",
+            "payment": "Zahlungsinformationen (nur über Stripe, wir speichern keine Kreditkartendaten)",
+            "orders": "Bestellhistorie",
+            "tracking": "Tracking-Nummern"
+          },
+          "stripeTitle": "Zahlungsabwicklung durch Stripe",
+          "stripeText": "Alle Zahlungen werden über Stripe Inc. abgewickelt. Stripe verarbeitet Kreditkartendaten und Zahlungsinformationen. Wir erhalten nur Bestätigungen über erfolgreiche Zahlungen, niemals Ihre vollständigen Kreditkartendaten.",
+          "stripePrivacy": "Stripe Datenschutz",
+          "legalBasisText": "Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung)",
+          "storageDurationText": "Transaktionsdaten werden gemäß gesetzlicher Aufbewahrungsfristen gespeichert (10 Jahre für steuerliche Zwecke)."
+        }
+      },
+      "s6": {
+        "title": "6. Cookies und Tracking",
+        "cookies": {
+          "title": "6.1 Cookies",
+          "intro": "Varbe verwendet Cookies, um die Funktionalität der Website zu gewährleisten. Cookies sind kleine Textdateien, die auf Ihrem Gerät gespeichert werden.",
+          "necessary": "Technisch notwendige Cookies",
+          "necessaryItems": {
+            "session": "Session-Cookies für die Authentifizierung",
+            "preferences": "Preference-Cookies für Spracheinstellungen"
+          },
+          "necessaryNote": "Diese Cookies sind für den Betrieb der Website essentiell und werden ohne Ihre Einwilligung gesetzt.",
+          "legalBasisText": "Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse)",
+          "analytics": "Optional: Analytics-Cookies (nur mit Einwilligung)",
+          "analyticsText": "Wir verwenden möglicherweise Google Analytics oder ähnliche Tools, um das Nutzerverhalten zu analysieren. Diese Cookies werden nur gesetzt, wenn Sie zustimmen.",
+          "analyticsLegalBasis": "Art. 6 Abs. 1 lit. a DSGVO (Einwilligung)",
+          "management": "Sie können Cookies in Ihren Browser-Einstellungen verwalten oder löschen. Die Deaktivierung von Cookies kann die Funktionalität der Website einschränken."
+        },
+        "analytics": {
+          "title": "6.2 Tracking und Analytics",
+          "firebaseText": "Wir nutzen Firebase Analytics, um aggregierte Statistiken über die Plattform-Nutzung zu erhalten (z.B. Anzahl der Nutzer, beliebte Features, Fehlerberichte). Die Daten werden anonymisiert erhoben.",
+          "ipAnonymization": "IP-Anonymisierung",
+          "ipAnonymizationText": "IP-Adressen werden gekürzt, sodass keine Rückverfolgung auf einzelne Nutzer möglich ist.",
+          "legalBasisText": "Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Verbesserung der Plattform)",
+          "objection": "Widerspruchsrecht",
+          "objectionText": "Sie können der Analyse widersprechen unter info@varbe.org."
+        },
+        "noTrackers": {
+          "title": "6.3 Keine invasiven Tracker",
+          "intro": "Varbe nutzt keine:",
+          "items": {
+            "thirdParty": "Werbe-Tracker von Drittanbietern"
+          },
+          "respect": "Wir respektieren Ihre Privatsphäre und setzen nur die minimal notwendigen Tracking-Technologien ein."
+        }
+      },
+      "s7": {
+        "title": "7. Datenweitergabe an Dritte",
+        "intro": "Wir geben Ihre personenbezogenen Daten nicht an Dritte weiter, außer:",
+        "processors": {
+          "title": "7.1 Auftragsverarbeiter",
+          "items": {
+            "firebase": "Google Firebase / Google Cloud Platform (Hosting, Datenbank)",
+            "stripe": "Stripe (Zahlungsabwicklung, nur bei Marketplace-Nutzung)"
+          },
+          "note": "Diese Dienstleister verarbeiten Daten ausschließlich in unserem Auftrag und sind durch Auftragsverarbeitungsverträge (AVV) gebunden."
+        },
+        "legal": {
+          "title": "7.2 Gesetzliche Verpflichtungen",
+          "text": "Wir können Daten offenlegen, wenn wir gesetzlich dazu verpflichtet sind (z.B. bei behördlichen Anfragen, Gerichtsbeschlüssen) oder zur Durchsetzung unserer Rechte."
+        },
+        "merger": {
+          "title": "7.3 Verkauf oder Fusion",
+          "text": "Bei einem Verkauf oder einer Fusion von Varbe können Ihre Daten an den Erwerber übertragen werden. Sie werden darüber rechtzeitig informiert."
+        }
+      },
+      "s8": {
+        "title": "8. Datenübermittlung in Drittländer",
+        "text1": "Durch die Nutzung von Google Firebase werden Daten möglicherweise in die USA übermittelt. Google ist nach dem EU-US Data Privacy Framework zertifiziert, was ein angemessenes Datenschutzniveau gewährleistet.",
+        "text2": "Zusätzlich nutzen wir Standardvertragsklauseln der EU-Kommission als Rechtsgrundlage für die Datenübermittlung."
+      },
+      "s9": {
+        "title": "9. Datensicherheit",
+        "intro": "Wir setzen technische und organisatorische Maßnahmen ein, um Ihre Daten zu schützen:",
+        "technical": {
+          "title": "Technische Maßnahmen",
+          "items": {
+            "ssl": "SSL/TLS-Verschlüsselung für alle Datenübertragungen",
+            "passwords": "Verschlüsselte Speicherung von Passwörtern (bcrypt/scrypt)",
+            "firewall": "Firewall und Zugriffsbeschränkungen auf Firebase",
+            "updates": "Regelmäßige Sicherheitsupdates",
+            "backups": "Backups zur Datenwiederherstellung"
+          }
+        },
+        "organizational": {
+          "title": "Organisatorische Maßnahmen",
+          "items": {
+            "access": "Zugriff auf Daten nur für autorisierte Mitarbeiter",
+            "confidentiality": "Vertraulichkeitsverpflichtungen für Mitarbeiter",
+            "assessments": "Datenschutz-Folgenabschätzungen bei neuen Features",
+            "incident": "Incident-Response-Plan bei Sicherheitsvorfällen"
+          }
+        },
+        "disclaimer": "Trotz aller Sicherheitsmaßnahmen kann keine Datenübertragung über das Internet zu 100% sicher sein. Sie nutzen Varbe auf eigenes Risiko."
+      },
+      "s10": {
+        "title": "10. Speicherdauer",
+        "intro": "Wir speichern Ihre Daten nur so lange, wie es für die jeweiligen Zwecke erforderlich ist:",
+        "items": {
+          "account": "Account-Daten",
+          "accountText": "Bis zur Löschung des Accounts",
+          "content": "Inhalte (Kunstwerke, Posts)",
+          "contentText": "Bis Sie diese löschen oder Ihren Account schließen",
+          "comments": "Kommentare",
+          "commentsText": "Werden bei Account-Löschung anonymisiert, aber nicht gelöscht (zur Erhaltung von Diskussionen)",
+          "transactions": "Transaktionsdaten (Marketplace)",
+          "transactionsText": "10 Jahre (gesetzliche Aufbewahrungsfrist für steuerliche Zwecke)",
+          "logs": "Log-Dateien",
+          "logsText": "90 Tage",
+          "analytics": "Analytics-Daten",
+          "analyticsText": "26 Monate (anonymisiert)"
+        }
+      },
+      "s11": {
+        "title": "11. Ihre Rechte als betroffene Person",
+        "intro": "Sie haben nach der DSGVO folgende Rechte:",
+        "request": "Anfrage",
+        "access": {
+          "title": "11.1 Recht auf Auskunft (Art. 15 DSGVO)",
+          "intro": "Sie können jederzeit Auskunft über Ihre gespeicherten personenbezogenen Daten verlangen. Die Auskunft ist kostenlos und umfasst:",
+          "items": {
+            "what": "Welche Daten über Sie gespeichert sind",
+            "purpose": "Zu welchen Zwecken die Daten verarbeitet werden",
+            "recipients": "An wen die Daten weitergegeben wurden",
+            "duration": "Wie lange die Daten gespeichert werden"
+          }
+        },
+        "correction": {
+          "title": "11.2 Recht auf Berichtigung (Art. 16 DSGVO)",
+          "text": "Sie können die Berichtigung unrichtiger Daten verlangen. Die meisten Profil-Daten können Sie selbst in Ihren Account-Einstellungen korrigieren."
+        },
+        "deletion": {
+          "title": "11.3 Recht auf Löschung (Art. 17 DSGVO)",
+          "intro": "Sie können die Löschung Ihrer Daten verlangen (\"Recht auf Vergessenwerden\"). Wir löschen Ihre Daten, wenn:",
+          "items": {
+            "noLongerNeeded": "Die Daten nicht mehr für die ursprünglichen Zwecke benötigt werden",
+            "consent": "Sie Ihre Einwilligung widerrufen (bei einwilligungsbasierter Verarbeitung)",
+            "objection": "Sie Widerspruch einlegen und keine vorrangigen Gründe für die Verarbeitung bestehen",
+            "unlawful": "Die Daten unrechtmäßig verarbeitet wurden"
+          },
+          "exceptions": "Ausnahmen",
+          "exceptionsText": "Wir können die Löschung verweigern, wenn gesetzliche Aufbewahrungsfristen bestehen (z.B. Transaktionsdaten) oder die Daten zur Rechtsverfolgung benötigt werden.",
+          "accountDeletion": "Account-Löschung",
+          "accountDeletionText": "Wir löschen alle Ihre Daten innerhalb von 30 Tagen."
+        },
+        "restriction": {
+          "title": "11.4 Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO)",
+          "intro": "Sie können die Einschränkung der Verarbeitung verlangen, wenn:",
+          "items": {
+            "accuracy": "Die Richtigkeit der Daten bestritten wird",
+            "unlawful": "Die Verarbeitung unrechtmäßig ist, Sie aber keine Löschung wünschen",
+            "legal": "Die Daten nicht mehr benötigt werden, Sie diese aber zur Rechtsverfolgung brauchen"
+          }
+        },
+        "portability": {
+          "title": "11.5 Recht auf Datenübertragbarkeit (Art. 20 DSGVO)",
+          "text": "Sie können Ihre Daten in einem strukturierten, maschinenlesbaren Format erhalten und an einen anderen Anbieter übermitteln lassen.",
+          "request": "Datenexport anfragen",
+          "format": "Wir stellen Ihnen Ihre Daten im JSON- oder CSV-Format zur Verfügung."
+        },
+        "objection": {
+          "title": "11.6 Widerspruchsrecht (Art. 21 DSGVO)",
+          "text": "Sie können jederzeit der Verarbeitung Ihrer Daten widersprechen, die auf berechtigten Interessen (Art. 6 Abs. 1 lit. f DSGVO) basiert. Wir stellen die Verarbeitung ein, es sei denn, wir können zwingende schutzwürdige Gründe nachweisen.",
+          "special": "Besonders",
+          "specialText": "Sie können jederzeit der Personalisierung des Discovery Feeds widersprechen."
+        },
+        "withdrawal": {
+          "title": "11.7 Recht auf Widerruf der Einwilligung (Art. 7 Abs. 3 DSGVO)",
+          "text": "Wenn die Verarbeitung auf Ihrer Einwilligung basiert (z.B. Analytics-Cookies, Standortdaten), können Sie diese jederzeit widerrufen. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Verarbeitung bleibt unberührt."
+        }
+      },
+      "s12": {
+        "title": "12. Beschwerderecht bei Aufsichtsbehörde",
+        "intro": "Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren, wenn Sie der Ansicht sind, dass die Verarbeitung Ihrer Daten rechtswidrig erfolgt.",
+        "authority": "Zuständige Aufsichtsbehörde für Bremen"
+      },
+      "s13": {
+        "title": "13. Änderungen dieser Datenschutzerklärung",
+        "text1": "Wir behalten uns vor, diese Datenschutzerklärung anzupassen, um sie an geänderte Rechtslagen oder bei Änderungen unserer Dienste anzupassen.",
+        "text2": "Bei wesentlichen Änderungen werden registrierte Nutzer per Email informiert (mindestens 14 Tage vor Inkrafttreten). Die aktuelle Version finden Sie immer unter varbe.org/datenschutz.",
+        "recommendation": "Empfehlung",
+        "recommendationText": "Besuchen Sie diese Seite regelmäßig, um über Änderungen informiert zu bleiben."
+      },
+      "s14": {
+        "title": "14. Kontakt zum Datenschutz",
+        "intro": "Bei Fragen zum Datenschutz oder zur Ausübung Ihrer Rechte:",
+        "subject": "Betreff",
+        "subjectText": "Datenschutz-Anfrage",
+        "response": "Wir antworten in der Regel innerhalb von 7 Tagen."
+      },
+      "s15": {
+        "title": "15. SSL/TLS-Verschlüsselung",
+        "text1": "Diese Website nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte eine SSL/TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von \"http://\" auf \"https://\" wechselt und an dem Schloss-Symbol in Ihrer Browserzeile.",
+        "text2": "Wenn die SSL/TLS-Verschlüsselung aktiviert ist, können die Daten, die Sie an uns übermitteln, nicht von Dritten mitgelesen werden."
+      },
+      "footer": {
+        "contact": "Bei Fragen oder Bedenken zum Datenschutz kontaktieren Sie uns bitte unter"
+      }
+    },
+    "impressum": {
+      "title": "Impressum",
+      "germany": "Deutschland",
+      "ireland": "Irland",
+      "date": "Dezember 2024",
+      "lastUpdated": "Letzte Aktualisierung",
+      "s1": {
+        "title": "Angaben gemäß § 5 TMG",
+        "operator": "Betreiber und inhaltlich Verantwortlicher",
+        "contact": "Kontakt",
+        "responsible": "Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV"
+      },
+      "s2": {
+        "title": "Hinweise zur Website",
+        "status": {
+          "title": "Plattform-Status",
+          "text": "Varbe befindet sich derzeit im Early Access. Die Plattform wird kontinuierlich weiterentwickelt. Nicht alle angekündigten Features sind bereits verfügbar. Änderungen und Erweiterungen erfolgen schrittweise."
+        },
+        "dispute": {
+          "title": "Alternative Streitbeilegung",
+          "text1": "Die Europäische Kommission stellt eine Plattform für die außergerichtliche Online-Streitbeilegung (OS-Plattform) bereit:",
+          "text2": "Wir sind nicht verpflichtet und nicht bereit, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen."
+        }
+      },
+      "s3": {
+        "title": "Haftungsausschluss",
+        "content": {
+          "title": "Haftung für Inhalte",
+          "text1": "Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf dieser Website nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.",
+          "text2": "Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen."
+        },
+        "userContent": {
+          "title": "Haftung für nutzergenerierte Inhalte",
+          "text1": "Varbe ist eine Community-Plattform, auf der Nutzer (Künstler und Kunstliebhaber) eigene Inhalte hochladen und teilen können. Wir sind nicht verantwortlich für Inhalte, die von Nutzern erstellt wurden. Nutzer sind selbst für ihre hochgeladenen Inhalte verantwortlich und garantieren, dass sie alle notwendigen Rechte besitzen.",
+          "text2": "Wir behalten uns vor, rechtswidrige Inhalte zu entfernen, sobald wir Kenntnis davon erlangen. Wenn Sie rechtswidrige Inhalte auf Varbe entdecken, melden Sie diese bitte umgehend an:"
+        },
+        "links": {
+          "title": "Haftung für Links",
+          "text1": "Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.",
+          "text2": "Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar.",
+          "text3": "Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen."
+        }
+      },
+      "s4": {
+        "title": "Urheberrecht",
+        "own": {
+          "title": "Eigene Inhalte",
+          "text1": "Die durch den Seitenbetreiber erstellten Inhalte und Werke auf dieser Website unterliegen dem deutschen Urheberrecht. Dies umfasst insbesondere:",
+          "items": {
+            "texts": "Texte und Beschreibungen",
+            "design": "Design und Layout",
+            "logos": "Logos und Marken",
+            "code": "Code und technische Implementierung"
+          },
+          "text2": "Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung des Urhebers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.",
+          "text3": "Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen."
+        },
+        "user": {
+          "title": "Nutzergenerierte Inhalte",
+          "text1": "Alle von Nutzern hochgeladenen Kunstwerke, Texte, Bilder und sonstigen Inhalte unterliegen dem Urheberrecht des jeweiligen Urhebers (Künstlers). Das Urheberrecht verbleibt bei den Künstlern. Durch das Hochladen auf Varbe gewähren Nutzer der Plattform lediglich ein Nutzungsrecht zur Anzeige und Verbreitung im Rahmen der Plattform (siehe AGB).",
+          "text2": "Unerlaubte Nutzung von auf Varbe veröffentlichten Kunstwerken (z.B. Download und kommerzielle Verwendung ohne Erlaubnis des Künstlers) ist strengstens untersagt und kann rechtlich verfolgt werden."
+        }
+      },
+      "s5": {
+        "title": "Datenschutz",
+        "text": "Der Schutz Ihrer persönlichen Daten ist uns wichtig. Ausführliche Informationen zur Erhebung, Verarbeitung und Nutzung Ihrer Daten finden Sie in unserer Datenschutzerklärung:"
+      },
+      "s6": {
+        "title": "Markenrecht",
+        "text": "Varbe ist eine eingetragene Marke (Anmeldung laufend). Alle Rechte vorbehalten. Die Verwendung des Namens \"Varbe\", des Logos und anderer Markenelemente ohne ausdrückliche Genehmigung ist untersagt."
+      },
+      "s7": {
+        "title": "Technische Umsetzung",
+        "hosting": "Hosting",
+        "payments": "Zahlungsabwicklung (zukünftig)"
+      },
+      "s8": {
+        "title": "Kontakt für rechtliche Anfragen",
+        "intro": "Für rechtliche Anfragen, DMCA-Takedown-Requests, Urheberrechtsverletzungen oder andere rechtliche Anliegen:",
+        "subject": "Betreff",
+        "subjectText": "Rechtliche Anfrage",
+        "note": "Bitte beschreiben Sie Ihr Anliegen detailliert und fügen Sie relevante Nachweise bei. Wir werden Ihre Anfrage schnellstmöglich bearbeiten."
+      },
+      "s9": {
+        "title": "Bildnachweise",
+        "intro": "Alle auf der Varbe-Website verwendeten Bilder (außer nutzergenerierte Inhalte) sind entweder:",
+        "items": {
+          "own": "Eigene Kreationen des Varbe-Teams",
+          "cc": "Lizenziert unter Creative Commons (CC0, CC BY)",
+          "stock": "Stockfotos von lizenzierten Anbietern (Unsplash, Pexels)"
+        },
+        "note": "Spezifische Bildnachweise werden auf Anfrage zur Verfügung gestellt."
+      },
+      "s10": {
+        "title": "Hinweis zur Telefonnummer",
+        "text1": "Gemäß § 5 TMG ist für die Impressumspflicht eine E-Mail-Adresse ausreichend, sofern eine schnelle elektronische Kontaktaufnahme und unmittelbare Kommunikation ermöglicht wird. Wir prüfen unsere E-Mails regelmäßig und antworten in der Regel innerhalb von 24 Stunden (an Werktagen).",
+        "text2": "Bei dringenden Anliegen vermerken Sie bitte \"Dringend\" im Betreff."
+      },
+      "footer": {
+        "scope": "Dieses Impressum gilt für alle Varbe-Domains und -Subdomains sowie für alle offiziellen Social-Media-Präsenzen von Varbe."
+      }
+    },
+    "cookies": {
+      "title": "Cookie-Richtlinie",
+      "asOf": "Stand",
+      "date": "Dezember 2024",
+      "lastUpdated": "Zuletzt aktualisiert",
+      "germany": "Deutschland",
+      "ireland": "Irland",
+      "legalBasis": "Rechtsgrundlage",
+      "storageDuration": "Speicherdauer",
+      "provider": "Anbieter",
+      "control": "Kontrolle",
+      "objectionRight": "Widerspruchsrecht",
+      
+      "whatAreCookies": {
+        "title": "Was sind Cookies?",
+        "text1": "Cookies sind kleine Textdateien, die von Websites auf Ihrem Computer oder Mobilgerät gespeichert werden, wenn Sie eine Website besuchen. Sie werden verwendet, um die Website funktionsfähig zu machen, effizienter zu gestalten und um bestimmte Funktionen zu ermöglichen.",
+        "text2": "Cookies können nicht verwendet werden, um Programme zu starten oder Viren auf Ihren Computer zu übertragen. Sie sind für Sie als Nutzer nicht schädlich, sondern helfen dabei, dass Websites reibungslos funktionieren und Sie sich nicht bei jedem Besuch erneut anmelden müssen."
+      },
+      
+      "philosophy": {
+        "title": "Unsere Cookie-Philosophie",
+        "subtitle": "Transparenz und Minimalismus:",
+        "text": "Varbe nutzt nur die Cookies, die für den Betrieb der Plattform absolut notwendig sind oder die Ihr Nutzererlebnis deutlich verbessern. Wir glauben nicht an invasives Tracking oder aggressive Marketing-Cookies. Ihre Privatsphäre ist uns wichtig.",
+        "notUsed": "Was wir NICHT verwenden",
+        "notUsedItems": {
+          "facebook": "Keine Facebook Pixel",
+          "tiktok": "Keine TikTok Pixel",
+          "thirdParty": "Keine Werbe-Tracker von Drittanbietern",
+          "crossSite": "Kein Cross-Site Tracking",
+          "fingerprinting": "Kein Fingerprinting",
+          "selling": "Keine Verkauf von Cookie-Daten"
+        }
+      },
+      
+      "howWeUse": {
+        "title": "Wie verwendet Varbe Cookies?",
+        "intro": "Wir verwenden verschiedene Arten von Cookies für unterschiedliche Zwecke:"
+      },
+      
+      "necessary": {
+        "title": "1. Notwendige Cookies (Essentiell)",
+        "note": "Diese Cookies sind für das Funktionieren der Website unerlässlich und werden ohne Ihre Einwilligung gesetzt.",
+        "intro": "Diese Cookies ermöglichen grundlegende Funktionen wie Sicherheit, Authentifizierung und Netzwerkverwaltung. Ohne diese Cookies würde Varbe nicht funktionieren. Sie können diese Cookies nicht deaktivieren, ohne die Funktionalität der Website erheblich zu beeinträchtigen.",
+        "whatWeStore": "Was wir speichern",
+        "auth": {
+          "title": "Authentifizierung & Session",
+          "items": {
+            "session": "Session-Cookies, damit Sie angemeldet bleiben",
+            "token": "Authentifizierungs-Token (Firebase Authentication)",
+            "userId": "User-ID für die Zuordnung Ihrer Inhalte",
+            "loginStatus": "Login-Status (eingeloggt/ausgeloggt)"
+          }
+        },
+        "security": {
+          "title": "Sicherheit",
+          "items": {
+            "csrf": "CSRF-Token zum Schutz vor Cross-Site Request Forgery",
+            "fraud": "Sicherheits-Token zur Verhinderung von Betrug",
+            "rateLimit": "Rate-Limiting-Cookies zum Schutz vor Spam"
+          }
+        },
+        "technical": {
+          "title": "Technische Funktionalität",
+          "items": {
+            "language": "Spracheinstellung (DE/EN)",
+            "theme": "Theme-Präferenz (falls implementiert)",
+            "consent": "Cookie-Consent-Status (damit wir Sie nicht ständig fragen)"
+          }
+        },
+        "legalBasisText": "Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse am Betrieb der Website)",
+        "storageDurationText": "Session-Cookies: bis zum Schließen des Browsers; Dauerhafte Cookies: maximal 30 Tage"
+      },
+      
+      "functional": {
+        "title": "2. Funktionale Cookies (Optional)",
+        "note": "Diese Cookies ermöglichen erweiterte Funktionen und werden nur mit Ihrer Zustimmung gesetzt.",
+        "intro": "Funktionale Cookies merken sich Ihre Präferenzen und machen die Nutzung von Varbe komfortabler. Sie sind nicht zwingend notwendig, verbessern aber Ihr Nutzererlebnis erheblich.",
+        "preferences": {
+          "title": "Einstellungen & Präferenzen",
+          "items": {
+            "display": "Display-Einstellungen (Grid/List View)",
+            "filters": "Filter-Präferenzen im Discovery Feed (wenn aktiv)",
+            "savedFilters": "Gespeicherte Suchfilter",
+            "categories": "Favorisierte Kategorien",
+            "sorting": "Sortier-Präferenzen"
+          }
+        },
+        "discovery": {
+          "title": "Discovery Feed (sobald aktiv)",
+          "items": {
+            "recentlyViewed": "Zuletzt angesehene Kunstwerke (um Duplikate zu vermeiden)",
+            "feedPosition": "Feed-Position (damit Sie dort weitermachen können, wo Sie aufgehört haben)",
+            "feedModes": "Präferierte Feed-Modi (For You, Following, Local, Explore)"
+          }
+        },
+        "legalBasisText": "Art. 6 Abs. 1 lit. a DSGVO (Einwilligung)",
+        "storageDurationText": "12 Monate",
+        "control": "Sie können diese Cookies in den Cookie-Einstellungen deaktivieren."
+      },
+      
+      "analytics": {
+        "title": "3. Analytische Cookies (Optional)",
+        "note": "Diese Cookies helfen uns, Varbe zu verbessern, und werden nur mit Ihrer Zustimmung gesetzt.",
+        "intro": "Analytische Cookies sammeln anonymisierte Informationen darüber, wie Besucher unsere Website nutzen. Diese Daten helfen uns, Probleme zu identifizieren, die Nutzererfahrung zu verbessern und neue Features zu entwickeln.",
+        "whatWeAnalyze": "Was wir analysieren",
+        "firebase": {
+          "items": {
+            "visitors": "Anzahl der Besucher (anonymisiert)",
+            "features": "Beliebte Features und Seiten",
+            "duration": "Durchschnittliche Verweildauer",
+            "errors": "Fehlerberichte und Abstürze",
+            "technical": "Technische Daten (Browser, Gerät, Bildschirmgröße)"
+          }
+        },
+        "important": {
+          "title": "Wichtig",
+          "items": {
+            "ipAnonymization": "IP-Adressen werden gekürzt (IP-Anonymisierung)",
+            "noTracking": "Keine Rückverfolgung auf einzelne Nutzer möglich",
+            "aggregated": "Daten werden nur aggregiert und anonymisiert verwendet",
+            "noLinking": "Keine Verknüpfung mit Ihrem Account"
+          }
+        },
+        "google": {
+          "ifImplemented": "falls implementiert",
+          "items": {
+            "ipAnonymization": "Nur mit IP-Anonymisierung",
+            "noCrossSite": "Kein Tracking über mehrere Websites hinweg",
+            "optOut": "Opt-out jederzeit möglich"
+          }
+        },
+        "legalBasisText": "Art. 6 Abs. 1 lit. a DSGVO (Einwilligung)",
+        "storageDurationText": "26 Monate (anonymisiert)",
+        "objectionText": "Sie können der Analyse jederzeit widersprechen unter info@varbe.org oder in den Cookie-Einstellungen."
+      },
+      
+      "marketing": {
+        "title": "4. Marketing-Cookies",
+        "noMarketing": "Wir verwenden derzeit KEINE Marketing-Cookies.",
+        "intro": "Varbe nutzt keine invasiven Marketing- oder Remarketing-Cookies. Wir glauben an organisches Wachstum und respektieren Ihre Privatsphäre. Es gibt:",
+        "notUsed": {
+          "tracking": "Keine Verhaltens-Tracking über mehrere Websites",
+          "ads": "Keine personalisierten Werbe-Anzeigen basierend auf Ihrem Browsing",
+          "socialPixels": "Keine Social-Media-Pixel (Facebook, Instagram, TikTok)",
+          "remarketing": "Keine Remarketing-Kampagnen, die Sie verfolgen"
+        },
+        "socialSharing": {
+          "title": "Social Media Sharing (optional)",
+          "text": "Wenn Sie Inhalte auf Social Media teilen möchten, werden nur in dem Moment Verbindungen zu diesen Plattformen hergestellt, wenn Sie aktiv auf den \"Teilen\"-Button klicken. Es gibt keine passiven Social-Media-Tracker auf Varbe."
+        },
+        "future": {
+          "title": "Zukünftig (mit Ihrer Einwilligung)",
+          "text": "Falls wir in Zukunft begrenzte Marketing-Cookies einsetzen sollten (z.B. für gezielte Kampagnen zur Künstler-Gewinnung), werden Sie vorab informiert und um ausdrückliche Zustimmung gebeten."
+        }
+      },
+      
+      "thirdParty": {
+        "title": "Drittanbieter-Cookies",
+        "intro": "Einige Cookies werden von Drittanbietern gesetzt, deren Dienste wir für den Betrieb von Varbe nutzen. Diese Anbieter verarbeiten Daten in unserem Auftrag und sind durch Auftragsverarbeitungsverträge gebunden.",
+        "purpose": "Zweck",
+        "privacy": "Datenschutz",
+        "firebase": {
+          "purpose": "Hosting, Authentifizierung, Datenbank",
+          "cookies": "Firebase Authentication Cookies, Firebase Session Cookies, Firebase Analytics Cookies (nur mit Einwilligung)",
+          "legalBasis": "Art. 6 Abs. 1 lit. f DSGVO (notwendige Cookies) / Art. 6 Abs. 1 lit. a DSGVO (Analytics)"
+        },
+        "stripe": {
+          "future": "zukünftig, bei Marketplace-Nutzung",
+          "purpose": "Sichere Zahlungsabwicklung",
+          "cookies": "Stripe Session Cookies, Fraud-Detection Cookies",
+          "legalBasis": "Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung)",
+          "note": "Wichtig: Stripe-Cookies werden nur gesetzt, wenn Sie den Checkout-Prozess starten. Beim normalen Durchstöbern von Varbe werden keine Stripe-Cookies gesetzt."
+        }
+      },
+      
+      "manage": {
+        "title": "Wie können Sie Cookies verwalten?",
+        "intro": "Sie haben die volle Kontrolle über die Verwendung von Cookies auf Varbe.",
+        "option1": {
+          "title": "Option 1: Cookie-Banner (bei erstem Besuch)",
+          "text": "Beim ersten Besuch auf Varbe erscheint ein Cookie-Banner, in dem Sie auswählen können:",
+          "acceptAll": "Alle akzeptieren",
+          "acceptAllDesc": "Alle Cookies werden gesetzt (notwendig + funktional + analytisch)",
+          "onlyNecessary": "Nur notwendige",
+          "onlyNecessaryDesc": "Nur essenzielle Cookies (minimale Einstellung)",
+          "settings": "Einstellungen",
+          "settingsDesc": "Detaillierte Auswahl welche Cookie-Kategorien Sie zulassen möchten"
+        },
+        "option2": {
+          "title": "Option 2: Cookie-Einstellungen ändern",
+          "text": "Sie können Ihre Cookie-Präferenzen jederzeit ändern:",
+          "items": {
+            "accountSettings": "In den Account-Einstellungen unter \"Datenschutz & Cookies\"",
+            "footerLink": "Über den Footer-Link \"Cookie-Einstellungen\"",
+            "email": "Per Email an info@varbe.org"
+          }
+        },
+        "option3": {
+          "title": "Option 3: Browser-Einstellungen",
+          "text": "Sie können Cookies auch direkt in Ihrem Browser verwalten oder löschen:",
+          "chrome": "Einstellungen → Datenschutz und Sicherheit → Cookies und andere Websitedaten",
+          "firefox": "Einstellungen → Datenschutz & Sicherheit → Cookies und Website-Daten",
+          "safari": "Einstellungen → Datenschutz → Cookies und Website-Daten verwalten",
+          "edge": "Einstellungen → Cookies und Websiteberechtigungen → Cookies und Websitedaten verwalten",
+          "safariIos": "Einstellungen → Safari → Alle Cookies blockieren",
+          "chromeAndroid": "Chrome → Einstellungen → Websiteeinstellungen → Cookies"
+        },
+        "option4": {
+          "title": "Option 4: Browser-Plugins",
+          "text": "Sie können Browser-Erweiterungen installieren, die Cookies automatisch blockieren:"
+        },
+        "warning": "Wichtig: Das Deaktivieren aller Cookies kann die Funktionalität von Varbe erheblich beeinträchtigen. Sie können sich möglicherweise nicht anmelden oder bestimmte Features nicht nutzen."
+      },
+      
+      "impact": {
+        "title": "Auswirkungen der Cookie-Deaktivierung",
+        "onlyNecessary": {
+          "title": "Nur notwendige Cookies",
+          "can": {
+            "login": "Anmelden und authentifiziert bleiben",
+            "basic": "Grundlegende Funktionen nutzen",
+            "upload": "Inhalte hochladen und teilen"
+          },
+          "cannot": {
+            "preferences": "Präferenzen werden nicht gespeichert",
+            "recommendations": "Keine personalisierten Empfehlungen"
+          }
+        },
+        "allDisabled": {
+          "title": "Alle Cookies deaktiviert",
+          "cannot": {
+            "login": "Anmeldung nicht möglich",
+            "session": "Keine Session-Verwaltung",
+            "website": "Website funktioniert nicht"
+          }
+        },
+        "recommendation": "Wir empfehlen, zumindest die notwendigen Cookies zuzulassen, um Varbe nutzen zu können."
+      },
+      
+      "overview": {
+        "title": "Cookie-Übersicht (Technische Details)",
+        "table": {
+          "name": "Cookie-Name",
+          "type": "Typ",
+          "purpose": "Zweck",
+          "duration": "Dauer"
+        },
+        "types": {
+          "necessary": "Notwendig",
+          "functional": "Funktional",
+          "analytics": "Analytisch"
+        },
+        "purposes": {
+          "session": "Session-Verwaltung",
+          "auth": "Authentifizierung",
+          "language": "Spracheinstellung",
+          "theme": "Theme-Präferenz",
+          "consent": "Cookie-Consent"
+        },
+        "days": "Tage",
+        "months": "Monate",
+        "hours": "Stunden",
+        "updateNote": "Diese Liste wird aktualisiert, wenn neue Cookies hinzugefügt werden."
+      },
+      
+      "changes": {
+        "title": "Änderungen an dieser Cookie-Richtlinie",
+        "intro": "Wir können diese Cookie-Richtlinie von Zeit zu Zeit aktualisieren, um Änderungen in unseren Praktiken widerzuspiegeln oder wenn neue Features ausgerollt werden.",
+        "significantChanges": "Bei wesentlichen Änderungen",
+        "items": {
+          "email": "Sie werden per Email informiert (wenn Sie registriert sind)",
+          "banner": "Ein erneutes Cookie-Banner erscheint mit der Bitte um Zustimmung",
+          "blog": "Die Änderungen werden im Blog angekündigt"
+        },
+        "recommendation": "Empfehlung",
+        "recommendationText": "Besuchen Sie diese Seite gelegentlich, um über unsere Cookie-Praktiken informiert zu bleiben.",
+        "versionHistory": "Versionshistorie",
+        "firstVersion": "Erste Version (Early Access)"
+      },
+      
+      "faq": {
+        "title": "Häufig gestellte Fragen (FAQ)",
+        "q1": {
+          "question": "Warum nutzt Varbe überhaupt Cookies?",
+          "answer": "Cookies sind notwendig, damit Sie sich anmelden und angemeldet bleiben können. Ohne Cookies müssten Sie sich bei jedem Seitenaufruf neu anmelden, was sehr unpraktisch wäre."
+        },
+        "q2": {
+          "question": "Verkauft Varbe meine Cookie-Daten?",
+          "answer": "Nein, niemals. Wir verkaufen keine Daten an Dritte. Wir verwenden Cookies nur, um Varbe für Sie besser zu machen."
+        },
+        "q3": {
+          "question": "Kann ich Varbe ohne Cookies nutzen?",
+          "answer": "Die Website benötigt mindestens die notwendigen Cookies für Authentifizierung und Session-Verwaltung. Alle anderen Cookies sind optional."
+        },
+        "q4": {
+          "question": "Werden meine Likes und Follows getrackt?",
+          "answer": "Ihre Interaktionen (Likes, Follows, Kommentare) werden gespeichert, um den Discovery Feed zu personalisieren – aber das sind keine \"Cookies\", sondern Daten in Ihrem Account. Sie können der Personalisierung jederzeit widersprechen."
+        },
+        "q5": {
+          "question": "Was ist der Unterschied zu Instagram/Facebook?",
+          "answer": "Instagram und Facebook nutzen aggressive Tracking-Cookies, die Sie über viele Websites hinweg verfolgen und für gezielte Werbung nutzen. Varbe tut das nicht. Wir tracken nur, was auf unserer eigenen Plattform passiert, und nutzen die Daten nicht für Werbung."
+        }
+      },
+      
+      "contact": {
+        "title": "Kontakt",
+        "intro": "Bei Fragen zu unserer Cookie-Richtlinie oder zu Ihren Cookie-Einstellungen:",
+        "subject": "Betreff",
+        "subjectText": "Cookie-Frage",
+        "postalAddress": "Postadresse",
+        "responseTime": "Wir antworten in der Regel innerhalb von 24 Stunden (an Werktagen)."
+      },
+      
+      "footer": {
+        "scope": "Diese Cookie-Richtlinie gilt für alle Varbe-Domains (varbe.org und Subdomains) sowie für die Varbe Mobile App."
+      }
+    },
+    "backToHome": "← Zurück zur Startseite"
+  },
+  "faq": {
+    "title": "Häufig gestellte Fragen",
+    "subtitle": "Alles was du über Varbe wissen musst",
+    "stillHaveQuestions": "Noch Fragen?",
+    "contactUs": "Wenn du weitere Fragen hast, kontaktiere uns gerne!",
+    "contactButton": "Kontakt aufnehmen",
+    "backToHome": "Zurück zur Startseite",
+    "categories": {
+      "general": {
+        "title": "Allgemeines",
+        "q1": "Was ist Varbe?",
+        "a1": "Varbe ist ein Online-Marktplatz für authentische Kunstwerke. Wir verbinden Künstler direkt mit Kunstliebhabern und bieten faire Preise, sichere Zahlungen und Käuferschutz.",
+        "q2": "Wie funktioniert Varbe?",
+        "a2": "Künstler können ihre Werke nach Verifizierung auf Varbe listen. Käufer können Kunstwerke kaufen oder bei Auktionen mitbieten. Alle Zahlungen werden sicher über Stripe abgewickelt.",
+        "q3": "Ist Varbe kostenlos?",
+        "a3": "Für Käufer ist Varbe komplett kostenlos. Künstler zahlen eine Gebühr von 10% (max. 10€) pro Verkauf. Keine monatlichen Gebühren oder versteckten Kosten."
+      },
+      "buying": {
+        "title": "Kaufen",
+        "q1": "Wie kaufe ich ein Kunstwerk?",
+        "a1": "Durchstöbere unsere Kategorien oder nutze die Suchfunktion. Klicke auf ein Kunstwerk für Details und dann auf 'Jetzt kaufen'. Bezahle sicher über Stripe (Kreditkarte, PayPal).",
+        "q2": "Welche Zahlungsmethoden werden akzeptiert?",
+        "a2": "Wir akzeptieren Kreditkarten, SEPA-Lastschrift, Sofortüberweisung und PayPal - alles sicher über Stripe verarbeitet.",
+        "q3": "Gibt es Käuferschutz?",
+        "a3": "Ja! Du hast 14 Tage Käuferschutz ab Zustellung. Wenn etwas nicht stimmt, kannst du eine Beschwerde einreichen und erhältst dein Geld zurück.",
+        "q4": "Wie lange dauert der Versand?",
+        "a4": "Künstler müssen innerhalb von 5 Werktagen nach Zahlung versenden. Die genaue Lieferzeit hängt vom Versanddienstleister ab und wird im Listing angezeigt."
+      },
+      "selling": {
+        "title": "Verkaufen",
+        "q1": "Wie werde ich Künstler auf Varbe?",
+        "a1": "Registriere dich, stelle einen Verifizierungsantrag mit mindestens 3 Werk-Beispielen und warte auf die manuelle Prüfung durch unser Team. Nach der Verifizierung kannst du sofort verkaufen.",
+        "q2": "Was kostet es, auf Varbe zu verkaufen?",
+        "a2": "Varbe nimmt 10% Gebühr pro Verkauf (max. 10€). Zusätzlich fallen Stripe-Gebühren an (1,5% + 0,25€). Keine monatlichen Gebühren oder Anmeldegebühren.",
+        "q3": "Wie erhalte ich mein Geld?",
+        "a3": "Nach erfolgreichem Verkauf wird dein Geld nach 14 Tagen Käuferschutz freigegeben. Auszahlungen erfolgen automatisch am 15. jedes Monats auf dein Bankkonto (via Stripe Connect).",
+        "q4": "Muss ich Stripe Connect einrichten?",
+        "a4": "Ja, um Auszahlungen zu erhalten, musst du Stripe Connect einrichten. Das dauert nur wenige Minuten und ist kostenlos. Du wirst automatisch durch den Onboarding-Prozess geführt."
+      },
+      "payment": {
+        "title": "Zahlungen & Auszahlungen",
+        "q1": "Wann erhalte ich mein Geld als Künstler?",
+        "a1": "Dein Geld wird nach 14 Tagen Käuferschutz freigegeben und am 15. des nächsten Monats automatisch auf dein Bankkonto ausgezahlt (wenn mindestens 10€ verfügbar sind).",
+        "q2": "Wie viel Geld erhalte ich pro Verkauf?",
+        "a2": "Du erhältst den Verkaufspreis abzüglich Varbe-Gebühr (10%, max. 10€) und Stripe-Gebühren (1,5% + 0,25€). Beispiel: Bei einem 100€ Verkauf erhältst du ca. 88,25€.",
+        "q3": "Sind Auszahlungen kostenlos?",
+        "a3": "Ja, Auszahlungen sind komplett kostenlos. Es fallen keine zusätzlichen Gebühren an."
+      },
+      "shipping": {
+        "title": "Versand",
+        "q1": "Wer zahlt den Versand?",
+        "a1": "Der Käufer zahlt die Versandkosten, die im Listing angegeben sind. Künstler können auch kostenlosen Versand anbieten.",
+        "q2": "Wie wird versendet?",
+        "a2": "Künstler versenden selbständig mit einem Versanddienstleister ihrer Wahl (DHL, Hermes, DPD, etc.). Die Tracking-Nummer wird automatisch validiert und dem Käufer mitgeteilt.",
+        "q3": "Was passiert, wenn das Paket nicht ankommt?",
+        "a3": "Wenn das Paket nicht innerhalb von 30 Tagen ankommt oder beschädigt ist, kannst du eine Beschwerde einreichen. Unser Support-Team prüft den Fall und erstatten bei berechtigten Beschwerden das Geld zurück."
+      }
+    }
+  },
+  "messages": {
+    "title": "Nachrichten",
+    "noConversations": "Du hast noch keine Nachrichten. Kontaktiere einen Künstler über ein Listing, um eine Konversation zu starten.",
+    "backToMessages": "← Zurück zu Nachrichten",
+    "writeMessage": "Nachricht schreiben...",
+    "send": "Senden",
+    "sending": "...",
+    "noMessages": "Noch keine Nachrichten"
+  },
+  "auth": {
+    "login": {
+      "title": "Willkommen zurück!",
+      "subtitle": "Melden Sie sich in Ihrem Konto an",
+      "email": "E-Mail",
+      "emailPlaceholder": "artist@example.com",
+      "password": "Passwort",
+      "passwordPlaceholder": "••••••••",
+      "login": "Anmelden",
+      "googleLogin": "Mit Google anmelden",
+      "connecting": "Verbinde...",
+      "noAccount": "Noch kein Konto?",
+      "register": "Registrieren",
+      "joinClub": "Dem Club beitreten",
+      "orContinue": "Oder mit E-Mail fortfahren",
+      "invalidCredentials": "Ungültige E-Mail oder Passwort.",
+      "popupClosed": "Anmeldung abgebrochen: Sie haben das Popup-Fenster geschlossen.",
+      "popupBlocked": "Popup wurde blockiert. Bitte erlauben Sie Popups für diese Website.",
+      "domainNotAuthorized": "⚠️ DOMÄNE NICHT AUTORISIERT: Fügen Sie Ihre Domäne in Firebase Console → Authentication → Settings → Authorized domains hinzu",
+      "googleNotEnabled": "⚠️ Google Sign-In nicht aktiviert in Firebase Console → Authentication → Sign-in method",
+      "loginButton": "Mich anmelden!",
+      "forgotPassword": {
+        "link": "Passwort vergessen?",
+        "instructions": "Gib deine E-Mail-Adresse ein und wir senden dir einen Link zum Zurücksetzen deines Passworts.",
+        "emailRequired": "Bitte gib deine E-Mail-Adresse ein.",
+        "sendResetLink": "Reset-Link senden",
+        "cancel": "Abbrechen",
+        "success": "✅ Reset-Link gesendet!",
+        "checkEmail": "Bitte überprüfe dein E-Mail-Postfach und klicke auf den Link zum Zurücksetzen deines Passworts.",
+        "backToLogin": "Zurück zur Anmeldung",
+        "userNotFound": "Kein Konto mit dieser E-Mail-Adresse gefunden.",
+        "error": "Fehler beim Senden des Reset-Links. Bitte versuche es erneut."
+      }
+    },
+    "register": {
+      "title": "Varbe beitreten",
+      "subtitle": "Starten Sie Ihre Kunst-Reise heute",
+      "name": "Vollständiger Name",
+      "namePlaceholder": "Banksy 2.0",
+      "email": "E-Mail",
+      "emailPlaceholder": "artist@example.com",
+      "password": "Passwort",
+      "passwordPlaceholder": "••••••••",
+      "confirmPassword": "Passwort bestätigen",
+      "register": "Registrieren",
+      "googleRegister": "Mit Google registrieren",
+      "connecting": "Verbinde...",
+      "hasAccount": "Bereits ein Konto?",
+      "login": "Anmelden",
+      "loginHere": "Hier anmelden",
+      "orContinue": "Oder fortfahren mit",
+      "createAccount": "Konto erstellen",
+      "popupClosed": "Registrierung abgebrochen: Sie haben das Popup-Fenster geschlossen.",
+      "popupBlocked": "Popup wurde blockiert. Bitte erlauben Sie Popups für diese Website.",
+      "errors": {
+        "emailInUse": "Diese E-Mail-Adresse ist bereits registriert. Versuche dich anzumelden oder nutze Google-Login.",
+        "weakPassword": "Das Passwort ist zu schwach. Bitte verwende mindestens 6 Zeichen.",
+        "invalidEmail": "Bitte gib eine gültige E-Mail-Adresse ein.",
+        "acceptTerms": "Bitte akzeptiere die AGB und Datenschutzerklärung."
+      },
+      "terms": {
+        "heading": "Bevor du fortfährst:",
+        "accept": "Ich akzeptiere die",
+        "termsLink": "AGB",
+        "and": "und die",
+        "privacyLink": "Datenschutzerklärung"
+      },
+      "newsletter": {
+        "subscribe": "Ja, ich möchte den Varbe Newsletter erhalten (optional)"
+      },
+      "emailVerification": {
+        "sent": "✅ Verifizierungs-E-Mail gesendet!",
+        "checkEmail": "Bitte überprüfe dein E-Mail-Postfach und klicke auf den Link zur Verifizierung deines Kontos.",
+        "backToLogin": "Zur Anmeldung",
+        "notVerified": "Bitte verifiziere zuerst deine E-Mail-Adresse.",
+        "resend": "Verifizierungs-E-Mail erneut senden",
+        "resendSuccess": "Verifizierungs-E-Mail wurde erneut gesendet!"
+      }
+    },
+    "verifyEmail": {
+      "loading": "E-Mail wird verifiziert...",
+      "success": {
+        "title": "E-Mail bestätigt!",
+        "message": "Deine E-Mail-Adresse wurde erfolgreich bestätigt. Du kannst dich jetzt anmelden.",
+        "loginButton": "Jetzt anmelden"
+      },
+      "error": {
+        "title": "Verifizierung fehlgeschlagen",
+        "expiredHint": "Du kannst dich erneut registrieren, um eine neue Verifizierungs-E-Mail zu erhalten.",
+        "loginButton": "Zur Anmeldung",
+        "registerButton": "Neues Konto erstellen"
+      },
+      "errors": {
+        "missingToken": "Kein Verifizierungstoken gefunden.",
+        "invalidToken": "Der Verifizierungslink ist ungültig.",
+        "tokenExpired": "Der Verifizierungslink ist abgelaufen.",
+        "tokenUsed": "Dieser Verifizierungslink wurde bereits verwendet.",
+        "userNotFound": "Benutzer nicht gefunden.",
+        "verificationFailed": "Die Verifizierung ist fehlgeschlagen. Bitte versuche es erneut."
+      }
+    },
+    "setupUsername": {
+      "title": "Wähle deinen Benutzernamen",
+      "subtitle": "Dein einzigartiger @-Name auf Varbe",
+      "description": "Dein Benutzername ist deine Identität auf Varbe. Andere können dich damit finden und erwähnen.",
+      "inputLabel": "Benutzername",
+      "inputPlaceholder": "dein_username",
+      "inputPrefix": "@",
+      "checking": "Prüfe Verfügbarkeit...",
+      "available": "✅ Dieser Benutzername ist verfügbar!",
+      "taken": "❌ Dieser Benutzername ist bereits vergeben.",
+      "rules": {
+        "title": "Regeln für Benutzernamen:",
+        "length": "3-20 Zeichen",
+        "characters": "Nur Kleinbuchstaben, Zahlen und Unterstriche",
+        "start": "Muss mit einem Buchstaben beginnen",
+        "end": "Darf nicht mit einem Unterstrich enden"
+      },
+      "errors": {
+        "username_too_short": "Benutzername muss mindestens 3 Zeichen haben.",
+        "username_too_long": "Benutzername darf maximal 20 Zeichen haben.",
+        "username_invalid_characters": "Nur Kleinbuchstaben, Zahlen und Unterstriche erlaubt.",
+        "username_invalid_start": "Muss mit einem Buchstaben beginnen.",
+        "username_invalid_end": "Darf nicht mit einem Unterstrich enden.",
+        "username_consecutive_underscores": "Keine aufeinanderfolgenden Unterstriche erlaubt.",
+        "username_reserved": "Dieser Benutzername ist reserviert.",
+        "username_taken": "Dieser Benutzername ist bereits vergeben.",
+        "user_not_found": "Benutzer nicht gefunden.",
+        "unknown_error": "Ein unbekannter Fehler ist aufgetreten."
+      },
+      "submit": "Benutzernamen festlegen",
+      "submitting": "Wird gespeichert...",
+      "success": "🎉 Perfekt! Dein Benutzername wurde gespeichert.",
+      "skipInfo": "Du kannst deinen Benutzernamen später jederzeit in den Einstellungen ändern."
+    }
+  },
+  "notifications": {
+    "title": "Benachrichtigungen",
+    "noNotifications": "Keine Benachrichtigungen",
+    "markAllRead": "Alle als gelesen markieren",
+    "types": {
+      "new_order": "Neue Bestellung",
+      "purchase_success": "Kauf erfolgreich",
+      "tracking_submitted": "Tracking eingereicht",
+      "tracking_approved": "Tracking genehmigt",
+      "order_shipped": "Bestellung versandt",
+      "order_delivered": "Bestellung geliefert"
+    }
+  },
+  "categories": {
+    "malerei": {
+      "name": "Malerei",
+      "title": "Malerei kaufen - Originale direkt vom Künstler",
+      "description": "Entdecke über {count} originale Gemälde von unabhängigen Künstlern. Von abstrakten Acrylbildern bis hin zu realistischen Ölgemälden. Alle Kunstwerke sind Unikate und kommen direkt vom Künstler zu dir nach Hause.",
+      "subcategoriesTitle": "Beliebte Maltechniken",
+      "noArtworks": "Noch keine Gemälde verfügbar",
+      "noArtworksDesc": "Werde der erste Künstler, der Gemälde auf Varbe verkauft!",
+      "foundCount": "{count} Gemälde gefunden",
+      "showAll": "Alle {count} Gemälde anzeigen",
+      "seoTitle": "Warum originale Malerei kaufen?",
+      "seoText1": "Originale Gemälde sind einzigartige Kunstwerke, die direkt vom Künstler geschaffen wurden. Im Gegensatz zu Drucken oder Reproduktionen ist jedes Gemälde ein Unikat mit seiner eigenen Textur, Farbtiefe und künstlerischen Handschrift.",
+      "seoText2": "Auf Varbe findest du originale Malerei in verschiedenen Techniken: Acrylmalerei für moderne, lebendige Werke, Ölmalerei für klassische, zeitlose Gemälde, und Aquarell für zarte, transparente Kompositionen.",
+      "seoHangingTitle": "Kunstwerke richtig aufhängen",
+      "seoHangingText": "Ein Gemälde verdient den richtigen Platz. Achte auf ausreichend Licht, die richtige Höhe (Augenhöhe) und einen passenden Rahmen. Unsere Künstler beraten dich gerne bei der Auswahl.",
+      "ctaTitle": "Bereit, ein Gemälde zu kaufen?",
+      "ctaText": "Stöbere durch alle Gemälde oder suche nach einem bestimmten Stil."
+    },
+    "fotografie": {
+      "name": "Fotografie",
+      "title": "Fotografie kaufen - Originale Kunstfotos",
+      "description": "Entdecke {count} einzigartige Fotografien von aufstrebenden und etablierten Fotografen. Von Landschaftsfotografie über Porträts bis hin zu abstrakten Kompositionen. Alle Fotos sind limitierte Editionen oder Unikate direkt vom Künstler.",
+      "noArtworks": "Noch keine Fotografien verfügbar",
+      "noArtworksDesc": "Werde der erste Fotograf, der auf Varbe verkauft!",
+      "foundCount": "{count} Fotografien gefunden",
+      "showAll": "Alle {count} Fotografien anzeigen",
+      "seoTitle": "Warum originale Fotografie kaufen?",
+      "seoText1": "Originale Fotografien sind limitierte Editionen oder Unikate, die direkt vom Fotografen signiert werden. Im Gegensatz zu Massendrucken sind sie Teil einer limitierten Auflage und behalten ihren Wert.",
+      "seoGenresTitle": "Fotografie-Genres auf Varbe",
+      "seoGenresText": "Auf Varbe findest du verschiedene Genres der Fotografie:",
+      "seoGenres": {
+        "landscape": "Landschaftsfotografie: Natur, Städte, Architektur",
+        "portrait": "Porträtfotografie: Menschen, Charaktere, Emotionen",
+        "street": "Street Photography: Alltag, Momente, Geschichten",
+        "abstract": "Abstrakte Fotografie: Formen, Farben, Kompositionen",
+        "fineart": "Fine Art Photography: Künstlerische Interpretationen"
+      },
+      "seoPresentationTitle": "Fotografien richtig präsentieren",
+      "seoPresentationText": "Fotografien verdienen die richtige Präsentation. Achte auf hochwertige Drucke, passende Rahmen und ausreichend Licht. Unsere Fotografen beraten dich gerne bei der Auswahl.",
+      "ctaTitle": "Bereit, Fotografie zu entdecken?",
+      "ctaText": "Stöbere durch alle Fotografien oder suche nach einem bestimmten Genre."
+    },
+    "skulptur": {
+      "name": "Skulptur & Keramik",
+      "title": "Skulpturen & Keramik kaufen - Dreidimensionale Kunstwerke",
+      "description": "Entdecke {count} einzigartige Skulpturen, Keramik und dreidimensionale Kunstwerke von talentierten Künstlern. Von kleinen Figuren bis hin zu großen Installationen – Skulpturen und Keramik bringen Dimension und Leben in jeden Raum.",
+      "noArtworks": "Noch keine Skulpturen verfügbar",
+      "noArtworksDesc": "Werde der erste Bildhauer, der auf Varbe verkauft!",
+      "foundCount": "{count} Skulpturen gefunden",
+      "showAll": "Alle {count} Skulpturen anzeigen",
+      "seoTitle": "Warum Skulpturen kaufen?",
+      "seoText1": "Skulpturen sind dreidimensionale Kunstwerke, die Räume transformieren. Sie bringen Tiefe, Textur und Interaktion in jeden Raum und sind ein Statement-Piece für jeden Kunstliebhaber.",
+      "seoMaterialsTitle": "Materialien und Techniken",
+      "seoMaterialsText": "Auf Varbe findest du Skulpturen aus verschiedenen Materialien:",
+      "seoMaterials": {
+        "clay": "Ton/Keramik: Traditionelle und moderne Keramik-Kunst",
+        "metal": "Metall: Bronze, Stahl, Aluminium",
+        "stone": "Stein: Marmor, Granit, Sandstein",
+        "wood": "Holz: Geschnitzte und geformte Holzskulpturen",
+        "glass": "Glas: Blown Glass und Glas-Kunst",
+        "mixed": "Mixed Media: Kombination verschiedener Materialien"
+      },
+      "seoPlacementTitle": "Skulpturen richtig platzieren",
+      "seoPlacementText": "Skulpturen brauchen den richtigen Platz. Achte auf ausreichend Raum, passende Beleuchtung und einen stabilen Untergrund. Größere Skulpturen können auch im Außenbereich platziert werden.",
+      "ctaTitle": "Bereit, eine Skulptur zu kaufen?",
+      "ctaText": "Stöbere durch alle Skulpturen oder suche nach einem bestimmten Material."
+    },
+    "zeichnung": {
+      "name": "Zeichnung",
+      "title": "Zeichnungen kaufen - Originale Skizzen und Grafiken",
+      "description": "Entdecke {count} originale Zeichnungen, Skizzen und grafische Arbeiten von talentierten Künstlern. Von Bleistiftzeichnungen über Tusche bis hin zu Mixed-Media-Arbeiten – Zeichnungen zeigen die Handschrift des Künstlers in ihrer reinsten Form.",
+      "noArtworks": "Noch keine Zeichnungen verfügbar",
+      "noArtworksDesc": "Werde der erste Künstler, der Zeichnungen auf Varbe verkauft!",
+      "foundCount": "{count} Zeichnungen gefunden",
+      "showAll": "Alle {count} Zeichnungen anzeigen",
+      "seoTitle": "Warum originale Zeichnungen kaufen?",
+      "seoText1": "Zeichnungen sind die Basis der Kunst. Sie zeigen die Handschrift des Künstlers in ihrer reinsten Form und sind oft intimer und persönlicher als Gemälde. Originale Zeichnungen sind einzigartige Kunstwerke, die direkt vom Künstler geschaffen wurden.",
+      "seoTechniquesTitle": "Zeichentechniken",
+      "seoTechniquesText": "Auf Varbe findest du Zeichnungen in verschiedenen Techniken:",
+      "seoTechniques": {
+        "pencil": "Bleistift: Graphitzeichnungen in verschiedenen Härtegraden",
+        "ink": "Tusche: Federzeichnungen und Tintenzeichnungen",
+        "charcoal": "Kohle: Ausdrucksstarke Kohlezeichnungen",
+        "pastel": "Pastell: Weiche Pastellzeichnungen",
+        "mixed": "Mixed Media: Kombination verschiedener Zeichentechniken"
+      },
+      "seoStorageTitle": "Zeichnungen richtig aufbewahren",
+      "seoStorageText": "Zeichnungen sind empfindlicher als Gemälde. Achte auf säurefreie Passepartouts, UV-Schutz und die richtige Lagerung. Gerahmt bleiben Zeichnungen länger erhalten.",
+      "ctaTitle": "Bereit, Zeichnungen zu entdecken?",
+      "ctaText": "Stöbere durch alle Zeichnungen oder suche nach einer bestimmten Technik."
+    },
+    "kunsthandwerk": {
+      "name": "Kunsthandwerk",
+      "title": "Kunsthandwerk kaufen - Handgemachte Unikate",
+      "description": "Entdecke {count} einzigartige handgemachte Kunstwerke von talentierten Handwerkern. Von Schmuck über Textilien bis hin zu Holzarbeiten – Kunsthandwerk verbindet traditionelle Handwerkskunst mit modernem Design.",
+      "noArtworks": "Noch kein Kunsthandwerk verfügbar",
+      "noArtworksDesc": "Werde der erste Handwerker, der auf Varbe verkauft!",
+      "foundCount": "{count} Kunsthandwerke gefunden",
+      "showAll": "Alle {count} Kunsthandwerke anzeigen",
+      "seoTitle": "Warum Kunsthandwerk kaufen?",
+      "seoText1": "Kunsthandwerk verbindet traditionelle Handwerkskunst mit modernem Design. Jedes Stück ist ein Unikat, handgemacht mit Liebe zum Detail und Sorgfalt. Von Schmuck über Textilien bis hin zu Holzarbeiten – Kunsthandwerk bringt Persönlichkeit und Charakter in jeden Raum.",
+      "seoCategoriesTitle": "Kategorien im Kunsthandwerk",
+      "seoCategoriesText": "Auf Varbe findest du verschiedene Arten von Kunsthandwerk:",
+      "seoCategories": {
+        "jewelry": "Schmuck: Handgemachter Schmuck aus verschiedenen Materialien",
+        "textiles": "Textilien: Handgewebte Stoffe, Stickereien, Quilts",
+        "woodwork": "Holzarbeiten: Geschnitzte und geformte Holzobjekte",
+        "ceramics": "Keramik: Handgemachte Töpferwaren und Keramikobjekte",
+        "metalwork": "Metallarbeiten: Handgeschmiedete Metallobjekte",
+        "glasswork": "Glasarbeiten: Handgeblasenes Glas und Glasobjekte",
+        "leather": "Lederarbeiten: Handgefertigte Lederwaren",
+        "mixed": "Mixed Media: Kombination verschiedener Handwerkstechniken"
+      },
+      "seoCareTitle": "Kunsthandwerk richtig pflegen",
+      "seoCareText": "Kunsthandwerk benötigt oft spezielle Pflege. Achte auf die Materialien und folge den Pflegehinweisen des Handwerkers. Viele Stücke sind für den täglichen Gebrauch geeignet, andere sind eher dekorativ.",
+      "ctaTitle": "Bereit, Kunsthandwerk zu entdecken?",
+      "ctaText": "Stöbere durch alle handgemachten Kunstwerke oder suche nach einer bestimmten Kategorie."
+    },
+    "digitalArt": {
+      "name": "Digital Art",
+      "title": "Digitale Kunst kaufen - Originale digitale Werke",
+      "description": "Entdecke {count} digitale Kunstwerke direkt von unabhängigen Künstlern. Sofortiger Download nach Kauf, keine Versandkosten. Digitale Kunst für die moderne Sammlung.",
+      "noArtworks": "Noch keine digitale Kunst verfügbar",
+      "noArtworksDesc": "Werde der erste digitale Künstler auf Varbe!",
+      "foundCount": "{count} digitale Kunstwerke gefunden",
+      "showAll": "Alle {count} digitale Kunstwerke anzeigen",
+      "badge": "DIGITAL",
+      "download": "Sofort Download",
+      "noShipping": "Kein Versand",
+      "seoTitle": "Was ist digitale Kunst?",
+      "seoText1": "Digitale Kunst wird mit digitalen Werkzeugen wie Computern, Tablets oder Software erstellt. Künstler nutzen Programme wie Photoshop, Illustrator, Procreate oder andere digitale Tools, um einzigartige Kunstwerke zu schaffen. Diese werden als hochauflösende Dateien verkauft, die der Käufer sofort nach dem Kauf herunterladen kann.",
+      "seoAdvantagesTitle": "Vorteile digitaler Kunst",
+      "seoAdvantages": {
+        "instant": "Sofortiger Zugriff: Download direkt nach Kauf, keine Wartezeit",
+        "shipping": "Kein Versand: Keine Versandkosten oder Risiko von Beschädigungen",
+        "resolution": "Hochauflösend: Perfekt für Drucke in verschiedenen Größen",
+        "eco": "Umweltfreundlich: Kein physischer Versand nötig",
+        "flexible": "Flexibel: Kann für verschiedene Zwecke genutzt werden"
+      },
+      "seoUsageTitle": "Digitale Kunst nutzen",
+      "seoUsageText": "Digitale Kunstwerke können für verschiedene Zwecke genutzt werden:",
+      "seoUsage": {
+        "print": "Als hochwertiger Druck für die Wand (Fine Art Print)",
+        "display": "Für digitale Displays und Bildschirme",
+        "wallpaper": "Als Hintergrundbilder oder Wallpaper",
+        "social": "Für soziale Medien und Online-Präsentationen",
+        "merchandise": "Für Merchandise und Produkte"
+      },
+      "seoPrintTitle": "Digitale Kunst drucken",
+      "seoPrintText": "Viele Käufer lassen ihre digitalen Kunstwerke als hochwertige Fine Art Prints drucken. Achte auf hochauflösende Dateien (mindestens 300 DPI) für beste Druckqualität. Unsere Künstler stellen Dateien in verschiedenen Größen zur Verfügung.",
+      "ctaTitle": "Bereit, digitale Kunst zu entdecken?",
+      "ctaText": "Stöbere durch alle digitalen Kunstwerke und lade sie sofort nach dem Kauf herunter."
+    },
+    "mixedMedia": {
+      "name": "Mixed Media",
+      "title": "Mixed Media kaufen - Experimentelle Kunstwerke",
+      "description": "Entdecke {count} Mixed-Media-Kunstwerke, die verschiedene Materialien und Techniken kombinieren. Von Collagen über Assemblagen bis hin zu experimentellen Kompositionen – Mixed Media ist die Kunst der Grenzüberschreitung.",
+      "noArtworks": "Noch keine Mixed-Media-Kunstwerke verfügbar",
+      "noArtworksDesc": "Werde der erste Künstler, der Mixed Media auf Varbe verkauft!",
+      "foundCount": "{count} Mixed-Media-Kunstwerke gefunden",
+      "showAll": "Alle {count} Mixed-Media-Kunstwerke anzeigen",
+      "seoTitle": "Was ist Mixed Media?",
+      "seoText1": "Mixed Media kombiniert verschiedene Materialien und Techniken in einem Kunstwerk. Künstler experimentieren mit ungewöhnlichen Materialkombinationen und schaffen so einzigartige, vielschichtige Kunstwerke.",
+      "seoTechniquesTitle": "Mixed-Media-Techniken",
+      "seoTechniquesText": "Auf Varbe findest du verschiedene Mixed-Media-Ansätze:",
+      "seoTechniques": {
+        "collage": "Collage: Kombination von Papier, Stoff, Fotos und anderen Materialien",
+        "assemblage": "Assemblage: Dreidimensionale Kompositionen aus gefundenen Objekten",
+        "combined": "Kombinierte Malerei: Acryl mit anderen Materialien wie Sand, Stoff oder Metall",
+        "digital": "Digital + Analog: Kombination von digitalen und traditionellen Techniken",
+        "textile": "Textil-Kunst: Stoff, Garn und andere textile Materialien"
+      },
+      "seoModernTitle": "Mixed Media für moderne Räume",
+      "seoModernText": "Mixed-Media-Kunstwerke sind perfekt für moderne, experimentelle Räume. Sie bringen Textur, Tiefe und Interesse in jeden Raum und sind ein Statement-Piece für Kunstliebhaber, die etwas Einzigartiges suchen.",
+      "ctaTitle": "Bereit, Mixed Media zu entdecken?",
+      "ctaText": "Stöbere durch alle Mixed-Media-Kunstwerke und finde einzigartige Kompositionen."
+    }
+  },
+  "styles": {
+    "abstrakt": {
+      "title": "Abstrakte Kunst kaufen - Moderne Originale",
+      "description": "Entdecke {count} abstrakte Kunstwerke von unabhängigen Künstlern. Von expressiven Farbkompositionen bis hin zu minimalistischen Formen – abstrakte Kunst bringt Farbe und Energie in jeden Raum.",
+      "noArtworks": "Noch keine abstrakten Kunstwerke verfügbar",
+      "noArtworksDesc": "Werde der erste Künstler, der abstrakte Kunst auf Varbe verkauft!",
+      "foundCount": "{count} abstrakte Kunstwerke gefunden",
+      "showAll": "Alle {count} abstrakte Kunstwerke anzeigen",
+      "seoTitle": "Was ist abstrakte Kunst?",
+      "seoText1": "Abstrakte Kunst verzichtet auf die Darstellung konkreter Gegenstände und konzentriert sich stattdessen auf Formen, Farben, Linien und Texturen. Sie lädt den Betrachter ein, eigene Interpretationen zu finden und emotionale Verbindungen herzustellen.",
+      "seoModernTitle": "Abstrakte Kunst für moderne Räume",
+      "seoModernText": "Abstrakte Kunstwerke sind perfekt für moderne Wohnräume und Büros. Sie bringen Farbe und Dynamik in jeden Raum und können als Statement-Piece oder als Teil einer größeren Kunstsammlung dienen.",
+      "ctaTitle": "Bereit, abstrakte Kunst zu entdecken?",
+      "ctaText": "Stöbere durch alle abstrakten Kunstwerke."
+    },
+    "realistisch": {
+      "title": "Realistische Kunst kaufen - Originale Gemälde",
+      "description": "Entdecke {count} realistische Kunstwerke von talentierten Künstlern. Von detaillierten Porträts über Landschaftsmalerei bis hin zu Stillleben – realistische Kunst fängt die Schönheit der Welt ein.",
+      "noArtworks": "Noch keine realistischen Kunstwerke verfügbar",
+      "foundCount": "{count} realistische Kunstwerke gefunden",
+      "showAll": "Alle {count} realistischen Kunstwerke anzeigen",
+      "seoTitle": "Realistische Kunst – Zeitlose Eleganz",
+      "seoText1": "Realistische Kunst zeichnet sich durch ihre detailgetreue Darstellung der Wirklichkeit aus. Künstler verwenden verschiedene Techniken wie Ölmalerei, Acryl oder Aquarell, um Porträts, Landschaften und Stillleben mit beeindruckender Präzision zu schaffen.",
+      "ctaTitle": "Bereit, realistische Kunst zu entdecken?",
+      "ctaText": "Stöbere durch alle realistischen Kunstwerke."
+    }
+  },
+  "priceRanges": {
+    "unter50": {
+      "title": "Kunst unter 50€ kaufen - Günstige Originale",
+      "description": "Entdecke {count} originale Kunstwerke unter 50€ von unabhängigen Künstlern. Kunst muss nicht teuer sein – finde bezahlbare Originale für jeden Geschmack und jeden Raum.",
+      "noArtworks": "Noch keine Kunstwerke unter 50€ verfügbar",
+      "foundCount": "{count} Kunstwerke unter 50€ gefunden",
+      "showAll": "Alle {count} Kunstwerke unter 50€ anzeigen",
+      "seoTitle": "Kunst für jeden Geldbeutel",
+      "seoText1": "Kunst muss nicht teuer sein! Auf Varbe findest du originale Kunstwerke ab 10€ direkt von unabhängigen Künstlern. Perfekt für den Einstieg in die Kunstsammlung oder um deine Wände mit bezahlbaren Originalen zu schmücken.",
+      "seoWhyTitle": "Warum günstige Kunst kaufen?",
+      "seoWhyText": "Günstige Kunstwerke sind ideal für:",
+      "seoWhy": {
+        "start": "Den Einstieg in die Kunstsammlung",
+        "support": "Junge Künstler zu unterstützen",
+        "multiple": "Mehrere Kunstwerke für verschiedene Räume",
+        "gifts": "Geschenke für Kunstliebhaber"
+      },
+      "relatedTitle": "Weitere Preis-Kategorien",
+      "ctaTitle": "Bereit, Kunst zu entdecken?",
+      "ctaText": "Stöbere durch alle Kunstwerke unter 50€."
+    },
+    "50_100": {
+      "title": "Kunst 50-100€ kaufen - Mittelklasse Originale",
+      "description": "Entdecke {count} originale Kunstwerke zwischen 50€ und 100€. Die perfekte Balance zwischen Qualität und Preis – finde hochwertige Originale für deine Sammlung.",
+      "noArtworks": "Noch keine Kunstwerke in diesem Preisbereich",
+      "foundCount": "{count} Kunstwerke zwischen 50€ und 100€ gefunden",
+      "showAll": "Alle {count} Kunstwerke anzeigen",
+      "ctaTitle": "Bereit, Kunst zu entdecken?",
+      "ctaText": "Stöbere durch alle Kunstwerke zwischen 50€ und 100€."
+    },
+    "100_500": {
+      "title": "Kunst 100-500€ kaufen - Premium Originale",
+      "description": "Entdecke {count} hochwertige originale Kunstwerke zwischen 100€ und 500€. Investiere in qualitativ hochwertige Kunst von etablierten und aufstrebenden Künstlern.",
+      "noArtworks": "Noch keine Kunstwerke in diesem Preisbereich",
+      "foundCount": "{count} Kunstwerke zwischen 100€ und 500€ gefunden",
+      "showAll": "Alle {count} Kunstwerke anzeigen",
+      "ctaTitle": "Bereit, Kunst zu entdecken?",
+      "ctaText": "Stöbere durch alle Kunstwerke zwischen 100€ und 500€."
+    }
+  },
+  "pages": {
+    "ueberUns": {
+      "title": "Über Varbe",
+      "tagline": "Von Künstlern, für Künstler. Die Social Platform für echte Kunst.",
+      "intro": "Varbe wird die erste Art Discovery Platform, die Social Media und Marketplace wirklich vereint. Während Instagram Künstler mit Algorithmen erstickt, DeviantArt mit KI-Müll geflutet wird und Etsy 35-40% Gebühren nimmt, bauen wir etwas anderes: Eine Plattform, auf der du durch Kunstwerke swipen kannst wie auf TikTok, lokale Künstler in deiner Nähe entdeckst und direkt beim Künstler kaufen kannst. Komplett AI-free, fair mit nur 10% Gebühr, und ohne Algorithmus-Manipulation.",
+      "earlyAccess": "Wir sind aktuell im Early Access. Das bedeutet, der große Launch mit Discovery Feed, Marketplace und allen Features kommt in den kommenden Monaten. Aber du kannst jetzt schon dabei sein, dich mit anderen Künstlern und Kunstliebhabern in unseren Chat-Bereichen austauschen und die Plattform aktiv mitgestalten. Als Gründungsmitglied bist du von Anfang an dabei und bekommst besondere Vorteile wie ein \"Founding Member\" Badge und reduzierte Gebühren, sobald der Marketplace live geht.",
+      
+      "mission": {
+        "title": "Unsere Mission",
+        "subtitle": "Kunst entdeckbar machen. Künstler sichtbar machen.",
+        "text1": "Wir haben Varbe 2024 in Bremen gegründet, weil wir als Künstler und Kunstliebhaber einfach frustriert waren. Als Künstler sehen wir auf Instagram nur noch 5% unserer Follower erreicht. Unsere Posts verschwinden im Algorithmus, während AI-generierte \"Kunst\" viral geht. Wir posten etwas, das uns Wochen Arbeit gekostet hat, und bekommen drei Likes. Gleichzeitig nimmt Etsy 35-40% Gebühren und DeviantArt wird mit AI-Spam überflutet.",
+        "text2": "Als Käufer ist es unmöglich geworden, echte Originale zu finden. Du scrollst durch hunderte AI-generierte Bilder, bevor du ein echtes Kunstwerk siehst. Und wenn du dann eins findest, zahlst du entweder horrende Galerie-Aufschläge oder weißt nicht, ob der Verkäufer seriös ist.",
+        "text3": "Wir glauben, dass Kunstentdeckung ein Erlebnis sein sollte, kein Kampf gegen Algorithmen. Deshalb bauen wir Varbe – eine Plattform, die das Beste aus Social Media (Discovery, Community, Stories) mit dem Besten aus Marktplätzen (direkter Verkauf, faire Preise, Käuferschutz) verbindet. Und das Wichtigste: Wir arbeiten für Künstler, nicht gegen sie."
+      },
+      
+      "different": {
+        "title": "Was macht Varbe anders?",
+        "discovery": {
+          "title": "Entdecke Kunst wie auf TikTok",
+          "text1": "Stell dir vor, du scrollst durch Instagram oder TikTok – aber statt Reels siehst du atemberaubende Kunstwerke in voller Bildschirmgröße. Genau so wird unser Discovery Feed funktionieren. Swipe nach oben für das nächste Werk, double-tap zum Liken, und lass dich von echter Kunst inspirieren statt von Algorithmen manipulieren.",
+          "text2": "Der Feed wird personalisiert sein, aber ohne die Spielchen die Instagram spielt. Wenn du einem Künstler folgst, siehst du dessen Posts auch wirklich. Keine Shadow-Bans, keine künstliche Reichweiten-Drosselung, keine \"Post täglich oder stirb\"-Kultur. Dein Following-Feed ist chronologisch, ehrlich und transparent. Du kannst in deinem eigenen Tempo arbeiten und musst keine Angst haben, dass deine Reichweite einbricht, wenn du mal eine Woche Pause machst."
+        },
+        "stories": {
+          "title": "Jedes Kunstwerk erzählt eine Geschichte",
+          "text1": "Ein Kunstwerk ist mehr als nur ein hübsches Bild. Hinter jedem Werk steckt ein Prozess, eine Inspiration, eine Geschichte. Deshalb können Künstler auf Varbe zu jedem Werk Voice Notes aufnehmen – 30 Sekunden, in denen sie erzählen, wie das Werk entstanden ist, was es bedeutet, oder welche Technik sie verwendet haben.",
+          "text2": "Du wirst Behind-the-Scenes Process Videos sehen können, die zeigen, wie aus einer weißen Leinwand ein fertiges Kunstwerk wurde. Oder kurze Text-Stories über die Inspiration hinter dem Werk lesen. Kunst wird so vom Produkt zum Erlebnis. Du kaufst nicht nur ein Bild, sondern eine Geschichte, eine Verbindung zum Künstler, ein Stück kreative Energie."
+        },
+        "local": {
+          "title": "Finde Kunst in deiner Nähe",
+          "text1": "Kunst existiert nicht nur auf dem Bildschirm. In deiner Stadt gibt es wahrscheinlich dutzende talentierte Künstler, die du noch nie entdeckt hast. Unser Local Art Radar wird dir auf einer interaktiven Karte zeigen, wo in deiner Nähe Kunst entsteht. Du bekommst Benachrichtigungen wie \"New art posted 500m away\" und kannst lokale Ateliers, Open Studio Events und Ausstellungen entdecken.",
+          "text2": "Vielleicht wohnst du nur zwei Straßen von einem Maler entfernt, dessen Stil du liebst. Vielleicht gibt es ein Keramik-Atelier in deinem Viertel, das du noch nie bemerkt hast. Der Local Art Radar bringt die Online- und Offline-Kunstwelt zusammen. Denn am Ende geht es nicht nur ums Kaufen, sondern darum, echte Menschen hinter der Kunst kennenzulernen."
+        },
+        "community": {
+          "title": "Community statt nur Follower-Zahlen",
+          "text1": "Ja, es wird Follower auf Varbe geben – du kannst Künstlern folgen und sie können dir folgen. Aber wir glauben nicht daran, dass Erfolg an Follower-Zahlen gemessen werden sollte. Stattdessen bauen wir Features, die echte Verbindungen schaffen statt oberflächliches Engagement.",
+          "text2": "Artist Circles werden kleine private Gruppen mit maximal zehn Künstlern sein, die sich gegenseitig unterstützen, konstruktives Feedback geben und gemeinsam wachsen. Keine öffentlichen Kommentare, keine Likes, nur ehrliche Critique unter Gleichgesinnten. Hier entstehen echte Freundschaften und Accountability-Partnerschaften.",
+          "text3": "Unsere Weekly Art Challenges werden die Community zusammenbringen: Ein Prompt wird veröffentlicht, alle haben 48 Stunden Zeit etwas zu kreieren, und die Community votet für ihre Favoriten. Die Gewinner werden im Main Feed gefeatured und bekommen Badges. Es geht nicht darum, täglich zu posten oder den Algorithmus zu füttern – es geht um Quality over Quantity."
+        }
+      },
+      
+      "better": {
+        "title": "Warum Varbe besser ist",
+        "aiFree": {
+          "title": "100% AI-Free Zone",
+          "text": "Wir haben null Toleranz für AI-generierte Kunst. Jeder Künstler wird manuell verifiziert. Wir nutzen AI-Detection bei jedem Upload. Alle echten Künstler bekommen ein \"Verified Human Artist\" Badge. Bei AI-Verdacht gibt es sofortige Sperrung und permanenten Ban. Wir schützen unsere Community kompromisslos. Deine Kunst wird nicht mit KI-Müll vermischt und verschwindet nicht zwischen tausenden AI-generierten Bildern."
+        },
+        "fairFees": {
+          "title": "Faire Konditionen für Künstler",
+          "text1": "Wenn unser Marketplace live geht, nehmen wir nur 10% Gebühr pro Verkauf – maximal 10€. Keine monatlichen Gebühren, keine Listing-Gebühren, keine versteckten Kosten. Im Vergleich: Etsy nimmt 35-40%, Galerien nehmen oft 50%. Bei uns gehen 90% des Geldes direkt an dich. Auszahlung erfolgt automatisch via Stripe Connect. Transparent, fair, ehrlich.",
+          "text2": "Aber das Wichtigste: Du musst nichts verkaufen, um Teil der Community zu sein. Varbe ist zuerst eine Discovery Platform. Der Marketplace ist optional. Du kannst Varbe nutzen, um deine Kunst zu zeigen, eine Community aufzubauen, mit anderen Künstlern zu connecten – ganz ohne Verkaufsdruck."
+        },
+        "protection": {
+          "title": "Käuferschutz und Sicherheit",
+          "text": "Sobald der Marketplace startet, gibt es 14 Tage Geld-zurück-Garantie. Sichere Zahlung über Stripe. Tracking bei jedem Versand. Bei Problemen: voller Kaufpreis zurück. Du kaufst direkt beim Künstler, nicht über Zwischenhändler, aber mit der Sicherheit die du von großen Plattformen kennst."
+        },
+        "noAlgorithm": {
+          "title": "Keine Algorithmus-Hölle",
+          "text": "Deine Kunst, deine Kontrolle. Der chronologische Feed für deine Follower zeigt wirklich alles, was du postest. Featured Artists werden kuratiert, nicht \"promoted\". Keine Shadow-Bans, keine künstliche Reichweiten-Drosselung, keine Blackbox-Algorithmen. Transparente Sichtbarkeit. Wenn du gute Kunst machst und eine Community aufbaust, wirst du gesehen – unabhängig davon, wie oft du postest oder ob du Geld für Ads ausgibst."
+        }
+      },
+      
+      "story": {
+        "title": "Unsere Story",
+        "text1": "Varbe wurde 2024 in Bremen gegründet von einem Team, das selbst aus Künstlern und Kunstliebhabern besteht. Wir haben die Frustration selbst erlebt. Wir haben Wochen in ein Kunstwerk gesteckt, es auf Instagram gepostet und drei Likes bekommen, während ein AI-generiertes Bild viral ging. Wir haben auf Etsy verkauft und 40% Gebühren gezahlt. Wir haben versucht, auf DeviantArt echte Kunst zu finden und mussten durch hunderte AI-Spam-Bilder scrollen.",
+        "text2": "Gleichzeitig haben wir gesehen, wie Plattformen wie TikTok und Instagram neue Wege finden, Content zu entdecken. Wie lokale Communities auf Meetup und Discord echte Verbindungen schaffen. Wie Patreon und Gumroad Künstlern ermöglichen, direkt von ihrer Community zu leben.",
+        "text3": "Wir dachten: Warum gibt es keine Plattform, die all das kombiniert? Eine Plattform, die Kunstentdeckung so einfach macht wie TikTok, aber fair ist wie Patreon. Die lokale Communities connected wie Meetup, aber global skaliert wie Instagram. Die AI konsequent ausschließt und Künstler wirklich in den Mittelpunkt stellt.",
+        "text4": "Also haben wir Varbe gebaut. Oder besser gesagt: Wir bauen es gerade. Denn wir wollen das nicht alleine machen. Wir wollen Varbe gemeinsam mit der Community aufbauen – mit Künstlern, die verstehen, was fehlt, und mit Kunstliebhabern, die echte Kunst schätzen."
+      },
+      
+      "status": {
+        "title": "Der aktuelle Stand",
+        "intro": "Wir sind im Early Access. Das bedeutet, viele Features kommen erst in den kommenden Monaten.",
+        "text1": "Der Discovery Feed ist in Entwicklung. Der Marketplace kommt später. Der Local Art Radar wird ausgerollt. Aber du kannst jetzt schon dabei sein.",
+        "text2": "Aktuell kannst du ein Profil erstellen, dich als Künstler registrieren und verifizieren lassen, in unserem Blog Updates verfolgen und in den Chat-Bereichen mit anderen Gründungsmitgliedern connecten. Du bist von Anfang an dabei. Du kannst Feedback geben, das direkt in die Entwicklung einfließt. Du bekommst ein \"Founding Member\" Badge. Und wenn der Marketplace live geht, profitierst du von reduzierten Gebühren in den ersten Monaten. Wir könnten noch zwei Jahre entwickeln und dann einen \"perfekten\" Launch machen. Aber wir glauben an Community-First. Wir wollen Varbe zusammen mit den Menschen aufbauen, für die wir es machen. Deshalb öffnen wir jetzt die Türen, auch wenn noch nicht alles fertig ist."
+      },
+      
+      "features": {
+        "title": "Die Features im Detail",
+        "discovery": {
+          "badge": "IN ENTWICKLUNG",
+          "title": "Discovery Feed",
+          "text": "Der vertikale Full-Screen Feed wird vier Modi haben: \"For You\" zeigt personalisierte Kunst basierend auf deinen Likes. \"Following\" zeigt chronologisch alles von Künstlern, denen du folgst. \"Local\" zeigt Kunst aus deiner Stadt oder Region. \"Explore\" zeigt kuratierte Highlights von der Community. Du kannst zwischen den Modi switchen und bekommst so genau die Art von Content, die du gerade sehen willst."
+        },
+        "profiles": {
+          "title": "Artist Profiles",
+          "text": "Dein Profil wird eine Timeline-View deiner künstlerischen Entwicklung zeigen. Du kannst Portfolio-Collections anlegen für kuratierte Serien. Eine \"Work in Progress\" Section zeigt, woran du gerade arbeitest. Dein Artist DNA Profile visualisiert deinen Stil durch Tags, Techniken und Einflüsse. Andere Künstler können dein Profil besuchen, dir folgen, dich für Circles nominieren oder dich zu Challenges challengen."
+        },
+        "community": {
+          "title": "Community Features",
+          "text": "Comments werden substanziell sein – keine \"cool\" oder \"nice\" One-Worder. Minimum 15 Zeichen, damit echte Gespräche entstehen. Artist Circles für private Critique und Support. Weekly Challenges für Community-Engagement. Ein Badge-System, das nicht auf Follower-Zahlen basiert, sondern auf echter Partizipation. Und Direct Messages, sobald das Chat-System ausgerollt ist."
+        },
+        "marketplace": {
+          "badge": "KOMMT SPÄTER",
+          "title": "Marketplace",
+          "text": "Wenn der Marketplace live geht, kannst du Kunstwerke mit wenigen Klicks listen. Preis festlegen, Versandoptionen angeben, fertig. Bei Verkauf läuft alles automatisch: Zahlung über Stripe, Benachrichtigung an dich, Versand mit Tracking, Geld-Release nach Käuferschutz-Periode, automatische Auszahlung am 15. des Monats. Du musst dich um nichts kümmern – außer dein Kunstwerk zu verpacken und zu versenden."
+        }
+      },
+      
+      "join": {
+        "title": "Werde Teil der Varbe-Community",
+        "artists": {
+          "title": "Für Künstler",
+          "text": "Erstelle jetzt kostenlos dein Profil. Lass dich verifizieren und werde Teil der Gründungs-Community. Vernetze dich in den Chat-Bereichen mit anderen Künstlern. Gib Feedback zur Plattform-Entwicklung. Und sei bereit, wenn der Discovery Feed und Marketplace live gehen – dann kannst du sofort durchstarten.",
+          "benefits": "Als Early Access Mitglied bekommst du das \"Founding Member\" Badge, wirst bevorzugt gefeatured und erhältst reduzierte Gebühren in den ersten Monaten. Du bist nicht nur Nutzer, du bist Mitgestalter."
+        },
+        "lovers": {
+          "title": "Für Kunstliebhaber",
+          "text": "Auch wenn der Discovery Feed noch nicht live ist – du kannst jetzt schon Teil der Community werden. Lerne die ersten Künstler kennen. Folge dem Blog für Updates. Beteilige dich an Diskussionen in den Chat-Bereichen. Und sei bereit, wenn Varbe vollständig launched – dann wartet eine Welt voller echter, handgemachter Kunst auf dich."
+        }
+      },
+      
+      "next": {
+        "title": "Was kommt als Nächstes?",
+        "text": "In den kommenden Wochen und Monaten werden wir schrittweise ausrollen: Discovery Feed Beta für erste Nutzer. Artist Circles und Challenge-System. Local Art Radar mit interaktiver Karte. Marketplace für Verkäufe mit Käuferschutz. Mobile App für iOS und Android. Und noch viel mehr, basierend auf eurem Feedback.",
+        "updates": "Wir halten euch über den Blog und per Email auf dem Laufenden. Jedes neue Feature wird angekündigt und Beta-Tester aus der Early Access Community bekommen ersten Zugang."
+      },
+      
+      "contact": {
+        "title": "Kontakt",
+        "subtitle": "Fragen? Feedback? Ideen?",
+        "email": "Schreib uns"
+      },
+      
+      "cta": {
+        "join": "JETZT BEITRETEN",
+        "blog": "BLOG LESEN",
+        "chat": "COMMUNITY CHAT",
+        "slogan": "Kunst entdecken. Künstler supporten. Keine KI-Scheiße."
+      },
+      
+      "badges": {
+        "noAi": "KEINE KI-KUNST",
+        "fees": "NUR 10% GEBÜHREN",
+        "owned": "KÜNSTLER-OWNED",
+        "local": "LOKALE COMMUNITY",
+        "earlyAccess": "EARLY ACCESS JETZT"
+      }
+    },
+    "kuenstler": {
+      "title": "Für Künstler",
+      "heroTitle": "Verkaufe deine Kunst direkt an Kunstliebhaber – fair, einfach, transparent.",
+      "ctaBecome": "Jetzt Künstler werden",
+      "howTitle": "So funktioniert's",
+      "steps": {
+        "step1": { "number": "1️⃣", "title": "Registrieren & Verifizieren", "desc": "Erstelle ein Konto und werde als Künstler verifiziert. Lade dein Portfolio hoch und warte auf die Bestätigung." },
+        "step2": { "number": "2️⃣", "title": "Kunstwerke listen", "desc": "Erstelle Listings für deine Kunstwerke. Füge Bilder, Beschreibungen und Preise hinzu. Wähle zwischen Sofortkauf oder Auktion." },
+        "step3": { "number": "3️⃣", "title": "Verkaufen & Auszahlen", "desc": "Sobald ein Kunstwerk verkauft ist, versendest du es. Nach 14 Tagen Käuferschutz wird dein Geld ausgezahlt." }
+      },
+      "feesTitle": "Gebühren & Preise",
+      "fees": {
+        "platform": { "title": "Plattform-Gebühr: 10%", "desc": "Wir nehmen nur 10% vom Verkaufspreis. Das bedeutet: 90% des Geldes geht direkt an dich!" },
+        "payment": { "title": "Zahlungsgebühren: ~3%", "desc": "Stripe berechnet zusätzlich ~3% für die sichere Zahlungsabwicklung. Diese Gebühr wird transparent angezeigt." },
+        "hidden": { "title": "Keine versteckten Kosten", "desc": "Keine monatlichen Gebühren, keine Listing-Gebühren, keine Auszahlungsgebühren. Du zahlst nur, wenn du auch verkaufst." }
+      },
+      "whyTitle": "Warum Varbe?",
+      "benefits": {
+        "fair": { "title": "✅ Faire Gebühren", "desc": "90% des Verkaufspreises geht an dich. Keine versteckten Kosten, keine monatlichen Gebühren." },
+        "simple": { "title": "✅ Einfacher Prozess", "desc": "Erstelle Listings in wenigen Minuten. Keine komplizierten Verträge oder langwierige Genehmigungsprozesse." },
+        "protection": { "title": "✅ Käuferschutz", "desc": "Wir übernehmen den Käuferschutz, damit du dich auf deine Kunst konzentrieren kannst." },
+        "contact": { "title": "✅ Direkter Kontakt", "desc": "Käufer können direkt mit dir kommunizieren. Keine anonymen Zwischenhändler." },
+        "flexible": { "title": "✅ Flexible Verkaufsoptionen", "desc": "Wähle zwischen Sofortkauf, Auktion oder beidem. Du bestimmst die Preise." },
+        "payout": { "title": "✅ Schnelle Auszahlung", "desc": "Nach 14 Tagen Käuferschutz wird dein Geld automatisch ausgezahlt. Keine langen Wartezeiten." }
+      },
+      "verificationTitle": "Künstler-Verifizierung",
+      "verificationText1": "Um die Qualität unserer Plattform zu gewährleisten, verifizieren wir jeden Künstler manuell.",
+      "verificationWhatTitle": "Was brauchst du?",
+      "verificationWhat": {
+        "name": "Künstlername oder Alias",
+        "style": "Kunststil (Malerei, Digital, Skulptur, etc.)",
+        "bio": "Kurze Biografie (max. 500 Zeichen)",
+        "portfolio": "Portfolio mit mindestens 3 Kunstwerken"
+      },
+      "verificationTimeTitle": "Wie lange dauert es?",
+      "verificationTimeText": "Die Verifizierung dauert in der Regel 1-3 Werktage. Wir prüfen jedes Portfolio persönlich, um sicherzustellen, dass nur echte Kunst auf Varbe verkauft wird.",
+      "verificationCta": "Jetzt verifizieren lassen",
+      "finalCtaTitle": "Bereit, deine Kunst zu verkaufen?",
+      "finalCtaText": "Werde Teil der Varbe-Community und erreiche Kunstliebhaber in ganz Deutschland.",
+      "finalCtaButton": "Jetzt Künstler werden"
+    },
+    "kaufen": {
+      "title": "Kunst kaufen",
+      "heroTitle": "Entdecke einzigartige Kunstwerke direkt von unabhängigen Künstlern.",
+      "ctaDiscover": "Jetzt Kunst entdecken",
+      "howTitle": "So kaufst du Kunst auf Varbe",
+      "steps": {
+        "step1": { "number": "1️⃣", "title": "Entdecken", "desc": "Stöbere durch hunderte Kunstwerke von verifizierten Künstlern. Filtere nach Kategorie, Stil, Preis oder Technik." },
+        "step2": { "number": "2️⃣", "title": "Kaufen", "desc": "Wähle zwischen Sofortkauf oder Auktion. Sichere Zahlung über Stripe. 14 Tage Käuferschutz inklusive." },
+        "step3": { "number": "3️⃣", "title": "Freuen", "desc": "Dein Kunstwerk kommt direkt vom Künstler zu dir nach Hause. Oder hole es persönlich ab, wenn möglich." }
+      },
+      "protectionTitle": "Käuferschutz",
+      "protection": {
+        "guarantee": { "title": "14 Tage Geld-zurück-Garantie", "desc": "Wenn du mit deinem Kauf nicht zufrieden bist, kannst du das Kunstwerk innerhalb von 14 Tagen nach Erhalt zurückgeben und erhältst dein Geld zurück." },
+        "secure": { "title": "Sichere Zahlung", "desc": "Alle Zahlungen werden über Stripe abgewickelt – einem der sichersten Zahlungsdienstleister weltweit. Deine Kreditkartendaten werden nie bei uns gespeichert." },
+        "verified": { "title": "Verifizierte Künstler", "desc": "Jeder Künstler auf Varbe wird manuell verifiziert. Wir prüfen Portfolios und stellen sicher, dass nur echte Kunst verkauft wird." }
+      },
+      "shippingTitle": "Versand & Lieferung",
+      "shipping": {
+        "shipping": { "title": "📦 Versand", "desc": "Die meisten Künstler versenden innerhalb Deutschlands und der EU. Versandkosten werden im Listing angezeigt.", "time": "Lieferzeit: In der Regel 5-14 Werktage nach Zahlungseingang." },
+        "pickup": { "title": "📍 Selbstabholung", "desc": "Viele Künstler bieten auch Selbstabholung an. Perfekt für lokale Käufer oder wenn du das Kunstwerk persönlich abholen möchtest.", "location": "Standort: Wird im Listing angezeigt." },
+        "digital": { "title": "💾 Digitale Kunst", "desc": "Digitale Kunstwerke werden sofort nach Kauf als Download bereitgestellt. Kein Versand nötig!" },
+        "packaging": { "title": "📦 Verpackung", "desc": "Künstler versenden Kunstwerke sicher verpackt. Bei größeren Werken wird oft eine Versicherung empfohlen." }
+      },
+      "paymentTitle": "Zahlungsarten",
+      "payment": {
+        "card": { "title": "💳 Kreditkarte", "desc": "Visa, Mastercard, American Express – alle gängigen Kreditkarten werden akzeptiert." },
+        "paypal": { "title": "🔐 PayPal", "desc": "Bezahle sicher mit PayPal – wenn der Künstler PayPal akzeptiert." }
+      },
+      "paymentNote": "Alle Zahlungen werden sicher über Stripe verarbeitet. Deine Daten sind geschützt.",
+      "ctaTitle": "Bereit, Kunst zu entdecken?",
+      "ctaText": "Stöbere durch hunderte einzigartige Kunstwerke von unabhängigen Künstlern.",
+      "ctaButton": "Zum Marktplatz"
+    },
+    "kontakt": {
+      "title": "Kontakt",
+      "heroTitle": "Hast du Fragen? Wir helfen dir gerne weiter!",
+      "heroDesc": "Kontaktiere uns per E-Mail oder nutze das Kontaktformular.",
+      "emailTitle": "📧 E-Mail",
+      "email": "info@varbe.org",
+      "emailDesc": "Wir antworten in der Regel innerhalb von 24 Stunden.",
+      "formTitle": "Kontaktformular",
+      "formName": "Name *",
+      "formEmail": "E-Mail *",
+      "formSubject": "Betreff *",
+      "formSubjectOptions": {
+        "general": "Allgemeine Frage",
+        "artist": "Frage als Künstler",
+        "buyer": "Frage als Käufer",
+        "technical": "Technisches Problem",
+        "other": "Sonstiges"
+      },
+      "formMessage": "Nachricht *",
+      "formSubmit": "Nachricht senden",
+      "formSuccess": "✅ Nachricht gesendet!",
+      "formSuccessDesc": "Wir melden uns schnellstmöglich bei dir.",
+      "faqTitle": "Häufige Fragen?",
+      "faqText": "Viele Fragen werden bereits in unseren FAQs beantwortet.",
+      "faqButton": "Zu den FAQs",
+      "socialTitle": "Folge uns"
+    },
+    "blog": {
+      "title": "Kunst-Magazin",
+      "description": "Tipps, Guides und Inspirationen für Künstler und Kunstliebhaber. Von Verkaufstipps bis hin zu Kunstgeschichte – hier findest du alles rund um Kunst.",
+      "allArticles": "Alle Artikel",
+      "forArtists": "Für Künstler",
+      "forBuyers": "Für Käufer",
+      "guides": "Ratgeber",
+      "readTime": "Lesezeit",
+      "backToBlog": "← Zurück zum Blog",
+      "moreArticles": "Weitere Artikel",
+      "newsletterTitle": "Verpasse keine neuen Artikel",
+      "newsletterDesc": "Erhalte wöchentlich die neuesten Artikel direkt in dein Postfach.",
+      "newsletterPlaceholder": "deine@email.de",
+      "newsletterButton": "Anmelden",
+      "loading": "Lade Artikel..."
+    }
+  },
+  "challenges": {
+    "hero": {
+      "badge": "Live Challenges",
+      "title": "ART",
+      "titleHighlight": "CHALLENGES",
+      "description": "Nimm an täglichen & wöchentlichen Challenges teil. Sammle Likes. Gewinne Badges.",
+      "activeArtists": "Aktive Künstler",
+      "submissions": "Einreichungen",
+      "activeChallenges": "Aktive Challenges"
+    },
+    "daily": {
+      "badge": "24H Challenge",
+      "endsIn": "Endet in"
+    },
+    "weekly": {
+      "badge": "Weekly Challenge",
+      "endsIn": "Endet in"
+    },
+    "stats": {
+      "participants": "Teilnehmer",
+      "submissions": "Einreichungen"
+    },
+    "actions": {
+      "joinNow": "Jetzt mitmachen",
+      "submitted": "Eingereicht!",
+      "loginToJoin": "Anmelden zum Mitmachen"
+    },
+    "leaderboard": {
+      "title": "Leaderboard",
+      "sortedByLikes": "Sortiert nach Likes"
+    },
+    "empty": {
+      "title": "Noch keine Einreichungen",
+      "description": "Sei der Erste und zeige der Community dein Werk!",
+      "submitFirst": "Erstes Werk einreichen"
+    },
+    "upload": {
+      "selectImage": "Bild auswählen",
+      "dragHint": "Klicke oder ziehe ein Bild hierher",
+      "captionPlaceholder": "Beschreibung hinzufügen (optional)",
+      "submit": "Einreichen",
+      "uploading": "Wird hochgeladen...",
+      "errorImage": "Bitte wähle ein Bild aus.",
+      "errorSize": "Das Bild darf maximal 10MB groß sein.",
+      "errorAlready": "Du hast bereits an dieser Challenge teilgenommen!"
+    },
+    "comments": {
+      "title": "Kommentare",
+      "placeholder": "Kommentar schreiben...",
+      "empty": "Noch keine Kommentare",
+      "beFirst": "Sei der Erste!",
+      "ownSubmission": "Du kannst deine eigene Einreichung nicht kommentieren",
+      "loginToComment": "Anmelden um zu kommentieren"
+    },
+    "badges": {
+      "title": "Sammle Badges",
+      "description": "Je mehr du teilnimmst und gewinnst, desto mehr Badges sammelst du!"
+    },
+    "loading": "Lade Challenges..."
+  },
+  "footer": {
+    "tagline": "Der Kunstmarktplatz für unabhängige Künstler und Kunstliebhaber.",
+    "categories": "Kategorien",
+    "forArtists": "Für Künstler",
+    "sell": "Verkaufen",
+    "fees": "Gebühren",
+    "verification": "Verifizierung",
+    "contact": "Kontakt",
+    "aboutVarbe": "Über Varbe",
+    "aboutUs": "Über uns",
+    "legal": "Rechtliches",
+    "imprint": "Impressum",
+    "privacy": "Datenschutz",
+    "terms": "AGB",
+    "cancellation": "Widerruf",
+    "cookies": "Cookies",
+    "copyright": "© 2025 Varbe · Made with ❤️ in Bremen",
+    "settings": {
+      "data": {
+        "title": "Datenverwaltung",
+        "description": "Hier kannst du deine Daten exportieren oder löschen (DSGVO-konform).",
+        "export": {
+          "title": "Daten exportieren",
+          "description": "Lade alle deine Daten als JSON-Datei herunter (DSGVO Art. 15 - Recht auf Auskunft).",
+          "exportButton": "Daten exportieren",
+          "exporting": "Wird exportiert..."
+        },
+        "delete": {
+          "title": "Daten löschen",
+          "description": "⚠️ WARNUNG: Diese Aktion kann nicht rückgängig gemacht werden! Alle deine Daten werden gelöscht.",
+          "button": "Alle Daten löschen",
+          "deleting": "Wird gelöscht..."
+        }
+      }
+    }
+  }
+}
+

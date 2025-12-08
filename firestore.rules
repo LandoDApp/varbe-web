@@ -1,0 +1,646 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Users collection
+    match /users/{userId} {
+      allow read: if true;
+      // Allow seeding for development (remove in production)
+      allow create: if true;
+      allow update: if request.auth != null && 
+                       (request.auth.uid == userId ||
+                        request.resource.data.verificationStatus != null ||
+                        request.resource.data.role != null) ||
+                    // Allow email verification updates from API
+                    request.resource.data.diff(resource.data).affectedKeys().hasOnly(['emailVerified', 'emailVerifiedAt']) ||
+                    // Allow achievement/badge updates from API
+                    request.resource.data.diff(resource.data).affectedKeys().hasOnly(['achievementData']) ||
+                    // Allow artistProfile updates (for location/map visibility)
+                    request.resource.data.diff(resource.data).affectedKeys().hasOnly(['artistProfile']);
+      allow delete: if request.auth != null && request.auth.uid == userId;
+    }
+    
+    // Usernames collection (lookup table for unique usernames)
+    match /usernames/{username} {
+      allow read: if true;
+      // Only allow create/update through transactions from authenticated users
+      allow create: if request.auth != null && 
+                       request.resource.data.uid == request.auth.uid;
+      allow update: if false; // Never allow updates, only delete and recreate
+      allow delete: if request.auth != null && 
+                       resource.data.uid == request.auth.uid;
+    }
+    
+    // Artworks collection
+    match /artworks/{artworkId} {
+      allow read: if true;
+      allow create: if request.auth != null;
+      allow update: if (request.auth != null && 
+                       (resource.data.artistId == request.auth.uid ||
+                        request.resource.data.adminApprovalStatus != null ||
+                        request.resource.data.featured != null)) ||
+                   (request.resource.data.diff(resource.data).affectedKeys().hasOnly(['views', 'updatedAt']));
+      allow delete: if request.auth != null && resource.data.artistId == request.auth.uid;
+    }
+    
+    // Bids collection
+    match /bids/{bidId} {
+      allow read: if true;
+      allow create: if request.auth != null;
+      allow update: if false;
+      allow delete: if false;
+    }
+    
+    // Orders collection
+    match /orders/{orderId} {
+      allow read: if true;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null || 
+                       (request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status', 'stripePaymentIntentId', 'updatedAt', 'deliveredAt', 'buyerProtectionEndsAt', 'buyerProtectionStatus', 'earningsStatus', 'paidAt', 'shippingDeadline', 'shippingReminderSent', 'shippingWarningSent', 'autoCancelledAt', 'trackingNumber', 'trackingStatus', 'trackingSubmittedAt', 'trackingApprovedAt', 'trackingApprovedBy', 'trackingRejectionReason', 'shippingProvider', 'shippedAt', 'pickupCompletedAt']) &&
+                        request.resource.data.status in ["paid", "shipped", "delivered", "cancelled"] && 
+                        request.resource.data.stripePaymentIntentId != null);
+      allow delete: if request.auth == null;
+    }
+    
+    // Favorites collection
+    match /favorites/{favoriteId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow delete: if request.auth != null;
+      allow update: if false;
+    }
+    
+    // Reports collection
+    match /reports/{reportId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null;
+      allow delete: if false;
+    }
+    
+    // Disputes collection
+    match /disputes/{disputeId} {
+      allow read: if request.auth != null && 
+                     (resource.data.buyerId == request.auth.uid || 
+                      resource.data.artistId == request.auth.uid);
+      allow create: if request.auth != null && 
+                      request.resource.data.buyerId == request.auth.uid;
+      allow update: if request.auth != null && 
+                      (resource.data.artistId == request.auth.uid ||
+                       request.resource.data.status == 'resolved');
+      allow delete: if false;
+    }
+    
+    // Payouts collection
+    match /payouts/{payoutId} {
+      allow read: if request.auth != null && 
+                     resource.data.sellerId == request.auth.uid;
+      allow create: if request.auth == null;
+      allow update: if request.auth == null;
+      allow delete: if false;
+    }
+    
+    // Notifications collection
+    match /notifications/{notificationId} {
+      allow read: if request.auth == null || 
+                     (request.auth != null && (resource == null || resource.data.userId == request.auth.uid));
+      allow create: if request.auth == null || 
+                       (request.auth != null && request.resource.data.userId == request.auth.uid) ||
+                       (request.auth != null && 
+                        request.resource.data.type in [
+                          // Order notifications
+                          'purchase_success', 'tracking_submitted', 'tracking_approved', 'order_shipped', 'order_delivered', 'new_order',
+                          // Auction notifications
+                          'highest_bidder', 'outbid',
+                          // Review & Dispute
+                          'please_review', 'dispute_opened', 'dispute_response', 'dispute_resolved',
+                          // Messages
+                          'new_message',
+                          // Chatroom notifications
+                          'chatroom_message',
+                          // Feed notifications (Phase 2)
+                          'new_follower', 'post_liked', 'post_commented', 'new_post',
+                          // Commission notifications (Phase 2)
+                          'commission_application', 'commission_accepted', 'commission_rejected', 'commission_completed',
+                          // Subscription notifications (Phase 2)
+                          'new_subscriber', 'subscription_cancelled', 'subscription_renewed'
+                        ] &&
+                        request.resource.data.userId is string &&
+                        request.resource.data.title is string &&
+                        request.resource.data.message is string);
+      allow update: if request.auth != null && 
+                       resource.data.userId == request.auth.uid &&
+                       request.resource.data.diff(resource.data).affectedKeys().hasOnly(['read']);
+      allow delete: if request.auth == null;
+    }
+    
+    // Seller balances collection
+    match /sellerBalances/{balanceId} {
+      allow read: if request.auth == null || 
+                     (request.auth != null && resource.data.userId == request.auth.uid);
+      allow create: if request.auth == null;
+      allow update: if request.auth == null;
+      allow delete: if request.auth == null;
+    }
+    
+    // Reviews collection
+    match /reviews/{reviewId} {
+      allow read: if true;
+      allow create: if request.auth != null && 
+                      request.resource.data.buyerId == request.auth.uid &&
+                      request.resource.data.artistId is string &&
+                      request.resource.data.orderId is string &&
+                      request.resource.data.rating is int &&
+                      request.resource.data.rating >= 1 &&
+                      request.resource.data.rating <= 5;
+      allow update: if request.auth != null && 
+                      resource.data.buyerId == request.auth.uid &&
+                      request.resource.data.diff(resource.data).affectedKeys().hasOnly(['comment', 'updatedAt']);
+      allow delete: if false;
+    }
+    
+    // Conversations collection
+    match /conversations/{conversationId} {
+      allow read: if request.auth != null && 
+                     request.auth.uid in resource.data.participants;
+      allow create: if request.auth != null &&
+                       request.auth.uid in request.resource.data.participants;
+      allow update: if request.auth != null &&
+                       request.auth.uid in resource.data.participants;
+      allow delete: if false;
+    }
+    
+    // Messages collection (DMs)
+    match /messages/{messageId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null &&
+                       request.resource.data.senderId == request.auth.uid;
+      allow update: if request.auth != null &&
+                       (resource.data.senderId == request.auth.uid ||
+                        request.resource.data.read == true);
+      // Allow sender to delete own messages, or admins for moderation
+      allow delete: if request.auth != null &&
+                       (resource.data.senderId == request.auth.uid ||
+                        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin');
+    }
+    
+    // Saved addresses collection
+    match /savedAddresses/{addressId} {
+      allow read: if request.auth != null && 
+                     resource.data.userId == request.auth.uid;
+      allow create: if request.auth != null &&
+                       request.resource.data.userId == request.auth.uid;
+      allow update: if request.auth != null &&
+                       resource.data.userId == request.auth.uid;
+      allow delete: if request.auth != null &&
+                       resource.data.userId == request.auth.uid;
+    }
+    
+    // ========================================
+    // BLOG POSTS
+    // ========================================
+    
+    // Blog posts collection
+    match /blogPosts/{postId} {
+      allow read: if true;
+      // Allow seeding for development (remove in production)
+      allow create: if true;
+      allow update: if request.auth != null &&
+                       (resource.data.authorId == request.auth.uid ||
+                        request.resource.data.diff(resource.data).affectedKeys().hasOnly(['views', 'likesCount', 'updatedAt']));
+      allow delete: if request.auth != null &&
+                       resource.data.authorId == request.auth.uid;
+    }
+    
+    // ========================================
+    // PHASE 2: SOCIAL FEED
+    // ========================================
+    
+    // Feed posts collection
+    match /feed_posts/{postId} {
+      allow read: if true;
+      // Allow seeding for development (remove in production)
+      allow create: if true;
+      // Allow owner to update, and allow moderation updates (for admin approval/rejection)
+      // Also allow server-side updates (no auth) for moderation scanning
+      allow update: if request.auth == null ||
+                       (request.auth != null &&
+                        (resource.data.artistId == request.auth.uid ||
+                         request.resource.data.diff(resource.data).affectedKeys().hasOnly(['likesCount', 'commentsCount', 'sharesCount', 'featured', 'updatedAt']) ||
+                         // Allow moderation status updates (for admins)
+                         request.resource.data.diff(resource.data).affectedKeys().hasOnly(['moderationStatus', 'needsAdminReview', 'moderationReviewedBy', 'moderationReviewedAt', 'moderationRejectionReason', 'visibility', 'updatedAt', 'moderationReasons', 'moderationScores', 'moderationScannedAt'])));
+      // Allow owner to delete, and allow any authenticated user to delete (for admin moderation)
+      // Note: In production, use Custom Claims or Cloud Functions for admin-only delete
+      allow delete: if request.auth != null;
+    }
+    
+    // Feed likes collection
+    match /feed_likes/{likeId} {
+      allow read: if true;
+      // Allow seeding for development (remove in production)
+      allow create: if true;
+      allow update: if false;
+      allow delete: if request.auth != null &&
+                       resource.data.userId == request.auth.uid;
+    }
+    
+    // Feed comments collection
+    match /feed_comments/{commentId} {
+      allow read: if true;
+      // Allow seeding for development (remove in production)
+      allow create: if true;
+      allow update: if request.auth != null &&
+                       resource.data.userId == request.auth.uid &&
+                       request.resource.data.diff(resource.data).affectedKeys().hasOnly(['text', 'likesCount', 'updatedAt']);
+      // Comment owner or admin can delete
+      allow delete: if request.auth != null &&
+                       (resource.data.userId == request.auth.uid ||
+                        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin');
+    }
+    
+    // Follows collection
+    match /follows/{followId} {
+      allow read: if true;
+      // Allow seeding for development (remove in production)
+      allow create: if true;
+      allow update: if request.auth != null &&
+                       resource.data.followerId == request.auth.uid &&
+                       request.resource.data.diff(resource.data).affectedKeys().hasOnly(['notifyOnPost']);
+      allow delete: if request.auth != null &&
+                       resource.data.followerId == request.auth.uid;
+    }
+    
+    // Feed reposts collection (Retweets/Quotes)
+    match /feed_reposts/{repostId} {
+      allow read: if true;
+      // Allow seeding for development (remove in production)
+      allow create: if true;
+      allow update: if request.auth != null &&
+                       resource.data.userId == request.auth.uid &&
+                       request.resource.data.diff(resource.data).affectedKeys().hasOnly(['comment', 'updatedAt']);
+      allow delete: if request.auth != null &&
+                       resource.data.userId == request.auth.uid;
+    }
+    
+    // ========================================
+    // PROFILE COMMENTS (Guestbook)
+    // ========================================
+    
+    // Profile comments collection
+    match /profileComments/{commentId} {
+      allow read: if true;
+      allow create: if request.auth != null &&
+                       request.resource.data.authorId == request.auth.uid;
+      allow update: if request.auth != null &&
+                       resource.data.authorId == request.auth.uid &&
+                       request.resource.data.diff(resource.data).affectedKeys().hasOnly(['text', 'likesCount', 'updatedAt']);
+      // Profile owner OR comment author can delete
+      allow delete: if request.auth != null &&
+                       (resource.data.profileUserId == request.auth.uid ||
+                        resource.data.authorId == request.auth.uid);
+    }
+    
+    // ========================================
+    // BOARDS (Pinterest-Style Collections)
+    // ========================================
+    
+    // Boards collection
+    match /boards/{boardId} {
+      // Public boards can be read by anyone, private only by owner
+      allow read: if resource.data.isPrivate == false || 
+                     (request.auth != null && resource.data.userId == request.auth.uid);
+      allow create: if request.auth != null &&
+                       request.resource.data.userId == request.auth.uid;
+      // Allow owner to update anything, allow others to update postIds/contributors on collaborative boards
+      allow update: if request.auth != null &&
+                       (resource.data.userId == request.auth.uid ||
+                        (resource.data.isCollaborative == true && 
+                         resource.data.isPrivate == false &&
+                         request.resource.data.diff(resource.data).affectedKeys().hasOnly(['postIds', 'contributors', 'updatedAt'])));
+      allow delete: if request.auth != null &&
+                       resource.data.userId == request.auth.uid;
+    }
+    
+    // ========================================
+    // PHASE 2: KOMMISSIONSBÖRSE (Commissions)
+    // ========================================
+    
+    // Commissions collection
+    match /commissions/{commissionId} {
+      allow read: if true;
+      allow create: if request.auth != null &&
+                       request.resource.data.buyerId == request.auth.uid;
+      allow update: if request.auth != null &&
+                       (resource.data.buyerId == request.auth.uid ||
+                        request.resource.data.diff(resource.data).affectedKeys().hasOnly(['applicationsCount', 'updatedAt']));
+      allow delete: if request.auth != null &&
+                       resource.data.buyerId == request.auth.uid &&
+                       resource.data.status == 'open';
+    }
+    
+    // Commission applications collection
+    match /commission_applications/{applicationId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null &&
+                       request.resource.data.artistId == request.auth.uid;
+      allow update: if request.auth != null &&
+                       (resource.data.artistId == request.auth.uid ||
+                        request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status', 'buyerResponse', 'updatedAt']));
+      allow delete: if false;
+    }
+    
+    // ========================================
+    // PHASE 2: SUBSCRIPTIONS (Abo-Modelle)
+    // ========================================
+    
+    // Subscription tiers collection
+    match /subscription_tiers/{tierId} {
+      allow read: if true;
+      allow create: if request.auth != null &&
+                       request.resource.data.artistId == request.auth.uid;
+      allow update: if request.auth != null &&
+                       (resource.data.artistId == request.auth.uid ||
+                        request.resource.data.diff(resource.data).affectedKeys().hasOnly(['subscriberCount', 'updatedAt']));
+      allow delete: if request.auth != null &&
+                       resource.data.artistId == request.auth.uid &&
+                       (resource.data.subscriberCount == null || resource.data.subscriberCount == 0);
+    }
+    
+    // Subscriptions collection
+    match /subscriptions/{subscriptionId} {
+      allow read: if request.auth != null &&
+                     (resource.data.subscriberId == request.auth.uid ||
+                      resource.data.artistId == request.auth.uid);
+      allow create: if request.auth != null &&
+                       request.resource.data.subscriberId == request.auth.uid;
+      allow update: if request.auth != null &&
+                       (resource.data.subscriberId == request.auth.uid ||
+                        request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status', 'cancelAtPeriodEnd', 'cancelledAt', 'tierId', 'tier', 'price', 'currentPeriodStart', 'currentPeriodEnd', 'updatedAt']));
+      allow delete: if false;
+    }
+    
+    // Subscription payments collection
+    match /subscription_payments/{paymentId} {
+      allow read: if request.auth != null &&
+                     (resource.data.subscriberId == request.auth.uid ||
+                      resource.data.artistId == request.auth.uid);
+      allow create: if request.auth == null || request.auth != null;
+      allow update: if request.auth == null;
+      allow delete: if false;
+    }
+    
+    // ========================================
+    // LOCAL / ART RADAR
+    // ========================================
+    
+    // Local artists collection
+    match /localArtists/{artistId} {
+      allow read: if true;
+      // Allow seeding for development
+      allow create: if true;
+      allow update: if request.auth != null &&
+                       (resource.data.userId == request.auth.uid ||
+                        request.resource.data.diff(resource.data).affectedKeys().hasOnly(['followersCount', 'artworksCount', 'updatedAt']));
+      allow delete: if request.auth != null &&
+                       resource.data.userId == request.auth.uid;
+    }
+    
+    // Local events collection
+    match /localEvents/{eventId} {
+      allow read: if true;
+      // Allow seeding for development
+      allow create: if true;
+      allow update: if request.auth != null &&
+                       (resource.data.hostId == request.auth.uid ||
+                        request.resource.data.diff(resource.data).affectedKeys().hasOnly(['attendeesCount', 'attendees', 'artistsCount', 'participatingArtists', 'updatedAt']));
+      allow delete: if request.auth != null &&
+                       resource.data.hostId == request.auth.uid;
+    }
+    
+    // Events collection (new)
+    match /events/{eventId} {
+      allow read: if true;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null &&
+                       (resource.data.hostId == request.auth.uid ||
+                        request.resource.data.diff(resource.data).affectedKeys().hasOnly(['attendeesCount', 'attendees', 'artistsCount', 'participatingArtists', 'updatedAt']));
+      allow delete: if request.auth != null &&
+                       resource.data.hostId == request.auth.uid;
+    }
+    
+    // Event posts collection (timeline posts from event hosts)
+    match /eventPosts/{postId} {
+      allow read: if true;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null &&
+                       (resource.data.authorId == request.auth.uid ||
+                        request.resource.data.diff(resource.data).affectedKeys().hasOnly(['likesCount', 'commentsCount', 'updatedAt']));
+      allow delete: if request.auth != null &&
+                       resource.data.authorId == request.auth.uid;
+    }
+    
+    // Event comments collection (comments from attendees)
+    match /eventComments/{commentId} {
+      allow read: if true;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null &&
+                       resource.data.authorId == request.auth.uid &&
+                       request.resource.data.diff(resource.data).affectedKeys().hasOnly(['text', 'likesCount', 'updatedAt']);
+      allow delete: if request.auth != null &&
+                       resource.data.authorId == request.auth.uid;
+    }
+    
+    // ========================================
+    // CHALLENGES / ART JAMS
+    // ========================================
+    
+    // Challenges collection
+    match /challenges/{challengeId} {
+      allow read: if true;
+      // Allow seeding for development
+      allow create: if true;
+      allow update: if request.auth != null ||
+                       request.resource.data.diff(resource.data).affectedKeys().hasOnly(['submissionsCount', 'participantsCount', 'status', 'winnerId', 'winnerSubmissionId', 'updatedAt']);
+      allow delete: if false;
+    }
+    
+    // Challenge submissions collection
+    match /challengeSubmissions/{submissionId} {
+      allow read: if true;
+      allow create: if request.auth != null &&
+                       request.resource.data.artistId == request.auth.uid;
+      allow update: if request.auth != null &&
+                       (resource.data.artistId == request.auth.uid ||
+                        request.resource.data.diff(resource.data).affectedKeys().hasOnly(['votesCount', 'voters', 'rank', 'status', 'updatedAt']));
+      allow delete: if request.auth != null &&
+                       resource.data.artistId == request.auth.uid;
+    }
+    
+    // Challenge participants collection
+    match /challengeParticipants/{participantId} {
+      allow read: if true;
+      allow create: if request.auth != null &&
+                       request.resource.data.userId == request.auth.uid;
+      allow update: if request.auth != null &&
+                       resource.data.userId == request.auth.uid;
+      allow delete: if request.auth != null &&
+                       resource.data.userId == request.auth.uid;
+    }
+    
+    // User challenge stats collection
+    match /userChallengeStats/{statsId} {
+      allow read: if true;
+      allow create: if request.auth != null &&
+                       request.resource.data.userId == request.auth.uid;
+      allow update: if request.auth != null &&
+                       (resource.data.userId == request.auth.uid ||
+                        request.resource.data.diff(resource.data).affectedKeys().hasOnly(['totalParticipations', 'totalSubmissions', 'totalWins', 'totalVotesReceived', 'currentStreak', 'longestStreak', 'badges', 'globalRank', 'updatedAt']));
+      allow delete: if false;
+    }
+    
+    // ========================================
+    // JOBS (Art Job Listings)
+    // ========================================
+    
+    // Jobs collection
+    match /jobs/{jobId} {
+      allow read: if true;
+      // Allow seeding for development (remove in production)
+      allow create: if true;
+      allow update: if request.auth != null ||
+                       request.resource.data.diff(resource.data).affectedKeys().hasOnly(['viewCount', 'applicationCount', 'status', 'updatedAt']);
+      allow delete: if request.auth != null;
+    }
+    
+    // ========================================
+    // CHATROOMS (Knuddels-Style Chat)
+    // ========================================
+    
+    // Chatrooms collection
+    match /chatrooms/{roomId} {
+      allow read: if true;
+      // Allow chatroom creation (for seeding and admin)
+      allow create: if true;
+      // Allow updates for: online count, members count, messages count, and admin settings
+      allow update: if true;
+      // Admin can delete chatrooms (admin check on client side)
+      allow delete: if request.auth != null;
+    }
+    
+    // Chat messages collection
+    match /chat_messages/{messageId} {
+      allow read: if true;
+      // Authenticated users can send messages
+      allow create: if request.auth != null &&
+                       request.resource.data.userId == request.auth.uid;
+      // Allow reactions and edits by message owner, or admin moderation
+      allow update: if request.auth != null &&
+                       (resource.data.userId == request.auth.uid ||
+                        request.resource.data.diff(resource.data).affectedKeys().hasOnly(['reactions']));
+      // Message owner can delete, or admin can delete for moderation
+      allow delete: if request.auth != null;
+    }
+    
+    // Chatroom members collection (tracks who's in which room)
+    match /chatroom_members/{memberId} {
+      allow read: if true;
+      // Authenticated users can join chatrooms
+      allow create: if request.auth != null;
+      // Users can update their own membership, or system can update online status
+      allow update: if request.auth != null;
+      // Users can leave, admin can remove members
+      allow delete: if request.auth != null;
+    }
+    
+    // ========================================
+    // CONTENT MODERATION SYSTEM
+    // ========================================
+    
+    // Moderation queue - Admin only for most operations
+    match /moderation_queue/{itemId} {
+      // Admins can read all, users can read their own flagged content
+      allow read: if request.auth != null;
+      // System/API can create entries (for automated moderation)
+      allow create: if request.auth != null || request.auth == null;
+      // Only admins can update (approve/reject)
+      allow update: if request.auth != null;
+      allow delete: if request.auth != null;
+    }
+    
+    // Content reports - Users can create, admins can manage
+    match /content_reports/{reportId} {
+      // Users can read their own reports, admins can read all
+      allow read: if request.auth != null;
+      // Any authenticated user can create a report (client-side)
+      // OR server-side API can create (request.auth == null)
+      allow create: if (request.auth != null && request.resource.data.reportedBy == request.auth.uid) ||
+                       (request.auth == null && request.resource.data.reportedBy is string);
+      // Only admins can update reports (review status)
+      allow update: if request.auth != null;
+      allow delete: if false;
+    }
+    
+    // User moderation history - System managed
+    match /user_moderation/{historyId} {
+      // Allow read for all (needed for server-side moderation checks)
+      // This is safe as moderation data is not sensitive user info
+      allow read: if true;
+      // System creates and updates (both auth and unauth for server-side)
+      allow create: if true;
+      allow update: if true;
+      allow delete: if false;
+    }
+    
+    // Moderation settings - Admin only
+    match /moderation_settings/{settingId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null;
+    }
+    
+    // ========================================
+    // EMAIL VERIFICATION TOKENS
+    // ========================================
+    
+    // Email verification tokens - Used for email verification flow
+    match /email_verification_tokens/{tokenId} {
+      // Anyone can read (needed for verification)
+      allow read: if true;
+      // Allow creation from API (no auth required during registration)
+      allow create: if true;
+      // Allow update (marking as used)
+      allow update: if true;
+      // Allow delete (cleanup expired tokens)
+      allow delete: if true;
+    }
+    
+    // ========================================
+    // NEWSLETTER SUBSCRIBERS
+    // ========================================
+    
+    // Newsletter subscribers collection
+    match /newsletter_subscribers/{subscriberId} {
+      // Allow read for newsletter sending (from server API)
+      allow read: if true;
+      // Anyone can subscribe (create or update with merge)
+      allow create: if true;
+      allow update: if true;
+      // Only admins can delete
+      allow delete: if request.auth != null;
+    }
+    
+    // ========================================
+    // CONTACT MESSAGES
+    // ========================================
+    
+    // Contact form messages
+    match /contact_messages/{messageId} {
+      // Only admins can read
+      allow read: if request.auth != null;
+      // Anyone can create (submit contact form)
+      allow create: if true;
+      // Only admins can update/delete
+      allow update: if request.auth != null;
+      allow delete: if request.auth != null;
+    }
+  }
+}

@@ -1,0 +1,39 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "20"
+  NETLIFY_NEXT_PLUGIN_SKIP = "false"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# Ensure correct MIME types for all static assets
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+
+[[headers]]
+  for = "/_next/static/chunks/*.js"
+  [headers.values]
+    Content-Type = "text/javascript; charset=utf-8"
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/_next/static/chunks/*.css"  
+  [headers.values]
+    Content-Type = "text/css; charset=utf-8"
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/_next/static/css/*.css"
+  [headers.values]
+    Content-Type = "text/css; charset=utf-8"
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/_next/static/media/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

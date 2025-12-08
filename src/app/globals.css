@@ -1,26 +1,763 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ===========================================
+   VARBE DESIGN SYSTEM 2.0
+   Comic-Brutalism meets Modern UX
+=========================================== */
 
-@theme inline {
+@theme {
+  /* PRIMARY COLORS */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: #000000;
+  --color-secondary: #FFFFFF;
+  --color-off-white: #F5F5F5;
+
+  /* ACCENT COLORS */
+  --color-accent: #CCFF00;
+  --color-accent-pink: #FF10F0;
+  --color-accent-blue: #00F0FF;
+
+  /* GRAYSCALE */
+  --color-gray-100: #F9F9F9;
+  --color-gray-200: #E5E5E5;
+  --color-gray-400: #999999;
+  --color-gray-600: #666666;
+  --color-gray-900: #1A1A1A;
+
+  /* STATUS COLORS */
+  --color-success: #00FF00;
+  --color-warning: #FFD700;
+  --color-error: #FF0000;
+  --color-info: #00F0FF;
+
+  /* TYPOGRAPHY */
+  --font-heading: var(--font-bangers), cursive;
+  --font-body: var(--font-inter), sans-serif;
+
+  /* SHADOWS - Comic Style */
+  --shadow-comic: 6px 6px 0px 0px #000000;
+  --shadow-comic-hover: 3px 3px 0px 0px #000000;
+  --shadow-comic-pressed: 1px 1px 0px 0px #000000;
+  --shadow-comic-elevated: 8px 8px 0px 0px #000000;
+  --shadow-none: 0px 0px 0px 0px;
+
+  /* NEON GLOW */
+  --glow-green: 0 0 20px rgba(204, 255, 0, 0.6);
+  --glow-pink: 0 0 20px rgba(255, 16, 240, 0.6);
+  --glow-blue: 0 0 20px rgba(0, 240, 255, 0.6);
+
+  /* HALFTONE */
+  --image-halftone: radial-gradient(#000 1px, transparent 1px);
+  --halftone-size: 40px;
+  --halftone-dot-size: 2px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --background: #fafafa;
+  --foreground: #000000;
+  
+  /* Mobile Spacing (8pt Grid) */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
+  
+  /* Mobile Screen Padding */
+  --screen-padding-x: 16px;
+  --screen-padding-y: 24px;
+  
+  /* Safe Areas */
+  --safe-area-top: env(safe-area-inset-top, 0px);
+  --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-area-left: env(safe-area-inset-left, 0px);
+  --safe-area-right: env(safe-area-inset-right, 0px);
+  
+  /* Bottom Nav Height */
+  --bottom-nav-height: 64px;
+}
+
+/* ===========================================
+   BUTTON COMPONENTS
+=========================================== */
+
+@utility btncomic {
+  @apply px-6 py-4 bg-white border-4 border-black font-heading text-lg uppercase transition-all;
+  box-shadow: var(--shadow-comic);
+  min-height: 56px;
+  letter-spacing: 0.05em;
+}
+
+@utility btnprimary {
+  @apply btncomic bg-accent text-black;
+}
+
+@utility btnsecondary {
+  @apply btncomic bg-white text-black;
+}
+
+@utility btnghost {
+  @apply px-4 py-2 bg-transparent border-2 border-black font-body font-semibold;
+  box-shadow: none;
+}
+
+@utility btnicon {
+  @apply w-12 h-12 flex items-center justify-center border-2 border-black bg-white;
+  box-shadow: 4px 4px 0px 0px #000000;
+}
+
+@utility btnfab {
+  @apply w-16 h-16 flex items-center justify-center border-4 border-black bg-accent fixed;
+  box-shadow: var(--shadow-comic-elevated);
+  bottom: calc(var(--bottom-nav-height) + var(--safe-area-bottom) + 16px);
+  right: 16px;
+  z-index: 1000;
+}
+
+/* ===========================================
+   CARD COMPONENTS
+=========================================== */
+
+@utility cardcomic {
+  @apply border-4 border-black bg-white p-4;
+  box-shadow: var(--shadow-comic);
+}
+
+/* Artwork Card */
+@utility cardartwork {
+  @apply border-4 border-black bg-white overflow-hidden;
+  box-shadow: var(--shadow-comic);
+}
+
+/* Profile Card */
+@utility cardprofile {
+  @apply border-4 border-black bg-white p-4;
+  box-shadow: var(--shadow-comic);
+}
+
+/* ===========================================
+   INPUT COMPONENTS
+=========================================== */
+
+@utility inputcomic {
+  @apply w-full h-14 border-4 border-black p-4 font-body text-base bg-white;
+  @apply focus:outline-none focus:border-accent focus:ring-0;
+}
+
+@utility textareacomic {
+  @apply w-full min-h-[120px] max-h-[300px] border-4 border-black p-4 font-body text-base bg-white resize-y;
+  @apply focus:outline-none focus:border-accent focus:ring-0;
+}
+
+@utility searchbar {
+  @apply h-12 border-3 border-black bg-gray-100 rounded-full pl-10 pr-4 font-body text-base;
+  @apply focus:outline-none focus:bg-white focus:border-accent;
+}
+
+@utility selectcomic {
+  @apply w-full h-14 border-4 border-black p-4 font-body text-base bg-white;
+  @apply focus:outline-none focus:border-accent appearance-none cursor-pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 20px;
+}
+
+/* ===========================================
+   BADGE COMPONENTS
+=========================================== */
+
+@utility badgecomic {
+  @apply px-3 py-1 border-2 border-black font-heading text-xs uppercase bg-accent rounded-full;
+  letter-spacing: 0.05em;
+}
+
+@utility badgesuccess {
+  @apply badgecomic bg-success;
+}
+
+@utility badgewarning {
+  @apply badgecomic bg-warning;
+}
+
+@utility badgeerror {
+  @apply badgecomic bg-error text-white;
+}
+
+@utility badgeinfo {
+  @apply badgecomic bg-info;
+}
+
+/* Achievement Badge */
+@utility badgeachievement {
+  @apply w-20 h-20 border-4 border-black flex items-center justify-center;
+  box-shadow: var(--shadow-comic);
+}
+
+/* ===========================================
+   NAVIGATION COMPONENTS
+=========================================== */
+
+/* Bottom Tab Bar */
+@utility bottomtabbar {
+  @apply fixed bottom-0 left-0 right-0 h-16 bg-white border-t-4 border-black flex items-center justify-around z-50;
+  padding-bottom: var(--safe-area-bottom);
+  box-shadow: 0 -4px 0px 0px rgba(0,0,0,0.1);
+}
+
+/* Tab Item */
+@utility tabitem {
+  @apply flex flex-col items-center justify-center gap-1 w-16 h-full;
+}
+
+/* Top App Bar */
+@utility topappbar {
+  @apply h-14 bg-white border-b-4 border-black flex items-center justify-between px-4 sticky top-0 z-50;
+  padding-top: var(--safe-area-top);
+}
+
+/* ===========================================
+   LEGACY UTILITIES (for backward compatibility)
+=========================================== */
+
+/* Custom class-based utilities - these work with normal CSS */
+.btn-comic {
+  @apply px-4 py-2 md:px-6 md:py-3 bg-white border-4 border-black font-heading text-base md:text-xl uppercase transition-all;
+  box-shadow: 6px 6px 0px 0px #000000;
+}
+
+.btn-comic:hover {
+  box-shadow: 3px 3px 0px 0px #000000;
+  transform: translate(3px, 3px);
+}
+
+.btn-comic:active {
+  box-shadow: none;
+  transform: translate(6px, 6px);
+}
+
+.card-comic {
+  @apply border-4 border-black bg-white p-3 md:p-4;
+  box-shadow: 6px 6px 0px 0px #000000;
+}
+
+.card-artwork {
+  @apply border-4 border-black bg-white overflow-hidden;
+  box-shadow: 6px 6px 0px 0px #000000;
+}
+
+.input-comic {
+  @apply w-full border-4 border-black p-2 md:p-3 font-body text-sm md:text-base focus:outline-none focus:ring-4 focus:ring-accent/50;
+}
+
+.badge-comic {
+  @apply px-3 py-1 border-2 border-black font-heading text-sm uppercase bg-accent;
+}
+
+.search-bar {
+  @apply h-12 border-3 border-black bg-gray-100 rounded-full pl-10 pr-4 font-body text-base focus:outline-none focus:bg-white focus:border-accent;
+}
+
+/* ===========================================
+   ANIMATIONS
+=========================================== */
+
+/* Button Press Animation */
+@keyframes button-press {
+  0% {
+    transform: translate(0, 0);
+    box-shadow: 6px 6px 0px 0px #000000;
+  }
+  50% {
+    transform: translate(5px, 5px);
+    box-shadow: 1px 1px 0px 0px #000000;
+  }
+  100% {
+    transform: translate(0, 0);
+    box-shadow: 6px 6px 0px 0px #000000;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.animate-button-press {
+  animation: button-press 150ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Page Transition - Slide */
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-out-right {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in-right 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-slide-out {
+  animation: slide-out-right 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Modal Slide Up */
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 250ms ease-out;
+}
+
+/* Loading Dots */
+@keyframes loading-dots {
+  0%, 80%, 100% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.loading-dot {
+  @apply w-2 h-2 bg-accent rounded-full;
+  animation: loading-dots 1.2s infinite ease-in-out;
+}
+
+.loading-dot:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.loading-dot:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+/* Skeleton Shimmer */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #E5E5E5 25%, #F5F5F5 50%, #E5E5E5 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite ease-in-out;
+}
+
+/* Heart Pop Animation */
+@keyframes heart-pop {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-heart-pop {
+  animation: heart-pop 600ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Shake Animation (Error) */
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-10px);
+  }
+  75% {
+    transform: translateX(10px);
+  }
+}
+
+.animate-shake {
+  animation: shake 400ms ease-in-out;
+}
+
+/* Confetti Animation */
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.confetti {
+  animation: confetti-fall 2s linear forwards;
+}
+
+/* Pulse Animation */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 6px 6px 0px 0px #000000;
+  }
+  50% {
+    box-shadow: 6px 6px 0px 0px #000000, 0 0 20px rgba(204, 255, 0, 0.6);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+/* POW! Pull to Refresh */
+@keyframes pow-burst {
+  0% {
+    transform: scale(0) rotate(-10deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2) rotate(5deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.animate-pow {
+  animation: pow-burst 600ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Fade In */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 200ms ease-out;
+}
+
+/* Slide In Left (Drawer) */
+@keyframes slide-in-left {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Halftone Animated Background */
+@keyframes halftone-diagonal {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(120px, 120px);
+  }
+}
+
+.comic-halftone-bg {
+  position: fixed;
+  top: -60px;
+  left: -60px;
+  width: calc(100% + 120px);
+  height: calc(100% + 120px);
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.comic-halftone-bg::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background-image: 
+    radial-gradient(circle, rgba(0, 0, 0, 0.12) 8px, transparent 8px);
+  background-size: 50px 50px;
+  animation: halftone-diagonal 8s linear infinite;
+}
+
+/* ===========================================
+   SCROLLBAR STYLES
+=========================================== */
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Custom Scrollbar */
+.scrollbar-comic::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollbar-comic::-webkit-scrollbar-track {
+  background: #F5F5F5;
+  border: 2px solid #000;
+}
+
+.scrollbar-comic::-webkit-scrollbar-thumb {
+  background: #CCFF00;
+  border: 2px solid #000;
+}
+
+/* ===========================================
+   BASE STYLES
+=========================================== */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  body {
+    @apply text-foreground font-body relative;
+    background-color: #fafafa;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  /* Typography Scale Mobile */
+  h1 {
+    @apply text-3xl leading-[1.1];
+  }
+  
+  h2 {
+    @apply text-2xl leading-[1.2];
+  }
+  
+  h3 {
+    @apply text-xl leading-[1.3];
+  }
+  
+  /* Body Text */
+  p {
+    @apply text-base leading-relaxed;
+  }
+  
+  /* Caption */
+  .caption {
+    @apply text-xs font-medium leading-[1.4];
+  }
+
+  /* Mobile Touch Targets - WCAG AAA */
+  @media (max-width: 640px) {
+    button, a, input, select, textarea {
+      min-height: 44px;
+    }
+    
+    /* Preferred touch target size */
+    .touch-target {
+      min-height: 56px;
+      min-width: 56px;
+    }
+    
+    body {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+  }
+
+  /* Link Styles */
+  a {
+    @apply text-black underline decoration-accent decoration-2 underline-offset-2;
+  }
+
+  /* Links on dark backgrounds */
+  footer a,
+  .bg-black a,
+  .dark a {
+    @apply text-white underline decoration-accent decoration-2 underline-offset-2;
+  }
+  
+  /* Focus States - Accessibility */
+  :focus-visible {
+    outline: 3px solid #CCFF00;
+    outline-offset: 2px;
+  }
+  
+  /* Selection */
+  ::selection {
+    background: #CCFF00;
+    color: #000;
+  }
+}
+
+/* ===========================================
+   RESPONSIVE UTILITIES
+=========================================== */
+
+/* Mobile Container */
+.container-mobile {
+  @apply px-4 mx-auto;
+  max-width: 100%;
+}
+
+@media (min-width: 375px) {
+  .container-mobile {
+    max-width: 375px;
+  }
+}
+
+@media (min-width: 425px) {
+  .container-mobile {
+    max-width: 425px;
+  }
+}
+
+/* Safe Area Padding */
+.safe-area-top {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.safe-area-x {
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+}
+
+/* Bottom Nav Padding - Add to main content */
+.pb-nav {
+  padding-bottom: calc(var(--bottom-nav-height) + env(safe-area-inset-bottom, 0px) + 16px);
+}
+
+/* ===========================================
+   CAROUSEL / SCROLL ANIMATIONS
+=========================================== */
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% / 4));
+  }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+  display: flex;
+  width: max-content;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* Snap Scroll */
+.snap-x-mandatory {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.snap-center {
+  scroll-snap-align: center;
+}
+
+/* ===========================================
+   Z-INDEX LAYERS
+=========================================== */
+
+.z-base { z-index: 1; }
+.z-card { z-index: 10; }
+.z-dropdown { z-index: 100; }
+.z-sticky { z-index: 200; }
+.z-drawer { z-index: 300; }
+.z-modal { z-index: 400; }
+.z-toast { z-index: 500; }
+.z-tooltip { z-index: 600; }
+.z-max { z-index: 9999; }
+
+/* ===========================================
+   REDUCED MOTION
+=========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .comic-halftone-bg::before {
+    animation: none;
+  }
+}
+
+/* ===========================================
+   CONTENT POSITIONING
+=========================================== */
+
+@layer base {
+  main,
+  .relative,
+  [class*="min-h-screen"] {
+    position: relative;
+    z-index: 1;
+  }
+  
+  [class*="bg-halftone"] {
+    position: relative;
+    z-index: 1;
+    background-color: transparent !important;
+    background-image: none !important;
+  }
 }

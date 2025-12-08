@@ -1,0 +1,61 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    
+    // Artworks images - anyone can read, only owner can write
+    match /artworks/{userId}/{allPaths=**} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+    
+    // Verification images - owner can read/write, admins can read for review
+    // Note: Admin check is done in application code, so we allow all authenticated users to read
+    match /verification/{userId}/{allPaths=**} {
+      allow read: if request.auth != null; // Owner and admins can read (admin check done in app code)
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+    
+    // Profile pictures - anyone can read, only owner can write
+    match /profile-pictures/{userId}/{allPaths=**} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+    
+    // Profile backgrounds/banners - anyone can read, only owner can write
+    match /profile-backgrounds/{userId}/{allPaths=**} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+    
+    // Cover images (profile banners) - anyone can read, only owner can write
+    match /cover-images/{userId}/{allPaths=**} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+    
+    // ========================================
+    // PHASE 2: SOCIAL FEED IMAGES
+    // ========================================
+    
+    // Feed post images - anyone can read, only owner can write
+    match /feed/{userId}/{allPaths=**} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+    
+    // ========================================
+    // PHASE 2: COMMISSION IMAGES
+    // ========================================
+    
+    // Commission reference images - anyone can read, authenticated users can write
+    match /commissions/{commissionId}/{allPaths=**} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+    
+    // Default: deny all other access
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}
