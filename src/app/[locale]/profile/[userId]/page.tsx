@@ -688,62 +688,205 @@ export default function TumblrStyleProfilePage() {
                 </div>
             </div>
             
-            {/* Main Content - Two Column Layout (wie eigenes Profil) */}
-            <div className="container mx-auto max-w-6xl px-4 py-6">
-                <div className="grid lg:grid-cols-[320px_1fr] gap-6">
-                    
-                    {/* LEFT SIDEBAR */}
-                    <div className="space-y-6">
-                        
-                        {/* Events Card */}
-                        {customization?.sectionVisibility?.events !== false && (
-                            <div 
-                                className="border-4 border-black shadow-comic p-4 relative overflow-hidden bg-white"
-                                style={{ borderTopWidth: '6px', borderTopColor: accentColor }}
-                            >
-                                <div className="flex items-center justify-between mb-4">
-                                    <h3 className="font-heading">📅 EVENTS</h3>
-                                    <Link href="/local" className="text-xs hover:underline" style={{ color: accentColor }}>
-                                        Alle →
-                                    </Link>
-                                </div>
-                                
-                                {createdEvents.length === 0 && attendingEvents.length === 0 ? (
-                                    <p className="text-sm text-center py-4 text-gray-500">
-                                        Keine Events
-                                    </p>
-                                ) : (
-                                    <div className="space-y-3">
-                                        {[...createdEvents, ...attendingEvents].slice(0, 3).map(event => (
-                                            <Link 
-                                                key={event.id}
-                                                href={`/local/event/${event.id}`}
-                                                className="block p-3 border-2 border-gray-200 hover:border-black transition-colors"
-                                            >
-                                                <div className="flex items-start justify-between">
-                                                    <div className="flex-1 min-w-0">
-                                                        <p className="font-bold text-sm truncate">{event.title}</p>
-                                                        <p className="text-xs text-gray-500">
-                                                            {new Date(event.date).toLocaleDateString('de-DE', { 
-                                                                day: 'numeric', 
-                                                                month: 'short' 
-                                                            })}
-                                                        </p>
-                                                    </div>
-                                                    <span className={`text-xs px-2 py-0.5 ${
-                                                        createdEvents.find(e => e.id === event.id) 
-                                                            ? 'bg-accent' 
-                                                            : 'bg-green-200'
-                                                    } border border-black`}>
-                                                        {createdEvents.find(e => e.id === event.id) ? 'HOST' : 'GOING'}
-                                                    </span>
-                                                </div>
-                                            </Link>
-                                        ))}
+            {/* ========== MOBILE CONTENT - Simple scrolling layout ========== */}
+            <div className="md:hidden px-4 py-4 pb-nav space-y-4">
+                {/* Posts Grid */}
+                <div className="card-comic p-4">
+                    <h3 className="font-heading text-sm mb-3">📝 POSTS</h3>
+                    {posts.length === 0 ? (
+                        <p className="text-sm text-center py-4 text-gray-500">
+                            Noch keine Posts
+                        </p>
+                    ) : (
+                        <div className="grid grid-cols-2 gap-2">
+                            {posts.slice(0, 6).map((post) => (
+                                <Link 
+                                    key={post.id}
+                                    href={`/feed/${post.id}`}
+                                    className="aspect-square border-3 border-black overflow-hidden bg-gray-100 relative group"
+                                >
+                                    {post.images && post.images[0] ? (
+                                        <img src={post.images[0]} alt="" className="w-full h-full object-cover" />
+                                    ) : (
+                                        <div className="w-full h-full flex items-center justify-center p-2">
+                                            <p className="text-xs text-center line-clamp-4">{post.text}</p>
+                                        </div>
+                                    )}
+                                    {post.images && post.images.length > 1 && (
+                                        <span className="absolute top-1 right-1 bg-black/70 text-white text-[10px] px-1.5 py-0.5">
+                                            +{post.images.length - 1}
+                                        </span>
+                                    )}
+                                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-2">
+                                        <div className="flex gap-2 text-white text-xs">
+                                            <span>❤️ {post.likesCount}</span>
+                                            <span>💬 {post.commentsCount}</span>
+                                        </div>
                                     </div>
-                                )}
+                                </Link>
+                            ))}
+                        </div>
+                    )}
+                    {posts.length > 6 && (
+                        <p className="text-xs text-center mt-3 text-gray-500">
+                            + {posts.length - 6} weitere Posts
+                        </p>
+                    )}
+                </div>
+                
+                {/* Boards */}
+                {boards.length > 0 && (
+                    <div className="card-comic p-4">
+                        <h3 className="font-heading text-sm mb-3">📌 BOARDS</h3>
+                        <div className="grid grid-cols-2 gap-2">
+                            {boards.slice(0, 4).map(board => (
+                                <Link 
+                                    key={board.id}
+                                    href={`/boards/${board.id}`}
+                                    className="aspect-square bg-gray-100 border-2 border-black relative overflow-hidden"
+                                >
+                                    {board.coverImageUrl ? (
+                                        <img src={board.coverImageUrl} alt="" className="w-full h-full object-cover" />
+                                    ) : (
+                                        <div className="w-full h-full flex items-center justify-center text-2xl">📌</div>
+                                    )}
+                                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-2">
+                                        <p className="text-white text-xs font-bold truncate">{board.title}</p>
+                                    </div>
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
+                )}
+                
+                {/* Guestbook */}
+                <div className="card-comic p-4">
+                    <h3 className="font-heading text-sm mb-3">📝 GÄSTEBUCH</h3>
+                    
+                    {/* Comment Input */}
+                    {currentUser ? (
+                        <div className="mb-4">
+                            <textarea
+                                value={newComment}
+                                onChange={(e) => setNewComment(e.target.value)}
+                                placeholder="Schreibe einen Kommentar..."
+                                className="w-full p-2 border-2 border-black text-sm resize-none"
+                                rows={2}
+                                maxLength={200}
+                            />
+                            <div className="flex justify-between items-center mt-1">
+                                <span className="text-xs text-gray-400">{newComment.length}/200</span>
+                                <Button 
+                                    variant="accent" 
+                                    className="text-xs py-1"
+                                    onClick={handleSubmitComment}
+                                    disabled={!newComment.trim() || submittingComment}
+                                >
+                                    {submittingComment ? '...' : 'Posten'}
+                                </Button>
                             </div>
-                        )}
+                        </div>
+                    ) : (
+                        <div className="mb-4 p-3 bg-gray-50 border text-center text-sm">
+                            <Link href="/auth/login" className="hover:underline" style={{ color: accentColor }}>
+                                Anmelden um zu kommentieren
+                            </Link>
+                        </div>
+                    )}
+                    
+                    {profileComments.length === 0 ? (
+                        <p className="text-sm text-center py-2 text-gray-500">
+                            Noch keine Kommentare
+                        </p>
+                    ) : (
+                        <div className="space-y-3">
+                            {profileComments.slice(0, 5).map(comment => {
+                                const author = commentAuthors[comment.authorId];
+                                return (
+                                    <div key={comment.id} className="flex gap-2">
+                                        <Link href={`/profile/${comment.authorId}`}>
+                                            <div className="w-8 h-8 rounded-full bg-gray-200 border border-black overflow-hidden flex-shrink-0">
+                                                {author?.profilePictureUrl ? (
+                                                    <img src={author.profilePictureUrl} alt="" className="w-full h-full object-cover" />
+                                                ) : (
+                                                    <span className="flex items-center justify-center h-full text-xs">👤</span>
+                                                )}
+                                            </div>
+                                        </Link>
+                                        <div className="flex-1 min-w-0">
+                                            <div className="flex items-center gap-2">
+                                                <Link href={`/profile/${comment.authorId}`} className="font-bold text-xs hover:underline">
+                                                    {author?.displayName || 'Anon'}
+                                                </Link>
+                                                <span className="text-xs text-gray-500">{timeAgo(comment.createdAt)}</span>
+                                            </div>
+                                            <p className="text-sm">{comment.text}</p>
+                                        </div>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    )}
+                </div>
+            </div>
+            
+            {/* ========== DESKTOP CONTENT - Two Column Layout ========== */}
+            <div className="hidden md:block">
+                <div className="container mx-auto max-w-6xl px-4 py-6">
+                    <div className="grid lg:grid-cols-[320px_1fr] gap-6">
+                        
+                        {/* LEFT SIDEBAR */}
+                        <div className="space-y-6">
+                            
+                            {/* Events Card */}
+                            {customization?.sectionVisibility?.events !== false && (
+                                <div 
+                                    className="border-4 border-black shadow-comic p-4 relative overflow-hidden bg-white"
+                                    style={{ borderTopWidth: '6px', borderTopColor: accentColor }}
+                                >
+                                    <div className="flex items-center justify-between mb-4">
+                                        <h3 className="font-heading">📅 EVENTS</h3>
+                                        <Link href="/local" className="text-xs hover:underline" style={{ color: accentColor }}>
+                                            Alle →
+                                        </Link>
+                                    </div>
+                                    
+                                    {createdEvents.length === 0 && attendingEvents.length === 0 ? (
+                                        <p className="text-sm text-center py-4 text-gray-500">
+                                            Keine Events
+                                        </p>
+                                    ) : (
+                                        <div className="space-y-3">
+                                            {[...createdEvents, ...attendingEvents].slice(0, 3).map(event => (
+                                                <Link 
+                                                    key={event.id}
+                                                    href={`/local/event/${event.id}`}
+                                                    className="block p-3 border-2 border-gray-200 hover:border-black transition-colors"
+                                                >
+                                                    <div className="flex items-start justify-between">
+                                                        <div className="flex-1 min-w-0">
+                                                            <p className="font-bold text-sm truncate">{event.title}</p>
+                                                            <p className="text-xs text-gray-500">
+                                                                {new Date(event.date).toLocaleDateString('de-DE', { 
+                                                                    day: 'numeric', 
+                                                                    month: 'short' 
+                                                                })}
+                                                            </p>
+                                                        </div>
+                                                        <span className={`text-xs px-2 py-0.5 ${
+                                                            createdEvents.find(e => e.id === event.id) 
+                                                                ? 'bg-accent' 
+                                                                : 'bg-green-200'
+                                                        } border border-black`}>
+                                                            {createdEvents.find(e => e.id === event.id) ? 'HOST' : 'GOING'}
+                                                        </span>
+                                                    </div>
+                                                </Link>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
+                            )}
                         
                         {/* Challenge Stats Card */}
                         {customization?.sectionVisibility?.challenges !== false && (
@@ -986,73 +1129,77 @@ export default function TumblrStyleProfilePage() {
                         </div>
                     </div>
                     
-                    {/* RIGHT - MAIN TIMELINE */}
-                    <div className="space-y-4">
-                        <div 
-                            className="border-4 border-black shadow-comic p-4 relative overflow-hidden bg-white"
-                            style={{ borderTopWidth: '6px', borderTopColor: accentColor }}
-                        >
-                            <h2 className="font-heading text-xl">TIMELINE</h2>
-                        </div>
-                    
-                    {/* Content */}
-                        {posts.length === 0 ? (
-                            <div className="border-4 border-black shadow-comic p-12 text-center bg-white">
-                                <span className="text-6xl">📝</span>
-                                <p className="mt-4 font-heading text-xl">Noch keine Posts</p>
-                                <p className="mt-2 text-gray-500">
-                                    Dieser Künstler hat noch keine Posts geteilt.
-                                </p>
+                        {/* RIGHT - MAIN TIMELINE */}
+                        <div className="space-y-4">
+                            <div 
+                                className="border-4 border-black shadow-comic p-4 relative overflow-hidden bg-white"
+                                style={{ borderTopWidth: '6px', borderTopColor: accentColor }}
+                            >
+                                <h2 className="font-heading text-xl">TIMELINE</h2>
                             </div>
-                        ) : (
-                            <div className="space-y-4">
-                                {posts.map((post, index) => (
-                                    <Link 
-                                        key={post.id}
-                                        href={`/feed/${post.id}`}
-                                        className={`block border-4 border-black shadow-comic overflow-hidden hover:shadow-comic-hover hover:translate-x-[2px] hover:translate-y-[2px] transition-all bg-white ${
-                                            index % 2 === 0 ? 'lg:mr-12' : 'lg:ml-12'
-                                        }`}
-                                    >
-                                        {/* Post Image */}
-                                        {post.images && post.images[0] && (
-                                            <div className="relative aspect-[4/3] bg-gray-100">
-                                                <img 
-                                                    src={post.images[0]} 
-                                                    alt="" 
-                                                    className="w-full h-full object-cover"
-                                                />
-                                                {post.images.length > 1 && (
-                                                    <span className="absolute top-3 right-3 px-2 py-1 bg-black/70 text-white text-xs">
-                                                        +{post.images.length - 1}
-                                                    </span>
-                                                )}
-                                            </div>
-                                        )}
-                                        
-                                        {/* Post Content */}
-                                        <div className="p-4">
-                                            <p className="line-clamp-3">{post.text}</p>
+                        
+                        {/* Content */}
+                            {posts.length === 0 ? (
+                                <div className="border-4 border-black shadow-comic p-12 text-center bg-white">
+                                    <span className="text-6xl">📝</span>
+                                    <p className="mt-4 font-heading text-xl">Noch keine Posts</p>
+                                    <p className="mt-2 text-gray-500">
+                                        Dieser Künstler hat noch keine Posts geteilt.
+                                    </p>
+                                </div>
+                            ) : (
+                                <div className="space-y-4">
+                                    {posts.map((post, index) => (
+                                        <Link 
+                                            key={post.id}
+                                            href={`/feed/${post.id}`}
+                                            className={`block border-4 border-black shadow-comic overflow-hidden hover:shadow-comic-hover hover:translate-x-[2px] hover:translate-y-[2px] transition-all bg-white ${
+                                                index % 2 === 0 ? 'lg:mr-12' : 'lg:ml-12'
+                                            }`}
+                                        >
+                                            {/* Post Image */}
+                                            {post.images && post.images[0] && (
+                                                <div className="relative aspect-[4/3] bg-gray-100">
+                                                    <img 
+                                                        src={post.images[0]} 
+                                                        alt="" 
+                                                        className="w-full h-full object-cover"
+                                                    />
+                                                    {post.images.length > 1 && (
+                                                        <span className="absolute top-3 right-3 px-2 py-1 bg-black/70 text-white text-xs">
+                                                            +{post.images.length - 1}
+                                                        </span>
+                                                    )}
+                                                </div>
+                                            )}
                                             
-                                            {/* Post Stats */}
-                                            <div className="flex items-center gap-4 mt-4 pt-3 border-t border-gray-200">
-                                                <span className="text-sm text-gray-500">❤️ {post.likesCount}</span>
-                                                <span className="text-sm text-gray-500">💬 {post.commentsCount}</span>
-                                                <span className="text-sm ml-auto text-gray-500">
-                                                    {timeAgo(post.createdAt)}
-                                                </span>
+                                            {/* Post Content */}
+                                            <div className="p-4">
+                                                <p className="line-clamp-3">{post.text}</p>
+                                                
+                                                {/* Post Stats */}
+                                                <div className="flex items-center gap-4 mt-4 pt-3 border-t border-gray-200">
+                                                    <span className="text-sm text-gray-500">❤️ {post.likesCount}</span>
+                                                    <span className="text-sm text-gray-500">💬 {post.commentsCount}</span>
+                                                    <span className="text-sm ml-auto text-gray-500">
+                                                        {timeAgo(post.createdAt)}
+                                                    </span>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </Link>
-                                ))}
-                            </div>
-                        )}
+                                        </Link>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
                     </div>
                 </div>
+                
+                <div className="h-20" />
+                <Footer />
             </div>
             
-            <div className="h-20" />
-            <Footer />
+            {/* Mobile Bottom Navigation */}
+            <MobileBottomNav />
         </main>
     );
 }
