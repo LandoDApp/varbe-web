@@ -427,8 +427,11 @@ export default function TumblrStyleProfilePage() {
 
     const contentItems = getContentItems();
 
-    // Text color based on customization
-    const textColor = customization.textColor || '#000000';
+    // Text color based on customization/background
+    const bgColor = customization.background?.color || '#f3f4f6';
+    const isDarkBg = bgColor && (bgColor.toLowerCase() === '#000000' || bgColor.toLowerCase() === '#000' || bgColor === '#1a1a1a' || bgColor === '#111111');
+    const textColor = isDarkBg ? '#ffffff' : (customization.textColor || '#000000');
+    const mutedTextColor = isDarkBg ? '#a0a0a0' : '#666666';
     const linkColor = customization.linkColor || '#FF10F0';
     const accentColor = customization.primaryColor || '#CCFF00';
 
@@ -476,7 +479,7 @@ export default function TumblrStyleProfilePage() {
             )}
             
             {/* ========== MOBILE Profile Header ========== */}
-            <div className="md:hidden px-4 -mt-12 relative z-10">
+            <div className="md:hidden px-4 -mt-12 relative z-10" style={{ color: textColor }}>
                 <div className="flex items-end gap-4">
                     {/* Profile Picture */}
                     <div className="relative flex-shrink-0">
@@ -496,105 +499,100 @@ export default function TumblrStyleProfilePage() {
                         </div>
                     </div>
                     
-                    {/* Profile Info - mit weißem Text für Lesbarkeit auf Banner */}
+                    {/* Profile Info */}
                     <div className="flex-1 min-w-0 pb-2">
                         <div className="flex items-center gap-2 flex-wrap">
-                            <h1 className="text-xl font-heading truncate text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">{profile.displayName || "Anonymer Künstler"}</h1>
+                            <h1 className="text-xl font-heading truncate" style={{ color: textColor }}>{profile.displayName || "Anonymer Künstler"}</h1>
                             {profile.verificationStatus === 'verified' && (
-                                <span className="px-1.5 py-0.5 text-xs border-2 border-white bg-accent text-black">✓</span>
+                                <span className="px-1.5 py-0.5 text-xs border-2 border-black bg-accent text-black">✓</span>
                             )}
                         </div>
                         {profile.username && (
-                            <p className="text-sm text-white/80 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">@{profile.username}</p>
+                            <p className="text-sm" style={{ color: mutedTextColor }}>@{profile.username}</p>
                         )}
                     </div>
                 </div>
                 
-                {/* Stats & Info Card - mit Hintergrund */}
-                <div className="mt-4 bg-white border-4 border-black shadow-comic p-4">
-                    {/* Stats Row */}
-                    <div className="flex gap-6 mb-4">
-                        <div className="text-center">
-                            <p className="font-heading text-lg">{posts.length}</p>
-                            <p className="text-xs text-gray-600">Posts</p>
-                        </div>
-                        <div className="text-center">
-                            <p className="font-heading text-lg">{followerCount}</p>
-                            <p className="text-xs text-gray-600">Followers</p>
-                        </div>
-                        <div className="text-center">
-                            <p className="font-heading text-lg">{followingCount}</p>
-                            <p className="text-xs text-gray-600">Following</p>
-                        </div>
+                {/* Stats Row */}
+                <div className="flex gap-6 mt-4 mb-4">
+                    <div className="text-center">
+                        <p className="font-heading text-lg" style={{ color: textColor }}>{posts.length}</p>
+                        <p className="text-xs" style={{ color: mutedTextColor }}>Posts</p>
                     </div>
-                    
-                    {/* Bio & Location */}
-                    {profile.bio && (
-                        <p className="text-sm mb-2 line-clamp-3 text-gray-700">{profile.bio}</p>
-                    )}
-                    {(profile.location || profile.website) && (
-                        <div className="flex flex-wrap gap-3 text-sm mb-4 text-gray-600">
-                            {profile.location && (
-                                <span className="flex items-center gap-1">📍 {profile.location}</span>
-                            )}
-                            {profile.website && (
-                                <a href={profile.website} target="_blank" rel="noopener" className="flex items-center gap-1" style={{ color: accentColor }}>
-                                    🔗 {profile.website.replace(/^https?:\/\//, '')}
-                                </a>
-                            )}
-                        </div>
-                    )}
+                    <div className="text-center">
+                        <p className="font-heading text-lg" style={{ color: textColor }}>{followerCount}</p>
+                        <p className="text-xs" style={{ color: mutedTextColor }}>Followers</p>
+                    </div>
+                    <div className="text-center">
+                        <p className="font-heading text-lg" style={{ color: textColor }}>{followingCount}</p>
+                        <p className="text-xs" style={{ color: mutedTextColor }}>Following</p>
+                    </div>
+                </div>
                 
-                    {/* Action Buttons */}
-                    <div className="flex gap-2">
-                        {isOwnProfile ? (
-                            <Link href="/profile/settings" className="flex-1">
-                                <Button variant="secondary" className="w-full text-sm py-2">
-                                    Profil bearbeiten
-                                </Button>
-                            </Link>
-                        ) : currentUser ? (
-                            <>
-                                <Button
-                                    onClick={handleFollowToggle}
-                                    disabled={followLoading}
-                                    variant={isFollowing ? "secondary" : "accent"}
-                                    className="flex-1 text-sm py-2"
-                                >
-                                    {followLoading ? '...' : isFollowing ? '✓ Folge ich' : '+ Folgen'}
-                                </Button>
-                                <Button 
-                                    onClick={handleSendDM}
-                                    disabled={dmLoading}
-                                    variant="secondary" 
-                                    className="text-sm py-2 px-4"
-                                >
-                                    {dmLoading ? '...' : '✉️'}
-                                </Button>
-                            </>
-                        ) : (
-                            <Link href="/auth/login" className="flex-1">
-                                <Button variant="accent" className="w-full text-sm py-2">
-                                    Anmelden zum Folgen
-                                </Button>
-                            </Link>
-                        )}
-                    </div>
-                    
-                    {/* Showcased Badges */}
-                    {profile.achievementData?.showcasedBadges && profile.achievementData.showcasedBadges.length > 0 && (
-                        <div className="flex gap-2 mt-4 overflow-x-auto scrollbar-hide pb-1">
-                            {profile.achievementData.showcasedBadges.slice(0, 5).map(badgeId => (
-                                <div 
-                                    key={badgeId}
-                                    className="w-10 h-10 rounded-full border-2 border-black flex items-center justify-center text-lg bg-gray-100 flex-shrink-0"
-                                >
-                                    🏆
-                                </div>
-                            ))}
-                        </div>
+                {/* Bio & Location */}
+                {profile.bio && (
+                    <p className="text-sm mb-2 line-clamp-3" style={{ color: mutedTextColor }}>{profile.bio}</p>
+                )}
+                <div className="flex flex-wrap gap-3 text-sm mb-4" style={{ color: mutedTextColor }}>
+                    {profile.location && (
+                        <span className="flex items-center gap-1">📍 {profile.location}</span>
+                    )}
+                    {profile.website && (
+                        <a href={profile.website} target="_blank" rel="noopener" className="flex items-center gap-1" style={{ color: accentColor }}>
+                            🔗 {profile.website.replace(/^https?:\/\//, '')}
+                        </a>
                     )}
                 </div>
+
+                {/* Action Buttons */}
+                <div className="flex gap-2 mb-4">
+                    {isOwnProfile ? (
+                        <Link href="/profile/settings" className="flex-1">
+                            <Button variant="secondary" className="w-full text-sm py-2">
+                                Profil bearbeiten
+                            </Button>
+                        </Link>
+                    ) : currentUser ? (
+                        <>
+                            <Button
+                                onClick={handleFollowToggle}
+                                disabled={followLoading}
+                                variant={isFollowing ? "secondary" : "accent"}
+                                className="flex-1 text-sm py-2"
+                            >
+                                {followLoading ? '...' : isFollowing ? '✓ Folge ich' : '+ Folgen'}
+                            </Button>
+                            <Button 
+                                onClick={handleSendDM}
+                                disabled={dmLoading}
+                                variant="secondary" 
+                                className="text-sm py-2 px-4"
+                            >
+                                {dmLoading ? '...' : '✉️'}
+                            </Button>
+                        </>
+                    ) : (
+                        <Link href="/auth/login" className="flex-1">
+                            <Button variant="accent" className="w-full text-sm py-2">
+                                Anmelden zum Folgen
+                            </Button>
+                        </Link>
+                    )}
+                </div>
+                
+                {/* Showcased Badges */}
+                {profile.achievementData?.showcasedBadges && profile.achievementData.showcasedBadges.length > 0 && (
+                    <div className="flex gap-2 mb-4 overflow-x-auto scrollbar-hide pb-1">
+                        {profile.achievementData.showcasedBadges.slice(0, 5).map(badgeId => (
+                            <div 
+                                key={badgeId}
+                                className="w-10 h-10 rounded-full border-2 border-black flex items-center justify-center text-lg bg-white flex-shrink-0"
+                            >
+                                🏆
+                            </div>
+                        ))}
+                    </div>
+                )}
             </div>
             
             {/* ========== DESKTOP Profile Header - Schwarzes Band ========== */}
