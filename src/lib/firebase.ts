@@ -18,42 +18,43 @@ const firebaseConfig = {
 // Check if we're in browser environment
 const isBrowser = typeof window !== "undefined";
 
-// Only initialize Firebase in browser
+// Initialize Firebase App - works on both server and client
 let app: FirebaseApp;
 let auth: Auth;
 let db: Firestore;
 let storage: FirebaseStorage;
 let analytics: Promise<Analytics | null>;
 
+// Initialize Firebase App (works on both server and client)
+app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+
+// Initialize Firestore with "varbe" database (works on both server and client)
+try {
+    db = getFirestore(app, "varbe");
+} catch {
+    db = initializeFirestore(app, {
+        experimentalAutoDetectLongPolling: true,
+        experimentalForceLongPolling: false,
+    }, "varbe");
+}
+
+// Initialize Auth (works on both server and client)
+auth = getAuth(app);
+
+// Initialize Storage (works on both server and client)
+storage = getStorage(app);
+
+// Initialize Analytics only in browser
 if (isBrowser) {
-    // Initialize Firebase App
-    app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
-    
     console.log("Firebase Config:", {
         projectId: firebaseConfig.projectId,
         authDomain: firebaseConfig.authDomain,
         apiKey: firebaseConfig.apiKey ? "Present" : "Missing",
     });
     
-    // Initialize Auth
-    auth = getAuth(app);
-    
-    // Initialize Firestore with "varbe" database
-    try {
-        db = getFirestore(app, "varbe");
-    } catch {
-        db = initializeFirestore(app, {
-            experimentalAutoDetectLongPolling: true,
-            experimentalForceLongPolling: false,
-        }, "varbe");
-    }
-    
     console.log("✅ Firestore initialized with 'varbe' database");
     
-    // Initialize Storage
-    storage = getStorage(app);
-    
-    // Initialize Analytics (async)
+    // Initialize Analytics (async, browser only)
     analytics = (async () => {
         const supported = await isSupported();
         if (supported) {
@@ -62,19 +63,7 @@ if (isBrowser) {
         return null;
     })();
 } else {
-    // SSR: Create placeholder objects that will throw helpful errors if accessed
-    // These should never be accessed during SSR because all Firebase code should be in useEffect or event handlers
-    const ssrError = (name: string) => {
-        throw new Error(
-            `Firebase ${name} is not available during server-side rendering. ` +
-            `Ensure this code only runs in the browser using useEffect or event handlers.`
-        );
-    };
-    
-    app = new Proxy({} as FirebaseApp, { get: () => ssrError('App') });
-    auth = new Proxy({} as Auth, { get: () => ssrError('Auth') });
-    db = new Proxy({} as Firestore, { get: () => ssrError('Firestore') });
-    storage = new Proxy({} as FirebaseStorage, { get: () => ssrError('Storage') });
+    // Server-side: Analytics not available
     analytics = Promise.resolve(null);
 }
 
