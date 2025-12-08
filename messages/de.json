@@ -44,7 +44,8 @@
       "line3": "KEINE KI-SCHEISSE.",
       "description": "Die Artist-Community wo echte Kunst gefeiert wird. Ohne Algorithmus-Bullshit. Ohne AI-Theft. Nur Kunst, Künstler und Community.",
       "joinNow": "JETZT BEITRETEN",
-      "discoverFeed": "FEED ENTDECKEN →"
+      "discoverFeed": "FEED ENTDECKEN →",
+      "becomeArtist": "KÜNSTLER WERDEN →"
     },
     "badges": {
       "noAi": "KEINE KI-KUNST",
@@ -2290,7 +2291,29 @@
       "newsletterDesc": "Erhalte wöchentlich die neuesten Artikel direkt in dein Postfach.",
       "newsletterPlaceholder": "deine@email.de",
       "newsletterButton": "Anmelden",
-      "loading": "Lade Artikel..."
+      "loading": "Lade Artikel...",
+      "pageTitle": "VARBE BLOG",
+      "pageSubtitle": "Tipps, Tutorials und Insights aus der Kunst-Community",
+      "writePost": "EIGENEN BEITRAG SCHREIBEN",
+      "allLanguages": "ALLE SPRACHEN",
+      "allCategories": "ALLE KATEGORIEN",
+      "loadingPosts": "Lade Beiträge...",
+      "noPosts": "NOCH KEINE BEITRÄGE",
+      "noPostsInCategory": "In dieser Kategorie gibt es noch keine Beiträge.",
+      "postsComingSoon": "Hier werden bald spannende Blog-Beiträge erscheinen!",
+      "writeFirstPost": "ERSTEN BEITRAG SCHREIBEN",
+      "minReadTime": "Min Lesezeit",
+      "stayInformed": "BLEIB INFORMIERT",
+      "newsletterInfo": "Erhalte neue Blog-Beiträge und Updates direkt in dein Postfach.",
+      "subscribe": "ABONNIEREN",
+      "categories": {
+        "tutorial": "TUTORIAL",
+        "tips": "TIPPS & TRICKS",
+        "artist_spotlight": "KÜNSTLER SPOTLIGHT",
+        "community": "COMMUNITY",
+        "news": "NEWS",
+        "announcement": "ANKÜNDIGUNG"
+      }
     }
   },
   "challenges": {
@@ -2352,6 +2375,39 @@
       "description": "Je mehr du teilnimmst und gewinnst, desto mehr Badges sammelst du!"
     },
     "loading": "Lade Challenges..."
+  },
+  "appComingSoon": {
+    "title": "APP KOMMT BALD!",
+    "subtitle": "Wir arbeiten gerade an der VARBE App für iOS und Android. Swipe-Discovery, Offline-Mode und mehr - direkt in deiner Tasche.",
+    "developmentStatus": "ENTWICKLUNGS-STATUS",
+    "design": "Design",
+    "coreFeatures": "Core Features",
+    "testing": "Testing",
+    "release": "Release",
+    "done": "FERTIG",
+    "inProgress": "IN ARBEIT",
+    "soon": "BALD",
+    "percentDone": "FERTIG",
+    "whatToExpect": "WAS DICH ERWARTET",
+    "swipeFeed": "SWIPE FEED",
+    "localRadar": "LOCAL RADAR",
+    "pushAlerts": "PUSH ALERTS",
+    "offlineMode": "OFFLINE MODE",
+    "useWebApp": "Nutze bis dahin einfach unsere Web-App:",
+    "registerNow": "JETZT REGISTRIEREN",
+    "discoverFeed": "FEED ENTDECKEN →"
+  },
+  "feedComingSoon": {
+    "title": "FEED KOMMT BALD!",
+    "testPhase": "TESTPHASE",
+    "subtitle": "Wir sind noch in der Testphase! Der Social Feed mit Swipe-Discovery, Posts und mehr ist in Entwicklung. Bald kannst du hier Kunst entdecken wie auf TikTok.",
+    "whatsComing": "WAS KOMMT",
+    "swipeDiscovery": "Swipe-Discovery wie TikTok",
+    "postsLikesComments": "Posts, Likes & Kommentare",
+    "followersNotifications": "Follower & Benachrichtigungen",
+    "boardsCollections": "Boards & Sammlungen",
+    "repostsQuotes": "Reposts & Zitate",
+    "developmentProgress": "ENTWICKLUNGSFORTSCHRITT"
   },
   "footer": {
     "tagline": "Der Kunstmarktplatz für unabhängige Künstler und Kunstliebhaber.",

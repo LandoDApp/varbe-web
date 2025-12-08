@@ -44,7 +44,8 @@
       "line3": "NO AI BULLSHIT.",
       "description": "The artist community where real art is celebrated. No algorithm bullshit. No AI theft. Just art, artists, and community.",
       "joinNow": "JOIN NOW",
-      "discoverFeed": "DISCOVER FEED →"
+      "discoverFeed": "DISCOVER FEED →",
+      "becomeArtist": "BECOME AN ARTIST →"
     },
     "badges": {
       "noAi": "NO AI ART",
@@ -2295,7 +2296,29 @@
       "newsletterDesc": "Receive the latest articles weekly directly in your inbox.",
       "newsletterPlaceholder": "your@email.com",
       "newsletterButton": "Subscribe",
-      "loading": "Loading article..."
+      "loading": "Loading article...",
+      "pageTitle": "VARBE BLOG",
+      "pageSubtitle": "Tips, tutorials and insights from the art community",
+      "writePost": "WRITE YOUR OWN POST",
+      "allLanguages": "ALL LANGUAGES",
+      "allCategories": "ALL CATEGORIES",
+      "loadingPosts": "Loading posts...",
+      "noPosts": "NO POSTS YET",
+      "noPostsInCategory": "There are no posts in this category yet.",
+      "postsComingSoon": "Exciting blog posts will appear here soon!",
+      "writeFirstPost": "WRITE FIRST POST",
+      "minReadTime": "min read",
+      "stayInformed": "STAY INFORMED",
+      "newsletterInfo": "Get new blog posts and updates directly to your inbox.",
+      "subscribe": "SUBSCRIBE",
+      "categories": {
+        "tutorial": "TUTORIAL",
+        "tips": "TIPS & TRICKS",
+        "artist_spotlight": "ARTIST SPOTLIGHT",
+        "community": "COMMUNITY",
+        "news": "NEWS",
+        "announcement": "ANNOUNCEMENT"
+      }
     }
   },
   "challenges": {
@@ -2357,6 +2380,39 @@
       "description": "The more you participate and win, the more badges you collect!"
     },
     "loading": "Loading Challenges..."
+  },
+  "appComingSoon": {
+    "title": "APP COMING SOON!",
+    "subtitle": "We're currently working on the VARBE App for iOS and Android. Swipe-Discovery, Offline-Mode and more - right in your pocket.",
+    "developmentStatus": "DEVELOPMENT STATUS",
+    "design": "Design",
+    "coreFeatures": "Core Features",
+    "testing": "Testing",
+    "release": "Release",
+    "done": "DONE",
+    "inProgress": "IN PROGRESS",
+    "soon": "SOON",
+    "percentDone": "DONE",
+    "whatToExpect": "WHAT TO EXPECT",
+    "swipeFeed": "SWIPE FEED",
+    "localRadar": "LOCAL RADAR",
+    "pushAlerts": "PUSH ALERTS",
+    "offlineMode": "OFFLINE MODE",
+    "useWebApp": "Until then, just use our web app:",
+    "registerNow": "REGISTER NOW",
+    "discoverFeed": "DISCOVER FEED →"
+  },
+  "feedComingSoon": {
+    "title": "FEED COMING SOON!",
+    "testPhase": "TEST PHASE",
+    "subtitle": "We're still in the test phase! The social feed with swipe discovery, posts and more is in development. Soon you'll be able to discover art here like on TikTok.",
+    "whatsComing": "WHAT'S COMING",
+    "swipeDiscovery": "Swipe-Discovery like TikTok",
+    "postsLikesComments": "Posts, Likes & Comments",
+    "followersNotifications": "Followers & Notifications",
+    "boardsCollections": "Boards & Collections",
+    "repostsQuotes": "Reposts & Quotes",
+    "developmentProgress": "DEVELOPMENT PROGRESS"
   },
   "footer": {
     "tagline": "The art marketplace for independent artists and art lovers.",

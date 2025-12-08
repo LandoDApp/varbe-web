@@ -121,9 +121,9 @@ export default function Home() {
                                 {t('hero.joinNow')}
                             </Button>
                         </Link>
-                        <Link href="/feed" className="w-full sm:w-auto">
+                        <Link href="/artist/become" className="w-full sm:w-auto">
                             <Button variant="secondary" className="w-full sm:w-auto text-base md:text-xl px-6 md:px-8 py-3 md:py-4">
-                                {t('hero.discoverFeed')}
+                                {t('hero.becomeArtist')}
                             </Button>
                         </Link>
                     </div>
