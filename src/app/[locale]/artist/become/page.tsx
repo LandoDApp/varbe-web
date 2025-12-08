@@ -6,9 +6,11 @@ import { Button } from "@/components/ui/Button";
 import { Link } from "@/i18n/routing";
 import { useAuth } from "@/context/AuthContext";
 import { MobileBottomNav } from "@/components/ui/MobileBottomNav";
+import { useTranslations } from 'next-intl';
 
 export default function BecomeArtistPage() {
     const { user, profile } = useAuth();
+    const t = useTranslations('becomeArtist');
     
     // Check if user is already verified
     const isVerified = profile?.verificationStatus === 'verified';
@@ -17,97 +19,51 @@ export default function BecomeArtistPage() {
     const features = [
         {
             icon: "📝",
-            title: "POSTS & BLOG",
-            description: "Teile deine Kunstwerke, Work-in-Progress Bilder und schreibe Blogartikel über deine künstlerische Reise. Zeige der Community deine Perspektive.",
+            titleKey: "features.posts.title",
+            descKey: "features.posts.desc",
             available: true
         },
         {
             icon: "🏆",
-            title: "CHALLENGES",
-            description: "Nimm an Community-Challenges teil, zeige dein Können und gewinne Badges & Anerkennung. Von wöchentlichen Prompts bis zu großen Wettbewerben.",
+            titleKey: "features.challenges.title",
+            descKey: "features.challenges.desc",
             available: true
         },
         {
             icon: "📅",
-            title: "EVENTS ERSTELLEN",
-            description: "Erstelle lokale Kunst-Events, Open Studio Sessions oder Online-Workshops. Verbinde dich mit der Community in deiner Nähe.",
-            available: true
-        },
-        {
-            icon: "💬",
-            title: "CHATROOMS",
-            description: "Trete Chatrooms bei und diskutiere mit anderen Künstlern über Techniken, Tools und die Kunstszene. Finde Kollaborationspartner.",
+            titleKey: "features.events.title",
+            descKey: "features.events.desc",
             available: true
         },
         {
             icon: "🎨",
-            title: "COMMISSIONS",
-            description: "Biete deine Dienste für Auftragsarbeiten an. Werde gefunden von Leuten, die genau nach deinem Stil suchen.",
+            titleKey: "features.commissions.title",
+            descKey: "features.commissions.desc",
             available: true
         },
         {
             icon: "🛒",
-            title: "MARKETPLACE",
-            description: "Verkaufe deine Original-Kunstwerke direkt an Sammler. Nur 10% Gebühren – du behältst 90% deines Verdienstes.",
+            titleKey: "features.marketplace.title",
+            descKey: "features.marketplace.desc",
             available: false,
             comingSoon: "COMING SOON"
         }
     ];
 
     const benefits = [
-        {
-            emoji: "✓",
-            title: "Verifizierter Künstler Badge",
-            desc: "Zeige der Community, dass du ein echter, verifizierter Künstler bist"
-        },
-        {
-            emoji: "✓",
-            title: "Posts & Blog erstellen",
-            desc: "Teile deine Kunst und Gedanken mit der Community"
-        },
-        {
-            emoji: "✓",
-            title: "Events erstellen",
-            desc: "Erstelle lokale oder Online-Events und verbinde dich"
-        },
-        {
-            emoji: "✓",
-            title: "Challenges teilnehmen",
-            desc: "Zeige dein Können bei Community-Challenges"
-        },
-        {
-            emoji: "✓",
-            title: "Keine AI-Konkurrenz",
-            desc: "Bei uns gibt es keine AI-generierte Kunst"
-        },
-        {
-            emoji: "✓",
-            title: "Faire Gebühren",
-            desc: "Nur 10% – nicht 35% wie bei anderen Plattformen"
-        }
+        { titleKey: "benefits.badge.title", descKey: "benefits.badge.desc" },
+        { titleKey: "benefits.posts.title", descKey: "benefits.posts.desc" },
+        { titleKey: "benefits.events.title", descKey: "benefits.events.desc" },
+        { titleKey: "benefits.challenges.title", descKey: "benefits.challenges.desc" },
+        { titleKey: "benefits.noAi.title", descKey: "benefits.noAi.desc" },
+        { titleKey: "benefits.fees.title", descKey: "benefits.fees.desc" }
     ];
 
     const steps = [
-        {
-            number: "01",
-            title: "Account erstellen",
-            description: "Registriere dich kostenlos bei Varbe. Dauert nur 30 Sekunden."
-        },
-        {
-            number: "02",
-            title: "Verifizierung starten",
-            description: "Fülle das Verifizierungsformular aus und lade 3-5 Beispiele deiner Kunst hoch."
-        },
-        {
-            number: "03",
-            title: "Prüfung durch Team",
-            description: "Unser Team prüft deine Einreichung in 1-3 Werktagen."
-        },
-        {
-            number: "04",
-            title: "Los geht's!",
-            description: "Nach der Verifizierung kannst du sofort Posts erstellen, Events planen und an Challenges teilnehmen."
-        }
+        { number: "01", titleKey: "steps.account.title", descKey: "steps.account.desc" },
+        { number: "02", titleKey: "steps.verify.title", descKey: "steps.verify.desc" },
+        { number: "03", titleKey: "steps.review.title", descKey: "steps.review.desc" },
+        { number: "04", titleKey: "steps.start.title", descKey: "steps.start.desc" }
     ];
 
     return (
@@ -129,20 +85,19 @@ export default function BecomeArtistPage() {
                         {/* Badge */}
                         <div className="inline-block mb-6">
                             <span className="bg-accent text-black font-heading text-sm px-4 py-2 border-2 border-accent">
-                                🎨 FÜR ECHTE KÜNSTLER
+                                🎨 {t('hero.badge')}
                             </span>
                         </div>
                         
                         <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading mb-6 leading-tight">
-                            WERDE EIN
+                            {t('hero.title1')}
                             <span className="block text-accent" style={{ textShadow: '3px 3px 0px #FF10F0' }}>
-                                VARBE KÜNSTLER
+                                {t('hero.title2')}
                             </span>
                         </h1>
                         
                         <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-                            Teile deine Kunst, nimm an Challenges teil, erstelle Events und 
-                            verbinde dich mit einer Community, die echte Kunst feiert – nicht AI-Slop.
+                            {t('hero.description')}
                         </p>
                         
                         {/* CTA based on auth state */}
@@ -150,31 +105,31 @@ export default function BecomeArtistPage() {
                             <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                 <Link href="/auth/register">
                                     <Button variant="accent" className="text-xl px-8 py-4">
-                                        JETZT REGISTRIEREN
+                                        {t('cta.register')}
                                     </Button>
                                 </Link>
                                 <Link href="/auth/login">
                                     <Button variant="secondary" className="text-xl px-8 py-4 bg-white/10 border-white text-white hover:bg-white/20">
-                                        EINLOGGEN
+                                        {t('cta.login')}
                                     </Button>
                                 </Link>
                             </div>
                         ) : isPending ? (
                             <div className="bg-yellow-500/20 border-2 border-yellow-500 px-6 py-4 inline-block">
-                                <p className="font-heading text-yellow-400">⏳ DEINE VERIFIZIERUNG WIRD GEPRÜFT</p>
-                                <p className="text-sm text-gray-400 mt-1">Wir melden uns in 1-3 Werktagen</p>
+                                <p className="font-heading text-yellow-400">⏳ {t('status.pending')}</p>
+                                <p className="text-sm text-gray-400 mt-1">{t('status.pendingNote')}</p>
                             </div>
                         ) : isVerified ? (
                             <div className="bg-accent/20 border-2 border-accent px-6 py-4 inline-block">
-                                <p className="font-heading text-accent">✅ DU BIST BEREITS VERIFIZIERT!</p>
+                                <p className="font-heading text-accent">✅ {t('status.verified')}</p>
                                 <Link href="/profile" className="text-sm text-white hover:underline mt-1 block">
-                                    Zu deinem Profil →
+                                    {t('status.toProfile')}
                                 </Link>
                             </div>
                         ) : (
                             <Link href="/artist/verify">
                                 <Button variant="accent" className="text-xl px-8 py-4">
-                                    KÜNSTLER WERDEN →
+                                    {t('cta.become')}
                                 </Button>
                             </Link>
                         )}
@@ -187,10 +142,10 @@ export default function BecomeArtistPage() {
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl md:text-5xl font-heading mb-4">
-                            WAS KANNST DU ALS KÜNSTLER?
+                            {t('whatCanYouDo.title')}
                         </h2>
                         <p className="text-gray-600 max-w-2xl mx-auto">
-                            Als verifizierter Varbe-Künstler hast du Zugang zu allen Features der Plattform
+                            {t('whatCanYouDo.subtitle')}
                         </p>
                     </div>
 
@@ -208,14 +163,14 @@ export default function BecomeArtistPage() {
                                     <span className="text-4xl">{feature.icon}</span>
                                     <div className="flex-1">
                                         <div className="flex items-center gap-2 mb-2">
-                                            <h3 className="font-heading text-lg">{feature.title}</h3>
+                                            <h3 className="font-heading text-lg">{t(feature.titleKey)}</h3>
                                             {feature.comingSoon && (
                                                 <span className="bg-accent-pink text-white text-xs px-2 py-0.5 font-heading">
                                                     {feature.comingSoon}
                                                 </span>
                                             )}
                                         </div>
-                                        <p className="text-sm text-gray-600">{feature.description}</p>
+                                        <p className="text-sm text-gray-600">{t(feature.descKey)}</p>
                                     </div>
                                 </div>
                             </div>
@@ -229,10 +184,10 @@ export default function BecomeArtistPage() {
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl md:text-5xl font-heading mb-4">
-                            SO WIRST DU <span className="text-accent">KÜNSTLER</span>
+                            {t('howTo.title')} <span className="text-accent">{t('howTo.titleHighlight')}</span>
                         </h2>
                         <p className="text-gray-400 max-w-2xl mx-auto">
-                            Der Verifizierungsprozess ist einfach und dauert nur wenige Minuten
+                            {t('howTo.subtitle')}
                         </p>
                     </div>
 
@@ -246,8 +201,8 @@ export default function BecomeArtistPage() {
                                     <span className="absolute -top-4 -left-4 bg-accent text-black font-heading text-2xl w-12 h-12 flex items-center justify-center border-2 border-black">
                                         {step.number}
                                     </span>
-                                    <h3 className="font-heading text-xl mb-2 mt-2">{step.title}</h3>
-                                    <p className="text-gray-400 text-sm">{step.description}</p>
+                                    <h3 className="font-heading text-xl mb-2 mt-2">{t(step.titleKey)}</h3>
+                                    <p className="text-gray-400 text-sm">{t(step.descKey)}</p>
                                 </div>
                             ))}
                         </div>
@@ -260,7 +215,7 @@ export default function BecomeArtistPage() {
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl md:text-5xl font-heading mb-4">
-                            DEINE VORTEILE
+                            {t('benefits.title')}
                         </h2>
                     </div>
 
@@ -271,11 +226,11 @@ export default function BecomeArtistPage() {
                                 className="bg-white border-4 border-black p-4 flex items-start gap-4 shadow-comic"
                             >
                                 <span className="text-2xl font-heading text-accent bg-black w-10 h-10 flex items-center justify-center flex-shrink-0">
-                                    {benefit.emoji}
+                                    ✓
                                 </span>
                                 <div>
-                                    <h3 className="font-heading text-base">{benefit.title}</h3>
-                                    <p className="text-sm text-gray-600">{benefit.desc}</p>
+                                    <h3 className="font-heading text-base">{t(benefit.titleKey)}</h3>
+                                    <p className="text-sm text-gray-600">{t(benefit.descKey)}</p>
                                 </div>
                             </div>
                         ))}
@@ -289,7 +244,7 @@ export default function BecomeArtistPage() {
                     <div className="max-w-4xl mx-auto">
                         <div className="text-center mb-12">
                             <h2 className="text-3xl md:text-5xl font-heading mb-4">
-                                WARUM VARBE?
+                                {t('whyVarbe.title')}
                             </h2>
                         </div>
 
@@ -298,10 +253,9 @@ export default function BecomeArtistPage() {
                                 <div className="w-20 h-20 bg-accent border-4 border-black mx-auto mb-4 flex items-center justify-center">
                                     <span className="text-4xl">🚫</span>
                                 </div>
-                                <h3 className="font-heading text-xl mb-2">KEINE AI-KUNST</h3>
+                                <h3 className="font-heading text-xl mb-2">{t('whyVarbe.noAi.title')}</h3>
                                 <p className="text-sm text-gray-600">
-                                    Wir erlauben keine AI-generierte Kunst. Punkt. Deine echte Arbeit wird nicht von 
-                                    Bots überschattet.
+                                    {t('whyVarbe.noAi.desc')}
                                 </p>
                             </div>
 
@@ -309,10 +263,9 @@ export default function BecomeArtistPage() {
                                 <div className="w-20 h-20 bg-accent border-4 border-black mx-auto mb-4 flex items-center justify-center">
                                     <span className="text-4xl">💰</span>
                                 </div>
-                                <h3 className="font-heading text-xl mb-2">FAIRE GEBÜHREN</h3>
+                                <h3 className="font-heading text-xl mb-2">{t('whyVarbe.fees.title')}</h3>
                                 <p className="text-sm text-gray-600">
-                                    Nur 10% bei Verkäufen – nicht 35-40% wie bei anderen Plattformen. 
-                                    Du behältst mehr von deinem Verdienst.
+                                    {t('whyVarbe.fees.desc')}
                                 </p>
                             </div>
 
@@ -320,10 +273,9 @@ export default function BecomeArtistPage() {
                                 <div className="w-20 h-20 bg-accent border-4 border-black mx-auto mb-4 flex items-center justify-center">
                                     <span className="text-4xl">👥</span>
                                 </div>
-                                <h3 className="font-heading text-xl mb-2">ECHTE COMMUNITY</h3>
+                                <h3 className="font-heading text-xl mb-2">{t('whyVarbe.community.title')}</h3>
                                 <p className="text-sm text-gray-600">
-                                    Eine Community aus echten Künstlern und Kunstliebhabern. 
-                                    Keine Algorithmus-Manipulation, kein Engagement-Farming.
+                                    {t('whyVarbe.community.desc')}
                                 </p>
                             </div>
                         </div>
@@ -335,31 +287,30 @@ export default function BecomeArtistPage() {
             <section className="py-16 md:py-24 bg-black text-white">
                 <div className="container mx-auto px-4 text-center">
                     <h2 className="text-3xl md:text-5xl font-heading mb-6">
-                        BEREIT <span className="text-accent">LOSZULEGEN</span>?
+                        {t('finalCta.title')} <span className="text-accent">{t('finalCta.titleHighlight')}</span>?
                     </h2>
                     <p className="text-gray-400 mb-8 max-w-xl mx-auto">
-                        Werde Teil einer Community, die echte Kunst feiert. Keine AI. Keine hohen Gebühren. 
-                        Nur Kunst, Künstler und Community.
+                        {t('finalCta.description')}
                     </p>
                     
                     {!user ? (
                         <Link href="/auth/register">
                             <Button variant="accent" className="text-xl px-8 py-4">
-                                JETZT KOSTENLOS REGISTRIEREN
+                                {t('cta.registerFree')}
                             </Button>
                         </Link>
                     ) : isPending ? (
-                        <p className="text-yellow-400 font-heading">⏳ Deine Verifizierung wird geprüft...</p>
+                        <p className="text-yellow-400 font-heading">⏳ {t('status.pendingShort')}</p>
                     ) : isVerified ? (
                         <Link href="/feed/create">
                             <Button variant="accent" className="text-xl px-8 py-4">
-                                ERSTEN POST ERSTELLEN →
+                                {t('cta.createPost')}
                             </Button>
                         </Link>
                     ) : (
                         <Link href="/artist/verify">
                             <Button variant="accent" className="text-xl px-8 py-4">
-                                VERIFIZIERUNG STARTEN →
+                                {t('cta.startVerify')}
                             </Button>
                         </Link>
                     )}
@@ -370,11 +321,11 @@ export default function BecomeArtistPage() {
             <section className="py-12 bg-gray-100 border-t-4 border-black">
                 <div className="container mx-auto px-4 text-center">
                     <p className="text-gray-600">
-                        Noch Fragen? Schau in unsere{' '}
+                        {t('faq.questions')}{' '}
                         <Link href="/faq" className="text-accent font-bold hover:underline">
                             FAQ
                         </Link>
-                        {' '}oder kontaktiere uns unter{' '}
+                        {' '}{t('faq.or')}{' '}
                         <a href="mailto:info@varbe.org" className="text-accent font-bold hover:underline">
                             info@varbe.org
                         </a>
@@ -387,4 +338,3 @@ export default function BecomeArtistPage() {
         </div>
     );
 }
-

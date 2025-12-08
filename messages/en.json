@@ -2414,6 +2414,129 @@
     "repostsQuotes": "Reposts & Quotes",
     "developmentProgress": "DEVELOPMENT PROGRESS"
   },
+  "becomeArtist": {
+    "hero": {
+      "badge": "FOR REAL ARTISTS",
+      "title1": "BECOME A",
+      "title2": "VARBE ARTIST",
+      "description": "Share your art, participate in challenges, create events and connect with a community that celebrates real art – not AI slop."
+    },
+    "cta": {
+      "register": "REGISTER NOW",
+      "login": "LOG IN",
+      "become": "BECOME AN ARTIST →",
+      "registerFree": "REGISTER FOR FREE NOW",
+      "createPost": "CREATE YOUR FIRST POST →",
+      "startVerify": "START VERIFICATION →"
+    },
+    "status": {
+      "pending": "YOUR VERIFICATION IS BEING REVIEWED",
+      "pendingNote": "We'll get back to you in 1-3 business days",
+      "pendingShort": "Your verification is being reviewed...",
+      "verified": "YOU'RE ALREADY VERIFIED!",
+      "toProfile": "Go to your profile →"
+    },
+    "whatCanYouDo": {
+      "title": "WHAT CAN YOU DO AS AN ARTIST?",
+      "subtitle": "As a verified Varbe artist, you have access to all platform features"
+    },
+    "features": {
+      "posts": {
+        "title": "POSTS & BLOG",
+        "desc": "Share your artworks, work-in-progress images and write blog articles about your artistic journey. Show the community your perspective."
+      },
+      "challenges": {
+        "title": "CHALLENGES",
+        "desc": "Participate in community challenges, showcase your skills and earn badges & recognition. From weekly prompts to big competitions."
+      },
+      "events": {
+        "title": "CREATE EVENTS",
+        "desc": "Create local art events, open studio sessions or online workshops. Connect with the community near you."
+      },
+      "commissions": {
+        "title": "COMMISSIONS",
+        "desc": "Offer your services for commissioned work. Get found by people looking for exactly your style."
+      },
+      "marketplace": {
+        "title": "MARKETPLACE",
+        "desc": "Sell your original artworks directly to collectors. Only 10% fees – you keep 90% of your earnings."
+      }
+    },
+    "howTo": {
+      "title": "HOW TO BECOME AN",
+      "titleHighlight": "ARTIST",
+      "subtitle": "The verification process is simple and takes only a few minutes"
+    },
+    "steps": {
+      "account": {
+        "title": "Create Account",
+        "desc": "Register for free at Varbe. Takes only 30 seconds."
+      },
+      "verify": {
+        "title": "Start Verification",
+        "desc": "Fill out the verification form and upload 3-5 examples of your art."
+      },
+      "review": {
+        "title": "Team Review",
+        "desc": "Our team reviews your submission in 1-3 business days."
+      },
+      "start": {
+        "title": "Let's go!",
+        "desc": "After verification, you can immediately create posts, plan events and participate in challenges."
+      }
+    },
+    "benefits": {
+      "title": "YOUR BENEFITS",
+      "badge": {
+        "title": "Verified Artist Badge",
+        "desc": "Show the community that you're a real, verified artist"
+      },
+      "posts": {
+        "title": "Create Posts & Blog",
+        "desc": "Share your art and thoughts with the community"
+      },
+      "events": {
+        "title": "Create Events",
+        "desc": "Create local or online events and connect"
+      },
+      "challenges": {
+        "title": "Participate in Challenges",
+        "desc": "Show your skills in community challenges"
+      },
+      "noAi": {
+        "title": "No AI Competition",
+        "desc": "We don't allow AI-generated art here"
+      },
+      "fees": {
+        "title": "Fair Fees",
+        "desc": "Only 10% – not 35% like other platforms"
+      }
+    },
+    "whyVarbe": {
+      "title": "WHY VARBE?",
+      "noAi": {
+        "title": "NO AI ART",
+        "desc": "We don't allow AI-generated art. Period. Your real work won't be overshadowed by bots."
+      },
+      "fees": {
+        "title": "FAIR FEES",
+        "desc": "Only 10% on sales – not 35-40% like other platforms. You keep more of your earnings."
+      },
+      "community": {
+        "title": "REAL COMMUNITY",
+        "desc": "A community of real artists and art lovers. No algorithm manipulation, no engagement farming."
+      }
+    },
+    "finalCta": {
+      "title": "READY TO",
+      "titleHighlight": "GET STARTED",
+      "description": "Join a community that celebrates real art. No AI. No high fees. Just art, artists and community."
+    },
+    "faq": {
+      "questions": "Still have questions? Check our",
+      "or": "or contact us at"
+    }
+  },
   "footer": {
     "tagline": "The art marketplace for independent artists and art lovers.",
     "categories": "Categories",

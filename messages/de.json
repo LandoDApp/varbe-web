@@ -2409,6 +2409,129 @@
     "repostsQuotes": "Reposts & Zitate",
     "developmentProgress": "ENTWICKLUNGSFORTSCHRITT"
   },
+  "becomeArtist": {
+    "hero": {
+      "badge": "FÜR ECHTE KÜNSTLER",
+      "title1": "WERDE EIN",
+      "title2": "VARBE KÜNSTLER",
+      "description": "Teile deine Kunst, nimm an Challenges teil, erstelle Events und verbinde dich mit einer Community, die echte Kunst feiert – nicht AI-Slop."
+    },
+    "cta": {
+      "register": "JETZT REGISTRIEREN",
+      "login": "EINLOGGEN",
+      "become": "KÜNSTLER WERDEN →",
+      "registerFree": "JETZT KOSTENLOS REGISTRIEREN",
+      "createPost": "ERSTEN POST ERSTELLEN →",
+      "startVerify": "VERIFIZIERUNG STARTEN →"
+    },
+    "status": {
+      "pending": "DEINE VERIFIZIERUNG WIRD GEPRÜFT",
+      "pendingNote": "Wir melden uns in 1-3 Werktagen",
+      "pendingShort": "Deine Verifizierung wird geprüft...",
+      "verified": "DU BIST BEREITS VERIFIZIERT!",
+      "toProfile": "Zu deinem Profil →"
+    },
+    "whatCanYouDo": {
+      "title": "WAS KANNST DU ALS KÜNSTLER?",
+      "subtitle": "Als verifizierter Varbe-Künstler hast du Zugang zu allen Features der Plattform"
+    },
+    "features": {
+      "posts": {
+        "title": "POSTS & BLOG",
+        "desc": "Teile deine Kunstwerke, Work-in-Progress Bilder und schreibe Blogartikel über deine künstlerische Reise. Zeige der Community deine Perspektive."
+      },
+      "challenges": {
+        "title": "CHALLENGES",
+        "desc": "Nimm an Community-Challenges teil, zeige dein Können und gewinne Badges & Anerkennung. Von wöchentlichen Prompts bis zu großen Wettbewerben."
+      },
+      "events": {
+        "title": "EVENTS ERSTELLEN",
+        "desc": "Erstelle lokale Kunst-Events, Open Studio Sessions oder Online-Workshops. Verbinde dich mit der Community in deiner Nähe."
+      },
+      "commissions": {
+        "title": "COMMISSIONS",
+        "desc": "Biete deine Dienste für Auftragsarbeiten an. Werde gefunden von Leuten, die genau nach deinem Stil suchen."
+      },
+      "marketplace": {
+        "title": "MARKETPLACE",
+        "desc": "Verkaufe deine Original-Kunstwerke direkt an Sammler. Nur 10% Gebühren – du behältst 90% deines Verdienstes."
+      }
+    },
+    "howTo": {
+      "title": "SO WIRST DU",
+      "titleHighlight": "KÜNSTLER",
+      "subtitle": "Der Verifizierungsprozess ist einfach und dauert nur wenige Minuten"
+    },
+    "steps": {
+      "account": {
+        "title": "Account erstellen",
+        "desc": "Registriere dich kostenlos bei Varbe. Dauert nur 30 Sekunden."
+      },
+      "verify": {
+        "title": "Verifizierung starten",
+        "desc": "Fülle das Verifizierungsformular aus und lade 3-5 Beispiele deiner Kunst hoch."
+      },
+      "review": {
+        "title": "Prüfung durch Team",
+        "desc": "Unser Team prüft deine Einreichung in 1-3 Werktagen."
+      },
+      "start": {
+        "title": "Los geht's!",
+        "desc": "Nach der Verifizierung kannst du sofort Posts erstellen, Events planen und an Challenges teilnehmen."
+      }
+    },
+    "benefits": {
+      "title": "DEINE VORTEILE",
+      "badge": {
+        "title": "Verifizierter Künstler Badge",
+        "desc": "Zeige der Community, dass du ein echter, verifizierter Künstler bist"
+      },
+      "posts": {
+        "title": "Posts & Blog erstellen",
+        "desc": "Teile deine Kunst und Gedanken mit der Community"
+      },
+      "events": {
+        "title": "Events erstellen",
+        "desc": "Erstelle lokale oder Online-Events und verbinde dich"
+      },
+      "challenges": {
+        "title": "Challenges teilnehmen",
+        "desc": "Zeige dein Können bei Community-Challenges"
+      },
+      "noAi": {
+        "title": "Keine AI-Konkurrenz",
+        "desc": "Bei uns gibt es keine AI-generierte Kunst"
+      },
+      "fees": {
+        "title": "Faire Gebühren",
+        "desc": "Nur 10% – nicht 35% wie bei anderen Plattformen"
+      }
+    },
+    "whyVarbe": {
+      "title": "WARUM VARBE?",
+      "noAi": {
+        "title": "KEINE AI-KUNST",
+        "desc": "Wir erlauben keine AI-generierte Kunst. Punkt. Deine echte Arbeit wird nicht von Bots überschattet."
+      },
+      "fees": {
+        "title": "FAIRE GEBÜHREN",
+        "desc": "Nur 10% bei Verkäufen – nicht 35-40% wie bei anderen Plattformen. Du behältst mehr von deinem Verdienst."
+      },
+      "community": {
+        "title": "ECHTE COMMUNITY",
+        "desc": "Eine Community aus echten Künstlern und Kunstliebhabern. Keine Algorithmus-Manipulation, kein Engagement-Farming."
+      }
+    },
+    "finalCta": {
+      "title": "BEREIT",
+      "titleHighlight": "LOSZULEGEN",
+      "description": "Werde Teil einer Community, die echte Kunst feiert. Keine AI. Keine hohen Gebühren. Nur Kunst, Künstler und Community."
+    },
+    "faq": {
+      "questions": "Noch Fragen? Schau in unsere",
+      "or": "oder kontaktiere uns unter"
+    }
+  },
   "footer": {
     "tagline": "Der Kunstmarktplatz für unabhängige Künstler und Kunstliebhaber.",
     "categories": "Kategorien",
