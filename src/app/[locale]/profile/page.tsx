@@ -229,6 +229,10 @@ export default function MyProfilePage() {
 
     const accentColor = customization?.primaryColor || '#CCFF00';
     const bgColor = customization?.background?.color || '#fafafa';
+    // Determine if background is dark to set text color accordingly
+    const isDarkBg = bgColor && (bgColor.toLowerCase() === '#000000' || bgColor.toLowerCase() === '#000' || bgColor === '#1a1a1a' || bgColor === '#111111');
+    const textColor = isDarkBg ? '#ffffff' : '#000000';
+    const mutedTextColor = isDarkBg ? '#a0a0a0' : '#666666';
     const allEvents = [...createdEvents, ...attendingEvents];
     const userBadges = profile.achievementData?.achievements || [];
     const showcasedBadgeIds = profile.achievementData?.showcasedBadges || [];
@@ -294,7 +298,7 @@ export default function MyProfilePage() {
             )}
             
             {/* Profile Header - Mobile First */}
-            <div className="px-4 -mt-12 md:-mt-16 relative z-10">
+            <div className="px-4 -mt-12 md:-mt-16 relative z-10" style={{ color: textColor }}>
                 <div className="flex items-end gap-4">
                     {/* Profile Picture */}
                     <div className="relative group flex-shrink-0">
@@ -329,13 +333,13 @@ export default function MyProfilePage() {
                     {/* Profile Info - Mobile */}
                     <div className="flex-1 min-w-0 pb-2">
                         <div className="flex items-center gap-2 flex-wrap">
-                            <h1 className="text-xl md:text-2xl font-heading truncate">{profile.displayName}</h1>
+                            <h1 className="text-xl md:text-2xl font-heading truncate" style={{ color: textColor }}>{profile.displayName}</h1>
                             {profile.verificationStatus === 'verified' && (
-                                <span className="px-1.5 py-0.5 text-xs border-2 border-black bg-accent">✓</span>
+                                <span className="px-1.5 py-0.5 text-xs border-2 border-black bg-accent text-black">✓</span>
                             )}
                         </div>
                         {profile.username && (
-                            <p className="text-gray-600 text-sm">@{profile.username}</p>
+                            <p className="text-sm" style={{ color: mutedTextColor }}>@{profile.username}</p>
                         )}
                     </div>
                 </div>
@@ -343,29 +347,29 @@ export default function MyProfilePage() {
                 {/* Stats Row - Mobile */}
                 <div className="flex gap-6 mt-4 mb-4">
                     <div className="text-center">
-                        <p className="font-heading text-lg md:text-xl">{posts.length}</p>
-                        <p className="text-xs text-gray-600">Posts</p>
+                        <p className="font-heading text-lg md:text-xl" style={{ color: textColor }}>{posts.length}</p>
+                        <p className="text-xs" style={{ color: mutedTextColor }}>Posts</p>
                     </div>
                     <div className="text-center">
-                        <p className="font-heading text-lg md:text-xl">{followerCount}</p>
-                        <p className="text-xs text-gray-600">Followers</p>
+                        <p className="font-heading text-lg md:text-xl" style={{ color: textColor }}>{followerCount}</p>
+                        <p className="text-xs" style={{ color: mutedTextColor }}>Followers</p>
                     </div>
                     <div className="text-center">
-                        <p className="font-heading text-lg md:text-xl">{followingCount}</p>
-                        <p className="text-xs text-gray-600">Following</p>
+                        <p className="font-heading text-lg md:text-xl" style={{ color: textColor }}>{followingCount}</p>
+                        <p className="text-xs" style={{ color: mutedTextColor }}>Following</p>
                     </div>
                 </div>
                 
                 {/* Bio & Location */}
                 {profile.bio && (
-                    <p className="text-sm text-gray-700 mb-2 line-clamp-3">{profile.bio}</p>
+                    <p className="text-sm mb-2 line-clamp-3" style={{ color: mutedTextColor }}>{profile.bio}</p>
                 )}
-                <div className="flex flex-wrap gap-3 text-sm text-gray-600 mb-4">
+                <div className="flex flex-wrap gap-3 text-sm mb-4" style={{ color: mutedTextColor }}>
                     {profile.location && (
                         <span className="flex items-center gap-1">📍 {profile.location}</span>
                     )}
                     {profile.website && (
-                        <a href={profile.website} target="_blank" rel="noopener" className="flex items-center gap-1 text-accent">
+                        <a href={profile.website} target="_blank" rel="noopener" className="flex items-center gap-1" style={{ color: accentColor }}>
                             🔗 {profile.website.replace(/^https?:\/\//, '')}
                         </a>
                     )}

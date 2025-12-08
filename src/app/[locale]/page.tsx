@@ -147,29 +147,29 @@ export default function Home() {
             </section>
 
             {/* =========================================
-                CATEGORIES - Horizontal Scroll Mobile
+                CATEGORIES - Mobile Only
             ========================================= */}
-            <section className="py-6 md:py-12 border-y-4 border-black bg-white">
+            <section className="md:hidden py-6 border-y-4 border-black bg-white">
                 <div className="container mx-auto">
                     {/* Section Header */}
                     <div className="flex items-center justify-between px-4 mb-4">
-                        <h2 className="font-heading text-lg md:text-2xl uppercase">KATEGORIEN</h2>
+                        <h2 className="font-heading text-lg uppercase">KATEGORIEN</h2>
                         <Link href="/kategorien" className="text-sm font-heading text-accent hover:underline">
                             Alle →
                         </Link>
                     </div>
 
                     {/* Horizontal Scroll */}
-                    <div className="flex gap-3 md:gap-4 overflow-x-auto pb-4 px-4 scrollbar-hide snap-x snap-mandatory">
+                    <div className="flex gap-3 overflow-x-auto pb-4 px-4 scrollbar-hide snap-x snap-mandatory">
                         {categories.map((cat) => (
                             <Link
                                 key={cat.id}
                                 href={cat.href}
                                 className="flex-shrink-0 snap-center"
                             >
-                                <div className="w-[68px] md:w-[80px] h-[68px] md:h-[80px] border-3 md:border-4 border-black bg-white shadow-comic-sm hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all flex flex-col items-center justify-center gap-1">
-                                    <span className="text-2xl md:text-3xl">{cat.icon}</span>
-                                    <span className="font-heading text-[10px] md:text-xs uppercase">{cat.label}</span>
+                                <div className="w-[68px] h-[68px] border-3 border-black bg-white shadow-comic-sm hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all flex flex-col items-center justify-center gap-1">
+                                    <span className="text-2xl">{cat.icon}</span>
+                                    <span className="font-heading text-[10px] uppercase">{cat.label}</span>
                                 </div>
                             </Link>
                         ))}
