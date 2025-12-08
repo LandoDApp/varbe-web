@@ -5,6 +5,7 @@ import { useParams } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import { Navbar } from "@/components/ui/Navbar";
 import { Footer } from "@/components/ui/Footer";
+import { MobileBottomNav } from "@/components/ui/MobileBottomNav";
 import { Button } from "@/components/ui/Button";
 import { BadgeShowcase } from "@/components/ui/BadgeDisplay";
 import { DEFAULT_PROFILE_CUSTOMIZATION } from "@/components/ui/ProfileEditor";
@@ -433,11 +434,28 @@ export default function TumblrStyleProfilePage() {
 
     return (
         <main className="min-h-screen" style={{ backgroundColor: customization.background.color || '#f3f4f6' }}>
-            <Navbar />
+            {/* Desktop Navigation */}
+            <div className="hidden md:block">
+                <Navbar />
+            </div>
+            
+            {/* Mobile Header */}
+            <header className="md:hidden h-14 bg-white/90 backdrop-blur-md border-b-4 border-black flex items-center justify-between px-4 sticky top-0 z-sticky safe-area-top">
+                <button 
+                    onClick={() => router.back()}
+                    className="w-10 h-10 flex items-center justify-center"
+                >
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                </button>
+                <h1 className="font-heading text-lg uppercase">{profile.username ? `@${profile.username}` : 'PROFIL'}</h1>
+                <div className="w-10 h-10" /> {/* Spacer */}
+            </header>
             
             {/* Banner / Cover Image */}
             {customization?.showCoverImage && customization?.coverImageUrl ? (
-                <div className="h-56 md:h-72 lg:h-80 bg-gray-900 relative overflow-hidden">
+                <div className="h-32 md:h-56 lg:h-72 bg-gray-900 relative overflow-hidden">
                     <img 
                         src={customization.coverImageUrl} 
                         alt="Cover" 
@@ -448,7 +466,7 @@ export default function TumblrStyleProfilePage() {
                 </div>
             ) : (
                 <div 
-                    className="h-40 md:h-56 lg:h-64"
+                    className="h-32 md:h-56 lg:h-64"
                     style={{ 
                         background: customization?.background?.gradient 
                             ? `linear-gradient(${customization.background.gradient.direction}, ${customization.background.gradient.colors.join(', ')})`
@@ -457,14 +475,131 @@ export default function TumblrStyleProfilePage() {
                 />
             )}
             
-            {/* Profile Header - Schwarzes Band */}
-            <div className="bg-black/70 backdrop-blur-md text-white -mt-6 relative z-10">
+            {/* ========== MOBILE Profile Header ========== */}
+            <div className="md:hidden px-4 -mt-12 relative z-10">
+                <div className="flex items-end gap-4">
+                    {/* Profile Picture */}
+                    <div className="relative flex-shrink-0">
+                        <div className="w-24 h-24 rounded-full border-4 border-white overflow-hidden bg-gray-200 shadow-lg">
+                            {profile.profilePictureUrl ? (
+                                <img src={profile.profilePictureUrl} alt="" className="w-full h-full object-cover" />
+                            ) : (
+                                <div 
+                                    className="w-full h-full flex items-center justify-center"
+                                    style={{ background: `linear-gradient(135deg, ${accentColor}, ${linkColor})` }}
+                                >
+                                    <span className="text-3xl">
+                                        {profile.displayName?.charAt(0).toUpperCase() || "🎨"}
+                                    </span>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                    
+                    {/* Profile Info */}
+                    <div className="flex-1 min-w-0 pb-2">
+                        <div className="flex items-center gap-2 flex-wrap">
+                            <h1 className="text-xl font-heading truncate">{profile.displayName || "Anonymer Künstler"}</h1>
+                            {profile.verificationStatus === 'verified' && (
+                                <span className="px-1.5 py-0.5 text-xs border-2 border-black bg-accent text-black">✓</span>
+                            )}
+                        </div>
+                        {profile.username && (
+                            <p className="text-sm text-gray-600">@{profile.username}</p>
+                        )}
+                    </div>
+                </div>
+                
+                {/* Stats Row */}
+                <div className="flex gap-6 mt-4 mb-4">
+                    <div className="text-center">
+                        <p className="font-heading text-lg">{posts.length}</p>
+                        <p className="text-xs text-gray-600">Posts</p>
+                    </div>
+                    <div className="text-center">
+                        <p className="font-heading text-lg">{followerCount}</p>
+                        <p className="text-xs text-gray-600">Followers</p>
+                    </div>
+                    <div className="text-center">
+                        <p className="font-heading text-lg">{followingCount}</p>
+                        <p className="text-xs text-gray-600">Following</p>
+                    </div>
+                </div>
+                
+                {/* Bio & Location */}
+                {profile.bio && (
+                    <p className="text-sm mb-2 line-clamp-3 text-gray-700">{profile.bio}</p>
+                )}
+                <div className="flex flex-wrap gap-3 text-sm mb-4 text-gray-600">
+                    {profile.location && (
+                        <span className="flex items-center gap-1">📍 {profile.location}</span>
+                    )}
+                    {profile.website && (
+                        <a href={profile.website} target="_blank" rel="noopener" className="flex items-center gap-1" style={{ color: accentColor }}>
+                            🔗 {profile.website.replace(/^https?:\/\//, '')}
+                        </a>
+                    )}
+                </div>
+                
+                {/* Action Buttons - Mobile */}
+                <div className="flex gap-2 mb-4">
+                    {isOwnProfile ? (
+                        <Link href="/profile/settings" className="flex-1">
+                            <Button variant="secondary" className="w-full text-sm py-2">
+                                Profil bearbeiten
+                            </Button>
+                        </Link>
+                    ) : currentUser ? (
+                        <>
+                            <Button
+                                onClick={handleFollowToggle}
+                                disabled={followLoading}
+                                variant={isFollowing ? "secondary" : "accent"}
+                                className="flex-1 text-sm py-2"
+                            >
+                                {followLoading ? '...' : isFollowing ? '✓ Folge ich' : '+ Folgen'}
+                            </Button>
+                            <Button 
+                                onClick={handleSendDM}
+                                disabled={dmLoading}
+                                variant="secondary" 
+                                className="text-sm py-2 px-4"
+                            >
+                                {dmLoading ? '...' : '✉️'}
+                            </Button>
+                        </>
+                    ) : (
+                        <Link href="/auth/login" className="flex-1">
+                            <Button variant="accent" className="w-full text-sm py-2">
+                                Anmelden zum Folgen
+                            </Button>
+                        </Link>
+                    )}
+                </div>
+                
+                {/* Showcased Badges */}
+                {profile.achievementData?.showcasedBadges && profile.achievementData.showcasedBadges.length > 0 && (
+                    <div className="flex gap-2 mb-4 overflow-x-auto scrollbar-hide pb-1">
+                        {profile.achievementData.showcasedBadges.slice(0, 5).map(badgeId => (
+                            <div 
+                                key={badgeId}
+                                className="w-10 h-10 rounded-full border-2 border-black flex items-center justify-center text-lg bg-white flex-shrink-0"
+                            >
+                                🏆
+                            </div>
+                        ))}
+                    </div>
+                )}
+            </div>
+            
+            {/* ========== DESKTOP Profile Header - Schwarzes Band ========== */}
+            <div className="hidden md:block bg-black/70 backdrop-blur-md text-white -mt-6 relative z-10">
                 <div className="container mx-auto max-w-6xl px-4 py-3">
                     <div className="flex items-center gap-4">
                         {/* Profile Picture */}
                         <div className="relative flex-shrink-0">
                             <div 
-                                className="w-16 h-16 md:w-20 md:h-20 rounded-full border-3 border-white/30 overflow-hidden bg-gray-800 shadow-lg"
+                                className="w-16 h-16 lg:w-20 lg:h-20 rounded-full border-3 border-white/30 overflow-hidden bg-gray-800 shadow-lg"
                             >
                                 {profile.profilePictureUrl ? (
                                     <img src={profile.profilePictureUrl} alt="" className="w-full h-full object-cover" />
@@ -473,7 +608,7 @@ export default function TumblrStyleProfilePage() {
                                         className="w-full h-full flex items-center justify-center"
                                         style={{ background: `linear-gradient(135deg, ${accentColor}, ${linkColor})` }}
                                     >
-                                        <span className="text-2xl md:text-3xl">
+                                        <span className="text-2xl lg:text-3xl">
                                             {profile.displayName?.charAt(0).toUpperCase() || "🎨"}
                                         </span>
                                     </div>
@@ -484,7 +619,7 @@ export default function TumblrStyleProfilePage() {
                         {/* Profile Info */}
                         <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-2 flex-wrap">
-                                <h1 className="text-lg md:text-xl font-heading truncate">{profile.displayName || "Anonymer Künstler"}</h1>
+                                <h1 className="text-lg lg:text-xl font-heading truncate">{profile.displayName || "Anonymer Künstler"}</h1>
                                 {profile.verificationStatus === 'verified' && (
                                     <span className="px-1.5 py-0.5 text-xs border border-white/50" style={{ backgroundColor: accentColor, color: '#000' }}>
                                         ✓
@@ -494,17 +629,17 @@ export default function TumblrStyleProfilePage() {
                             <div className="flex items-center gap-2 text-gray-300 text-sm flex-wrap">
                                 {profile.username && <span>@{profile.username}</span>}
                                 {profile.pronouns && <span className="text-gray-400">• {profile.pronouns}</span>}
-                                {profile.location && <span className="text-gray-400 hidden sm:inline">• 📍 {profile.location}</span>}
+                                {profile.location && <span className="text-gray-400">• 📍 {profile.location}</span>}
                             </div>
                             {/* Stats inline */}
                             <div className="flex gap-3 mt-1 text-sm">
-                                <span><strong>{posts.length}</strong> <span className="text-gray-400 hidden sm:inline">Posts</span></span>
-                                <span><strong>{followerCount}</strong> <span className="text-gray-400 hidden sm:inline">Followers</span></span>
-                                <span><strong>{followingCount}</strong> <span className="text-gray-400 hidden sm:inline">Following</span></span>
+                                <span><strong>{posts.length}</strong> <span className="text-gray-400">Posts</span></span>
+                                <span><strong>{followerCount}</strong> <span className="text-gray-400">Followers</span></span>
+                                <span><strong>{followingCount}</strong> <span className="text-gray-400">Following</span></span>
                             </div>
                         </div>
                         
-                        {/* Actions - rechts */}
+                        {/* Actions */}
                         <div className="flex gap-2 flex-shrink-0">
                             {isOwnProfile ? (
                                 <Link href="/profile/settings">

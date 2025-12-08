@@ -746,10 +746,6 @@ export default function MyProfilePage() {
                                             </a>
                                         </div>
                                     )}
-                                    <div className="flex items-center gap-2">
-                                        <span>📧</span>
-                                        <span>{user.email}</span>
-                                    </div>
                                 </div>
                             </div>
                             
