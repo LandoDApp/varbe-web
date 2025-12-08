@@ -427,11 +427,8 @@ export default function TumblrStyleProfilePage() {
 
     const contentItems = getContentItems();
 
-    // Text color based on customization/background
-    const bgColor = customization.background?.color || '#f3f4f6';
-    const isDarkBg = bgColor && (bgColor.toLowerCase() === '#000000' || bgColor.toLowerCase() === '#000' || bgColor === '#1a1a1a' || bgColor === '#111111');
-    const textColor = isDarkBg ? '#ffffff' : (customization.textColor || '#000000');
-    const mutedTextColor = isDarkBg ? '#a0a0a0' : '#666666';
+    // Text color based on customization
+    const textColor = customization.textColor || '#000000';
     const linkColor = customization.linkColor || '#FF10F0';
     const accentColor = customization.primaryColor || '#CCFF00';
 
@@ -479,7 +476,7 @@ export default function TumblrStyleProfilePage() {
             )}
             
             {/* ========== MOBILE Profile Header ========== */}
-            <div className="md:hidden px-4 -mt-12 relative z-10" style={{ color: textColor }}>
+            <div className="md:hidden px-4 -mt-12 relative z-10">
                 <div className="flex items-end gap-4">
                     {/* Profile Picture */}
                     <div className="relative flex-shrink-0">
@@ -502,13 +499,13 @@ export default function TumblrStyleProfilePage() {
                     {/* Profile Info */}
                     <div className="flex-1 min-w-0 pb-2">
                         <div className="flex items-center gap-2 flex-wrap">
-                            <h1 className="text-xl font-heading truncate" style={{ color: textColor }}>{profile.displayName || "Anonymer Künstler"}</h1>
+                            <h1 className="text-xl font-heading truncate">{profile.displayName || "Anonymer Künstler"}</h1>
                             {profile.verificationStatus === 'verified' && (
                                 <span className="px-1.5 py-0.5 text-xs border-2 border-black bg-accent text-black">✓</span>
                             )}
                         </div>
                         {profile.username && (
-                            <p className="text-sm" style={{ color: mutedTextColor }}>@{profile.username}</p>
+                            <p className="text-sm text-gray-600">@{profile.username}</p>
                         )}
                     </div>
                 </div>
@@ -516,24 +513,24 @@ export default function TumblrStyleProfilePage() {
                 {/* Stats Row */}
                 <div className="flex gap-6 mt-4 mb-4">
                     <div className="text-center">
-                        <p className="font-heading text-lg" style={{ color: textColor }}>{posts.length}</p>
-                        <p className="text-xs" style={{ color: mutedTextColor }}>Posts</p>
+                        <p className="font-heading text-lg">{posts.length}</p>
+                        <p className="text-xs text-gray-600">Posts</p>
                     </div>
                     <div className="text-center">
-                        <p className="font-heading text-lg" style={{ color: textColor }}>{followerCount}</p>
-                        <p className="text-xs" style={{ color: mutedTextColor }}>Followers</p>
+                        <p className="font-heading text-lg">{followerCount}</p>
+                        <p className="text-xs text-gray-600">Followers</p>
                     </div>
                     <div className="text-center">
-                        <p className="font-heading text-lg" style={{ color: textColor }}>{followingCount}</p>
-                        <p className="text-xs" style={{ color: mutedTextColor }}>Following</p>
+                        <p className="font-heading text-lg">{followingCount}</p>
+                        <p className="text-xs text-gray-600">Following</p>
                     </div>
                 </div>
                 
                 {/* Bio & Location */}
                 {profile.bio && (
-                    <p className="text-sm mb-2 line-clamp-3" style={{ color: mutedTextColor }}>{profile.bio}</p>
+                    <p className="text-sm mb-2 line-clamp-3 text-gray-700">{profile.bio}</p>
                 )}
-                <div className="flex flex-wrap gap-3 text-sm mb-4" style={{ color: mutedTextColor }}>
+                <div className="flex flex-wrap gap-3 text-sm mb-4 text-gray-600">
                     {profile.location && (
                         <span className="flex items-center gap-1">📍 {profile.location}</span>
                     )}
@@ -543,8 +540,8 @@ export default function TumblrStyleProfilePage() {
                         </a>
                     )}
                 </div>
-
-                {/* Action Buttons */}
+                
+                {/* Action Buttons - Mobile */}
                 <div className="flex gap-2 mb-4">
                     {isOwnProfile ? (
                         <Link href="/profile/settings" className="flex-1">
@@ -691,172 +688,143 @@ export default function TumblrStyleProfilePage() {
                 </div>
             </div>
             
-            {/* ========== MOBILE LAYOUT - Tabs (wie eigenes Profil) ========== */}
-            <div className="md:hidden">
-                {/* Tabs */}
-                <div className="border-y-4 border-black bg-white sticky top-14 z-sticky">
-                    <div className="flex overflow-x-auto scrollbar-hide">
-                        <button onClick={() => setActiveTab('posts')} className={`flex-1 min-w-[80px] py-3 flex flex-col items-center gap-1 transition-colors ${activeTab === 'posts' ? 'border-b-4 border-accent bg-accent/10' : 'border-b-4 border-transparent hover:bg-gray-50'}`}>
-                            <span className="text-lg">📝</span>
-                            <span className="text-xs font-medium">Posts</span>
-                        </button>
-                        <button onClick={() => setActiveTab('boards')} className={`flex-1 min-w-[80px] py-3 flex flex-col items-center gap-1 transition-colors ${activeTab === 'boards' ? 'border-b-4 border-accent bg-accent/10' : 'border-b-4 border-transparent hover:bg-gray-50'}`}>
-                            <span className="text-lg">📌</span>
-                            <span className="text-xs font-medium">Boards</span>
-                        </button>
-                        <button onClick={() => setActiveTab('events')} className={`flex-1 min-w-[80px] py-3 flex flex-col items-center gap-1 transition-colors ${activeTab === 'events' ? 'border-b-4 border-accent bg-accent/10' : 'border-b-4 border-transparent hover:bg-gray-50'}`}>
-                            <span className="text-lg">📅</span>
-                            <span className="text-xs font-medium">Events</span>
-                        </button>
-                        <button onClick={() => setActiveTab('comments')} className={`flex-1 min-w-[80px] py-3 flex flex-col items-center gap-1 transition-colors ${activeTab === 'comments' ? 'border-b-4 border-accent bg-accent/10' : 'border-b-4 border-transparent hover:bg-gray-50'}`}>
-                            <span className="text-lg">💬</span>
-                            <span className="text-xs font-medium">Gästebuch</span>
-                        </button>
-                    </div>
+            {/* ========== MOBILE CONTENT - Simple scrolling layout ========== */}
+            <div className="md:hidden px-4 py-4 pb-nav space-y-4">
+                {/* Posts Grid */}
+                <div className="card-comic p-4">
+                    <h3 className="font-heading text-sm mb-3">📝 POSTS</h3>
+                    {posts.length === 0 ? (
+                        <p className="text-sm text-center py-4 text-gray-500">
+                            Noch keine Posts
+                        </p>
+                    ) : (
+                        <div className="grid grid-cols-2 gap-2">
+                            {posts.slice(0, 6).map((post) => (
+                                <Link 
+                                    key={post.id}
+                                    href={`/feed/${post.id}`}
+                                    className="aspect-square border-3 border-black overflow-hidden bg-gray-100 relative group"
+                                >
+                                    {post.images && post.images[0] ? (
+                                        <img src={post.images[0]} alt="" className="w-full h-full object-cover" />
+                                    ) : (
+                                        <div className="w-full h-full flex items-center justify-center p-2">
+                                            <p className="text-xs text-center line-clamp-4">{post.text}</p>
+                                        </div>
+                                    )}
+                                    {post.images && post.images.length > 1 && (
+                                        <span className="absolute top-1 right-1 bg-black/70 text-white text-[10px] px-1.5 py-0.5">
+                                            +{post.images.length - 1}
+                                        </span>
+                                    )}
+                                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-2">
+                                        <div className="flex gap-2 text-white text-xs">
+                                            <span>❤️ {post.likesCount}</span>
+                                            <span>💬 {post.commentsCount}</span>
+                                        </div>
+                                    </div>
+                                </Link>
+                            ))}
+                        </div>
+                    )}
+                    {posts.length > 6 && (
+                        <p className="text-xs text-center mt-3 text-gray-500">
+                            + {posts.length - 6} weitere Posts
+                        </p>
+                    )}
                 </div>
                 
-                {/* Tab Content */}
-                <div className="px-4 py-4 pb-nav">
-                    {/* Posts Tab */}
-                    {activeTab === 'posts' && (
-                        <div>
-                            {posts.length === 0 ? (
-                                <div className="card-comic p-8 text-center">
-                                    <span className="text-5xl mb-4 block">📝</span>
-                                    <p className="font-heading text-lg mb-2">Noch keine Posts</p>
-                                    <p className="text-sm text-gray-600">Dieser Künstler hat noch keine Posts geteilt.</p>
-                                </div>
-                            ) : (
-                                <div className="grid grid-cols-2 gap-2">
-                                    {posts.map((post) => (
-                                        <Link key={post.id} href={`/feed/${post.id}`} className="aspect-square border-3 border-black overflow-hidden bg-gray-100 relative group">
-                                            {post.images && post.images[0] ? (
-                                                <img src={post.images[0]} alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
-                                            ) : (
-                                                <div className="w-full h-full flex items-center justify-center p-2">
-                                                    <p className="text-xs text-center line-clamp-4">{post.text}</p>
-                                                </div>
-                                            )}
-                                            {post.images && post.images.length > 1 && (
-                                                <span className="absolute top-1 right-1 bg-black/70 text-white text-[10px] px-1.5 py-0.5">+{post.images.length - 1}</span>
-                                            )}
-                                            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-2">
-                                                <div className="flex gap-2 text-white text-xs">
-                                                    <span>❤️ {post.likesCount}</span>
-                                                    <span>💬 {post.commentsCount}</span>
-                                                </div>
-                                            </div>
-                                        </Link>
-                                    ))}
-                                </div>
-                            )}
-                        </div>
-                    )}
-                    
-                    {/* Boards Tab */}
-                    {activeTab === 'boards' && (
-                        <div>
-                            {boards.length === 0 ? (
-                                <div className="card-comic p-8 text-center">
-                                    <span className="text-5xl mb-4 block">📌</span>
-                                    <p className="font-heading text-lg mb-2">Keine Boards</p>
-                                    <p className="text-sm text-gray-600">Dieser Nutzer hat noch keine Boards.</p>
-                                </div>
-                            ) : (
-                                <div className="grid grid-cols-2 gap-3">
-                                    {boards.map((board) => (
-                                        <Link key={board.id} href={`/boards/${board.id}`} className="aspect-square border-3 border-black overflow-hidden bg-gray-100 relative group">
-                                            {board.coverImageUrl ? (
-                                                <img src={board.coverImageUrl} alt="" className="w-full h-full object-cover" />
-                                            ) : (
-                                                <div className="w-full h-full flex items-center justify-center text-4xl">📌</div>
-                                            )}
-                                            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-2">
-                                                <p className="text-white text-xs font-bold truncate">{board.title}</p>
-                                            </div>
-                                        </Link>
-                                    ))}
-                                </div>
-                            )}
-                        </div>
-                    )}
-                    
-                    {/* Events Tab */}
-                    {activeTab === 'events' && (
-                        <div>
-                            {createdEvents.length === 0 && attendingEvents.length === 0 ? (
-                                <div className="card-comic p-8 text-center">
-                                    <span className="text-5xl mb-4 block">📅</span>
-                                    <p className="font-heading text-lg mb-2">Keine Events</p>
-                                    <p className="text-sm text-gray-600">Dieser Nutzer nimmt an keinen Events teil.</p>
-                                </div>
-                            ) : (
-                                <div className="space-y-3">
-                                    {[...createdEvents, ...attendingEvents].map((event) => (
-                                        <Link key={event.id} href={`/local/event/${event.id}`} className="card-comic p-4 flex items-center gap-4">
-                                            <div className="w-14 h-14 border-2 border-black bg-gray-100 flex items-center justify-center flex-shrink-0">
-                                                <span className="text-2xl">📅</span>
-                                            </div>
-                                            <div className="flex-1 min-w-0">
-                                                <p className="font-bold truncate">{event.title}</p>
-                                                <p className="text-xs text-gray-600">{new Date(event.date).toLocaleDateString('de-DE', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
-                                            </div>
-                                            <span className={`text-xs px-2 py-1 border-2 border-black ${createdEvents.find(e => e.id === event.id) ? 'bg-accent' : 'bg-green-200'}`}>
-                                                {createdEvents.find(e => e.id === event.id) ? 'HOST' : 'GOING'}
-                                            </span>
-                                        </Link>
-                                    ))}
-                                </div>
-                            )}
-                        </div>
-                    )}
-                    
-                    {/* Guestbook/Comments Tab */}
-                    {activeTab === 'comments' && (
-                        <div className="space-y-4">
-                            {currentUser ? (
-                                <div className="card-comic p-4">
-                                    <textarea value={newComment} onChange={(e) => setNewComment(e.target.value)} placeholder="Schreibe einen Kommentar..." className="w-full p-3 border-3 border-black text-sm resize-none" rows={2} maxLength={200} />
-                                    <div className="flex justify-between items-center mt-2">
-                                        <span className="text-xs text-gray-400">{newComment.length}/200</span>
-                                        <Button variant="accent" size="sm" onClick={handleSubmitComment} disabled={!newComment.trim() || submittingComment}>{submittingComment ? '...' : 'Posten'}</Button>
+                {/* Boards */}
+                {boards.length > 0 && (
+                    <div className="card-comic p-4">
+                        <h3 className="font-heading text-sm mb-3">📌 BOARDS</h3>
+                        <div className="grid grid-cols-2 gap-2">
+                            {boards.slice(0, 4).map(board => (
+                                <Link 
+                                    key={board.id}
+                                    href={`/boards/${board.id}`}
+                                    className="aspect-square bg-gray-100 border-2 border-black relative overflow-hidden"
+                                >
+                                    {board.coverImageUrl ? (
+                                        <img src={board.coverImageUrl} alt="" className="w-full h-full object-cover" />
+                                    ) : (
+                                        <div className="w-full h-full flex items-center justify-center text-2xl">📌</div>
+                                    )}
+                                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-2">
+                                        <p className="text-white text-xs font-bold truncate">{board.title}</p>
                                     </div>
-                                </div>
-                            ) : (
-                                <div className="card-comic p-4 text-center">
-                                    <Link href="/auth/login" className="text-sm hover:underline" style={{ color: accentColor }}>Anmelden um zu kommentieren</Link>
-                                </div>
-                            )}
-                            
-                            {profileComments.length === 0 ? (
-                                <div className="card-comic p-8 text-center">
-                                    <span className="text-5xl mb-4 block">💬</span>
-                                    <p className="font-heading text-lg mb-2">Noch keine Kommentare</p>
-                                    <p className="text-sm text-gray-600">Sei der Erste!</p>
-                                </div>
-                            ) : (
-                                <div className="space-y-3">
-                                    {profileComments.map(comment => {
-                                        const author = commentAuthors[comment.authorId];
-                                        return (
-                                            <div key={comment.id} className="card-comic p-4 flex gap-3">
-                                                <Link href={`/profile/${comment.authorId}`}>
-                                                    <div className="w-10 h-10 rounded-full bg-gray-200 border-2 border-black overflow-hidden flex-shrink-0">
-                                                        {author?.profilePictureUrl ? (<img src={author.profilePictureUrl} alt="" className="w-full h-full object-cover" />) : (<span className="flex items-center justify-center h-full text-sm">👤</span>)}
-                                                    </div>
-                                                </Link>
-                                                <div className="flex-1 min-w-0">
-                                                    <div className="flex items-center gap-2">
-                                                        <Link href={`/profile/${comment.authorId}`} className="font-bold text-sm hover:underline">{author?.displayName || 'Anon'}</Link>
-                                                        <span className="text-xs text-gray-500">{timeAgo(comment.createdAt)}</span>
-                                                    </div>
-                                                    <p className="text-sm mt-1">{comment.text}</p>
-                                                </div>
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
+                )}
+                
+                {/* Guestbook */}
+                <div className="card-comic p-4">
+                    <h3 className="font-heading text-sm mb-3">📝 GÄSTEBUCH</h3>
+                    
+                    {/* Comment Input */}
+                    {currentUser ? (
+                        <div className="mb-4">
+                            <textarea
+                                value={newComment}
+                                onChange={(e) => setNewComment(e.target.value)}
+                                placeholder="Schreibe einen Kommentar..."
+                                className="w-full p-2 border-2 border-black text-sm resize-none"
+                                rows={2}
+                                maxLength={200}
+                            />
+                            <div className="flex justify-between items-center mt-1">
+                                <span className="text-xs text-gray-400">{newComment.length}/200</span>
+                                <Button 
+                                    variant="accent" 
+                                    className="text-xs py-1"
+                                    onClick={handleSubmitComment}
+                                    disabled={!newComment.trim() || submittingComment}
+                                >
+                                    {submittingComment ? '...' : 'Posten'}
+                                </Button>
+                            </div>
+                        </div>
+                    ) : (
+                        <div className="mb-4 p-3 bg-gray-50 border text-center text-sm">
+                            <Link href="/auth/login" className="hover:underline" style={{ color: accentColor }}>
+                                Anmelden um zu kommentieren
+                            </Link>
+                        </div>
+                    )}
+                    
+                    {profileComments.length === 0 ? (
+                        <p className="text-sm text-center py-2 text-gray-500">
+                            Noch keine Kommentare
+                        </p>
+                    ) : (
+                        <div className="space-y-3">
+                            {profileComments.slice(0, 5).map(comment => {
+                                const author = commentAuthors[comment.authorId];
+                                return (
+                                    <div key={comment.id} className="flex gap-2">
+                                        <Link href={`/profile/${comment.authorId}`}>
+                                            <div className="w-8 h-8 rounded-full bg-gray-200 border border-black overflow-hidden flex-shrink-0">
+                                                {author?.profilePictureUrl ? (
+                                                    <img src={author.profilePictureUrl} alt="" className="w-full h-full object-cover" />
+                                                ) : (
+                                                    <span className="flex items-center justify-center h-full text-xs">👤</span>
+                                                )}
                                             </div>
-                                        );
-                                    })}
-                                </div>
-                            )}
+                                        </Link>
+                                        <div className="flex-1 min-w-0">
+                                            <div className="flex items-center gap-2">
+                                                <Link href={`/profile/${comment.authorId}`} className="font-bold text-xs hover:underline">
+                                                    {author?.displayName || 'Anon'}
+                                                </Link>
+                                                <span className="text-xs text-gray-500">{timeAgo(comment.createdAt)}</span>
+                                            </div>
+                                            <p className="text-sm">{comment.text}</p>
+                                        </div>
+                                    </div>
+                                );
+                            })}
                         </div>
                     )}
                 </div>

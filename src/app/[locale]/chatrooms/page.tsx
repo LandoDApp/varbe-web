@@ -22,7 +22,7 @@ export default function ChatroomsPage() {
     const [totalOnline, setTotalOnline] = useState(0);
     const [loading, setLoading] = useState(true);
     const [syncing, setSyncing] = useState(false);
-    const [selectedRegion, setSelectedRegion] = useState<ChatroomRegion | 'all'>('all');
+    const [selectedRegion, setSelectedRegion] = useState<ChatroomRegion>('de');
     const [selectedCategory, setSelectedCategory] = useState<ChatroomCategory | 'all'>('all');
     const [showMobileFilters, setShowMobileFilters] = useState(false);
 
@@ -30,7 +30,7 @@ export default function ChatroomsPage() {
         try {
             setLoading(true);
             const rooms = await getChatrooms(
-                selectedRegion === 'all' ? undefined : selectedRegion,
+                selectedRegion,
                 selectedCategory === 'all' ? undefined : selectedCategory
             );
             setChatrooms(rooms);
@@ -170,17 +170,6 @@ export default function ChatroomsPage() {
                                     🌍 REGION
                                 </h3>
                                 <div className="space-y-2">
-                                    <button
-                                        onClick={() => setSelectedRegion('all')}
-                                        className={`w-full text-left px-3 py-2 transition-all flex items-center gap-2 ${
-                                            selectedRegion === 'all' 
-                                                ? 'bg-[#FF10F0] text-white' 
-                                                : 'text-gray-300 hover:bg-white/10'
-                                        }`}
-                                    >
-                                        <span>🌐</span>
-                                        <span>All Regions</span>
-                                    </button>
                                     {Object.entries(CHATROOM_REGIONS).map(([key, { label, flag }]) => (
                                         <button
                                             key={key}
@@ -265,7 +254,7 @@ export default function ChatroomsPage() {
                                     Try different filters or come back later.
                                 </p>
                                 <button
-                                    onClick={() => { setSelectedRegion('all'); setSelectedCategory('all'); }}
+                                    onClick={() => { setSelectedRegion('de'); setSelectedCategory('all'); }}
                                     className="text-[#FF10F0] font-heading hover:underline"
                                 >
                                     Reset filters →

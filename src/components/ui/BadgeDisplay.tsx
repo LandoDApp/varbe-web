@@ -476,3 +476,4 @@ export function BadgePage({ allBadges, userAchievements, totalPoints, currentStr
 
 
 
+

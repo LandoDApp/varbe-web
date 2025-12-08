@@ -297,19 +297,19 @@ export default function MyProfilePage() {
                 />
             )}
             
-            {/* Profile Header - MOBILE ONLY */}
-            <div className="md:hidden px-4 -mt-12 relative z-10" style={{ color: textColor }}>
+            {/* Profile Header - Mobile First */}
+            <div className="px-4 -mt-12 md:-mt-16 relative z-10" style={{ color: textColor }}>
                 <div className="flex items-end gap-4">
                     {/* Profile Picture */}
                     <div className="relative group flex-shrink-0">
                         <div 
-                            className="w-24 h-24 rounded-full border-4 border-white overflow-hidden bg-gray-200 cursor-pointer shadow-lg"
+                            className="w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-white overflow-hidden bg-gray-200 cursor-pointer shadow-lg"
                             onClick={() => fileInputRef.current?.click()}
                         >
                             {profile.profilePictureUrl ? (
                                 <img src={profile.profilePictureUrl} alt="" className="w-full h-full object-cover" />
                             ) : (
-                                <span className="flex items-center justify-center h-full text-4xl">👤</span>
+                                <span className="flex items-center justify-center h-full text-4xl md:text-5xl">👤</span>
                             )}
                             {uploadingPicture && (
                                 <div className="absolute inset-0 bg-black/50 flex items-center justify-center rounded-full">
@@ -330,10 +330,10 @@ export default function MyProfilePage() {
                         />
                     </div>
                     
-                    {/* Profile Info */}
+                    {/* Profile Info - Mobile */}
                     <div className="flex-1 min-w-0 pb-2">
                         <div className="flex items-center gap-2 flex-wrap">
-                            <h1 className="text-xl font-heading truncate" style={{ color: textColor }}>{profile.displayName}</h1>
+                            <h1 className="text-xl md:text-2xl font-heading truncate" style={{ color: textColor }}>{profile.displayName}</h1>
                             {profile.verificationStatus === 'verified' && (
                                 <span className="px-1.5 py-0.5 text-xs border-2 border-black bg-accent text-black">✓</span>
                             )}
@@ -344,18 +344,18 @@ export default function MyProfilePage() {
                     </div>
                 </div>
                 
-                {/* Stats Row */}
+                {/* Stats Row - Mobile */}
                 <div className="flex gap-6 mt-4 mb-4">
                     <div className="text-center">
-                        <p className="font-heading text-lg" style={{ color: textColor }}>{posts.length}</p>
+                        <p className="font-heading text-lg md:text-xl" style={{ color: textColor }}>{posts.length}</p>
                         <p className="text-xs" style={{ color: mutedTextColor }}>Posts</p>
                     </div>
                     <div className="text-center">
-                        <p className="font-heading text-lg" style={{ color: textColor }}>{followerCount}</p>
+                        <p className="font-heading text-lg md:text-xl" style={{ color: textColor }}>{followerCount}</p>
                         <p className="text-xs" style={{ color: mutedTextColor }}>Followers</p>
                     </div>
                     <div className="text-center">
-                        <p className="font-heading text-lg" style={{ color: textColor }}>{followingCount}</p>
+                        <p className="font-heading text-lg md:text-xl" style={{ color: textColor }}>{followingCount}</p>
                         <p className="text-xs" style={{ color: mutedTextColor }}>Following</p>
                     </div>
                 </div>
@@ -375,8 +375,8 @@ export default function MyProfilePage() {
                     )}
                 </div>
                 
-                {/* Action Buttons */}
-                <div className="flex gap-2 mb-4">
+                {/* Action Buttons - Mobile */}
+                <div className="flex gap-2 mb-4 md:hidden">
                     <Link href="/profile/settings" className="flex-1">
                         <Button variant="secondary" className="w-full text-sm py-2">
                             Profil bearbeiten
@@ -407,774 +407,335 @@ export default function MyProfilePage() {
                 )}
             </div>
             
-            {/* Profile Header - DESKTOP ONLY (inside container) */}
-            <div className="hidden md:block bg-black/70 backdrop-blur-md text-white -mt-6 relative z-10">
-                <div className="container mx-auto max-w-6xl px-4 py-3">
-                    <div className="flex items-center gap-4">
-                        {/* Profile Picture */}
-                        <div className="relative flex-shrink-0 group">
-                            <div 
-                                className="w-16 h-16 lg:w-20 lg:h-20 rounded-full border-3 border-white/30 overflow-hidden bg-gray-800 shadow-lg cursor-pointer"
-                                onClick={() => fileInputRef.current?.click()}
-                            >
-                                {profile.profilePictureUrl ? (
-                                    <img src={profile.profilePictureUrl} alt="" className="w-full h-full object-cover" />
-                                ) : (
-                                    <div 
-                                        className="w-full h-full flex items-center justify-center"
-                                        style={{ background: `linear-gradient(135deg, ${accentColor}, #FF10F0)` }}
-                                    >
-                                        <span className="text-2xl lg:text-3xl">
-                                            {profile.displayName?.charAt(0).toUpperCase() || "🎨"}
-                                        </span>
-                                    </div>
-                                )}
-                            </div>
-                            <div className="absolute inset-0 rounded-full bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center cursor-pointer"
-                                 onClick={() => fileInputRef.current?.click()}>
-                                <span className="text-white text-sm">📷</span>
-                            </div>
-                            <input 
-                                ref={fileInputRef}
-                                type="file" 
-                                accept="image/*" 
-                                onChange={handlePictureUpload}
-                                className="hidden"
-                            />
-                        </div>
-                        
-                        {/* Profile Info */}
-                        <div className="flex-1 min-w-0">
-                            <div className="flex items-center gap-2 flex-wrap">
-                                <h1 className="text-lg lg:text-xl font-heading truncate">{profile.displayName}</h1>
-                                {profile.verificationStatus === 'verified' && (
-                                    <span className="px-1.5 py-0.5 text-xs border border-white/50" style={{ backgroundColor: accentColor, color: '#000' }}>
-                                        ✓
-                                    </span>
-                                )}
-                            </div>
-                            <div className="flex items-center gap-2 text-gray-300 text-sm flex-wrap">
-                                {profile.username && <span>@{profile.username}</span>}
-                                {profile.pronouns && <span className="text-gray-400">• {profile.pronouns}</span>}
-                                {profile.location && <span className="text-gray-400">• 📍 {profile.location}</span>}
-                            </div>
-                            {/* Stats inline */}
-                            <div className="flex gap-3 mt-1 text-sm">
-                                <span><strong>{posts.length}</strong> <span className="text-gray-400">Posts</span></span>
-                                <span><strong>{followerCount}</strong> <span className="text-gray-400">Followers</span></span>
-                                <span><strong>{followingCount}</strong> <span className="text-gray-400">Following</span></span>
-                            </div>
-                        </div>
-                        
-                        {/* Actions */}
-                        <div className="flex gap-2 flex-shrink-0">
-                            <Link href="/profile/settings">
-                                <Button variant="secondary" className="text-xs px-3 py-1.5">
-                                    ⚙️ Einstellungen
-                                </Button>
+            {/* Tabs - Mobile Horizontal Scroll */}
+            <div className="border-y-4 border-black bg-white sticky top-14 md:top-0 z-sticky">
+                <div className="flex overflow-x-auto scrollbar-hide">
+                    {tabs.map((tab) => (
+                        <button
+                            key={tab.id}
+                            onClick={() => setActiveTab(tab.id)}
+                            className={`flex-1 min-w-[80px] py-3 flex flex-col items-center gap-1 transition-colors ${
+                                activeTab === tab.id 
+                                    ? 'border-b-4 border-accent bg-accent/10' 
+                                    : 'border-b-4 border-transparent hover:bg-gray-50'
+                            }`}
+                        >
+                            <span className="text-lg">{tab.icon}</span>
+                            <span className="text-xs font-medium">{tab.label}</span>
+                        </button>
+                    ))}
+                </div>
+            </div>
+            
+            {/* Tab Content */}
+            <div className="container mx-auto px-4 py-4 pb-nav md:pb-8">
+                {/* Posts Tab */}
+                {activeTab === 'posts' && (
+                    <div>
+                        {profile.verificationStatus === 'verified' && (
+                            <Link href="/feed/create" className="block mb-4">
+                                <div className="card-comic p-4 flex items-center gap-4 hover:bg-gray-50 transition-colors">
+                                    <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-xl">✏️</div>
+                                    <span className="font-heading text-sm">NEUEN POST ERSTELLEN</span>
+                                </div>
                             </Link>
-                            <Button variant="ghost" className="text-xs px-3 py-1.5 text-white border-white/30" onClick={handleLogout}>
-                                Logout
-                            </Button>
+                        )}
+                        
+                        {posts.length === 0 ? (
+                            <div className="card-comic p-8 text-center">
+                                <span className="text-5xl mb-4 block">📝</span>
+                                <p className="font-heading text-lg mb-2">Noch keine Posts</p>
+                                <p className="text-sm text-gray-600 mb-4">
+                                    {profile.verificationStatus === 'verified' 
+                                        ? 'Teile deinen ersten Post mit der Community!'
+                                        : 'Verifiziere dich als Künstler um Posts zu erstellen.'}
+                                </p>
+                                {profile.verificationStatus !== 'verified' && (
+                                    <Link href="/artist/verify">
+                                        <Button variant="accent" size="sm">Künstler werden →</Button>
+                                    </Link>
+                                )}
+                            </div>
+                        ) : (
+                            <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-4">
+                                {posts.map((post) => (
+                                    <Link 
+                                        key={post.id}
+                                        href={`/feed/${post.id}`}
+                                        className="aspect-square border-3 border-black overflow-hidden bg-gray-100 relative group"
+                                    >
+                                        {post.images && post.images[0] ? (
+                                            <img src={post.images[0]} alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+                                        ) : (
+                                            <div className="w-full h-full flex items-center justify-center p-2">
+                                                <p className="text-xs text-center line-clamp-4">{post.text}</p>
+                                            </div>
+                                        )}
+                                        {post.images && post.images.length > 1 && (
+                                            <span className="absolute top-1 right-1 bg-black/70 text-white text-[10px] px-1.5 py-0.5">
+                                                +{post.images.length - 1}
+                                            </span>
+                                        )}
+                                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-2">
+                                            <div className="flex gap-2 text-white text-xs">
+                                                <span>❤️ {post.likesCount}</span>
+                                                <span>💬 {post.commentsCount}</span>
+                                            </div>
+                                        </div>
+                                    </Link>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                )}
+                
+                {/* Boards Tab */}
+                {activeTab === 'boards' && (
+                    <div>
+                        {boards.length === 0 ? (
+                            <div className="card-comic p-8 text-center">
+                                <span className="text-5xl mb-4 block">📌</span>
+                                <p className="font-heading text-lg mb-2">Keine Boards</p>
+                                <p className="text-sm text-gray-600">Speichere Inspiration in Boards!</p>
+                            </div>
+                        ) : (
+                            <div className="grid grid-cols-2 gap-3">
+                                {boards.map((board) => (
+                                    <Link 
+                                        key={board.id}
+                                        href={`/boards/${board.id}`}
+                                        className="aspect-square border-3 border-black overflow-hidden bg-gray-100 relative group"
+                                    >
+                                        {board.coverImageUrl ? (
+                                            <img src={board.coverImageUrl} alt="" className="w-full h-full object-cover" />
+                                        ) : (
+                                            <div className="w-full h-full flex items-center justify-center text-4xl">📌</div>
+                                        )}
+                                        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                            <p className="text-white text-sm font-bold text-center px-2">{board.title}</p>
+                                        </div>
+                                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-2">
+                                            <p className="text-white text-xs font-bold truncate">{board.title}</p>
+                                        </div>
+                                    </Link>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                )}
+                
+                {/* Badges Tab */}
+                {activeTab === 'badges' && (
+                    <div>
+                        <div className="card-comic p-4 mb-4">
+                            <div className="flex justify-between items-center">
+                                <div>
+                                    <p className="font-heading text-2xl">{userBadges.length}</p>
+                                    <p className="text-xs text-gray-600">Badges gesammelt</p>
+                                </div>
+                                <div>
+                                    <p className="font-heading text-2xl">{profile.achievementData?.stats?.totalPoints || 0}</p>
+                                    <p className="text-xs text-gray-600">Punkte</p>
+                                </div>
+                            </div>
                         </div>
                         
-                        {/* Badges - Desktop only */}
-                        {showcasedBadgeIds.length > 0 && (
-                            <div className="hidden xl:flex gap-1 flex-shrink-0">
-                                {showcasedBadgeIds.slice(0, 5).map(badgeId => {
-                                    const badge = getBadgeById(badgeId);
+                        {userBadges.length === 0 ? (
+                            <div className="card-comic p-8 text-center">
+                                <span className="text-5xl mb-4 block">🏆</span>
+                                <p className="font-heading text-lg mb-2">Noch keine Badges</p>
+                                <p className="text-sm text-gray-600 mb-4">Sammle Badges durch Aktivität!</p>
+                                <Link href="/badges">
+                                    <Button variant="accent" size="sm">Alle Badges ansehen</Button>
+                                </Link>
+                            </div>
+                        ) : (
+                            <div className="grid grid-cols-3 gap-3">
+                                {userBadges.map((achievement) => {
+                                    const badge = getBadgeById(achievement.badgeId);
                                     if (!badge) return null;
                                     return (
                                         <div 
-                                            key={badgeId}
-                                            className="w-8 h-8 rounded-full border border-white/30 flex items-center justify-center text-sm bg-white/10"
-                                            title={badge.name}
+                                            key={achievement.badgeId}
+                                            className="card-comic p-3 text-center"
                                         >
-                                            {badge.icon}
+                                            <span className="text-3xl block mb-2">{badge.icon}</span>
+                                            <p className="font-heading text-xs truncate">{badge.name}</p>
                                         </div>
                                     );
                                 })}
                             </div>
                         )}
                     </div>
-                </div>
-            </div>
-            
-            {/* ========== MOBILE LAYOUT - Tabs ========== */}
-            <div className="md:hidden">
-                {/* Tabs - Mobile Horizontal Scroll */}
-                <div className="border-y-4 border-black bg-white sticky top-14 z-sticky">
-                    <div className="flex overflow-x-auto scrollbar-hide">
-                        {tabs.map((tab) => (
-                            <button
-                                key={tab.id}
-                                onClick={() => setActiveTab(tab.id)}
-                                className={`flex-1 min-w-[80px] py-3 flex flex-col items-center gap-1 transition-colors ${
-                                    activeTab === tab.id 
-                                        ? 'border-b-4 border-accent bg-accent/10' 
-                                        : 'border-b-4 border-transparent hover:bg-gray-50'
-                                }`}
-                            >
-                                <span className="text-lg">{tab.icon}</span>
-                                <span className="text-xs font-medium">{tab.label}</span>
-                            </button>
-                        ))}
-                    </div>
-                </div>
+                )}
                 
-                {/* Tab Content - Mobile */}
-                <div className="px-4 py-4 pb-nav">
-                    {/* Posts Tab */}
-                    {activeTab === 'posts' && (
-                        <div>
-                            {profile.verificationStatus === 'verified' && (
-                                <Link href="/feed/create" className="block mb-4">
-                                    <div className="card-comic p-4 flex items-center gap-4 hover:bg-gray-50 transition-colors">
-                                        <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-xl">✏️</div>
-                                        <span className="font-heading text-sm">NEUEN POST ERSTELLEN</span>
-                                    </div>
+                {/* Events Tab */}
+                {activeTab === 'events' && (
+                    <div>
+                        {allEvents.length === 0 ? (
+                            <div className="card-comic p-8 text-center">
+                                <span className="text-5xl mb-4 block">📅</span>
+                                <p className="font-heading text-lg mb-2">Keine Events</p>
+                                <p className="text-sm text-gray-600 mb-4">Entdecke lokale Kunst-Events!</p>
+                                <Link href="/local">
+                                    <Button variant="accent" size="sm">Events entdecken</Button>
                                 </Link>
-                            )}
+                            </div>
+                        ) : (
+                            <div className="space-y-3">
+                                {allEvents.map((event) => (
+                                    <Link 
+                                        key={event.id}
+                                        href={`/local/event/${event.id}`}
+                                        className="card-comic p-4 flex items-center gap-4"
+                                    >
+                                        <div className="w-14 h-14 border-2 border-black bg-gray-100 flex items-center justify-center flex-shrink-0">
+                                            <span className="text-2xl">📅</span>
+                                        </div>
+                                        <div className="flex-1 min-w-0">
+                                            <p className="font-bold truncate">{event.title}</p>
+                                            <p className="text-xs text-gray-600">
+                                                {new Date(event.date).toLocaleDateString('de-DE', { 
+                                                    day: 'numeric', 
+                                                    month: 'long',
+                                                    year: 'numeric'
+                                                })}
+                                            </p>
+                                        </div>
+                                        <span className={`text-xs px-2 py-1 border-2 border-black ${
+                                            createdEvents.find(e => e.id === event.id) 
+                                                ? 'bg-accent' 
+                                                : 'bg-green-200'
+                                        }`}>
+                                            {createdEvents.find(e => e.id === event.id) ? 'HOST' : 'GOING'}
+                                        </span>
+                                    </Link>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                )}
+                
+                {/* About Tab */}
+                {activeTab === 'about' && (
+                    <div className="space-y-4">
+                        {/* Bio */}
+                        <div className="card-comic p-4">
+                            <h3 className="font-heading text-sm mb-2">BIO</h3>
+                            <p className="text-sm text-gray-700">
+                                {profile.bio || 'Noch keine Bio hinzugefügt.'}
+                            </p>
+                        </div>
+                        
+                        {/* Details */}
+                        <div className="card-comic p-4">
+                            <h3 className="font-heading text-sm mb-3">DETAILS</h3>
+                            <div className="space-y-2 text-sm">
+                                {profile.location && (
+                                    <div className="flex items-center gap-2">
+                                        <span>📍</span>
+                                        <span>{profile.location}</span>
+                                    </div>
+                                )}
+                                {profile.pronouns && (
+                                    <div className="flex items-center gap-2">
+                                        <span>👤</span>
+                                        <span>{profile.pronouns}</span>
+                                    </div>
+                                )}
+                                {profile.website && (
+                                    <div className="flex items-center gap-2">
+                                        <span>🔗</span>
+                                        <a href={profile.website} target="_blank" rel="noopener" className="text-accent">
+                                            {profile.website}
+                                        </a>
+                                    </div>
+                                )}
+                                <div className="flex items-center gap-2">
+                                    <span>📧</span>
+                                    <span>{user.email}</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        {/* Chatrooms */}
+                        {userChatrooms.length > 0 && (
+                            <div className="card-comic p-4">
+                                <h3 className="font-heading text-sm mb-3">CHATROOMS</h3>
+                                <div className="flex flex-wrap gap-2">
+                                    {userChatrooms.slice(0, 5).map((room) => (
+                                        <Link 
+                                            key={room.id}
+                                            href={`/chatrooms/${room.id}`}
+                                            className="px-3 py-1 bg-gray-100 border-2 border-black text-xs font-medium hover:bg-accent transition-colors"
+                                        >
+                                            {CHATROOM_CATEGORIES[room.category]?.emoji} {room.name}
+                                        </Link>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+                        
+                        {/* Guestbook */}
+                        <div className="card-comic p-4">
+                            <h3 className="font-heading text-sm mb-3">📝 GÄSTEBUCH</h3>
                             
-                            {posts.length === 0 ? (
-                                <div className="card-comic p-8 text-center">
-                                    <span className="text-5xl mb-4 block">📝</span>
-                                    <p className="font-heading text-lg mb-2">Noch keine Posts</p>
-                                    <p className="text-sm text-gray-600 mb-4">
-                                        {profile.verificationStatus === 'verified' 
-                                            ? 'Teile deinen ersten Post mit der Community!'
-                                            : 'Verifiziere dich als Künstler um Posts zu erstellen.'}
-                                    </p>
-                                    {profile.verificationStatus !== 'verified' && (
-                                        <Link href="/artist/verify">
-                                            <Button variant="accent" size="sm">Künstler werden →</Button>
-                                        </Link>
-                                    )}
-                                </div>
-                            ) : (
-                                <div className="grid grid-cols-2 gap-2">
-                                    {posts.map((post) => (
-                                        <Link 
-                                            key={post.id}
-                                            href={`/feed/${post.id}`}
-                                            className="aspect-square border-3 border-black overflow-hidden bg-gray-100 relative group"
-                                        >
-                                            {post.images && post.images[0] ? (
-                                                <img src={post.images[0]} alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
-                                            ) : (
-                                                <div className="w-full h-full flex items-center justify-center p-2">
-                                                    <p className="text-xs text-center line-clamp-4">{post.text}</p>
-                                                </div>
-                                            )}
-                                            {post.images && post.images.length > 1 && (
-                                                <span className="absolute top-1 right-1 bg-black/70 text-white text-[10px] px-1.5 py-0.5">
-                                                    +{post.images.length - 1}
-                                                </span>
-                                            )}
-                                            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-2">
-                                                <div className="flex gap-2 text-white text-xs">
-                                                    <span>❤️ {post.likesCount}</span>
-                                                    <span>💬 {post.commentsCount}</span>
-                                                </div>
-                                            </div>
-                                        </Link>
-                                    ))}
-                                </div>
-                            )}
-                        </div>
-                    )}
-                    
-                    {/* Boards Tab */}
-                    {activeTab === 'boards' && (
-                        <div>
-                            {boards.length === 0 ? (
-                                <div className="card-comic p-8 text-center">
-                                    <span className="text-5xl mb-4 block">📌</span>
-                                    <p className="font-heading text-lg mb-2">Keine Boards</p>
-                                    <p className="text-sm text-gray-600">Speichere Inspiration in Boards!</p>
-                                </div>
-                            ) : (
-                                <div className="grid grid-cols-2 gap-3">
-                                    {boards.map((board) => (
-                                        <Link 
-                                            key={board.id}
-                                            href={`/boards/${board.id}`}
-                                            className="aspect-square border-3 border-black overflow-hidden bg-gray-100 relative group"
-                                        >
-                                            {board.coverImageUrl ? (
-                                                <img src={board.coverImageUrl} alt="" className="w-full h-full object-cover" />
-                                            ) : (
-                                                <div className="w-full h-full flex items-center justify-center text-4xl">📌</div>
-                                            )}
-                                            <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                                <p className="text-white text-sm font-bold text-center px-2">{board.title}</p>
-                                            </div>
-                                            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-2">
-                                                <p className="text-white text-xs font-bold truncate">{board.title}</p>
-                                            </div>
-                                        </Link>
-                                    ))}
-                                </div>
-                            )}
-                        </div>
-                    )}
-                    
-                    {/* Badges Tab */}
-                    {activeTab === 'badges' && (
-                        <div>
-                            <div className="card-comic p-4 mb-4">
-                                <div className="flex justify-between items-center">
-                                    <div>
-                                        <p className="font-heading text-2xl">{userBadges.length}</p>
-                                        <p className="text-xs text-gray-600">Badges gesammelt</p>
-                                    </div>
-                                    <div>
-                                        <p className="font-heading text-2xl">{profile.achievementData?.stats?.totalPoints || 0}</p>
-                                        <p className="text-xs text-gray-600">Punkte</p>
-                                    </div>
+                            {/* Comment Input */}
+                            <div className="mb-4">
+                                <textarea
+                                    value={newComment}
+                                    onChange={(e) => setNewComment(e.target.value)}
+                                    placeholder="Schreibe einen Kommentar..."
+                                    className="w-full p-3 border-3 border-black text-sm resize-none"
+                                    rows={2}
+                                    maxLength={200}
+                                />
+                                <div className="flex justify-between items-center mt-2">
+                                    <span className="text-xs text-gray-400">{newComment.length}/200</span>
+                                    <Button 
+                                        variant="accent" 
+                                        size="sm"
+                                        onClick={handleAddComment}
+                                        disabled={!newComment.trim() || submittingComment}
+                                        loading={submittingComment}
+                                    >
+                                        Posten
+                                    </Button>
                                 </div>
                             </div>
                             
-                            {userBadges.length === 0 ? (
-                                <div className="card-comic p-8 text-center">
-                                    <span className="text-5xl mb-4 block">🏆</span>
-                                    <p className="font-heading text-lg mb-2">Noch keine Badges</p>
-                                    <p className="text-sm text-gray-600 mb-4">Sammle Badges durch Aktivität!</p>
-                                    <Link href="/badges">
-                                        <Button variant="accent" size="sm">Alle Badges ansehen</Button>
-                                    </Link>
-                                </div>
+                            {profileComments.length === 0 ? (
+                                <p className="text-sm text-center text-gray-500 py-4">
+                                    Noch keine Kommentare
+                                </p>
                             ) : (
-                                <div className="grid grid-cols-3 gap-3">
-                                    {userBadges.map((achievement) => {
-                                        const badge = getBadgeById(achievement.badgeId);
-                                        if (!badge) return null;
+                                <div className="space-y-3">
+                                    {profileComments.slice(0, 5).map(comment => {
+                                        const author = commentAuthors[comment.authorId];
                                         return (
-                                            <div 
-                                                key={achievement.badgeId}
-                                                className="card-comic p-3 text-center"
-                                            >
-                                                <span className="text-3xl block mb-2">{badge.icon}</span>
-                                                <p className="font-heading text-xs truncate">{badge.name}</p>
+                                            <div key={comment.id} className="flex gap-3">
+                                                <div className="w-8 h-8 rounded-full bg-gray-200 border-2 border-black overflow-hidden flex-shrink-0">
+                                                    {author?.profilePictureUrl ? (
+                                                        <img src={author.profilePictureUrl} alt="" className="w-full h-full object-cover" />
+                                                    ) : (
+                                                        <span className="flex items-center justify-center h-full text-xs">👤</span>
+                                                    )}
+                                                </div>
+                                                <div className="flex-1 min-w-0">
+                                                    <div className="flex items-center gap-2">
+                                                        <span className="font-bold text-xs">{author?.displayName || 'Anon'}</span>
+                                                        <span className="text-xs text-gray-500">{timeAgo(comment.createdAt)}</span>
+                                                    </div>
+                                                    <p className="text-sm">{comment.text}</p>
+                                                </div>
                                             </div>
                                         );
                                     })}
                                 </div>
                             )}
                         </div>
-                    )}
-                    
-                    {/* Events Tab */}
-                    {activeTab === 'events' && (
-                        <div>
-                            {allEvents.length === 0 ? (
-                                <div className="card-comic p-8 text-center">
-                                    <span className="text-5xl mb-4 block">📅</span>
-                                    <p className="font-heading text-lg mb-2">Keine Events</p>
-                                    <p className="text-sm text-gray-600 mb-4">Entdecke lokale Kunst-Events!</p>
-                                    <Link href="/local">
-                                        <Button variant="accent" size="sm">Events entdecken</Button>
-                                    </Link>
-                                </div>
-                            ) : (
-                                <div className="space-y-3">
-                                    {allEvents.map((event) => (
-                                        <Link 
-                                            key={event.id}
-                                            href={`/local/event/${event.id}`}
-                                            className="card-comic p-4 flex items-center gap-4"
-                                        >
-                                            <div className="w-14 h-14 border-2 border-black bg-gray-100 flex items-center justify-center flex-shrink-0">
-                                                <span className="text-2xl">📅</span>
-                                            </div>
-                                            <div className="flex-1 min-w-0">
-                                                <p className="font-bold truncate">{event.title}</p>
-                                                <p className="text-xs text-gray-600">
-                                                    {new Date(event.date).toLocaleDateString('de-DE', { 
-                                                        day: 'numeric', 
-                                                        month: 'long',
-                                                        year: 'numeric'
-                                                    })}
-                                                </p>
-                                            </div>
-                                            <span className={`text-xs px-2 py-1 border-2 border-black ${
-                                                createdEvents.find(e => e.id === event.id) 
-                                                    ? 'bg-accent' 
-                                                    : 'bg-green-200'
-                                            }`}>
-                                                {createdEvents.find(e => e.id === event.id) ? 'HOST' : 'GOING'}
-                                            </span>
-                                        </Link>
-                                    ))}
-                                </div>
-                            )}
-                        </div>
-                    )}
-                    
-                    {/* About Tab */}
-                    {activeTab === 'about' && (
-                        <div className="space-y-4">
-                            {/* Bio */}
-                            <div className="card-comic p-4">
-                                <h3 className="font-heading text-sm mb-2">BIO</h3>
-                                <p className="text-sm text-gray-700">
-                                    {profile.bio || 'Noch keine Bio hinzugefügt.'}
-                                </p>
-                            </div>
-                            
-                            {/* Details */}
-                            <div className="card-comic p-4">
-                                <h3 className="font-heading text-sm mb-3">DETAILS</h3>
-                                <div className="space-y-2 text-sm">
-                                    {profile.location && (
-                                        <div className="flex items-center gap-2">
-                                            <span>📍</span>
-                                            <span>{profile.location}</span>
-                                        </div>
-                                    )}
-                                    {profile.pronouns && (
-                                        <div className="flex items-center gap-2">
-                                            <span>👤</span>
-                                            <span>{profile.pronouns}</span>
-                                        </div>
-                                    )}
-                                    {profile.website && (
-                                        <div className="flex items-center gap-2">
-                                            <span>🔗</span>
-                                            <a href={profile.website} target="_blank" rel="noopener" className="text-accent">
-                                                {profile.website}
-                                            </a>
-                                        </div>
-                                    )}
-                                </div>
-                            </div>
-                            
-                            {/* Chatrooms */}
-                            {userChatrooms.length > 0 && (
-                                <div className="card-comic p-4">
-                                    <h3 className="font-heading text-sm mb-3">CHATROOMS</h3>
-                                    <div className="flex flex-wrap gap-2">
-                                        {userChatrooms.slice(0, 5).map((room) => (
-                                            <Link 
-                                                key={room.id}
-                                                href={`/chatrooms/${room.id}`}
-                                                className="px-3 py-1 bg-gray-100 border-2 border-black text-xs font-medium hover:bg-accent transition-colors"
-                                            >
-                                                {CHATROOM_CATEGORIES[room.category]?.emoji} {room.name}
-                                            </Link>
-                                        ))}
-                                    </div>
-                                </div>
-                            )}
-                            
-                            {/* Guestbook */}
-                            <div className="card-comic p-4">
-                                <h3 className="font-heading text-sm mb-3">📝 GÄSTEBUCH</h3>
-                                
-                                {/* Comment Input */}
-                                <div className="mb-4">
-                                    <textarea
-                                        value={newComment}
-                                        onChange={(e) => setNewComment(e.target.value)}
-                                        placeholder="Schreibe einen Kommentar..."
-                                        className="w-full p-3 border-3 border-black text-sm resize-none"
-                                        rows={2}
-                                        maxLength={200}
-                                    />
-                                    <div className="flex justify-between items-center mt-2">
-                                        <span className="text-xs text-gray-400">{newComment.length}/200</span>
-                                        <Button 
-                                            variant="accent" 
-                                            size="sm"
-                                            onClick={handleAddComment}
-                                            disabled={!newComment.trim() || submittingComment}
-                                            loading={submittingComment}
-                                        >
-                                            Posten
-                                        </Button>
-                                    </div>
-                                </div>
-                                
-                                {profileComments.length === 0 ? (
-                                    <p className="text-sm text-center text-gray-500 py-4">
-                                        Noch keine Kommentare
-                                    </p>
-                                ) : (
-                                    <div className="space-y-3">
-                                        {profileComments.slice(0, 5).map(comment => {
-                                            const author = commentAuthors[comment.authorId];
-                                            return (
-                                                <div key={comment.id} className="flex gap-3">
-                                                    <div className="w-8 h-8 rounded-full bg-gray-200 border-2 border-black overflow-hidden flex-shrink-0">
-                                                        {author?.profilePictureUrl ? (
-                                                            <img src={author.profilePictureUrl} alt="" className="w-full h-full object-cover" />
-                                                        ) : (
-                                                            <span className="flex items-center justify-center h-full text-xs">👤</span>
-                                                        )}
-                                                    </div>
-                                                    <div className="flex-1 min-w-0">
-                                                        <div className="flex items-center gap-2">
-                                                            <span className="font-bold text-xs">{author?.displayName || 'Anon'}</span>
-                                                            <span className="text-xs text-gray-500">{timeAgo(comment.createdAt)}</span>
-                                                        </div>
-                                                        <p className="text-sm">{comment.text}</p>
-                                                    </div>
-                                                </div>
-                                            );
-                                        })}
-                                    </div>
-                                )}
-                            </div>
-                        </div>
-                    )}
-                </div>
-            </div>
-            
-            {/* ========== DESKTOP LAYOUT - Two Columns ========== */}
-            <div className="hidden md:block">
-                <div className="container mx-auto max-w-6xl px-4 py-6">
-                    <div className="grid lg:grid-cols-[320px_1fr] gap-6">
-                        
-                        {/* LEFT SIDEBAR */}
-                        <div className="space-y-6">
-                            
-                            {/* Bio Card */}
-                            <div 
-                                className="border-4 border-black shadow-comic p-4 relative overflow-hidden bg-white"
-                                style={{ borderTopWidth: '6px', borderTopColor: accentColor }}
-                            >
-                                <h3 className="font-heading mb-3">👤 ÜBER MICH</h3>
-                                <p className="text-sm text-gray-700 mb-4">
-                                    {profile.bio || 'Noch keine Bio hinzugefügt.'}
-                                </p>
-                                <div className="space-y-2 text-sm">
-                                    {profile.location && (
-                                        <div className="flex items-center gap-2">
-                                            <span>📍</span>
-                                            <span>{profile.location}</span>
-                                        </div>
-                                    )}
-                                    {profile.pronouns && (
-                                        <div className="flex items-center gap-2">
-                                            <span>👤</span>
-                                            <span>{profile.pronouns}</span>
-                                        </div>
-                                    )}
-                                    {profile.website && (
-                                        <div className="flex items-center gap-2">
-                                            <span>🔗</span>
-                                            <a href={profile.website} target="_blank" rel="noopener" style={{ color: accentColor }}>
-                                                {profile.website.replace(/^https?:\/\//, '')}
-                                            </a>
-                                        </div>
-                                    )}
-                                </div>
-                            </div>
-                            
-                            {/* Badges Card */}
-                            <div 
-                                className="border-4 border-black shadow-comic p-4 relative overflow-hidden bg-white"
-                                style={{ borderTopWidth: '6px', borderTopColor: accentColor }}
-                            >
-                                <div className="flex items-center justify-between mb-4">
-                                    <h3 className="font-heading">🏆 BADGES</h3>
-                                    <span className="text-xs font-bold px-2 py-0.5" style={{ backgroundColor: accentColor }}>{userBadges.length}</span>
-                                </div>
-                                
-                                {userBadges.length === 0 ? (
-                                    <div className="text-center py-4">
-                                        <p className="text-sm text-gray-500 mb-2">Noch keine Badges</p>
-                                        <Link href="/badges" className="text-xs underline" style={{ color: accentColor }}>
-                                            Alle Badges ansehen →
-                                        </Link>
-                                    </div>
-                                ) : (
-                                    <div className="space-y-3">
-                                        {showcasedBadgeIds.length > 0 && (
-                                            <div className="flex flex-wrap gap-2 pb-3 border-b border-gray-200">
-                                                {showcasedBadgeIds.slice(0, 5).map(badgeId => {
-                                                    const badge = getBadgeById(badgeId);
-                                                    if (!badge) return null;
-                                                    return (
-                                                        <div 
-                                                            key={badgeId}
-                                                            className="w-10 h-10 rounded-full border-2 border-black flex items-center justify-center text-lg bg-white"
-                                                            title={badge.name}
-                                                        >
-                                                            {badge.icon}
-                                                        </div>
-                                                    );
-                                                })}
-                                            </div>
-                                        )}
-                                        <div className="grid grid-cols-2 gap-2 text-center">
-                                            <div className="p-2 border bg-gray-50">
-                                                <p className="font-heading text-lg">{userBadges.length}</p>
-                                                <p className="text-xs text-gray-500">Gesammelt</p>
-                                            </div>
-                                            <div className="p-2 border bg-gray-50">
-                                                <p className="font-heading text-lg">{profile.achievementData?.stats?.totalPoints || 0}</p>
-                                                <p className="text-xs text-gray-500">Punkte</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                )}
-                            </div>
-                            
-                            {/* Events Card */}
-                            <div 
-                                className="border-4 border-black shadow-comic p-4 relative overflow-hidden bg-white"
-                                style={{ borderTopWidth: '6px', borderTopColor: accentColor }}
-                            >
-                                <div className="flex items-center justify-between mb-4">
-                                    <h3 className="font-heading">📅 EVENTS</h3>
-                                    <Link href="/local" className="text-xs hover:underline" style={{ color: accentColor }}>
-                                        Alle →
-                                    </Link>
-                                </div>
-                                
-                                {allEvents.length === 0 ? (
-                                    <div className="text-center py-4">
-                                        <p className="text-sm text-gray-500 mb-2">Keine Events</p>
-                                        <Link href="/local" className="text-xs underline" style={{ color: accentColor }}>
-                                            Events entdecken →
-                                        </Link>
-                                    </div>
-                                ) : (
-                                    <div className="space-y-3">
-                                        {allEvents.slice(0, 3).map(event => (
-                                            <Link 
-                                                key={event.id}
-                                                href={`/local/event/${event.id}`}
-                                                className="block p-3 border-2 border-gray-200 hover:border-black transition-colors"
-                                            >
-                                                <div className="flex items-start justify-between">
-                                                    <div className="flex-1 min-w-0">
-                                                        <p className="font-bold text-sm truncate">{event.title}</p>
-                                                        <p className="text-xs text-gray-500">
-                                                            {new Date(event.date).toLocaleDateString('de-DE', { 
-                                                                day: 'numeric', 
-                                                                month: 'short' 
-                                                            })}
-                                                        </p>
-                                                    </div>
-                                                    <span className={`text-xs px-2 py-0.5 ${
-                                                        createdEvents.find(e => e.id === event.id) 
-                                                            ? 'bg-accent' 
-                                                            : 'bg-green-200'
-                                                    } border border-black`}>
-                                                        {createdEvents.find(e => e.id === event.id) ? 'HOST' : 'GOING'}
-                                                    </span>
-                                                </div>
-                                            </Link>
-                                        ))}
-                                    </div>
-                                )}
-                            </div>
-                            
-                            {/* Boards Card */}
-                            <div 
-                                className="border-4 border-black shadow-comic p-4 relative overflow-hidden bg-white"
-                                style={{ borderTopWidth: '6px', borderTopColor: accentColor }}
-                            >
-                                <div className="flex items-center justify-between mb-4">
-                                    <h3 className="font-heading">📌 BOARDS</h3>
-                                    <span className="text-xs font-bold px-2 py-0.5" style={{ backgroundColor: accentColor }}>{boards.length}</span>
-                                </div>
-                                
-                                {boards.length === 0 ? (
-                                    <p className="text-sm text-center py-4 text-gray-500">
-                                        Keine Boards
-                                    </p>
-                                ) : (
-                                    <div className="grid grid-cols-2 gap-2">
-                                        {boards.slice(0, 4).map(board => (
-                                            <Link 
-                                                key={board.id}
-                                                href={`/boards/${board.id}`}
-                                                className="aspect-square bg-gray-100 border-2 border-black relative overflow-hidden group"
-                                            >
-                                                {board.coverImageUrl ? (
-                                                    <img src={board.coverImageUrl} alt="" className="w-full h-full object-cover" />
-                                                ) : (
-                                                    <div className="w-full h-full flex items-center justify-center text-2xl">📌</div>
-                                                )}
-                                                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                                    <p className="text-white text-xs font-bold text-center px-2">{board.title}</p>
-                                                </div>
-                                            </Link>
-                                        ))}
-                                    </div>
-                                )}
-                            </div>
-                            
-                            {/* Chatrooms Card */}
-                            {userChatrooms.length > 0 && (
-                                <div 
-                                    className="border-4 border-black shadow-comic p-4 relative overflow-hidden bg-white"
-                                    style={{ borderTopWidth: '6px', borderTopColor: accentColor }}
-                                >
-                                    <h3 className="font-heading mb-3">💬 CHATROOMS</h3>
-                                    <div className="flex flex-wrap gap-2">
-                                        {userChatrooms.slice(0, 5).map((room) => (
-                                            <Link 
-                                                key={room.id}
-                                                href={`/chatrooms/${room.id}`}
-                                                className="px-3 py-1 bg-gray-100 border-2 border-black text-xs font-medium hover:bg-accent transition-colors"
-                                            >
-                                                {CHATROOM_CATEGORIES[room.category]?.emoji} {room.name}
-                                            </Link>
-                                        ))}
-                                    </div>
-                                </div>
-                            )}
-                            
-                            {/* Guestbook Card */}
-                            <div 
-                                className="border-4 border-black shadow-comic p-4 relative overflow-hidden bg-white"
-                                style={{ borderTopWidth: '6px', borderTopColor: accentColor }}
-                            >
-                                <h3 className="font-heading mb-4">📝 GÄSTEBUCH</h3>
-                                
-                                {/* Comment Input */}
-                                <div className="mb-4">
-                                    <textarea
-                                        value={newComment}
-                                        onChange={(e) => setNewComment(e.target.value)}
-                                        placeholder="Schreibe einen Kommentar..."
-                                        className="w-full p-2 border-2 border-black text-sm resize-none"
-                                        rows={2}
-                                        maxLength={200}
-                                    />
-                                    <div className="flex justify-between items-center mt-1">
-                                        <span className="text-xs text-gray-400">{newComment.length}/200</span>
-                                        <Button 
-                                            variant="accent" 
-                                            className="text-xs py-1"
-                                            onClick={handleAddComment}
-                                            disabled={!newComment.trim() || submittingComment}
-                                        >
-                                            {submittingComment ? '...' : 'Posten'}
-                                        </Button>
-                                    </div>
-                                </div>
-                                
-                                {profileComments.length === 0 ? (
-                                    <p className="text-sm text-center py-2 text-gray-500">
-                                        Noch keine Kommentare
-                                    </p>
-                                ) : (
-                                    <div className="space-y-3 max-h-[300px] overflow-y-auto">
-                                        {profileComments.slice(0, 5).map(comment => {
-                                            const author = commentAuthors[comment.authorId];
-                                            return (
-                                                <div key={comment.id} className="flex gap-2">
-                                                    <Link href={`/profile/${comment.authorId}`}>
-                                                        <div className="w-8 h-8 rounded-full bg-gray-200 border border-black overflow-hidden flex-shrink-0">
-                                                            {author?.profilePictureUrl ? (
-                                                                <img src={author.profilePictureUrl} alt="" className="w-full h-full object-cover" />
-                                                            ) : (
-                                                                <span className="flex items-center justify-center h-full text-xs">👤</span>
-                                                            )}
-                                                        </div>
-                                                    </Link>
-                                                    <div className="flex-1 min-w-0">
-                                                        <div className="flex items-center gap-2">
-                                                            <Link href={`/profile/${comment.authorId}`} className="font-bold text-xs hover:underline">
-                                                                {author?.displayName || 'Anon'}
-                                                            </Link>
-                                                            <span className="text-xs text-gray-500">{timeAgo(comment.createdAt)}</span>
-                                                        </div>
-                                                        <p className="text-sm">{comment.text}</p>
-                                                    </div>
-                                                </div>
-                                            );
-                                        })}
-                                    </div>
-                                )}
-                            </div>
-                        </div>
-                        
-                        {/* RIGHT - MAIN TIMELINE */}
-                        <div className="space-y-4">
-                            <div 
-                                className="border-4 border-black shadow-comic p-4 relative overflow-hidden bg-white"
-                                style={{ borderTopWidth: '6px', borderTopColor: accentColor }}
-                            >
-                                <div className="flex items-center justify-between">
-                                    <h2 className="font-heading text-xl">TIMELINE</h2>
-                                    {profile.verificationStatus === 'verified' && (
-                                        <Link href="/feed/create">
-                                            <Button variant="accent" size="sm">
-                                                ✏️ Neuer Post
-                                            </Button>
-                                        </Link>
-                                    )}
-                                </div>
-                            </div>
-                        
-                            {/* Content */}
-                            {posts.length === 0 ? (
-                                <div className="border-4 border-black shadow-comic p-12 text-center bg-white">
-                                    <span className="text-6xl">📝</span>
-                                    <p className="mt-4 font-heading text-xl">Noch keine Posts</p>
-                                    <p className="mt-2 text-gray-500">
-                                        {profile.verificationStatus === 'verified' 
-                                            ? 'Teile deinen ersten Post mit der Community!'
-                                            : 'Verifiziere dich als Künstler um Posts zu erstellen.'}
-                                    </p>
-                                    {profile.verificationStatus !== 'verified' && (
-                                        <Link href="/artist/verify">
-                                            <Button variant="accent" className="mt-4">Künstler werden →</Button>
-                                        </Link>
-                                    )}
-                                </div>
-                            ) : (
-                                <div className="space-y-4">
-                                    {posts.map((post, index) => (
-                                        <Link 
-                                            key={post.id}
-                                            href={`/feed/${post.id}`}
-                                            className={`block border-4 border-black shadow-comic overflow-hidden hover:shadow-comic-hover hover:translate-x-[2px] hover:translate-y-[2px] transition-all bg-white ${
-                                                index % 2 === 0 ? 'lg:mr-12' : 'lg:ml-12'
-                                            }`}
-                                        >
-                                            {/* Post Image */}
-                                            {post.images && post.images[0] && (
-                                                <div className="relative aspect-[4/3] bg-gray-100">
-                                                    <img 
-                                                        src={post.images[0]} 
-                                                        alt="" 
-                                                        className="w-full h-full object-cover"
-                                                    />
-                                                    {post.images.length > 1 && (
-                                                        <span className="absolute top-3 right-3 px-2 py-1 bg-black/70 text-white text-xs">
-                                                            +{post.images.length - 1}
-                                                        </span>
-                                                    )}
-                                                </div>
-                                            )}
-                                            
-                                            {/* Post Content */}
-                                            <div className="p-4">
-                                                <p className="line-clamp-3">{post.text}</p>
-                                                
-                                                {/* Post Stats */}
-                                                <div className="flex items-center gap-4 mt-4 pt-3 border-t border-gray-200">
-                                                    <span className="text-sm text-gray-500">❤️ {post.likesCount}</span>
-                                                    <span className="text-sm text-gray-500">💬 {post.commentsCount}</span>
-                                                    <span className="text-sm ml-auto text-gray-500">
-                                                        {timeAgo(post.createdAt)}
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </Link>
-                                    ))}
-                                </div>
-                            )}
-                        </div>
                     </div>
-                </div>
+                )}
             </div>
             
             {/* Desktop Footer */}
