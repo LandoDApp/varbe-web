@@ -9,7 +9,7 @@ import { getAllListingsForAdmin, setFeaturedListing, getFeaturedListings, getPen
 import { getReports, updateReportStatus, getContentReports, updateContentReportStatus } from "@/lib/reports";
 import { getPendingVerifications, approveArtistVerification, rejectArtistVerification } from "@/lib/db";
 import { getPendingTrackingOrders, approveTracking, rejectTracking } from "@/lib/shipping";
-import { Artwork, Report, ContentReport, ArtistProfile, Order, FeedPost, Chatroom, ChatroomCategory, ChatroomRegion } from "@/types";
+import { Artwork, Report, ContentReport, ArtistProfile, Order, FeedPost, Chatroom, ChatroomCategory, ChatroomRegion, UserProfile } from "@/types";
 import { Link } from "@/i18n/routing";
 import { collection, getDocs, query, where, updateDoc, doc } from "firebase/firestore";
 import { db } from "@/lib/firebase";
@@ -26,7 +26,7 @@ import {
 import { getModerationQueue, reviewModerationItem } from "@/lib/moderation";
 import { ModerationQueueItem } from "@/types";
 
-type Tab = 'overview' | 'pending' | 'featured' | 'reports' | 'verifications' | 'statistics' | 'tracking' | 'moderation' | 'chatrooms';
+type Tab = 'overview' | 'pending' | 'featured' | 'reports' | 'verifications' | 'statistics' | 'tracking' | 'moderation' | 'chatrooms' | 'users';
 
 export default function AdminDashboardPage() {
     const { user, profile, loading: authLoading } = useAuth();
@@ -76,6 +76,13 @@ export default function AdminDashboardPage() {
         isModerated: true,
     });
     const [creatingChatroom, setCreatingChatroom] = useState(false);
+    
+    // Users states
+    const [allUsers, setAllUsers] = useState<UserProfile[]>([]);
+    const [usersLoading, setUsersLoading] = useState(false);
+    const [userSearchQuery, setUserSearchQuery] = useState('');
+    const [userRoleFilter, setUserRoleFilter] = useState<'all' | 'user' | 'artist' | 'admin'>('all');
+    const [userVerificationFilter, setUserVerificationFilter] = useState<'all' | 'verified' | 'pending' | 'rejected'>('all');
     
     const [moderationStatus, setModerationStatus] = useState<{
         openaiTextModeration: { configured: boolean; description: string; icon: string };
@@ -282,6 +289,33 @@ export default function AdminDashboardPage() {
         }
     };
 
+    // Fetch all users for the users tab
+    const fetchAllUsers = async () => {
+        if (!user || profile?.role !== 'admin') return;
+        
+        setUsersLoading(true);
+        try {
+            const usersQuery = query(collection(db, "users"));
+            const usersSnapshot = await getDocs(usersQuery);
+            const users = usersSnapshot.docs.map(d => ({ 
+                ...d.data(),
+                id: d.id 
+            })) as unknown as UserProfile[];
+            setAllUsers(users);
+        } catch (error) {
+            console.error("Error fetching users:", error);
+        } finally {
+            setUsersLoading(false);
+        }
+    };
+
+    // Load users when users tab is activated
+    useEffect(() => {
+        if (activeTab === 'users' && allUsers.length === 0) {
+            fetchAllUsers();
+        }
+    }, [activeTab]);
+
     const handleToggleFeatured = async (listingId: string, currentlyFeatured: boolean) => {
         if (!user) return;
         try {
@@ -480,7 +514,7 @@ export default function AdminDashboardPage() {
 
                 {/* Tabs */}
                 <div className="flex gap-2 mb-8 border-b-4 border-black overflow-x-auto">
-                    {(['overview', 'pending', 'featured', 'reports', 'verifications', 'tracking', 'moderation', 'chatrooms', 'statistics'] as Tab[]).map((tab) => (
+                    {(['overview', 'pending', 'featured', 'reports', 'verifications', 'tracking', 'moderation', 'chatrooms', 'users', 'statistics'] as Tab[]).map((tab) => (
                         <button
                             key={tab}
                             onClick={() => setActiveTab(tab)}
@@ -2094,6 +2128,204 @@ export default function AdminDashboardPage() {
                                                 </div>
                                             ))}
                                         </div>
+                                    )}
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Users Tab */}
+                        {activeTab === 'users' && (
+                            <div className="space-y-6">
+                                <div className="card-comic bg-white p-6 border-4 border-black">
+                                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+                                        <h2 className="text-2xl font-heading">👥 {t('users.title')}</h2>
+                                        <div className="flex flex-col sm:flex-row gap-2">
+                                            {/* Search */}
+                                            <input
+                                                type="text"
+                                                placeholder={t('users.searchPlaceholder')}
+                                                value={userSearchQuery}
+                                                onChange={(e) => setUserSearchQuery(e.target.value)}
+                                                className="px-4 py-2 border-2 border-black font-body"
+                                            />
+                                            {/* Role Filter */}
+                                            <select
+                                                value={userRoleFilter}
+                                                onChange={(e) => setUserRoleFilter(e.target.value as any)}
+                                                className="px-4 py-2 border-2 border-black font-body"
+                                            >
+                                                <option value="all">{t('users.allRoles')}</option>
+                                                <option value="user">{t('users.roleUser')}</option>
+                                                <option value="artist">{t('users.roleArtist')}</option>
+                                                <option value="admin">{t('users.roleAdmin')}</option>
+                                            </select>
+                                            {/* Verification Filter */}
+                                            <select
+                                                value={userVerificationFilter}
+                                                onChange={(e) => setUserVerificationFilter(e.target.value as any)}
+                                                className="px-4 py-2 border-2 border-black font-body"
+                                            >
+                                                <option value="all">{t('users.allVerification')}</option>
+                                                <option value="verified">{t('users.verified')}</option>
+                                                <option value="pending">{t('users.pending')}</option>
+                                                <option value="rejected">{t('users.rejected')}</option>
+                                            </select>
+                                            <Button 
+                                                onClick={fetchAllUsers} 
+                                                variant="secondary"
+                                                disabled={usersLoading}
+                                            >
+                                                🔄 {t('users.refresh')}
+                                            </Button>
+                                        </div>
+                                    </div>
+                                    
+                                    {usersLoading ? (
+                                        <div className="text-center py-12">
+                                            <div className="animate-spin rounded-full h-12 w-12 border-b-4 border-black mx-auto mb-4"></div>
+                                            <p className="font-body text-gray-600">{t('users.loading')}</p>
+                                        </div>
+                                    ) : (
+                                        <>
+                                            {/* Stats */}
+                                            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                                                <div className="bg-gray-100 p-3 border-2 border-black text-center">
+                                                    <p className="text-2xl font-heading">{allUsers.length}</p>
+                                                    <p className="text-sm text-gray-600">{t('users.totalUsers')}</p>
+                                                </div>
+                                                <div className="bg-green-100 p-3 border-2 border-black text-center">
+                                                    <p className="text-2xl font-heading">{allUsers.filter(u => u.verificationStatus === 'verified').length}</p>
+                                                    <p className="text-sm text-gray-600">{t('users.verifiedArtists')}</p>
+                                                </div>
+                                                <div className="bg-yellow-100 p-3 border-2 border-black text-center">
+                                                    <p className="text-2xl font-heading">{allUsers.filter(u => u.verificationStatus === 'pending').length}</p>
+                                                    <p className="text-sm text-gray-600">{t('users.pendingVerification')}</p>
+                                                </div>
+                                                <div className="bg-blue-100 p-3 border-2 border-black text-center">
+                                                    <p className="text-2xl font-heading">{allUsers.filter(u => u.role === 'admin').length}</p>
+                                                    <p className="text-sm text-gray-600">{t('users.admins')}</p>
+                                                </div>
+                                            </div>
+                                            
+                                            {/* User List */}
+                                            <div className="overflow-x-auto">
+                                                <table className="w-full border-collapse">
+                                                    <thead>
+                                                        <tr className="bg-black text-white">
+                                                            <th className="p-3 text-left font-heading">{t('users.table.avatar')}</th>
+                                                            <th className="p-3 text-left font-heading">{t('users.table.name')}</th>
+                                                            <th className="p-3 text-left font-heading">{t('users.table.email')}</th>
+                                                            <th className="p-3 text-left font-heading">{t('users.table.role')}</th>
+                                                            <th className="p-3 text-left font-heading">{t('users.table.status')}</th>
+                                                            <th className="p-3 text-left font-heading">{t('users.table.joined')}</th>
+                                                            <th className="p-3 text-left font-heading">{t('users.table.actions')}</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {allUsers
+                                                            .filter(u => {
+                                                                // Search filter
+                                                                if (userSearchQuery) {
+                                                                    const query = userSearchQuery.toLowerCase();
+                                                                    const nameMatch = u.displayName?.toLowerCase().includes(query);
+                                                                    const emailMatch = u.email?.toLowerCase().includes(query);
+                                                                    const usernameMatch = u.username?.toLowerCase().includes(query);
+                                                                    if (!nameMatch && !emailMatch && !usernameMatch) return false;
+                                                                }
+                                                                // Role filter
+                                                                if (userRoleFilter !== 'all' && u.role !== userRoleFilter) return false;
+                                                                // Verification filter
+                                                                if (userVerificationFilter !== 'all' && u.verificationStatus !== userVerificationFilter) return false;
+                                                                return true;
+                                                            })
+                                                            .sort((a, b) => {
+                                                                // Sort by createdAt (newest first)
+                                                                const dateA = a.createdAt ? new Date(a.createdAt).getTime() : 0;
+                                                                const dateB = b.createdAt ? new Date(b.createdAt).getTime() : 0;
+                                                                return dateB - dateA;
+                                                            })
+                                                            .map((userItem) => (
+                                                                <tr 
+                                                                    key={userItem.uid || userItem.id}
+                                                                    className="border-b-2 border-black hover:bg-gray-50"
+                                                                >
+                                                                    <td className="p-3">
+                                                                        <div className="w-10 h-10 rounded-full border-2 border-black overflow-hidden bg-gray-200">
+                                                                            {userItem.profilePictureUrl ? (
+                                                                                <img 
+                                                                                    src={userItem.profilePictureUrl} 
+                                                                                    alt={userItem.displayName || ''} 
+                                                                                    className="w-full h-full object-cover"
+                                                                                />
+                                                                            ) : (
+                                                                                <div className="w-full h-full flex items-center justify-center text-gray-500">
+                                                                                    👤
+                                                                                </div>
+                                                                            )}
+                                                                        </div>
+                                                                    </td>
+                                                                    <td className="p-3">
+                                                                        <div>
+                                                                            <p className="font-heading text-sm">{userItem.displayName || 'Unnamed'}</p>
+                                                                            {userItem.username && (
+                                                                                <p className="text-xs text-gray-500">@{userItem.username}</p>
+                                                                            )}
+                                                                        </div>
+                                                                    </td>
+                                                                    <td className="p-3">
+                                                                        <p className="text-sm font-mono">{userItem.email || '-'}</p>
+                                                                    </td>
+                                                                    <td className="p-3">
+                                                                        <span className={`px-2 py-1 text-xs font-bold border-2 border-black ${
+                                                                            userItem.role === 'admin' ? 'bg-red-500 text-white' :
+                                                                            userItem.role === 'artist' ? 'bg-purple-500 text-white' :
+                                                                            'bg-gray-200'
+                                                                        }`}>
+                                                                            {userItem.role || 'user'}
+                                                                        </span>
+                                                                    </td>
+                                                                    <td className="p-3">
+                                                                        <span className={`px-2 py-1 text-xs font-bold border-2 border-black ${
+                                                                            userItem.verificationStatus === 'verified' ? 'bg-green-500 text-white' :
+                                                                            userItem.verificationStatus === 'pending' ? 'bg-yellow-500' :
+                                                                            userItem.verificationStatus === 'rejected' ? 'bg-red-500 text-white' :
+                                                                            'bg-gray-200'
+                                                                        }`}>
+                                                                            {userItem.verificationStatus === 'verified' ? '✅ Verified' :
+                                                                             userItem.verificationStatus === 'pending' ? '⏳ Pending' :
+                                                                             userItem.verificationStatus === 'rejected' ? '❌ Rejected' :
+                                                                             '—'}
+                                                                        </span>
+                                                                    </td>
+                                                                    <td className="p-3">
+                                                                        <p className="text-xs text-gray-500">
+                                                                            {userItem.createdAt 
+                                                                                ? new Date(userItem.createdAt).toLocaleDateString('de-DE')
+                                                                                : '-'}
+                                                                        </p>
+                                                                    </td>
+                                                                    <td className="p-3">
+                                                                        <div className="flex gap-2">
+                                                                            <Link href={`/profile/${userItem.uid || userItem.id}`}>
+                                                                                <Button variant="secondary" size="sm">
+                                                                                    👁️
+                                                                                </Button>
+                                                                            </Link>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            ))
+                                                        }
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            
+                                            {allUsers.length === 0 && (
+                                                <div className="text-center py-8">
+                                                    <p className="text-gray-500">{t('users.noUsers')}</p>
+                                                </div>
+                                            )}
+                                        </>
                                     )}
                                 </div>
                             </div>

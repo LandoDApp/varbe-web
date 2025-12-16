@@ -16,10 +16,13 @@ import { BADGES, getBadgeById } from "@/lib/badges";
 import { compressImage } from "@/lib/image-compression";
 import { checkUsernameAvailability, setUsername, validateUsername } from "@/lib/db";
 import { CoverImagePositioner } from "@/components/ui/CoverImagePositioner";
+import { useTranslations } from 'next-intl';
 
 export default function ProfileSettingsPage() {
     const { user, profile, refreshProfile } = useAuth();
     const router = useRouter();
+    const t = useTranslations('profile.settingsPage');
+    const tBadges = useTranslations('badgeNames');
     const coverInputRef = useRef<HTMLInputElement>(null);
     const profilePicInputRef = useRef<HTMLInputElement>(null);
     
@@ -146,7 +149,7 @@ export default function ProfileSettingsPage() {
     
     // Delete post
     const handleDeletePost = async (postId: string) => {
-        if (!user || !confirm('Bist du sicher, dass du diesen Post löschen möchtest?')) return;
+        if (!user || !confirm(t('confirmDelete'))) return;
         
         setDeletingPost(postId);
         try {
@@ -177,7 +180,7 @@ export default function ProfileSettingsPage() {
             setUserPosts(prev => prev.filter(p => p.id !== postId));
         } catch (error) {
             console.error("Error deleting post:", error);
-            alert('Fehler beim Löschen des Posts');
+            alert(t('deleteError'));
         } finally {
             setDeletingPost(null);
         }
@@ -200,11 +203,11 @@ export default function ProfileSettingsPage() {
             
             setEditingPost(null);
             setEditPostText('');
-            setSuccessMessage('Post erfolgreich bearbeitet!');
+            setSuccessMessage(t('postEdited'));
             setTimeout(() => setSuccessMessage(''), 3000);
         } catch (error) {
             console.error("Error editing post:", error);
-            alert('Fehler beim Bearbeiten des Posts');
+            alert(t('editError'));
         }
     };
     
@@ -248,7 +251,7 @@ export default function ProfileSettingsPage() {
         if (result.success) {
             setUsernameValue(usernameInput);
             await refreshProfile();
-            setSuccessMessage('Benutzername erfolgreich geändert!');
+            setSuccessMessage(t('usernameChanged'));
             setTimeout(() => setSuccessMessage(''), 3000);
         } else {
             setUsernameError(result.error || 'unknown_error');
@@ -317,7 +320,7 @@ export default function ProfileSettingsPage() {
         
         setShowCoverPositioner(false);
         setPendingCoverUrl(null);
-        setSuccessMessage('Cover-Bild positioniert!');
+        setSuccessMessage(t('coverPositioned'));
         setTimeout(() => setSuccessMessage(''), 3000);
     };
     
@@ -330,7 +333,7 @@ export default function ProfileSettingsPage() {
     // Auto-detect location
     const handleDetectLocation = async () => {
         if (!navigator.geolocation) {
-            setLocationError('Geolocation wird von deinem Browser nicht unterstützt.');
+            setLocationError(t('geolocationNotSupported'));
             return;
         }
         
@@ -345,7 +348,7 @@ export default function ProfileSettingsPage() {
                         `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=de`
                     );
                     
-                    if (!response.ok) throw new Error('Geocoding fehlgeschlagen');
+                    if (!response.ok) throw new Error(t('geocodingFailed'));
                     
                     const data = await response.json();
                     let locationString = '';
@@ -370,17 +373,17 @@ export default function ProfileSettingsPage() {
                         setLocation(locationString);
                         setLocationCoords({ latitude, longitude, city, country });
                     } else {
-                        setLocationError('Standort konnte nicht ermittelt werden.');
+                        setLocationError(t('locationNotDetermined'));
                     }
                 } catch (error) {
-                    setLocationError('Fehler beim Abrufen des Standortnamens.');
+                    setLocationError(t('locationNameError'));
                 } finally {
                     setDetectingLocation(false);
                 }
             },
             () => {
                 setDetectingLocation(false);
-                setLocationError('Standortzugriff verweigert.');
+                setLocationError(t('locationDenied'));
             },
             { enableHighAccuracy: false, timeout: 10000, maximumAge: 300000 }
         );
@@ -431,11 +434,11 @@ export default function ProfileSettingsPage() {
             await updateDoc(userRef, updateData);
             await refreshProfile();
             
-            setSuccessMessage('Profil erfolgreich gespeichert!');
+            setSuccessMessage(t('profileSaved'));
             setTimeout(() => setSuccessMessage(''), 3000);
         } catch (error) {
             console.error('Error saving profile:', error);
-            alert('Fehler beim Speichern. Bitte versuche es erneut.');
+            alert(t('saveError'));
         } finally {
             setSaving(false);
         }
@@ -457,7 +460,7 @@ export default function ProfileSettingsPage() {
             <div className="min-h-screen bg-white">
                 <Navbar />
                 <div className="container mx-auto px-4 py-20 text-center">
-                    <p className="text-xl">Lade...</p>
+                    <p className="text-xl">{t('loading')}</p>
                 </div>
                 <Footer />
             </div>
@@ -514,7 +517,7 @@ export default function ProfileSettingsPage() {
                             className="px-4 py-2 bg-white text-black font-bold border-2 border-black hover:bg-gray-100"
                             disabled={uploadingCover}
                         >
-                            {uploadingCover ? '⏳ Hochladen...' : '📷 Cover ändern'}
+                            {uploadingCover ? `⏳ ${t('uploading')}` : `📷 ${t('changeCover')}`}
                         </button>
                         {customization?.coverImageUrl && (
                             <>
@@ -525,13 +528,13 @@ export default function ProfileSettingsPage() {
                                     }}
                                     className="px-4 py-2 bg-white text-black font-bold border-2 border-black hover:bg-gray-100"
                                 >
-                                    ↕️ Repositionieren
+                                    ↕️ {t('reposition')}
                                 </button>
                                 <button 
                                     onClick={() => setCustomization(prev => ({ ...prev, coverImageUrl: undefined, showCoverImage: false }))}
                                     className="px-4 py-2 bg-red-500 text-white font-bold border-2 border-black hover:bg-red-600"
                                 >
-                                    🗑️ Entfernen
+                                    🗑️ {t('remove')}
                                 </button>
                             </>
                         )}
@@ -603,7 +606,7 @@ export default function ProfileSettingsPage() {
                             <div className="flex gap-2 flex-shrink-0">
                                 <Link href="/profile">
                                     <Button variant="primary" className="text-xs px-3 py-1.5" style={{ backgroundColor: accentColor, color: '#000' }}>
-                                        👁️ Profil ansehen
+                                        👁️ {t('viewProfile')}
                                     </Button>
                                 </Link>
                             </div>
@@ -617,11 +620,11 @@ export default function ProfileSettingsPage() {
                 {/* Tabs */}
                 <div className="flex gap-2 mb-6 overflow-x-auto pb-2">
                     {[
-                        { id: 'profile', label: '👤 Profil-Infos' },
-                        { id: 'design', label: '🎨 Design & Farben' },
-                        { id: 'posts', label: '📝 Meine Posts' },
-                        { id: 'badges', label: '🏆 Badges' },
-                        { id: 'visibility', label: '👁️ Sichtbarkeit' },
+                        { id: 'profile', label: `👤 ${t('basicInfo')}` },
+                        { id: 'design', label: `🎨 ${t('colors')}` },
+                        { id: 'posts', label: `📝 ${t('yourPosts')}` },
+                        { id: 'badges', label: `🏆 ${t('yourBadges')}` },
+                        { id: 'visibility', label: `👁️ ${t('visibility')}` },
                     ].map(tab => (
                         <button
                             key={tab.id}
@@ -652,7 +655,7 @@ export default function ProfileSettingsPage() {
                                     className="bg-white border-4 border-black p-6 shadow-comic"
                                     style={{ borderTopWidth: '6px', borderTopColor: accentColor }}
                                 >
-                                    <h3 className="font-heading text-xl mb-4">@ BENUTZERNAME</h3>
+                                    <h3 className="font-heading text-xl mb-4">@ {t('username')}</h3>
                                     <div className="flex gap-2">
                                         <div className="relative flex-1">
                                             <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 font-bold">@</span>
@@ -679,12 +682,12 @@ export default function ProfileSettingsPage() {
                                             {savingUsername ? '...' : '✓'}
                                         </button>
                                     </div>
-                                    {checkingUsername && <p className="text-gray-500 text-sm mt-2">⏳ Prüfe...</p>}
+                                    {checkingUsername && <p className="text-gray-500 text-sm mt-2">⏳ {t('checking')}</p>}
                                     {!checkingUsername && usernameAvailable === true && usernameInput !== username && (
-                                        <p className="text-green-600 text-sm mt-2 font-bold">✅ Verfügbar!</p>
+                                        <p className="text-green-600 text-sm mt-2 font-bold">✅ {t('available')}</p>
                                     )}
                                     {!checkingUsername && usernameAvailable === false && (
-                                        <p className="text-red-500 text-sm mt-2">❌ Bereits vergeben</p>
+                                        <p className="text-red-500 text-sm mt-2">❌ {t('alreadyTaken')}</p>
                                     )}
                                 </div>
                                 
@@ -693,49 +696,49 @@ export default function ProfileSettingsPage() {
                                     className="bg-white border-4 border-black p-6 shadow-comic"
                                     style={{ borderTopWidth: '6px', borderTopColor: accentColor }}
                                 >
-                                    <h3 className="font-heading text-xl mb-4">📝 BASIS-INFOS</h3>
+                                    <h3 className="font-heading text-xl mb-4">📝 {t('basicInfo')}</h3>
                                     <div className="space-y-4">
                                         <div>
-                                            <label className="block font-bold mb-1">Anzeigename *</label>
+                                            <label className="block font-bold mb-1">{t('displayName')} *</label>
                                             <input
                                                 type="text"
                                                 value={displayName}
                                                 onChange={(e) => setDisplayName(e.target.value)}
                                                 className="w-full p-3 border-2 border-black"
-                                                placeholder="Dein Name"
+                                                placeholder={t('yourName')}
                                             />
                                         </div>
                                         <div>
-                                            <label className="block font-bold mb-1">Bio</label>
+                                            <label className="block font-bold mb-1">{t('bioLabel')}</label>
                                             <textarea
                                                 value={bio}
                                                 onChange={(e) => setBio(e.target.value)}
                                                 className="w-full p-3 border-2 border-black h-24"
-                                                placeholder="Erzähl uns etwas über dich..."
+                                                placeholder={t('tellUs')}
                                                 maxLength={500}
                                             />
                                             <p className="text-xs text-gray-500 text-right">{bio.length}/500</p>
                                         </div>
                                         <div className="grid grid-cols-2 gap-4">
                                             <div>
-                                                <label className="block font-bold mb-1">Pronomen</label>
+                                                <label className="block font-bold mb-1">{t('pronouns')}</label>
                                                 <input
                                                     type="text"
                                                     value={pronouns}
                                                     onChange={(e) => setPronouns(e.target.value)}
                                                     className="w-full p-3 border-2 border-black"
-                                                    placeholder="z.B. sie/ihr"
+                                                    placeholder={t('pronounsExample')}
                                                 />
                                             </div>
                                             <div>
-                                                <label className="block font-bold mb-1">Standort</label>
+                                                <label className="block font-bold mb-1">{t('locationLabel')}</label>
                                                 <div className="flex gap-2">
                                                     <input
                                                         type="text"
                                                         value={location}
                                                         onChange={(e) => setLocation(e.target.value)}
                                                         className="flex-1 p-3 border-2 border-black"
-                                                        placeholder="z.B. Berlin"
+                                                        placeholder={t('locationExample')}
                                                     />
                                                     <button
                                                         type="button"
@@ -747,18 +750,18 @@ export default function ProfileSettingsPage() {
                                                     </button>
                                                 </div>
                                                 {locationCoords && (
-                                                    <p className="text-green-600 text-xs mt-1">✅ Auf LOCAL-Karte sichtbar</p>
+                                                    <p className="text-green-600 text-xs mt-1">✅ {t('visibleOnMap')}</p>
                                                 )}
                                             </div>
                                         </div>
                                         <div>
-                                            <label className="block font-bold mb-1">Website</label>
+                                            <label className="block font-bold mb-1">{t('websiteLabel')}</label>
                                             <input
                                                 type="url"
                                                 value={website}
                                                 onChange={(e) => setWebsite(e.target.value)}
                                                 className="w-full p-3 border-2 border-black"
-                                                placeholder="https://deine-website.de"
+                                                placeholder={t('websiteExample')}
                                             />
                                         </div>
                                     </div>
@@ -801,10 +804,10 @@ export default function ProfileSettingsPage() {
                                     className="bg-white border-4 border-black p-6 shadow-comic"
                                     style={{ borderTopWidth: '6px', borderTopColor: accentColor }}
                                 >
-                                    <h3 className="font-heading text-xl mb-4">🎨 FARBEN</h3>
+                                    <h3 className="font-heading text-xl mb-4">🎨 {t('colors')}</h3>
                                     <div className="space-y-4">
                                         <div>
-                                            <label className="block font-bold mb-2">Hintergrundfarbe</label>
+                                            <label className="block font-bold mb-2">{t('backgroundColor')}</label>
                                             <div className="flex gap-2 flex-wrap">
                                                 {['#ffffff', '#f5f5f5', '#1a1a1a', '#000000', '#FFF8E1', '#E3F2FD', '#FCE4EC', '#E8F5E9'].map(color => (
                                                     <button
@@ -834,7 +837,7 @@ export default function ProfileSettingsPage() {
                                         </div>
                                         
                                         <div>
-                                            <label className="block font-bold mb-2">Akzentfarbe</label>
+                                            <label className="block font-bold mb-2">{t('accentColor')}</label>
                                             <div className="flex gap-2 flex-wrap">
                                                 {['#CCFF00', '#FF10F0', '#00D4FF', '#FF6B35', '#9B59B6', '#E74C3C', '#2ECC71', '#F39C12'].map(color => (
                                                     <button
@@ -854,7 +857,7 @@ export default function ProfileSettingsPage() {
                                         </div>
                                         
                                         <div>
-                                            <label className="block font-bold mb-2">Textfarbe</label>
+                                            <label className="block font-bold mb-2">{t('textColor')}</label>
                                             <div className="flex gap-2">
                                                 {['#000000', '#333333', '#666666', '#ffffff'].map(color => (
                                                     <button
@@ -868,7 +871,7 @@ export default function ProfileSettingsPage() {
                                         </div>
                                         
                                         <div>
-                                            <label className="block font-bold mb-2">Link-Farbe</label>
+                                            <label className="block font-bold mb-2">{t('linkColor')}</label>
                                             <div className="flex gap-2">
                                                 {['#FF10F0', '#0066FF', '#00AA00', '#FF6600'].map(color => (
                                                     <button
@@ -889,7 +892,7 @@ export default function ProfileSettingsPage() {
                                         className="bg-white border-4 border-black p-6 shadow-comic"
                                         style={{ borderTopWidth: '6px', borderTopColor: accentColor }}
                                     >
-                                        <h3 className="font-heading text-xl mb-4">📷 COVER-POSITION</h3>
+                                        <h3 className="font-heading text-xl mb-4">📷 {t('coverPosition')}</h3>
                                         <div className="grid grid-cols-3 gap-2">
                                             {(['top', 'center', 'bottom'] as const).map(pos => (
                                                 <button
@@ -902,7 +905,7 @@ export default function ProfileSettingsPage() {
                                                     }`}
                                                     style={{ backgroundColor: customization.coverImagePosition === pos ? accentColor : undefined }}
                                                 >
-                                                    {pos === 'top' ? '⬆️ Oben' : pos === 'center' ? '⏺️ Mitte' : '⬇️ Unten'}
+                                                    {pos === 'top' ? `⬆️ ${t('top')}` : pos === 'center' ? `⏺️ ${t('center')}` : `⬇️ ${t('bottom')}`}
                                                 </button>
                                             ))}
                                         </div>
@@ -919,12 +922,12 @@ export default function ProfileSettingsPage() {
                                     style={{ borderTopWidth: '6px', borderTopColor: accentColor }}
                                 >
                                     <div className="flex items-center justify-between mb-4">
-                                        <h3 className="font-heading text-xl">📝 DEINE POSTS</h3>
+                                        <h3 className="font-heading text-xl">📝 {t('yourPosts')}</h3>
                                         <button
                                             onClick={fetchUserPosts}
                                             className="px-3 py-1 text-sm border-2 border-black hover:bg-gray-100"
                                         >
-                                            🔄 Aktualisieren
+                                            🔄 {t('refresh')}
                                         </button>
                                     </div>
                                     
@@ -934,10 +937,10 @@ export default function ProfileSettingsPage() {
                                         </div>
                                     ) : userPosts.length === 0 ? (
                                         <div className="text-center py-12">
-                                            <p className="text-gray-500 text-lg mb-4">Du hast noch keine Posts erstellt.</p>
+                                            <p className="text-gray-500 text-lg mb-4">{t('noPostsYet')}</p>
                                             <Link href="/feed">
                                                 <Button variant="primary" style={{ backgroundColor: accentColor, color: '#000' }}>
-                                                    ➕ Ersten Post erstellen
+                                                    ➕ {t('createFirstPost')}
                                                 </Button>
                                             </Link>
                                         </div>
@@ -1083,16 +1086,27 @@ export default function ProfileSettingsPage() {
                                 className="bg-white border-4 border-black p-6 shadow-comic"
                                 style={{ borderTopWidth: '6px', borderTopColor: accentColor }}
                             >
-                                <h3 className="font-heading text-xl mb-4">🏆 DEINE BADGES</h3>
+                                <h3 className="font-heading text-xl mb-4">🏆 {t('yourBadges')}</h3>
                                 {userBadges.length === 0 ? (
                                     <p className="text-gray-500 text-center py-8">
-                                        Du hast noch keine Badges. Sammle sie durch Aktivität!
+                                        {t('noBadgesYet')}
                                     </p>
                                 ) : (
                                     <div className="space-y-3">
                                         {userBadges.map(achievement => {
                                             const badge = getBadgeById(achievement.badgeId);
                                             if (!badge) return null;
+                                            // Get translated badge name/description
+                                            let badgeName = badge.name;
+                                            let badgeDesc = badge.description;
+                                            try {
+                                                const translatedName = tBadges(`${badge.id}.name`);
+                                                const translatedDesc = tBadges(`${badge.id}.description`);
+                                                if (translatedName && !translatedName.includes(badge.id)) badgeName = translatedName;
+                                                if (translatedDesc && !translatedDesc.includes(badge.id)) badgeDesc = translatedDesc;
+                                            } catch {
+                                                // Keep original text
+                                            }
                                             return (
                                                 <div 
                                                     key={achievement.badgeId}
@@ -1100,8 +1114,8 @@ export default function ProfileSettingsPage() {
                                                 >
                                                     <span className="text-3xl">{badge.icon}</span>
                                                     <div className="flex-1">
-                                                        <p className="font-bold">{badge.name}</p>
-                                                        <p className="text-sm text-gray-500">{badge.description}</p>
+                                                        <p className="font-bold">{badgeName}</p>
+                                                        <p className="text-sm text-gray-500">{badgeDesc}</p>
                                                     </div>
                                                     <span className="text-sm font-bold" style={{ color: accentColor }}>
                                                         +{badge.points}
@@ -1129,14 +1143,14 @@ export default function ProfileSettingsPage() {
                                 <div className="space-y-4">
                                     {/* Bio & Info Section */}
                                     <div className="border-2 border-gray-200 p-4">
-                                        <h4 className="font-heading text-sm mb-3">📝 Profil-Header</h4>
+                                        <h4 className="font-heading text-sm mb-3">📝 {t('profileHeader')}</h4>
                                         <div className="space-y-3">
                                             <label className="flex items-center justify-between cursor-pointer group">
                                                 <div className="flex items-center gap-3">
                                                     <span className="text-xl">📖</span>
                                                     <div>
-                                                        <span className="font-bold">Bio</span>
-                                                        <p className="text-xs text-gray-500">Deine Kurzbeschreibung</p>
+                                                        <span className="font-bold">{t('bioSection')}</span>
+                                                        <p className="text-xs text-gray-500">{t('bioDesc')}</p>
                                                     </div>
                                                 </div>
                                                 <div 
@@ -1161,8 +1175,8 @@ export default function ProfileSettingsPage() {
                                                 <div className="flex items-center gap-3">
                                                     <span className="text-xl">📍</span>
                                                     <div>
-                                                        <span className="font-bold">Standort</span>
-                                                        <p className="text-xs text-gray-500">Dein Ort wird angezeigt</p>
+                                                        <span className="font-bold">{t('locationSection')}</span>
+                                                        <p className="text-xs text-gray-500">{t('locationDesc')}</p>
                                                     </div>
                                                 </div>
                                                 <div 
@@ -1187,8 +1201,8 @@ export default function ProfileSettingsPage() {
                                                 <div className="flex items-center gap-3">
                                                     <span className="text-xl">📊</span>
                                                     <div>
-                                                        <span className="font-bold">Stats</span>
-                                                        <p className="text-xs text-gray-500">Posts, Follower, Following</p>
+                                                        <span className="font-bold">{t('statsSection')}</span>
+                                                        <p className="text-xs text-gray-500">{t('statsDesc')}</p>
                                                     </div>
                                                 </div>
                                                 <div 
@@ -1213,8 +1227,8 @@ export default function ProfileSettingsPage() {
                                                 <div className="flex items-center gap-3">
                                                     <span className="text-xl">🔗</span>
                                                     <div>
-                                                        <span className="font-bold">Website</span>
-                                                        <p className="text-xs text-gray-500">Dein Website-Link</p>
+                                                        <span className="font-bold">{t('websiteSection')}</span>
+                                                        <p className="text-xs text-gray-500">{t('websiteDesc')}</p>
                                                     </div>
                                                 </div>
                                                 <div 
@@ -1239,14 +1253,14 @@ export default function ProfileSettingsPage() {
                                     
                                     {/* Sidebar Sections */}
                                     <div className="border-2 border-gray-200 p-4">
-                                        <h4 className="font-heading text-sm mb-3">📦 Sidebar-Kacheln</h4>
+                                        <h4 className="font-heading text-sm mb-3">📦 {t('sidebarTiles')}</h4>
                                         <div className="space-y-3">
                                             <label className="flex items-center justify-between cursor-pointer group">
                                                 <div className="flex items-center gap-3">
                                                     <span className="text-xl">📅</span>
                                                     <div>
-                                                        <span className="font-bold">Events</span>
-                                                        <p className="text-xs text-gray-500">Events auf die du gehst</p>
+                                                        <span className="font-bold">{t('eventsSection')}</span>
+                                                        <p className="text-xs text-gray-500">{t('eventsDesc')}</p>
                                                     </div>
                                                 </div>
                                                 <div 
@@ -1271,8 +1285,8 @@ export default function ProfileSettingsPage() {
                                                 <div className="flex items-center gap-3">
                                                     <span className="text-xl">🎯</span>
                                                     <div>
-                                                        <span className="font-bold">Challenges</span>
-                                                        <p className="text-xs text-gray-500">Challenges an denen du teilnimmst</p>
+                                                        <span className="font-bold">{t('challengesSection')}</span>
+                                                        <p className="text-xs text-gray-500">{t('challengesDesc')}</p>
                                                     </div>
                                                 </div>
                                                 <div 
@@ -1297,8 +1311,8 @@ export default function ProfileSettingsPage() {
                                                 <div className="flex items-center gap-3">
                                                     <span className="text-xl">🏆</span>
                                                     <div>
-                                                        <span className="font-bold">Badges</span>
-                                                        <p className="text-xs text-gray-500">Deine gesammelten Badges</p>
+                                                        <span className="font-bold">{t('badgesSection')}</span>
+                                                        <p className="text-xs text-gray-500">{t('badgesDesc')}</p>
                                                     </div>
                                                 </div>
                                                 <div 
@@ -1323,8 +1337,8 @@ export default function ProfileSettingsPage() {
                                                 <div className="flex items-center gap-3">
                                                     <span className="text-xl">💬</span>
                                                     <div>
-                                                        <span className="font-bold">Chatrooms</span>
-                                                        <p className="text-xs text-gray-500">Chatrooms in denen du bist</p>
+                                                        <span className="font-bold">{t('chatroomsSection')}</span>
+                                                        <p className="text-xs text-gray-500">{t('chatroomsDesc')}</p>
                                                     </div>
                                                 </div>
                                                 <div 
@@ -1349,8 +1363,8 @@ export default function ProfileSettingsPage() {
                                                 <div className="flex items-center gap-3">
                                                     <span className="text-xl">📌</span>
                                                     <div>
-                                                        <span className="font-bold">Boards</span>
-                                                        <p className="text-xs text-gray-500">Deine Pinnwände</p>
+                                                        <span className="font-bold">{t('boardsSection')}</span>
+                                                        <p className="text-xs text-gray-500">{t('boardsDesc')}</p>
                                                     </div>
                                                 </div>
                                                 <div 
@@ -1374,8 +1388,7 @@ export default function ProfileSettingsPage() {
                                     </div>
                                     
                                     <p className="text-xs text-gray-400 text-center mt-4">
-                                        💡 Tipp: Ausgeblendete Bereiche werden nur dir verborgen - andere Nutzer sehen sie weiterhin.
-                                        <br/>Nein, Scherz! Sie werden komplett ausgeblendet 😉
+                                        {t('visibilityTip')}
                                     </p>
                                 </div>
                             </div>
@@ -1389,7 +1402,7 @@ export default function ProfileSettingsPage() {
                             disabled={saving}
                             style={{ backgroundColor: accentColor, color: '#000' }}
                         >
-                            {saving ? '⏳ Speichere...' : '💾 ALLES SPEICHERN'}
+                            {saving ? `⏳ ${t('saving')}` : `💾 ${t('saveAll')}`}
                         </Button>
                     </div>
                     
@@ -1400,19 +1413,19 @@ export default function ProfileSettingsPage() {
                             className="bg-white border-4 border-black p-4"
                             style={{ borderTopWidth: '6px', borderTopColor: accentColor }}
                         >
-                            <h4 className="font-heading text-sm mb-3">FARB-VORSCHAU</h4>
+                            <h4 className="font-heading text-sm mb-3">{t('colorPreview')}</h4>
                             <div className="space-y-2">
                                 <div className="flex items-center gap-2">
                                     <div className="w-6 h-6 border border-black" style={{ backgroundColor: accentColor }} />
-                                    <span className="text-sm">Akzent</span>
+                                    <span className="text-sm">{t('accent')}</span>
                                 </div>
                                 <div className="flex items-center gap-2">
                                     <div className="w-6 h-6 border border-black" style={{ backgroundColor: customization.textColor }} />
-                                    <span className="text-sm">Text</span>
+                                    <span className="text-sm">{t('text')}</span>
                                 </div>
                                 <div className="flex items-center gap-2">
                                     <div className="w-6 h-6 border border-black" style={{ backgroundColor: customization.linkColor }} />
-                                    <span className="text-sm">Links</span>
+                                    <span className="text-sm">{t('links')}</span>
                                 </div>
                             </div>
                         </div>
@@ -1424,7 +1437,7 @@ export default function ProfileSettingsPage() {
                         >
                             <h4 className="font-heading text-sm mb-3">🏆 BADGES ({userBadges.length})</h4>
                             {userBadges.length === 0 ? (
-                                <p className="text-xs text-gray-500">Noch keine Badges</p>
+                                <p className="text-xs text-gray-500">{t('noBadgesYet')}</p>
                             ) : (
                                 <div className="flex flex-wrap gap-1">
                                     {userBadges.slice(0, 6).map(a => {
@@ -1453,18 +1466,18 @@ export default function ProfileSettingsPage() {
                                 </div>
                                 <div className="p-2 bg-gray-50 border border-gray-200">
                                     <p className="font-heading text-lg">{achievementData?.stats?.totalPoints || 0}</p>
-                                    <p className="text-xs text-gray-500">Punkte</p>
+                                    <p className="text-xs text-gray-500">{t('pointsLabel')}</p>
                                 </div>
                             </div>
                         </div>
                         
                         {/* Quick Tips */}
                         <div className="bg-yellow-50 border-2 border-yellow-300 p-4 text-sm">
-                            <p className="font-bold mb-2">💡 Tipps:</p>
+                            <p className="font-bold mb-2">💡 {t('tips')}</p>
                             <ul className="space-y-1 text-xs text-gray-600">
-                                <li>• Hover über das Banner um es zu ändern</li>
-                                <li>• Klick auf dein Profilbild um es zu ändern</li>
-                                <li>• Wähle eine Akzentfarbe die zu dir passt</li>
+                                <li>• {t('tip1')}</li>
+                                <li>• {t('tip2')}</li>
+                                <li>• {t('tip3')}</li>
                             </ul>
                         </div>
                     </div>

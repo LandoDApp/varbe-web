@@ -11,10 +11,12 @@ import { BlogCategory, BlogLanguage } from "@/types";
 import { MarkdownRenderer } from "@/components/ui/MarkdownRenderer";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage } from "@/lib/firebase";
+import { useTranslations } from 'next-intl';
 
 export default function NewBlogPostPage() {
     const { user, profile } = useAuth();
     const router = useRouter();
+    const t = useTranslations('blogCreate');
     
     const [title, setTitle] = useState("");
     const [excerpt, setExcerpt] = useState("");
@@ -42,7 +44,7 @@ export default function NewBlogPostPage() {
             setCoverImage(url);
         } catch (error) {
             console.error("Error uploading image:", error);
-            setError("Fehler beim Hochladen des Bildes");
+            setError(t('errorUploadingImage'));
         } finally {
             setUploading(false);
         }
@@ -53,15 +55,15 @@ export default function NewBlogPostPage() {
         
         // Validation
         if (!title.trim()) {
-            setError("Bitte gib einen Titel ein");
+            setError(t('errorTitle'));
             return;
         }
         if (!excerpt.trim()) {
-            setError("Bitte gib eine Kurzbeschreibung ein");
+            setError(t('errorExcerpt'));
             return;
         }
         if (!content.trim()) {
-            setError("Bitte gib Inhalt ein");
+            setError(t('errorContent'));
             return;
         }
 
@@ -83,7 +85,7 @@ export default function NewBlogPostPage() {
             router.push('/artist/blog');
         } catch (error) {
             console.error("Error saving post:", error);
-            setError("Fehler beim Speichern des Beitrags");
+            setError(t('errorSaving'));
         } finally {
             setSaving(false);
         }
@@ -96,9 +98,9 @@ export default function NewBlogPostPage() {
                 <Navbar />
                 <div className="container mx-auto px-4 py-16">
                     <div className="bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-8 md:p-12 text-center max-w-2xl mx-auto">
-                        <h1 className="text-4xl font-heading mb-4">NICHT ANGEMELDET</h1>
+                        <h1 className="text-4xl font-heading mb-4">{t('notLoggedIn')}</h1>
                         <Link href="/auth/login">
-                            <Button variant="accent">ANMELDEN</Button>
+                            <Button variant="accent">{t('login')}</Button>
                         </Link>
                     </div>
                 </div>
@@ -114,9 +116,9 @@ export default function NewBlogPostPage() {
                 <Navbar />
                 <div className="container mx-auto px-4 py-16">
                     <div className="bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-8 md:p-12 text-center max-w-2xl mx-auto">
-                        <h1 className="text-4xl font-heading mb-4">🔒 NUR FÜR VERIFIZIERTE KÜNSTLER</h1>
+                        <h1 className="text-4xl font-heading mb-4">🔒 {t('onlyVerifiedArtists')}</h1>
                         <Link href="/artist/verify">
-                            <Button variant="accent">JETZT VERIFIZIEREN</Button>
+                            <Button variant="accent">{t('verifyNow')}</Button>
                         </Link>
                     </div>
                 </div>
@@ -135,9 +137,9 @@ export default function NewBlogPostPage() {
                     <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
                         <div>
                             <Link href="/artist/blog" className="text-gray-600 hover:text-black mb-2 inline-block font-heading">
-                                ← Zurück zur Übersicht
+                                ← {t('backToOverview')}
                             </Link>
-                            <h1 className="text-4xl md:text-5xl font-heading uppercase">NEUER BLOG-BEITRAG</h1>
+                            <h1 className="text-4xl md:text-5xl font-heading uppercase">{t('title')}</h1>
                         </div>
                         <div className="flex gap-2">
                             <Button 
@@ -145,7 +147,7 @@ export default function NewBlogPostPage() {
                                 onClick={() => setShowPreview(!showPreview)}
                                 className="text-sm"
                             >
-                                {showPreview ? '✏️ EDITOR' : '👁️ VORSCHAU'}
+                                {showPreview ? `✏️ ${t('editor')}` : `👁️ ${t('preview')}`}
                             </Button>
                         </div>
                     </div>
@@ -173,23 +175,23 @@ export default function NewBlogPostPage() {
                             <div className="space-y-6">
                                 {/* Title */}
                                 <div>
-                                    <label className="block font-heading uppercase mb-2">TITEL *</label>
+                                    <label className="block font-heading uppercase mb-2">{t('titleLabel')} *</label>
                                     <input
                                         type="text"
                                         value={title}
                                         onChange={(e) => setTitle(e.target.value)}
-                                        placeholder="Ein aussagekräftiger Titel..."
+                                        placeholder={t('titlePlaceholder')}
                                         className="w-full border-4 border-black p-3 font-body text-lg focus:outline-none focus:ring-4 focus:ring-accent/50"
                                     />
                                 </div>
 
                                 {/* Excerpt */}
                                 <div>
-                                    <label className="block font-heading uppercase mb-2">KURZBESCHREIBUNG *</label>
+                                    <label className="block font-heading uppercase mb-2">{t('excerptLabel')} *</label>
                                     <textarea
                                         value={excerpt}
                                         onChange={(e) => setExcerpt(e.target.value)}
-                                        placeholder="Eine kurze Beschreibung für die Vorschau (max. 200 Zeichen)..."
+                                        placeholder={t('excerptPlaceholder')}
                                         maxLength={200}
                                         rows={2}
                                         className="w-full border-4 border-black p-3 font-body focus:outline-none focus:ring-4 focus:ring-accent/50 resize-none"
@@ -199,7 +201,7 @@ export default function NewBlogPostPage() {
 
                                 {/* Cover Image */}
                                 <div>
-                                    <label className="block font-heading uppercase mb-2">TITELBILD</label>
+                                    <label className="block font-heading uppercase mb-2">{t('coverImage')}</label>
                                     {coverImage ? (
                                         <div className="relative">
                                             <img src={coverImage} alt="" className="w-full h-48 object-cover border-4 border-black" />
@@ -219,11 +221,11 @@ export default function NewBlogPostPage() {
                                                 className="hidden"
                                             />
                                             {uploading ? (
-                                                <span className="text-gray-500">Hochladen...</span>
+                                                <span className="text-gray-500">{t('uploading')}</span>
                                             ) : (
                                                 <>
                                                     <span className="text-4xl block mb-2">📷</span>
-                                                    <span className="text-gray-500">Klicken zum Hochladen</span>
+                                                    <span className="text-gray-500">{t('clickToUpload')}</span>
                                                 </>
                                             )}
                                         </label>
@@ -232,29 +234,18 @@ export default function NewBlogPostPage() {
 
                                 {/* Content */}
                                 <div>
-                                    <label className="block font-heading uppercase mb-2">INHALT (MARKDOWN) *</label>
+                                    <label className="block font-heading uppercase mb-2">{t('content')} *</label>
                                     <div className="bg-gray-100 border-2 border-gray-300 p-2 mb-2 text-sm font-mono">
-                                        <span className="mr-4">**fett**</span>
-                                        <span className="mr-4">*kursiv*</span>
-                                        <span className="mr-4"># Überschrift</span>
-                                        <span className="mr-4">## Unter-Überschrift</span>
-                                        <span className="mr-4">- Liste</span>
+                                        <span className="mr-4">**{t('bold')}**</span>
+                                        <span className="mr-4">*{t('italic')}*</span>
+                                        <span className="mr-4"># {t('heading')}</span>
+                                        <span className="mr-4">## {t('subHeading')}</span>
+                                        <span className="mr-4">- {t('list')}</span>
                                     </div>
                                     <textarea
                                         value={content}
                                         onChange={(e) => setContent(e.target.value)}
-                                        placeholder={`# Dein Titel
-
-Schreibe hier deinen Inhalt in Markdown...
-
-## Unterüberschrift
-
-**Fetter Text** und *kursiver Text*
-
-- Listenpunkt 1
-- Listenpunkt 2
-
-> Ein Zitat`}
+                                        placeholder={t('contentPlaceholder')}
                                         rows={20}
                                         className="w-full border-4 border-black p-3 font-mono text-sm focus:outline-none focus:ring-4 focus:ring-accent/50 resize-y"
                                     />
@@ -267,7 +258,7 @@ Schreibe hier deinen Inhalt in Markdown...
                     <div className="space-y-6">
                         {/* Language */}
                         <div className="bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                            <label className="block font-heading uppercase mb-2">SPRACHE</label>
+                            <label className="block font-heading uppercase mb-2">{t('language')}</label>
                             <div className="flex gap-2">
                                 <button
                                     type="button"
@@ -296,7 +287,7 @@ Schreibe hier deinen Inhalt in Markdown...
 
                         {/* Category */}
                         <div className="bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                            <label className="block font-heading uppercase mb-2">KATEGORIE</label>
+                            <label className="block font-heading uppercase mb-2">{t('category')}</label>
                             <select
                                 value={category}
                                 onChange={(e) => setCategory(e.target.value as BlogCategory)}
@@ -312,12 +303,12 @@ Schreibe hier deinen Inhalt in Markdown...
 
                         {/* Tags */}
                         <div className="bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                            <label className="block font-heading uppercase mb-2">TAGS</label>
+                            <label className="block font-heading uppercase mb-2">{t('tags')}</label>
                             <input
                                 type="text"
                                 value={tags}
                                 onChange={(e) => setTags(e.target.value)}
-                                placeholder="kunst, tipps, anfänger (kommagetrennt)"
+                                placeholder={t('tagsPlaceholder')}
                                 className="w-full border-4 border-black p-3 font-body text-sm focus:outline-none focus:ring-4 focus:ring-accent/50"
                             />
                         </div>
@@ -330,7 +321,7 @@ Schreibe hier deinen Inhalt in Markdown...
                                 onClick={() => handleSave(true)}
                                 disabled={saving}
                             >
-                                {saving ? '...' : '🚀 VERÖFFENTLICHEN'}
+                                {saving ? '...' : `🚀 ${t('publish')}`}
                             </Button>
                             <Button
                                 variant="secondary"
@@ -338,18 +329,18 @@ Schreibe hier deinen Inhalt in Markdown...
                                 onClick={() => handleSave(false)}
                                 disabled={saving}
                             >
-                                {saving ? '...' : '💾 ALS ENTWURF SPEICHERN'}
+                                {saving ? '...' : `💾 ${t('saveDraft')}`}
                             </Button>
                         </div>
 
                         {/* Help */}
                         <div className="bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                            <h3 className="font-heading uppercase mb-2">💡 TIPPS</h3>
+                            <h3 className="font-heading uppercase mb-2">💡 {t('tips')}</h3>
                             <ul className="text-sm text-gray-600 space-y-2">
-                                <li>• Nutze aussagekräftige Titel</li>
-                                <li>• Füge Bilder ein für mehr Engagement</li>
-                                <li>• Teile praktische Tipps</li>
-                                <li>• Markdown wird automatisch formatiert</li>
+                                <li>• {t('tip1')}</li>
+                                <li>• {t('tip2')}</li>
+                                <li>• {t('tip3')}</li>
+                                <li>• {t('tip4')}</li>
                             </ul>
                         </div>
                     </div>

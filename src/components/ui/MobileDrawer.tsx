@@ -37,6 +37,7 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
         {
             items: [
                 { href: "/", icon: "🏠", label: t('homepage') },
+                { href: "/feed", icon: "📱", label: t('feed') },
                 { href: "/search", icon: "🔍", label: t('search') },
                 { href: "/kuenstler", icon: "🎨", label: t('artists') },
             ],

@@ -125,7 +125,7 @@ export default function SearchPage() {
 
             {/* Mobile Header */}
             <header className="md:hidden h-14 bg-white border-b-4 border-black flex items-center justify-between px-4 sticky top-0 z-sticky safe-area-top">
-                <h1 className="font-heading text-lg uppercase">ENTDECKEN</h1>
+                <h1 className="font-heading text-lg uppercase">{t('discover')}</h1>
                 <button 
                     onClick={() => setShowFilters(!showFilters)}
                     className={`w-10 h-10 flex items-center justify-center border-2 border-black ${showFilters ? 'bg-accent' : 'bg-white'}`}
@@ -141,7 +141,7 @@ export default function SearchPage() {
                 <div className="relative">
                     <input
                         type="text"
-                        placeholder="Suche Kunst, Künstler..."
+                        placeholder={t('searchPlaceholder')}
                         value={searchQuery}
                         onChange={(e) => handleSearchChange(e.target.value)}
                         className="w-full h-12 pl-10 pr-10 border-3 border-black rounded-full bg-gray-50 font-body text-sm focus:outline-none focus:bg-white focus:border-accent"
@@ -165,9 +165,9 @@ export default function SearchPage() {
                 {/* Type Filters - Mobile */}
                 <div className="flex gap-2 mt-3 overflow-x-auto scrollbar-hide pb-1">
                     {[
-                        { type: 'all' as SearchType, label: 'Alles', count: filteredPosts.length + filteredUsers.length },
-                        { type: 'users' as SearchType, label: 'Künstler', count: filteredUsers.length },
-                        { type: 'posts' as SearchType, label: 'Posts', count: filteredPosts.length },
+                        { type: 'all' as SearchType, label: t('filterAll'), count: filteredPosts.length + filteredUsers.length },
+                        { type: 'users' as SearchType, label: t('filterArtists'), count: filteredUsers.length },
+                        { type: 'posts' as SearchType, label: t('filterPosts'), count: filteredPosts.length },
                     ].map(({ type, label, count }) => (
                         <button
                             key={type}
@@ -187,7 +187,7 @@ export default function SearchPage() {
             {/* Trending Tags - Mobile */}
             {!searchQuery.trim() && (
                 <div className="md:hidden px-4 py-3 border-b-2 border-gray-100">
-                    <p className="text-xs font-heading text-gray-500 mb-2">TRENDING</p>
+                    <p className="text-xs font-heading text-gray-500 mb-2">{t('trending')}</p>
                     <div className="flex gap-2 overflow-x-auto scrollbar-hide">
                         {trendingTags.map((tag) => (
                             <button
@@ -206,12 +206,12 @@ export default function SearchPage() {
             <div className="container mx-auto px-4 py-4 md:py-8 pb-nav md:pb-8">
                 {/* Desktop Search */}
                 <div className="hidden md:block mb-8">
-                    <h1 className="text-4xl md:text-6xl font-heading mb-6">🔍 ENTDECKEN</h1>
+                    <h1 className="text-4xl md:text-6xl font-heading mb-6">🔍 {t('discover')}</h1>
                     
                     <div className="relative mb-4">
                         <input
                             type="text"
-                            placeholder="Nach Künstlern oder Posts filtern..."
+                            placeholder={t('filterPlaceholder')}
                             value={searchQuery}
                             onChange={(e) => handleSearchChange(e.target.value)}
                             className="input-comic w-full pl-12 text-lg py-4"
@@ -222,7 +222,7 @@ export default function SearchPage() {
                                 onClick={() => handleSearchChange("")}
                                 className="absolute right-4 top-1/2 -translate-y-1/2 bg-gray-200 hover:bg-gray-300 px-4 py-2 border-2 border-black font-heading transition-colors"
                             >
-                                ✕ Löschen
+                                ✕ {t('clear')}
                             </button>
                         )}
                     </div>
@@ -230,9 +230,9 @@ export default function SearchPage() {
                     {/* Desktop Type Filters */}
                     <div className="flex flex-wrap gap-2 mb-6">
                         {[
-                            { type: 'all' as SearchType, label: '🌟 Alles', count: filteredPosts.length + filteredUsers.length },
-                            { type: 'posts' as SearchType, label: '📝 Posts', count: filteredPosts.length },
-                            { type: 'users' as SearchType, label: '👤 Künstler', count: filteredUsers.length },
+                            { type: 'all' as SearchType, label: t('filterAllEmoji'), count: filteredPosts.length + filteredUsers.length },
+                            { type: 'posts' as SearchType, label: t('filterPostsEmoji'), count: filteredPosts.length },
+                            { type: 'users' as SearchType, label: t('filterArtistsEmoji'), count: filteredUsers.length },
                         ].map(({ type, label, count }) => (
                             <button
                                 key={type}
@@ -253,7 +253,7 @@ export default function SearchPage() {
                 {searchQuery.trim() && (
                     <div className="mb-4 bg-accent/30 border-2 border-black p-3">
                         <p className="font-body text-sm md:text-base">
-                            <span className="font-bold">{totalResults}</span> Ergebnisse für "<span className="font-bold">{searchQuery}</span>"
+                            <span className="font-bold">{totalResults}</span> {t('resultsFor')} "<span className="font-bold">{searchQuery}</span>"
                         </p>
                     </div>
                 )}
@@ -266,19 +266,19 @@ export default function SearchPage() {
                             <span className="loading-dot" />
                             <span className="loading-dot" />
                         </div>
-                        <p className="text-lg md:text-2xl font-heading">Lade...</p>
+                        <p className="text-lg md:text-2xl font-heading">{t('loadingShort')}</p>
                     </div>
                 ) : totalResults === 0 ? (
                     /* Empty State */
                     <div className="text-center py-12 md:py-20">
                         <span className="text-5xl md:text-6xl block mb-4">😕</span>
-                        <p className="text-xl md:text-2xl font-heading mb-2">Keine Ergebnisse</p>
+                        <p className="text-xl md:text-2xl font-heading mb-2">{t('noResultsTitle')}</p>
                         <p className="text-sm md:text-lg font-body text-gray-600 mb-6">
-                            Versuche einen anderen Suchbegriff
+                            {t('noResultsTryOther')}
                         </p>
                         {searchQuery && (
                             <Button variant="ghost" onClick={() => handleSearchChange("")}>
-                                Suche zurücksetzen
+                                {t('resetSearch')}
                             </Button>
                         )}
                     </div>
@@ -289,7 +289,7 @@ export default function SearchPage() {
                         {(searchType === 'all' || searchType === 'users') && filteredUsers.length > 0 && (
                             <div>
                                 <h2 className="text-lg md:text-2xl font-heading mb-3 md:mb-4 flex items-center gap-2">
-                                    👤 Künstler 
+                                    {t('artistsEmoji')} 
                                     <span className="text-xs md:text-sm bg-gray-100 px-2 py-1 border border-black">{filteredUsers.length}</span>
                                 </h2>
                                 
@@ -342,7 +342,7 @@ export default function SearchPage() {
                                                     )}
                                                     {user.verificationStatus === 'verified' && (
                                                         <span className="inline-flex items-center gap-1 text-xs text-green-600 font-bold mt-1">
-                                                            ✓ Verifiziert
+                                                            ✓ {t('verified')}
                                                         </span>
                                                     )}
                                                 </div>
@@ -357,7 +357,7 @@ export default function SearchPage() {
                                         onClick={() => handleTypeChange('users')}
                                         className="mt-4 text-accent-blue font-bold hover:underline text-sm"
                                     >
-                                        Alle {filteredUsers.length} Künstler anzeigen →
+                                        {t('showAllArtists', { count: filteredUsers.length })}
                                     </button>
                                 )}
                             </div>
@@ -367,7 +367,7 @@ export default function SearchPage() {
                         {(searchType === 'all' || searchType === 'posts') && filteredPosts.length > 0 && (
                             <div>
                                 <h2 className="text-lg md:text-2xl font-heading mb-3 md:mb-4 flex items-center gap-2">
-                                    📝 Posts 
+                                    {t('postsEmoji')} 
                                     <span className="text-xs md:text-sm bg-gray-100 px-2 py-1 border border-black">{filteredPosts.length}</span>
                                 </h2>
                                 
@@ -412,7 +412,7 @@ export default function SearchPage() {
                                                                     <span className="flex items-center justify-center h-full text-xs">🎨</span>
                                                                 )}
                                                             </div>
-                                                            <span className="font-bold text-xs truncate">{artist?.displayName || 'Künstler'}</span>
+                                                            <span className="font-bold text-xs truncate">{artist?.displayName || t('artist')}</span>
                                                         </div>
                                                         <p className="text-sm line-clamp-2 mb-2">{post.text}</p>
                                                         <div className="flex gap-4 text-sm text-gray-500">
@@ -431,7 +431,7 @@ export default function SearchPage() {
                                         onClick={() => handleTypeChange('posts')}
                                         className="mt-4 text-accent-blue font-bold hover:underline text-sm"
                                     >
-                                        Alle {filteredPosts.length} Posts anzeigen →
+                                        {t('showAllPosts', { count: filteredPosts.length })}
                                     </button>
                                 )}
                             </div>

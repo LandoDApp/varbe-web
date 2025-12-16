@@ -104,7 +104,7 @@ function NavbarClient() {
                 >
                     <input
                         type="text"
-                        placeholder="Künstler & Posts suchen..."
+                        placeholder={t('searchPlaceholder')}
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                         className="w-full pl-10 pr-4 py-2 border-2 border-black bg-white text-sm focus:outline-none focus:ring-2 focus:ring-accent"
@@ -114,12 +114,19 @@ function NavbarClient() {
                         type="submit"
                         className="absolute right-0 top-0 bottom-0 px-3 bg-accent border-l-2 border-black font-heading text-sm hover:bg-yellow-400 transition-colors"
                     >
-                        SUCHEN
+                        {t('search')}
                     </button>
                 </form>
 
                 {/* Desktop Navigation */}
                 <div className="hidden md:flex items-center gap-4 font-heading text-base flex-shrink-0">
+                    <Link 
+                        href="/feed" 
+                        className="relative group"
+                    >
+                        <span className="uppercase">FEED</span>
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
+                    </Link>
                     <Link 
                         href="/local" 
                         className="relative group"

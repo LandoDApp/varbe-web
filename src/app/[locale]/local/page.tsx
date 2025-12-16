@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useMemo, useRef } from "react";
+import { useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { Navbar } from "@/components/ui/Navbar";
 import { Footer } from "@/components/ui/Footer";
@@ -189,6 +190,7 @@ interface AddressSuggestion {
 export default function LocalPage() {
     const { user, profile } = useAuth();
     const router = useRouter();
+    const searchParams = useSearchParams();
     
     // Core state
     const [artists, setArtists] = useState<LocalArtistData[]>([]);
@@ -240,6 +242,13 @@ export default function LocalPage() {
     // Event creation state
     const [showCreateEventModal, setShowCreateEventModal] = useState(false);
     const [creatingEvent, setCreatingEvent] = useState(false);
+    
+    // Open event modal if query param is set
+    useEffect(() => {
+        if (searchParams.get('createEvent') === 'true') {
+            setShowCreateEventModal(true);
+        }
+    }, [searchParams]);
     const [newEvent, setNewEvent] = useState<Partial<CreateEventData>>({
         title: '',
         description: '',

@@ -171,10 +171,10 @@ export default function PostDetailPage() {
                 <div className="container mx-auto px-4 py-12">
                     <div className="text-center py-20">
                         <span className="text-6xl mb-4 block">😢</span>
-                        <h1 className="text-3xl font-heading mb-4">Post nicht gefunden</h1>
-                        <p className="text-gray-600 mb-8">Dieser Post existiert nicht oder wurde gelöscht.</p>
+                        <h1 className="text-3xl font-heading mb-4">{t('postDetail.postNotFound')}</h1>
+                        <p className="text-gray-600 mb-8">{t('postDetail.postNotFoundDesc')}</p>
                         <Button onClick={() => router.push("/")} variant="primary">
-                            Zur Startseite
+                            {t('postDetail.toHomepage')}
                         </Button>
                     </div>
                 </div>
@@ -194,10 +194,10 @@ export default function PostDetailPage() {
                 <div className="container mx-auto px-4 py-12">
                     <div className="text-center py-20">
                         <span className="text-6xl mb-4 block">🔒</span>
-                        <h1 className="text-3xl font-heading mb-4">Post wird überprüft</h1>
-                        <p className="text-gray-600 mb-8">Dieser Post wird gerade von einem Admin überprüft.</p>
+                        <h1 className="text-3xl font-heading mb-4">{t('postDetail.postUnderReview')}</h1>
+                        <p className="text-gray-600 mb-8">{t('postDetail.postUnderReviewDesc')}</p>
                         <Button onClick={() => router.back()} variant="primary">
-                            Zurück
+                            {t('postDetail.back')}
                         </Button>
                     </div>
                 </div>
@@ -216,7 +216,7 @@ export default function PostDetailPage() {
                     onClick={() => router.back()}
                     className="flex items-center gap-2 text-gray-600 hover:text-black mb-6 font-body"
                 >
-                    ← Zurück
+                    ← {t('postDetail.back')}
                 </button>
 
                 {/* Pending Review Banner */}
@@ -225,8 +225,8 @@ export default function PostDetailPage() {
                         <div className="flex items-center gap-3">
                             <span className="text-2xl">⏳</span>
                             <div>
-                                <p className="font-heading text-orange-800">Dieser Post wird überprüft</p>
-                                <p className="text-sm text-orange-600">Ein Admin wird diesen Post freischalten.</p>
+                                <p className="font-heading text-orange-800">{t('postDetail.postUnderReview')}</p>
+                                <p className="text-sm text-orange-600">{t('postDetail.postUnderReviewDesc')}</p>
                             </div>
                         </div>
                     </div>
@@ -254,7 +254,7 @@ export default function PostDetailPage() {
                                 )}
                             </div>
                             <div>
-                                <p className="font-heading text-lg">{author?.displayName || 'Unbekannt'}</p>
+                                <p className="font-heading text-lg">{author?.displayName || t('postDetail.unknown')}</p>
                                 <p className="text-sm text-gray-500">
                                     {new Date(post.createdAt).toLocaleDateString('de-DE', {
                                         day: '2-digit',
@@ -272,9 +272,9 @@ export default function PostDetailPage() {
                             <button
                                 onClick={() => setShowReportModal(true)}
                                 className="text-gray-400 hover:text-red-500 p-2 flex items-center gap-1 text-sm"
-                                title="Post melden"
+                                title={t('postDetail.reportPost')}
                             >
-                                🚩 <span className="hidden sm:inline">Melden</span>
+                                🚩 <span className="hidden sm:inline">{t('postDetail.report')}</span>
                             </button>
                         )}
                     </div>
@@ -298,7 +298,7 @@ export default function PostDetailPage() {
                                     >
                                         <img 
                                             src={img} 
-                                            alt={`Bild ${i + 1}`}
+                                            alt={`${t('postDetail.image')} ${i + 1}`}
                                             className="w-full h-full object-cover"
                                         />
                                     </button>
@@ -343,7 +343,7 @@ export default function PostDetailPage() {
 
                 {/* Comments Section */}
                 <section className="mt-8">
-                    <h2 className="text-2xl font-heading mb-4">Kommentare ({comments.length})</h2>
+                    <h2 className="text-2xl font-heading mb-4">{t('postDetail.comments')} ({comments.length})</h2>
                     
                     {/* Comment Form */}
                     {user ? (
@@ -352,7 +352,7 @@ export default function PostDetailPage() {
                                 <textarea
                                     value={newComment}
                                     onChange={(e) => setNewComment(e.target.value)}
-                                    placeholder="Schreibe einen Kommentar..."
+                                    placeholder={t('postDetail.writeComment')}
                                     className="w-full p-3 border-2 border-black font-body resize-none"
                                     rows={3}
                                 />
@@ -362,16 +362,16 @@ export default function PostDetailPage() {
                                         variant="primary"
                                         disabled={!newComment.trim() || submittingComment}
                                     >
-                                        {submittingComment ? 'Wird gesendet...' : 'Kommentieren'}
+                                        {submittingComment ? t('postDetail.sending') : t('postDetail.comment')}
                                     </Button>
                                 </div>
                             </div>
                         </form>
                     ) : (
                         <div className="border-4 border-black p-4 bg-gray-50 text-center mb-6">
-                            <p className="text-gray-600 mb-3">Melde dich an, um zu kommentieren.</p>
+                            <p className="text-gray-600 mb-3">{t('postDetail.loginToComment')}</p>
                             <Link href="/auth/login">
-                                <Button variant="primary">Anmelden</Button>
+                                <Button variant="primary">{t('postDetail.login')}</Button>
                             </Link>
                         </div>
                     )}
@@ -380,7 +380,7 @@ export default function PostDetailPage() {
                     {comments.length === 0 ? (
                         <div className="text-center py-8 text-gray-500">
                             <span className="text-4xl mb-2 block">💬</span>
-                            <p>Noch keine Kommentare. Sei der Erste!</p>
+                            <p>{t('postDetail.noComments')}</p>
                         </div>
                     ) : (
                         <div className="space-y-4">
@@ -408,7 +408,7 @@ export default function PostDetailPage() {
                                                     href={`/profile/${comment.userId}`}
                                                     className="font-heading hover:underline"
                                                 >
-                                                    {comment.author?.displayName || 'Unbekannt'}
+                                                    {comment.author?.displayName || t('postDetail.unknown')}
                                                 </Link>
                                                 <span className="text-xs text-gray-500">
                                                     {new Date(comment.createdAt).toLocaleDateString('de-DE')}
@@ -438,7 +438,7 @@ export default function PostDetailPage() {
                     </button>
                     <img 
                         src={selectedImage} 
-                        alt="Vollbild"
+                        alt={t('postDetail.fullscreen')}
                         className="max-w-full max-h-full object-contain"
                         onClick={(e) => e.stopPropagation()}
                     />
@@ -449,40 +449,40 @@ export default function PostDetailPage() {
             {showReportModal && (
                 <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
                     <div className="bg-white border-4 border-black p-6 max-w-md w-full shadow-comic">
-                        <h3 className="text-2xl font-heading mb-4">🚩 Post melden</h3>
+                        <h3 className="text-2xl font-heading mb-4">🚩 {t('postDetail.reportPost')}</h3>
                         <p className="text-gray-600 mb-4">
-                            Warum möchtest du diesen Post melden?
+                            {t('postDetail.whyReport')}
                         </p>
                         
                         <div className="space-y-2 mb-4">
                             {[
-                                'Unangemessene Inhalte',
-                                'Hassrede oder Belästigung',
-                                'Spam',
-                                'KI-generierte Kunst',
-                                'Urheberrechtsverletzung',
-                                'Sonstiges'
+                                { key: 'inappropriateContent', label: t('postDetail.inappropriateContent') },
+                                { key: 'hateSpeech', label: t('postDetail.hateSpeech') },
+                                { key: 'spam', label: t('postDetail.spam') },
+                                { key: 'aiArt', label: t('postDetail.aiArt') },
+                                { key: 'copyright', label: t('postDetail.copyright') },
+                                { key: 'other', label: t('postDetail.other') }
                             ].map((reason) => (
                                 <button
-                                    key={reason}
-                                    onClick={() => setReportReason(reason)}
+                                    key={reason.key}
+                                    onClick={() => setReportReason(reason.label)}
                                     className={`w-full text-left p-3 border-2 transition-colors ${
-                                        reportReason === reason 
+                                        reportReason === reason.label 
                                             ? 'border-red-500 bg-red-50' 
                                             : 'border-black hover:bg-gray-50'
                                     }`}
                                 >
-                                    {reason}
+                                    {reason.label}
                                 </button>
                             ))}
                         </div>
 
-                        {reportReason === 'Sonstiges' && (
+                        {reportReason === t('postDetail.other') && (
                             <textarea
-                                placeholder="Bitte beschreibe das Problem..."
+                                placeholder={t('postDetail.describeProblem')}
                                 className="w-full p-3 border-2 border-black mb-4"
                                 rows={3}
-                                onChange={(e) => setReportReason(e.target.value || 'Sonstiges')}
+                                onChange={(e) => setReportReason(e.target.value || t('postDetail.other'))}
                             />
                         )}
 
@@ -495,7 +495,7 @@ export default function PostDetailPage() {
                                 }}
                                 className="flex-1"
                             >
-                                Abbrechen
+                                {t('postDetail.cancel')}
                             </Button>
                             <Button 
                                 variant="primary"
@@ -503,7 +503,7 @@ export default function PostDetailPage() {
                                 disabled={!reportReason || reportSubmitting}
                                 className="flex-1 bg-red-500 hover:bg-red-600"
                             >
-                                {reportSubmitting ? 'Wird gemeldet...' : 'Melden'}
+                                {reportSubmitting ? t('postDetail.reporting') : t('postDetail.report')}
                             </Button>
                         </div>
                     </div>

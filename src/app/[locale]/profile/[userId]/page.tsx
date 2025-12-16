@@ -7,7 +7,8 @@ import { Navbar } from "@/components/ui/Navbar";
 import { Footer } from "@/components/ui/Footer";
 import { MobileBottomNav } from "@/components/ui/MobileBottomNav";
 import { Button } from "@/components/ui/Button";
-import { BadgeShowcase } from "@/components/ui/BadgeDisplay";
+import { BadgeShowcase, BadgeItem } from "@/components/ui/BadgeDisplay";
+import { getBadgeById, BADGES } from "@/lib/badges";
 import { DEFAULT_PROFILE_CUSTOMIZATION } from "@/components/ui/ProfileEditor";
 import { 
     getFollowerCount, 
@@ -43,6 +44,7 @@ export default function TumblrStyleProfilePage() {
     const { user: currentUser, profile: currentProfile } = useAuth();
     const router = useRouter();
     const t = useTranslations('profile');
+    const tBadges = useTranslations('badgeNames');
     
     // Profile data
     const [profile, setProfile] = useState<UserProfile | null>(null);
@@ -397,10 +399,10 @@ export default function TumblrStyleProfilePage() {
                 <div className="container mx-auto p-8">
                     <div className="bg-white border-4 border-black p-8 text-center shadow-comic">
                         <span className="text-6xl">👻</span>
-                        <h1 className="text-4xl font-heading mt-4 mb-2">Profil nicht gefunden</h1>
-                        <p className="text-gray-600">Dieses Profil existiert nicht.</p>
+                        <h1 className="text-4xl font-heading mt-4 mb-2">{t('notFound')}</h1>
+                        <p className="text-gray-600">{t('notFoundDesc')}</p>
                         <Link href="/feed">
-                            <Button variant="accent" className="mt-6">Zum Feed →</Button>
+                            <Button variant="accent" className="mt-6">{t('toFeed')}</Button>
                         </Link>
                     </div>
                 </div>
@@ -476,120 +478,148 @@ export default function TumblrStyleProfilePage() {
             )}
             
             {/* ========== MOBILE Profile Header ========== */}
-            <div className="md:hidden px-4 -mt-12 relative z-10">
-                <div className="flex items-end gap-4">
-                    {/* Profile Picture */}
-                    <div className="relative flex-shrink-0">
-                        <div className="w-24 h-24 rounded-full border-4 border-white overflow-hidden bg-gray-200 shadow-lg">
-                            {profile.profilePictureUrl ? (
-                                <img src={profile.profilePictureUrl} alt="" className="w-full h-full object-cover" />
-                            ) : (
-                                <div 
-                                    className="w-full h-full flex items-center justify-center"
-                                    style={{ background: `linear-gradient(135deg, ${accentColor}, ${linkColor})` }}
-                                >
-                                    <span className="text-3xl">
-                                        {profile.displayName?.charAt(0).toUpperCase() || "🎨"}
-                                    </span>
-                                </div>
+            <div className="md:hidden relative z-10">
+                {/* Dark overlay card for profile info */}
+                <div className="bg-black/80 backdrop-blur-sm text-white px-4 py-4 -mt-8">
+                    <div className="flex items-start gap-4">
+                        {/* Profile Picture */}
+                        <div className="relative flex-shrink-0 -mt-12">
+                            <div className="w-20 h-20 rounded-full border-4 border-white overflow-hidden bg-gray-200 shadow-lg">
+                                {profile.profilePictureUrl ? (
+                                    <img src={profile.profilePictureUrl} alt="" className="w-full h-full object-cover" />
+                                ) : (
+                                    <div 
+                                        className="w-full h-full flex items-center justify-center"
+                                        style={{ background: `linear-gradient(135deg, ${accentColor}, ${linkColor})` }}
+                                    >
+                                        <span className="text-2xl">
+                                            {profile.displayName?.charAt(0).toUpperCase() || "🎨"}
+                                        </span>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                        
+                        {/* Profile Info */}
+                        <div className="flex-1 min-w-0 pt-1">
+                            <div className="flex items-center gap-2 flex-wrap">
+                                <h1 className="text-lg font-heading truncate text-white">{profile.displayName || t('anonymousArtist')}</h1>
+                                {profile.verificationStatus === 'verified' && (
+                                    <span className="px-1.5 py-0.5 text-xs border border-white/50" style={{ backgroundColor: accentColor, color: '#000' }}>✓</span>
+                                )}
+                            </div>
+                            <div className="flex items-center gap-2 text-gray-300 text-sm flex-wrap">
+                                {profile.username && <span>@{profile.username}</span>}
+                                {profile.pronouns && <span className="text-gray-400">• {profile.pronouns}</span>}
+                            </div>
+                            {profile.location && (
+                                <p className="text-gray-400 text-sm mt-1">📍 {profile.location}</p>
                             )}
                         </div>
                     </div>
                     
-                    {/* Profile Info */}
-                    <div className="flex-1 min-w-0 pb-2">
-                        <div className="flex items-center gap-2 flex-wrap">
-                            <h1 className="text-xl font-heading truncate">{profile.displayName || "Anonymer Künstler"}</h1>
-                            {profile.verificationStatus === 'verified' && (
-                                <span className="px-1.5 py-0.5 text-xs border-2 border-black bg-accent text-black">✓</span>
-                            )}
+                    {/* Stats Row */}
+                    <div className="flex gap-6 mt-4 mb-4">
+                        <div className="text-center">
+                            <p className="font-heading text-lg text-white">{posts.length}</p>
+                            <p className="text-xs text-gray-400">{t('posts')}</p>
                         </div>
-                        {profile.username && (
-                            <p className="text-sm text-gray-600">@{profile.username}</p>
+                        <div className="text-center">
+                            <p className="font-heading text-lg text-white">{followerCount}</p>
+                            <p className="text-xs text-gray-400">{t('followers')}</p>
+                        </div>
+                        <div className="text-center">
+                            <p className="font-heading text-lg text-white">{followingCount}</p>
+                            <p className="text-xs text-gray-400">{t('followingCount')}</p>
+                        </div>
+                    </div>
+                    
+                    {/* Bio */}
+                    {profile.bio && (
+                        <p className="text-sm mb-3 line-clamp-3 text-gray-300">{profile.bio}</p>
+                    )}
+                    
+                    {/* Website */}
+                    {profile.website && (
+                        <div className="mb-4">
+                            <a href={profile.website} target="_blank" rel="noopener" className="text-sm flex items-center gap-1" style={{ color: accentColor }}>
+                                🔗 {profile.website.replace(/^https?:\/\//, '')}
+                            </a>
+                        </div>
+                    )}
+                
+                    {/* Action Buttons - Mobile */}
+                    <div className="flex gap-2 mb-4">
+                        {isOwnProfile ? (
+                            <Link href="/profile/settings" className="flex-1">
+                                <Button variant="secondary" className="w-full text-sm py-2">
+                                    {t('editProfile')}
+                                </Button>
+                            </Link>
+                        ) : currentUser ? (
+                            <>
+                                <Button
+                                    onClick={handleFollowToggle}
+                                    disabled={followLoading}
+                                    variant={isFollowing ? "secondary" : "accent"}
+                                    className="flex-1 text-sm py-2"
+                                >
+                                    {followLoading ? '...' : isFollowing ? `✓ ${t('following')}` : `+ ${t('follow')}`}
+                                </Button>
+                                <Button 
+                                    onClick={handleSendDM}
+                                    disabled={dmLoading}
+                                    variant="secondary" 
+                                    className="text-sm py-2 px-4"
+                                >
+                                    {dmLoading ? '...' : '✉️'}
+                                </Button>
+                            </>
+                        ) : (
+                            <Link href="/auth/login" className="flex-1">
+                                <Button variant="accent" className="w-full text-sm py-2">
+                                    {t('loginToFollow')}
+                                </Button>
+                            </Link>
                         )}
                     </div>
-                </div>
-                
-                {/* Stats Row */}
-                <div className="flex gap-6 mt-4 mb-4">
-                    <div className="text-center">
-                        <p className="font-heading text-lg">{posts.length}</p>
-                        <p className="text-xs text-gray-600">Posts</p>
-                    </div>
-                    <div className="text-center">
-                        <p className="font-heading text-lg">{followerCount}</p>
-                        <p className="text-xs text-gray-600">Followers</p>
-                    </div>
-                    <div className="text-center">
-                        <p className="font-heading text-lg">{followingCount}</p>
-                        <p className="text-xs text-gray-600">Following</p>
-                    </div>
-                </div>
-                
-                {/* Bio & Location */}
-                {profile.bio && (
-                    <p className="text-sm mb-2 line-clamp-3 text-gray-700">{profile.bio}</p>
-                )}
-                <div className="flex flex-wrap gap-3 text-sm mb-4 text-gray-600">
-                    {profile.location && (
-                        <span className="flex items-center gap-1">📍 {profile.location}</span>
-                    )}
-                    {profile.website && (
-                        <a href={profile.website} target="_blank" rel="noopener" className="flex items-center gap-1" style={{ color: accentColor }}>
-                            🔗 {profile.website.replace(/^https?:\/\//, '')}
-                        </a>
-                    )}
-                </div>
-                
-                {/* Action Buttons - Mobile */}
-                <div className="flex gap-2 mb-4">
-                    {isOwnProfile ? (
-                        <Link href="/profile/settings" className="flex-1">
-                            <Button variant="secondary" className="w-full text-sm py-2">
-                                Profil bearbeiten
-                            </Button>
-                        </Link>
-                    ) : currentUser ? (
-                        <>
-                            <Button
-                                onClick={handleFollowToggle}
-                                disabled={followLoading}
-                                variant={isFollowing ? "secondary" : "accent"}
-                                className="flex-1 text-sm py-2"
-                            >
-                                {followLoading ? '...' : isFollowing ? '✓ Folge ich' : '+ Folgen'}
-                            </Button>
-                            <Button 
-                                onClick={handleSendDM}
-                                disabled={dmLoading}
-                                variant="secondary" 
-                                className="text-sm py-2 px-4"
-                            >
-                                {dmLoading ? '...' : '✉️'}
-                            </Button>
-                        </>
-                    ) : (
-                        <Link href="/auth/login" className="flex-1">
-                            <Button variant="accent" className="w-full text-sm py-2">
-                                Anmelden zum Folgen
-                            </Button>
-                        </Link>
-                    )}
-                </div>
-                
-                {/* Showcased Badges */}
-                {profile.achievementData?.showcasedBadges && profile.achievementData.showcasedBadges.length > 0 && (
-                    <div className="flex gap-2 mb-4 overflow-x-auto scrollbar-hide pb-1">
-                        {profile.achievementData.showcasedBadges.slice(0, 5).map(badgeId => (
-                            <div 
-                                key={badgeId}
-                                className="w-10 h-10 rounded-full border-2 border-black flex items-center justify-center text-lg bg-white flex-shrink-0"
-                            >
-                                🏆
+                    
+                    {/* Showcased Badges - Mobile */}
+                    {profile.achievementData?.achievements && profile.achievementData.achievements.length > 0 && (
+                        <div className="pt-3 border-t border-white/20">
+                            <div className="flex gap-2 overflow-x-auto scrollbar-hide pb-1">
+                                {profile.achievementData.achievements.slice(0, 6).map(achievement => {
+                                    const badge = getBadgeById(achievement.badgeId);
+                                    if (!badge) return null;
+                                    // Get translated badge name
+                                    let badgeName = badge.name;
+                                    try {
+                                        const translatedName = tBadges(`${badge.id}.name`);
+                                        if (translatedName && !translatedName.includes(badge.id)) badgeName = translatedName;
+                                    } catch { /* Keep original */ }
+                                    return (
+                                        <div 
+                                            key={achievement.badgeId}
+                                            className="flex-shrink-0 flex flex-col items-center gap-1"
+                                        >
+                                            <div 
+                                                className="w-10 h-10 border-2 border-white/50 flex items-center justify-center text-lg bg-white/10"
+                                                title={badgeName}
+                                            >
+                                                {badge.icon}
+                                            </div>
+                                        </div>
+                                    );
+                                })}
+                                {profile.achievementData.achievements.length > 6 && (
+                                    <div className="flex-shrink-0 w-10 h-10 border-2 border-white/30 flex items-center justify-center text-xs text-white/70 bg-white/5">
+                                        +{profile.achievementData.achievements.length - 6}
+                                    </div>
+                                )}
                             </div>
-                        ))}
-                    </div>
-                )}
+                        </div>
+                    )}
+                </div>
             </div>
             
             {/* ========== DESKTOP Profile Header - Schwarzes Band ========== */}
@@ -619,7 +649,7 @@ export default function TumblrStyleProfilePage() {
                         {/* Profile Info */}
                         <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-2 flex-wrap">
-                                <h1 className="text-lg lg:text-xl font-heading truncate">{profile.displayName || "Anonymer Künstler"}</h1>
+                                <h1 className="text-lg lg:text-xl font-heading truncate">{profile.displayName || t('anonymousArtist')}</h1>
                                 {profile.verificationStatus === 'verified' && (
                                     <span className="px-1.5 py-0.5 text-xs border border-white/50" style={{ backgroundColor: accentColor, color: '#000' }}>
                                         ✓
@@ -633,9 +663,9 @@ export default function TumblrStyleProfilePage() {
                             </div>
                             {/* Stats inline */}
                             <div className="flex gap-3 mt-1 text-sm">
-                                <span><strong>{posts.length}</strong> <span className="text-gray-400">Posts</span></span>
-                                <span><strong>{followerCount}</strong> <span className="text-gray-400">Followers</span></span>
-                                <span><strong>{followingCount}</strong> <span className="text-gray-400">Following</span></span>
+                                <span><strong>{posts.length}</strong> <span className="text-gray-400">{t('posts')}</span></span>
+                                <span><strong>{followerCount}</strong> <span className="text-gray-400">{t('followers')}</span></span>
+                                <span><strong>{followingCount}</strong> <span className="text-gray-400">{t('followingCount')}</span></span>
                             </div>
                         </div>
                         
@@ -644,7 +674,7 @@ export default function TumblrStyleProfilePage() {
                             {isOwnProfile ? (
                                 <Link href="/profile/settings">
                                     <Button variant="secondary" className="text-xs px-3 py-1.5">
-                                        ⚙️ Einstellungen
+                                        ⚙️ {t('settings')}
                                     </Button>
                                 </Link>
                             ) : currentUser ? (
@@ -655,7 +685,7 @@ export default function TumblrStyleProfilePage() {
                                         variant={isFollowing ? "secondary" : "accent"}
                                         className="text-xs px-3 py-1.5"
                                     >
-                                        {followLoading ? '...' : isFollowing ? '✓ Folge ich' : '+ Folgen'}
+                                        {followLoading ? '...' : isFollowing ? `✓ ${t('following')}` : `+ ${t('follow')}`}
                                     </Button>
                                     <Button 
                                         onClick={handleSendDM}
@@ -669,7 +699,7 @@ export default function TumblrStyleProfilePage() {
                             ) : (
                                 <Link href="/auth/login">
                                     <Button variant="accent" className="text-xs px-3 py-1.5">
-                                        Anmelden
+                                        {t('login')}
                                     </Button>
                                 </Link>
                             )}
@@ -688,143 +718,240 @@ export default function TumblrStyleProfilePage() {
                 </div>
             </div>
             
-            {/* ========== MOBILE CONTENT - Simple scrolling layout ========== */}
-            <div className="md:hidden px-4 py-4 pb-nav space-y-4">
-                {/* Posts Grid */}
-                <div className="card-comic p-4">
-                    <h3 className="font-heading text-sm mb-3">📝 POSTS</h3>
-                    {posts.length === 0 ? (
-                        <p className="text-sm text-center py-4 text-gray-500">
-                            Noch keine Posts
-                        </p>
-                    ) : (
-                        <div className="grid grid-cols-2 gap-2">
-                            {posts.slice(0, 6).map((post) => (
-                                <Link 
-                                    key={post.id}
-                                    href={`/feed/${post.id}`}
-                                    className="aspect-square border-3 border-black overflow-hidden bg-gray-100 relative group"
-                                >
-                                    {post.images && post.images[0] ? (
-                                        <img src={post.images[0]} alt="" className="w-full h-full object-cover" />
-                                    ) : (
-                                        <div className="w-full h-full flex items-center justify-center p-2">
-                                            <p className="text-xs text-center line-clamp-4">{post.text}</p>
-                                        </div>
+            {/* ========== MOBILE CONTENT - Tab-based layout ========== */}
+            <div className="md:hidden pb-nav">
+                {/* Mobile Tab Navigation */}
+                <div className="sticky top-0 z-40 bg-white border-b-2 border-black">
+                    <div className="flex overflow-x-auto scrollbar-hide">
+                        {[
+                            { id: 'posts' as ProfileTab, label: t('posts'), icon: '📝', count: posts.length },
+                            { id: 'boards' as ProfileTab, label: 'Boards', icon: '📌', count: boards.length },
+                            { id: 'reposts' as ProfileTab, label: 'Reposts', icon: '🔄', count: reposts.length },
+                            { id: 'likes' as ProfileTab, label: 'Likes', icon: '❤️', count: likedPosts.length },
+                            { id: 'comments' as ProfileTab, label: t('guestbook'), icon: '💬', count: profileComments.length },
+                        ].map(tab => (
+                            <button
+                                key={tab.id}
+                                onClick={() => setActiveTab(tab.id)}
+                                className={`flex-shrink-0 px-4 py-3 text-sm font-heading transition-colors relative ${
+                                    activeTab === tab.id 
+                                        ? 'text-black' 
+                                        : 'text-gray-400'
+                                }`}
+                            >
+                                <span className="flex items-center gap-1.5">
+                                    {tab.icon} {tab.label}
+                                    {tab.count > 0 && (
+                                        <span className="text-xs bg-gray-100 px-1.5 rounded-full">{tab.count}</span>
                                     )}
-                                    {post.images && post.images.length > 1 && (
-                                        <span className="absolute top-1 right-1 bg-black/70 text-white text-[10px] px-1.5 py-0.5">
-                                            +{post.images.length - 1}
-                                        </span>
-                                    )}
-                                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-2">
-                                        <div className="flex gap-2 text-white text-xs">
-                                            <span>❤️ {post.likesCount}</span>
-                                            <span>💬 {post.commentsCount}</span>
-                                        </div>
-                                    </div>
-                                </Link>
-                            ))}
-                        </div>
-                    )}
-                    {posts.length > 6 && (
-                        <p className="text-xs text-center mt-3 text-gray-500">
-                            + {posts.length - 6} weitere Posts
-                        </p>
-                    )}
+                                </span>
+                                {activeTab === tab.id && (
+                                    <div 
+                                        className="absolute bottom-0 left-2 right-2 h-1" 
+                                        style={{ backgroundColor: accentColor }}
+                                    />
+                                )}
+                            </button>
+                        ))}
+                    </div>
                 </div>
                 
-                {/* Boards */}
-                {boards.length > 0 && (
-                    <div className="card-comic p-4">
-                        <h3 className="font-heading text-sm mb-3">📌 BOARDS</h3>
-                        <div className="grid grid-cols-2 gap-2">
-                            {boards.slice(0, 4).map(board => (
-                                <Link 
-                                    key={board.id}
-                                    href={`/boards/${board.id}`}
-                                    className="aspect-square bg-gray-100 border-2 border-black relative overflow-hidden"
-                                >
-                                    {board.coverImageUrl ? (
-                                        <img src={board.coverImageUrl} alt="" className="w-full h-full object-cover" />
-                                    ) : (
-                                        <div className="w-full h-full flex items-center justify-center text-2xl">📌</div>
-                                    )}
-                                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-2">
-                                        <p className="text-white text-xs font-bold truncate">{board.title}</p>
-                                    </div>
-                                </Link>
-                            ))}
-                        </div>
-                    </div>
-                )}
-                
-                {/* Guestbook */}
-                <div className="card-comic p-4">
-                    <h3 className="font-heading text-sm mb-3">📝 GÄSTEBUCH</h3>
-                    
-                    {/* Comment Input */}
-                    {currentUser ? (
-                        <div className="mb-4">
-                            <textarea
-                                value={newComment}
-                                onChange={(e) => setNewComment(e.target.value)}
-                                placeholder="Schreibe einen Kommentar..."
-                                className="w-full p-2 border-2 border-black text-sm resize-none"
-                                rows={2}
-                                maxLength={200}
-                            />
-                            <div className="flex justify-between items-center mt-1">
-                                <span className="text-xs text-gray-400">{newComment.length}/200</span>
-                                <Button 
-                                    variant="accent" 
-                                    className="text-xs py-1"
-                                    onClick={handleSubmitComment}
-                                    disabled={!newComment.trim() || submittingComment}
-                                >
-                                    {submittingComment ? '...' : 'Posten'}
-                                </Button>
-                            </div>
-                        </div>
-                    ) : (
-                        <div className="mb-4 p-3 bg-gray-50 border text-center text-sm">
-                            <Link href="/auth/login" className="hover:underline" style={{ color: accentColor }}>
-                                Anmelden um zu kommentieren
-                            </Link>
-                        </div>
+                {/* Mobile Tab Content */}
+                <div className="px-4 py-4 space-y-4">
+                    {/* Posts Tab */}
+                    {activeTab === 'posts' && (
+                        <>
+                            {posts.length === 0 ? (
+                                <div className="card-comic p-8 text-center">
+                                    <span className="text-4xl">📝</span>
+                                    <p className="text-sm text-gray-500 mt-2">{t('noPosts')}</p>
+                                </div>
+                            ) : (
+                                <div className="grid grid-cols-3 gap-1">
+                                    {posts.map((post) => (
+                                        <Link 
+                                            key={post.id}
+                                            href={`/feed/${post.id}`}
+                                            className="aspect-square overflow-hidden bg-gray-100 relative"
+                                        >
+                                            {post.images && post.images[0] ? (
+                                                <img src={post.images[0]} alt="" className="w-full h-full object-cover" />
+                                            ) : (
+                                                <div className="w-full h-full flex items-center justify-center p-2 bg-gray-50">
+                                                    <p className="text-[10px] text-center line-clamp-3">{post.text}</p>
+                                                </div>
+                                            )}
+                                            {post.images && post.images.length > 1 && (
+                                                <span className="absolute top-1 right-1 bg-black/70 text-white text-[10px] px-1">
+                                                    +{post.images.length - 1}
+                                                </span>
+                                            )}
+                                        </Link>
+                                    ))}
+                                </div>
+                            )}
+                        </>
                     )}
                     
-                    {profileComments.length === 0 ? (
-                        <p className="text-sm text-center py-2 text-gray-500">
-                            Noch keine Kommentare
-                        </p>
-                    ) : (
-                        <div className="space-y-3">
-                            {profileComments.slice(0, 5).map(comment => {
-                                const author = commentAuthors[comment.authorId];
-                                return (
-                                    <div key={comment.id} className="flex gap-2">
-                                        <Link href={`/profile/${comment.authorId}`}>
-                                            <div className="w-8 h-8 rounded-full bg-gray-200 border border-black overflow-hidden flex-shrink-0">
-                                                {author?.profilePictureUrl ? (
-                                                    <img src={author.profilePictureUrl} alt="" className="w-full h-full object-cover" />
-                                                ) : (
-                                                    <span className="flex items-center justify-center h-full text-xs">👤</span>
-                                                )}
+                    {/* Boards Tab */}
+                    {activeTab === 'boards' && (
+                        <>
+                            {boards.length === 0 ? (
+                                <div className="card-comic p-8 text-center">
+                                    <span className="text-4xl">📌</span>
+                                    <p className="text-sm text-gray-500 mt-2">{t('noBoards')}</p>
+                                </div>
+                            ) : (
+                                <div className="grid grid-cols-2 gap-2">
+                                    {boards.map(board => (
+                                        <Link 
+                                            key={board.id}
+                                            href={`/boards/${board.id}`}
+                                            className="aspect-square bg-gray-100 border-2 border-black relative overflow-hidden"
+                                        >
+                                            {board.coverImageUrl ? (
+                                                <img src={board.coverImageUrl} alt="" className="w-full h-full object-cover" />
+                                            ) : (
+                                                <div className="w-full h-full flex items-center justify-center text-3xl">📌</div>
+                                            )}
+                                            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-2">
+                                                <p className="text-white text-xs font-bold truncate">{board.title}</p>
+                                                <p className="text-white/70 text-[10px]">{board.postIds?.length || 0} posts</p>
                                             </div>
                                         </Link>
-                                        <div className="flex-1 min-w-0">
-                                            <div className="flex items-center gap-2">
-                                                <Link href={`/profile/${comment.authorId}`} className="font-bold text-xs hover:underline">
-                                                    {author?.displayName || 'Anon'}
-                                                </Link>
-                                                <span className="text-xs text-gray-500">{timeAgo(comment.createdAt)}</span>
-                                            </div>
-                                            <p className="text-sm">{comment.text}</p>
-                                        </div>
+                                    ))}
+                                </div>
+                            )}
+                        </>
+                    )}
+                    
+                    {/* Reposts Tab */}
+                    {activeTab === 'reposts' && (
+                        <>
+                            {reposts.length === 0 ? (
+                                <div className="card-comic p-8 text-center">
+                                    <span className="text-4xl">🔄</span>
+                                    <p className="text-sm text-gray-500 mt-2">{t('noReposts')}</p>
+                                </div>
+                            ) : (
+                                <div className="grid grid-cols-3 gap-1">
+                                    {reposts.map((repost) => (
+                                        <Link 
+                                            key={repost.id}
+                                            href={`/feed/${repost.originalPostId}`}
+                                            className="aspect-square overflow-hidden bg-gray-100 relative"
+                                        >
+                                            {repost.originalPost?.images && repost.originalPost.images[0] ? (
+                                                <img src={repost.originalPost.images[0]} alt="" className="w-full h-full object-cover" />
+                                            ) : (
+                                                <div className="w-full h-full flex items-center justify-center p-2 bg-gray-50">
+                                                    <span className="text-2xl">🔄</span>
+                                                </div>
+                                            )}
+                                        </Link>
+                                    ))}
+                                </div>
+                            )}
+                        </>
+                    )}
+                    
+                    {/* Likes Tab */}
+                    {activeTab === 'likes' && (
+                        <>
+                            {likedPosts.length === 0 ? (
+                                <div className="card-comic p-8 text-center">
+                                    <span className="text-4xl">❤️</span>
+                                    <p className="text-sm text-gray-500 mt-2">{t('noLikes')}</p>
+                                </div>
+                            ) : (
+                                <div className="grid grid-cols-3 gap-1">
+                                    {likedPosts.map((post) => (
+                                        <Link 
+                                            key={post.id}
+                                            href={`/feed/${post.id}`}
+                                            className="aspect-square overflow-hidden bg-gray-100 relative"
+                                        >
+                                            {post.images && post.images[0] ? (
+                                                <img src={post.images[0]} alt="" className="w-full h-full object-cover" />
+                                            ) : (
+                                                <div className="w-full h-full flex items-center justify-center p-2 bg-gray-50">
+                                                    <p className="text-[10px] text-center line-clamp-3">{post.text}</p>
+                                                </div>
+                                            )}
+                                        </Link>
+                                    ))}
+                                </div>
+                            )}
+                        </>
+                    )}
+                    
+                    {/* Guestbook/Comments Tab */}
+                    {activeTab === 'comments' && (
+                        <div className="card-comic p-4">
+                            {/* Comment Input */}
+                            {currentUser ? (
+                                <div className="mb-4">
+                                    <textarea
+                                        value={newComment}
+                                        onChange={(e) => setNewComment(e.target.value)}
+                                        placeholder={t('writeComment')}
+                                        className="w-full p-2 border-2 border-black text-sm resize-none"
+                                        rows={2}
+                                        maxLength={200}
+                                    />
+                                    <div className="flex justify-between items-center mt-1">
+                                        <span className="text-xs text-gray-400">{newComment.length}/200</span>
+                                        <Button 
+                                            variant="accent" 
+                                            className="text-xs py-1"
+                                            onClick={handleSubmitComment}
+                                            disabled={!newComment.trim() || submittingComment}
+                                        >
+                                            {submittingComment ? '...' : t('post')}
+                                        </Button>
                                     </div>
-                                );
-                            })}
+                                </div>
+                            ) : (
+                                <div className="mb-4 p-3 bg-gray-50 border text-center text-sm">
+                                    <Link href="/auth/login" className="hover:underline" style={{ color: accentColor }}>
+                                        {t('loginToComment')}
+                                    </Link>
+                                </div>
+                            )}
+                            
+                            {profileComments.length === 0 ? (
+                                <p className="text-sm text-center py-4 text-gray-500">
+                                    {t('noComments')}
+                                </p>
+                            ) : (
+                                <div className="space-y-3">
+                                    {profileComments.map(comment => {
+                                        const author = commentAuthors[comment.authorId];
+                                        return (
+                                            <div key={comment.id} className="flex gap-2">
+                                                <Link href={`/profile/${comment.authorId}`}>
+                                                    <div className="w-8 h-8 rounded-full bg-gray-200 border border-black overflow-hidden flex-shrink-0">
+                                                        {author?.profilePictureUrl ? (
+                                                            <img src={author.profilePictureUrl} alt="" className="w-full h-full object-cover" />
+                                                        ) : (
+                                                            <span className="flex items-center justify-center h-full text-xs">👤</span>
+                                                        )}
+                                                    </div>
+                                                </Link>
+                                                <div className="flex-1 min-w-0">
+                                                    <div className="flex items-center gap-2">
+                                                        <Link href={`/profile/${comment.authorId}`} className="font-bold text-xs hover:underline">
+                                                            {author?.displayName || 'Anon'}
+                                                        </Link>
+                                                        <span className="text-xs text-gray-500">{timeAgo(comment.createdAt)}</span>
+                                                    </div>
+                                                    <p className="text-sm">{comment.text}</p>
+                                                </div>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                            )}
                         </div>
                     )}
                 </div>
@@ -847,42 +974,51 @@ export default function TumblrStyleProfilePage() {
                                     <div className="flex items-center justify-between mb-4">
                                         <h3 className="font-heading">📅 EVENTS</h3>
                                         <Link href="/local" className="text-xs hover:underline" style={{ color: accentColor }}>
-                                            Alle →
+                                            {t('allLink')}
                                         </Link>
                                     </div>
                                     
                                     {createdEvents.length === 0 && attendingEvents.length === 0 ? (
                                         <p className="text-sm text-center py-4 text-gray-500">
-                                            Keine Events
+                                            {t('noEvents')}
                                         </p>
                                     ) : (
                                         <div className="space-y-3">
-                                            {[...createdEvents, ...attendingEvents].slice(0, 3).map(event => (
-                                                <Link 
-                                                    key={event.id}
-                                                    href={`/local/event/${event.id}`}
-                                                    className="block p-3 border-2 border-gray-200 hover:border-black transition-colors"
-                                                >
-                                                    <div className="flex items-start justify-between">
-                                                        <div className="flex-1 min-w-0">
-                                                            <p className="font-bold text-sm truncate">{event.title}</p>
-                                                            <p className="text-xs text-gray-500">
-                                                                {new Date(event.date).toLocaleDateString('de-DE', { 
-                                                                    day: 'numeric', 
-                                                                    month: 'short' 
-                                                                })}
-                                                            </p>
+                                            {/* Deduplicate events - prioritize created over attending */}
+                                            {(() => {
+                                                const seenIds = new Set<string>();
+                                                const uniqueEvents = [...createdEvents, ...attendingEvents].filter(event => {
+                                                    if (seenIds.has(event.id)) return false;
+                                                    seenIds.add(event.id);
+                                                    return true;
+                                                });
+                                                return uniqueEvents.slice(0, 3).map(event => (
+                                                    <Link 
+                                                        key={event.id}
+                                                        href={`/local/event/${event.id}`}
+                                                        className="block p-3 border-2 border-gray-200 hover:border-black transition-colors"
+                                                    >
+                                                        <div className="flex items-start justify-between">
+                                                            <div className="flex-1 min-w-0">
+                                                                <p className="font-bold text-sm truncate">{event.title}</p>
+                                                                <p className="text-xs text-gray-500">
+                                                                    {new Date(event.date).toLocaleDateString('de-DE', { 
+                                                                        day: 'numeric', 
+                                                                        month: 'short' 
+                                                                    })}
+                                                                </p>
+                                                            </div>
+                                                            <span className={`text-xs px-2 py-0.5 ${
+                                                                createdEvents.find(e => e.id === event.id) 
+                                                                    ? 'bg-accent' 
+                                                                    : 'bg-green-200'
+                                                            } border border-black`}>
+                                                                {createdEvents.find(e => e.id === event.id) ? t('host') : t('going')}
+                                                            </span>
                                                         </div>
-                                                        <span className={`text-xs px-2 py-0.5 ${
-                                                            createdEvents.find(e => e.id === event.id) 
-                                                                ? 'bg-accent' 
-                                                                : 'bg-green-200'
-                                                        } border border-black`}>
-                                                            {createdEvents.find(e => e.id === event.id) ? 'HOST' : 'GOING'}
-                                                        </span>
-                                                    </div>
-                                                </Link>
-                                            ))}
+                                                    </Link>
+                                                ));
+                                            })()}
                                         </div>
                                     )}
                                 </div>
@@ -897,15 +1033,15 @@ export default function TumblrStyleProfilePage() {
                                 <div className="flex items-center justify-between mb-4">
                                     <h3 className="font-heading">🎨 CHALLENGES</h3>
                                     <Link href="/challenges" className="text-xs hover:underline" style={{ color: accentColor }}>
-                                        Alle →
+                                        {t('allLink')}
                                     </Link>
                                 </div>
                                 
                                 {!challengeStats || challengeStats.totalParticipations === 0 ? (
                                     <div className="text-center py-4">
-                                        <p className="text-sm text-gray-500">Noch keine Challenge-Teilnahmen</p>
+                                        <p className="text-sm text-gray-500">{t('noChallengeParticipations')}</p>
                                         <Link href="/challenges" className="text-xs mt-2 inline-block underline" style={{ color: accentColor }}>
-                                            Jetzt mitmachen →
+                                            {t('joinNow')}
                                         </Link>
                                     </div>
                                 ) : (
@@ -914,22 +1050,22 @@ export default function TumblrStyleProfilePage() {
                                         <div className="grid grid-cols-3 gap-2 text-center">
                                             <div className="p-2 border bg-gray-50">
                                                 <p className="font-heading text-lg">{challengeStats.totalParticipations}</p>
-                                                <p className="text-xs text-gray-500">Teilnahmen</p>
+                                                <p className="text-xs text-gray-500">{t('participations')}</p>
                                             </div>
                                             <div className="p-2 border bg-accent">
                                                 <p className="font-heading text-lg">{challengeStats.totalWins}</p>
-                                                <p className="text-xs">Siege</p>
+                                                <p className="text-xs">{t('wins')}</p>
                                             </div>
                                             <div className="p-2 border bg-gray-50">
                                                 <p className="font-heading text-lg">{challengeStats.totalLikesReceived || 0}</p>
-                                                <p className="text-xs text-gray-500">Likes</p>
+                                                <p className="text-xs text-gray-500">{t('likes')}</p>
                                             </div>
                                         </div>
                                         
                                         {/* Badges */}
                                         {challengeStats.badges && challengeStats.badges.length > 0 && (
                                             <div>
-                                                <p className="text-xs text-gray-500 mb-2">Challenge-Badges</p>
+                                                <p className="text-xs text-gray-500 mb-2">{t('challengeBadges')}</p>
                                                 <div className="flex flex-wrap gap-1">
                                                     {challengeStats.badges.map(badgeId => {
                                                         const badge = CHALLENGE_BADGES.find(b => b.id === badgeId);
@@ -951,7 +1087,7 @@ export default function TumblrStyleProfilePage() {
                                         {/* Recent Challenges */}
                                         {challengeStats.recentChallenges && challengeStats.recentChallenges.length > 0 && (
                                             <div>
-                                                <p className="text-xs text-gray-500 mb-2">Letzte Einreichungen</p>
+                                                <p className="text-xs text-gray-500 mb-2">{t('recentSubmissions')}</p>
                                                 <div className="grid grid-cols-3 gap-1">
                                                     {challengeStats.recentChallenges.slice(0, 6).map((entry, i) => (
                                                         <div 
@@ -986,30 +1122,49 @@ export default function TumblrStyleProfilePage() {
                             >
                                 <div className="flex items-center justify-between mb-4">
                                     <h3 className="font-heading">🏆 BADGES</h3>
+                                    <span className="text-xs font-bold px-2 py-0.5" style={{ backgroundColor: accentColor }}>
+                                        {profile.achievementData?.achievements?.length || 0}
+                                    </span>
                                 </div>
                                 
                                 {!profile.achievementData?.achievements || profile.achievementData.achievements.length === 0 ? (
                                     <div className="text-center py-4">
-                                        <p className="text-sm text-gray-500">Noch keine Badges</p>
+                                        <p className="text-sm text-gray-500">{t('noBadges')}</p>
                                     </div>
                                 ) : (
                                     <div className="space-y-3">
-                                        {profile.achievementData.showcasedBadges && profile.achievementData.showcasedBadges.length > 0 && (
-                                            <div className="flex flex-wrap gap-2 pb-3 border-b border-gray-200">
-                                                <BadgeShowcase 
-                                                    showcasedBadgeIds={profile.achievementData.showcasedBadges}
-                                                    displayStyle="row"
-                                                />
-                                            </div>
+                                        {/* Display all unlocked badges */}
+                                        <div className="flex flex-wrap gap-2">
+                                            {profile.achievementData.achievements.slice(0, 8).map(achievement => {
+                                                const badge = getBadgeById(achievement.badgeId);
+                                                if (!badge) return null;
+                                                return (
+                                                    <BadgeItem
+                                                        key={achievement.badgeId}
+                                                        badge={badge}
+                                                        unlocked={true}
+                                                        size="sm"
+                                                    />
+                                                );
+                                            })}
+                                        </div>
+                                        
+                                        {/* Show more link if there are more badges */}
+                                        {profile.achievementData.achievements.length > 8 && (
+                                            <p className="text-xs text-center text-gray-500">
+                                                +{profile.achievementData.achievements.length - 8} {t('moreBadges')}
+                                            </p>
                                         )}
-                                        <div className="grid grid-cols-2 gap-2 text-center">
+                                        
+                                        {/* Stats */}
+                                        <div className="grid grid-cols-2 gap-2 text-center pt-2 border-t border-gray-200">
                                             <div className="p-2 border bg-gray-50">
                                                 <p className="font-heading text-lg">{profile.achievementData.achievements.length}</p>
-                                                <p className="text-xs text-gray-500">Gesammelt</p>
+                                                <p className="text-xs text-gray-500">{t('collected')}</p>
                                             </div>
                                             <div className="p-2 border bg-gray-50">
                                                 <p className="font-heading text-lg">{profile.achievementData?.stats?.totalPoints || 0}</p>
-                                                <p className="text-xs text-gray-500">Punkte</p>
+                                                <p className="text-xs text-gray-500">{t('points')}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -1030,7 +1185,7 @@ export default function TumblrStyleProfilePage() {
                                 
                                 {boards.length === 0 ? (
                                     <p className="text-sm text-center py-4 text-gray-500">
-                                        Keine Boards
+                                        {t('noBoards')}
                                     </p>
                                 ) : (
                                     <div className="grid grid-cols-2 gap-2">
@@ -1060,7 +1215,7 @@ export default function TumblrStyleProfilePage() {
                             className="border-4 border-black shadow-comic p-4 relative overflow-hidden bg-white"
                             style={{ borderTopWidth: '6px', borderTopColor: accentColor }}
                         >
-                            <h3 className="font-heading mb-4">📝 GÄSTEBUCH</h3>
+                            <h3 className="font-heading mb-4">📝 {t('guestbook')}</h3>
                             
                             {/* Comment Input */}
                             {currentUser ? (
@@ -1068,7 +1223,7 @@ export default function TumblrStyleProfilePage() {
                                     <textarea
                                         value={newComment}
                                         onChange={(e) => setNewComment(e.target.value)}
-                                        placeholder="Schreibe einen Kommentar..."
+                                        placeholder={t('writeComment')}
                                         className="w-full p-2 border-2 border-black text-sm resize-none"
                                         rows={2}
                                         maxLength={200}
@@ -1081,21 +1236,21 @@ export default function TumblrStyleProfilePage() {
                                             onClick={handleSubmitComment}
                                             disabled={!newComment.trim() || submittingComment}
                                         >
-                                            {submittingComment ? '...' : 'Posten'}
+                                            {submittingComment ? '...' : t('post')}
                                         </Button>
                                     </div>
                                 </div>
                             ) : (
                                 <div className="mb-4 p-3 bg-gray-50 border text-center text-sm">
                                     <Link href="/auth/login" className="hover:underline" style={{ color: accentColor }}>
-                                        Anmelden um zu kommentieren
+                                        {t('loginToComment')}
                                     </Link>
                                 </div>
                             )}
                             
                             {profileComments.length === 0 ? (
                                 <p className="text-sm text-center py-2 text-gray-500">
-                                    Noch keine Kommentare
+                                    {t('noComments')}
                                 </p>
                             ) : (
                                 <div className="space-y-3 max-h-[300px] overflow-y-auto">
@@ -1135,16 +1290,16 @@ export default function TumblrStyleProfilePage() {
                                 className="border-4 border-black shadow-comic p-4 relative overflow-hidden bg-white"
                                 style={{ borderTopWidth: '6px', borderTopColor: accentColor }}
                             >
-                                <h2 className="font-heading text-xl">TIMELINE</h2>
+                                <h2 className="font-heading text-xl">{t('timeline')}</h2>
                             </div>
                         
                         {/* Content */}
                             {posts.length === 0 ? (
                                 <div className="border-4 border-black shadow-comic p-12 text-center bg-white">
                                     <span className="text-6xl">📝</span>
-                                    <p className="mt-4 font-heading text-xl">Noch keine Posts</p>
+                                    <p className="mt-4 font-heading text-xl">{t('noPosts')}</p>
                                     <p className="mt-2 text-gray-500">
-                                        Dieser Künstler hat noch keine Posts geteilt.
+                                        {t('artistNoPostsYet')}
                                     </p>
                                 </div>
                             ) : (

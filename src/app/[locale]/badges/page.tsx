@@ -16,24 +16,17 @@ const RARITY_COLORS: Record<BadgeRarity, string> = {
     legendary: '#F59E0B',   // Gold
 };
 
-const RARITY_NAMES: Record<BadgeRarity, string> = {
-    common: 'Gewöhnlich',
-    uncommon: 'Ungewöhnlich',
-    rare: 'Selten',
-    very_rare: 'Sehr Selten',
-    legendary: 'Legendär',
-};
-
-const CATEGORY_NAMES: Record<BadgeCategory, string> = {
-    artist: '🎨 Künstler',
-    buyer: '🛍️ Käufer',
-    community: '👥 Community',
-    special: '⭐ Spezial',
-    easter_egg: '🔮 Geheim',
+const CATEGORY_ICONS: Record<BadgeCategory, string> = {
+    artist: '🎨',
+    buyer: '🛍️',
+    community: '👥',
+    special: '⭐',
+    easter_egg: '🔮',
 };
 
 export default function BadgesPage() {
     const { user, profile } = useAuth();
+    const t = useTranslations('badgesPage');
     const [selectedCategory, setSelectedCategory] = useState<BadgeCategory | 'all'>('all');
     const [selectedRarity, setSelectedRarity] = useState<BadgeRarity | 'all'>('all');
     const [showUnlockedOnly, setShowUnlockedOnly] = useState(false);
@@ -81,26 +74,26 @@ export default function BadgesPage() {
             {/* Hero Section */}
             <div className="bg-black text-white py-12">
                 <div className="container mx-auto max-w-6xl px-4">
-                    <h1 className="text-5xl font-heading mb-4">🏆 BADGES</h1>
+                    <h1 className="text-5xl font-heading mb-4">🏆 {t('title')}</h1>
                     <p className="text-gray-400 text-lg max-w-2xl">
-                        Sammle Badges durch Aktivität auf Varbe. Je seltener das Badge, desto mehr Punkte!
+                        {t('description')}
                     </p>
                     
                     {user && (
                         <div className="flex gap-8 mt-8">
                             <div>
                                 <p className="text-4xl font-heading text-[#CCFF00]">{unlockedCount}</p>
-                                <p className="text-gray-400 text-sm">von {totalBadges} Badges</p>
+                                <p className="text-gray-400 text-sm">{t('ofBadges', { total: totalBadges })}</p>
                             </div>
                             <div>
                                 <p className="text-4xl font-heading text-[#CCFF00]">{totalPoints}</p>
-                                <p className="text-gray-400 text-sm">Punkte</p>
+                                <p className="text-gray-400 text-sm">{t('points')}</p>
                             </div>
                             <div>
                                 <p className="text-4xl font-heading text-[#CCFF00]">
                                     {totalBadges > 0 ? Math.round((unlockedCount / totalBadges) * 100) : 0}%
                                 </p>
-                                <p className="text-gray-400 text-sm">Fortschritt</p>
+                                <p className="text-gray-400 text-sm">{t('progress')}</p>
                             </div>
                         </div>
                     )}
@@ -113,30 +106,30 @@ export default function BadgesPage() {
                     <div className="flex flex-wrap gap-4 items-center">
                         {/* Category Filter */}
                         <div>
-                            <label className="text-sm font-bold mr-2">Kategorie:</label>
+                            <label className="text-sm font-bold mr-2">{t('category')}:</label>
                             <select
                                 value={selectedCategory}
                                 onChange={(e) => setSelectedCategory(e.target.value as any)}
                                 className="border-2 border-black p-2"
                             >
-                                <option value="all">Alle</option>
+                                <option value="all">{t('all')}</option>
                                 {categories.map(cat => (
-                                    <option key={cat} value={cat}>{CATEGORY_NAMES[cat]}</option>
+                                    <option key={cat} value={cat}>{CATEGORY_ICONS[cat]} {t(`categories.${cat}`)}</option>
                                 ))}
                             </select>
                         </div>
                         
                         {/* Rarity Filter */}
                         <div>
-                            <label className="text-sm font-bold mr-2">Seltenheit:</label>
+                            <label className="text-sm font-bold mr-2">{t('rarity')}:</label>
                             <select
                                 value={selectedRarity}
                                 onChange={(e) => setSelectedRarity(e.target.value as any)}
                                 className="border-2 border-black p-2"
                             >
-                                <option value="all">Alle</option>
-                                {Object.entries(RARITY_NAMES).map(([key, name]) => (
-                                    <option key={key} value={key}>{name}</option>
+                                <option value="all">{t('all')}</option>
+                                {(['common', 'uncommon', 'rare', 'very_rare', 'legendary'] as BadgeRarity[]).map((key) => (
+                                    <option key={key} value={key}>{t(`rarities.${key}`)}</option>
                                 ))}
                             </select>
                         </div>
@@ -150,12 +143,12 @@ export default function BadgesPage() {
                                     onChange={(e) => setShowUnlockedOnly(e.target.checked)}
                                     className="w-5 h-5 border-2 border-black"
                                 />
-                                <span className="font-bold">Nur Freigeschaltete</span>
+                                <span className="font-bold">{t('onlyUnlocked')}</span>
                             </label>
                         )}
                         
                         <div className="ml-auto text-sm text-gray-500">
-                            {filteredBadges.length} Badges
+                            {filteredBadges.length} {t('badges')}
                         </div>
                     </div>
                 </div>
@@ -211,17 +204,17 @@ export default function BadgesPage() {
                                                     color: RARITY_COLORS[badge.rarity]
                                                 }}
                                             >
-                                                {RARITY_NAMES[badge.rarity]}
+                                                {t(`rarities.${badge.rarity}`)}
                                             </span>
                                             <span className="text-xs text-gray-500">
-                                                +{badge.points} Punkte
+                                                +{badge.points} {t('points')}
                                             </span>
                                         </div>
                                         
                                         {/* Unlock date */}
                                         {isUnlocked && achievement && (
                                             <p className="text-xs text-green-600 mt-2">
-                                                ✅ Freigeschaltet am {new Date(achievement.unlockedAt).toLocaleDateString('de-DE')}
+                                                ✅ {t('unlockedOn')} {new Date(achievement.unlockedAt).toLocaleDateString()}
                                             </p>
                                         )}
                                     </div>
@@ -234,41 +227,41 @@ export default function BadgesPage() {
                 {filteredBadges.length === 0 && (
                     <div className="text-center py-16">
                         <span className="text-6xl">🔍</span>
-                        <p className="mt-4 font-heading text-xl">Keine Badges gefunden</p>
-                        <p className="text-gray-500">Versuche andere Filter</p>
+                        <p className="mt-4 font-heading text-xl">{t('noBadgesFound')}</p>
+                        <p className="text-gray-500">{t('tryOtherFilters')}</p>
                     </div>
                 )}
                 
                 {/* How to earn section */}
                 <div className="mt-12 bg-white border-4 border-black p-8 shadow-comic">
-                    <h2 className="font-heading text-2xl mb-6">🎯 WIE VERDIENE ICH BADGES?</h2>
+                    <h2 className="font-heading text-2xl mb-6">🎯 {t('howToEarn')}</h2>
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                         <div className="p-4 bg-gray-50 border-2 border-gray-200">
                             <span className="text-3xl">🎨</span>
-                            <h3 className="font-heading mt-2">Künstler-Badges</h3>
+                            <h3 className="font-heading mt-2">{t('categories.artist')}-Badges</h3>
                             <p className="text-sm text-gray-600 mt-1">
-                                Verkaufe Kunstwerke, lade Videos hoch, bekomme gute Bewertungen
+                                {t('categoryDescriptions.artist')}
                             </p>
                         </div>
                         <div className="p-4 bg-gray-50 border-2 border-gray-200">
                             <span className="text-3xl">🛍️</span>
-                            <h3 className="font-heading mt-2">Käufer-Badges</h3>
+                            <h3 className="font-heading mt-2">{t('categories.buyer')}-Badges</h3>
                             <p className="text-sm text-gray-600 mt-1">
-                                Kaufe Kunst, schreibe Reviews, folge Künstlern
+                                {t('categoryDescriptions.buyer')}
                             </p>
                         </div>
                         <div className="p-4 bg-gray-50 border-2 border-gray-200">
                             <span className="text-3xl">👥</span>
-                            <h3 className="font-heading mt-2">Community-Badges</h3>
+                            <h3 className="font-heading mt-2">{t('categories.community')}-Badges</h3>
                             <p className="text-sm text-gray-600 mt-1">
-                                Like, kommentiere, teile und hilf anderen
+                                {t('categoryDescriptions.community')}
                             </p>
                         </div>
                         <div className="p-4 bg-gray-50 border-2 border-gray-200">
                             <span className="text-3xl">🔮</span>
-                            <h3 className="font-heading mt-2">Geheime Badges</h3>
+                            <h3 className="font-heading mt-2">{t('categories.easter_egg')}-Badges</h3>
                             <p className="text-sm text-gray-600 mt-1">
-                                Versteckte Achievements - kannst du sie alle finden?
+                                {t('categoryDescriptions.easter_egg')}
                             </p>
                         </div>
                     </div>
@@ -276,24 +269,24 @@ export default function BadgesPage() {
                 
                 {/* Rarity Guide */}
                 <div className="mt-8 bg-white border-4 border-black p-8 shadow-comic">
-                    <h2 className="font-heading text-2xl mb-6">💎 SELTENHEITSSTUFEN</h2>
+                    <h2 className="font-heading text-2xl mb-6">💎 {t('rarityLevels')}</h2>
                     <div className="flex flex-wrap gap-4">
-                        {Object.entries(RARITY_NAMES).map(([rarity, name]) => (
+                        {(['common', 'uncommon', 'rare', 'very_rare', 'legendary'] as BadgeRarity[]).map((rarity) => (
                             <div 
                                 key={rarity}
                                 className="flex items-center gap-2 px-4 py-2 border-2"
-                                style={{ borderColor: RARITY_COLORS[rarity as BadgeRarity] }}
+                                style={{ borderColor: RARITY_COLORS[rarity] }}
                             >
                                 <div 
                                     className="w-4 h-4 rounded-full"
-                                    style={{ backgroundColor: RARITY_COLORS[rarity as BadgeRarity] }}
+                                    style={{ backgroundColor: RARITY_COLORS[rarity] }}
                                 />
-                                <span className="font-bold">{name}</span>
+                                <span className="font-bold">{t(`rarities.${rarity}`)}</span>
                                 <span className="text-sm text-gray-500">
                                     ({rarity === 'common' ? '10-50' : 
                                       rarity === 'uncommon' ? '75-100' : 
                                       rarity === 'rare' ? '150-200' : 
-                                      rarity === 'very_rare' ? '250-300' : '500-1000'} Punkte)
+                                      rarity === 'very_rare' ? '250-300' : '500-1000'} {t('points')})
                                 </span>
                             </div>
                         ))}

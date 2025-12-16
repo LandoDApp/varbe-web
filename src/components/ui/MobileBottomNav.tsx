@@ -62,10 +62,10 @@ export function MobileBottomNav() {
 
     const navItems: NavItem[] = [
         {
-            href: "/",
+            href: "/feed",
             icon: <HomeIcon />,
             iconActive: <HomeIcon active />,
-            label: t('home'),
+            label: t('feed'),
         },
         {
             href: "/search",
@@ -99,8 +99,9 @@ export function MobileBottomNav() {
     if (!mounted) return null;
 
     const isActive = (href: string) => {
-        if (href === "/") {
-            return pathname === "/" || pathname === "/de" || pathname === "/en";
+        if (href === "/feed") {
+            // Feed is active only on /feed page, not on subpages
+            return pathname === "/feed";
         }
         return pathname?.startsWith(href);
     };
@@ -142,7 +143,7 @@ export function MobileBottomNav() {
                                     <span className="font-body font-semibold">{t('createMenu.blogPost')}</span>
                                 </Link>
                                 <Link 
-                                    href="/local/event/create" 
+                                    href="/local?createEvent=true" 
                                     className="flex items-center gap-3 p-3 border-2 border-black hover:bg-accent transition-colors"
                                     onClick={() => setShowCreateMenu(false)}
                                 >

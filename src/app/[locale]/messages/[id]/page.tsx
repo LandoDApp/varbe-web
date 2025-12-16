@@ -133,7 +133,7 @@ export default function ConversationPage() {
             const result = await sendMessage(id, user.uid, messageContent.trim());
             
             if (!result.success) {
-                alert(result.error || "Fehler beim Senden der Nachricht");
+                alert(result.error || t('sendError'));
                 return;
             }
             
@@ -143,7 +143,7 @@ export default function ConversationPage() {
                 messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
             }, 100);
         } catch (error: any) {
-            alert(error.message || "Fehler beim Senden der Nachricht");
+            alert(error.message || t('sendError'));
         } finally {
             setSending(false);
         }
@@ -156,7 +156,7 @@ export default function ConversationPage() {
                 <div className="container mx-auto p-8">
                     <div className="text-center py-20">
                         <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-black mx-auto mb-4"></div>
-                        <p className="font-heading text-2xl">Lädt...</p>
+                        <p className="font-heading text-2xl">{t('loading')}</p>
                     </div>
                 </div>
                 <Footer />
@@ -175,7 +175,7 @@ export default function ConversationPage() {
                         onClick={() => router.push('/messages')}
                         className="text-black underline decoration-accent decoration-2 underline-offset-2 font-heading mb-4"
                     >
-                        ← Zurück zu Nachrichten
+                        {t('backToMessages')}
                     </button>
                     <div className="flex items-center gap-4">
                         {otherParticipant && conversation ? (
@@ -198,13 +198,13 @@ export default function ConversationPage() {
                                         )}
                                     </div>
                                     <h1 className="text-4xl font-heading hover:text-accent transition-colors">
-                                        {otherParticipant.displayName || 'Unbekannter Benutzer'}
+                                        {otherParticipant.displayName || t('unknownUser')}
                                     </h1>
                                 </Link>
                             </>
                         ) : (
                             <h1 className="text-4xl font-heading">
-                                Unbekannter Benutzer
+                                {t('unknownUser')}
                             </h1>
                         )}
                     </div>
@@ -217,7 +217,7 @@ export default function ConversationPage() {
                 >
                     {messages.length === 0 ? (
                         <div className="text-center py-8">
-                            <p className="font-body text-gray-600">Noch keine Nachrichten</p>
+                            <p className="font-body text-gray-600">{t('noMessages')}</p>
                         </div>
                     ) : (
                         messages.map((message) => {
@@ -251,7 +251,7 @@ export default function ConversationPage() {
                         type="text"
                         value={messageContent}
                         onChange={(e) => setMessageContent(e.target.value)}
-                        placeholder="Nachricht schreiben..."
+                        placeholder={t('writeMessage')}
                         className="flex-1 px-4 py-3 border-4 border-black font-body"
                         disabled={sending}
                     />
@@ -260,7 +260,7 @@ export default function ConversationPage() {
                         disabled={sending || !messageContent.trim()}
                         variant="accent"
                     >
-                        {sending ? "..." : "Senden"}
+                        {sending ? t('sending') : t('send')}
                     </Button>
                 </form>
             </div>

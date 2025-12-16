@@ -113,7 +113,7 @@ export function Footer() {
                         <ul className="space-y-3 font-body text-sm">
                             <li>
                                 <Link href="/feed" className="text-white hover:underline hover:decoration-accent hover:decoration-2 underline-offset-4 transition-all">
-                                    {locale === 'de' ? 'Entdecken' : 'Discover'}
+                                    {t('discover')}
                                 </Link>
                             </li>
                             <li>

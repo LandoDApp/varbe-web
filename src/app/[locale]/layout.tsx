@@ -60,6 +60,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 }
 
 import { AuthProvider } from "@/context/AuthContext";
+import { LanguageSelector } from "@/components/ui/LanguageSelector";
 
 export default async function LocaleLayout({
   children,
@@ -102,7 +103,9 @@ export default async function LocaleLayout({
         />
         <NextIntlClientProvider messages={messages}>
           <AuthProvider>
-            {children}
+            <LanguageSelector>
+              {children}
+            </LanguageSelector>
           </AuthProvider>
         </NextIntlClientProvider>
       </body>

@@ -9,19 +9,21 @@ import { uploadFeedImage, createPostDirect } from "@/lib/feed";
 import { getAllListings, getUserListings } from "@/lib/listings";
 import { Artwork, FeedPostType } from "@/types";
 import { compressImage, validateImage, COMPRESSION_PRESETS, CompressionResult, formatFileSize } from "@/lib/image-compression";
+import { useTranslations } from 'next-intl';
 
-const POST_TYPES: { value: FeedPostType; label: string; icon: string; description: string }[] = [
-    { value: 'artwork', label: 'Neues Werk', icon: '🖼️', description: 'Zeige dein neuestes Kunstwerk' },
-    { value: 'process', label: 'Prozess', icon: '🎬', description: 'Teile deinen kreativen Prozess' },
-    { value: 'sketch', label: 'Skizze', icon: '✏️', description: 'Eine Skizze oder Work-in-Progress' },
-    { value: 'thought', label: 'Gedanken', icon: '💭', description: 'Teile Gedanken zu Kunst & Leben' },
-    { value: 'update', label: 'Update', icon: '📢', description: 'Allgemeines Update' },
-    { value: 'announcement', label: 'Ankündigung', icon: '📣', description: 'Wichtige Ankündigung' },
+const POST_TYPE_KEYS: { value: FeedPostType; icon: string; labelKey: string; descKey: string }[] = [
+    { value: 'artwork', icon: '🖼️', labelKey: 'artwork', descKey: 'artworkDesc' },
+    { value: 'process', icon: '🎬', labelKey: 'process', descKey: 'processDesc' },
+    { value: 'sketch', icon: '✏️', labelKey: 'sketch', descKey: 'sketchDesc' },
+    { value: 'thought', icon: '💭', labelKey: 'thought', descKey: 'thoughtDesc' },
+    { value: 'update', icon: '📢', labelKey: 'update', descKey: 'updateDesc' },
+    { value: 'announcement', icon: '📣', labelKey: 'announcement', descKey: 'announcementDesc' },
 ];
 
 export default function CreatePostPage() {
     const { user, profile, loading: authLoading } = useAuth();
     const router = useRouter();
+    const t = useTranslations('feedCreate');
     
     const [loading, setLoading] = useState(false);
     const [postType, setPostType] = useState<FeedPostType>('update');
@@ -221,12 +223,12 @@ export default function CreatePostPage() {
                 <div className="container mx-auto p-8 max-w-xl">
                     <div className="card-comic bg-white p-8 text-center">
                         <span className="text-6xl">🎨</span>
-                        <h1 className="text-3xl font-heading mt-4 mb-2">Nur für verifizierte Künstler</h1>
+                        <h1 className="text-3xl font-heading mt-4 mb-2">{t('onlyVerifiedArtists')}</h1>
                         <p className="text-gray-600 mb-6">
-                            Du musst ein verifizierter Künstler sein, um Posts im Feed zu erstellen.
+                            {t('onlyVerifiedArtistsDesc')}
                         </p>
                         <Link href="/artist/verify">
-                            <Button variant="accent">Jetzt verifizieren</Button>
+                            <Button variant="accent">{t('verifyNow')}</Button>
                         </Link>
                     </div>
                 </div>
@@ -246,7 +248,7 @@ export default function CreatePostPage() {
                 <div className="card-comic bg-white p-6">
                     {/* Header */}
                     <div className="flex items-center justify-between mb-6 border-b-4 border-black pb-4">
-                        <h1 className="text-3xl font-heading">NEUER POST</h1>
+                        <h1 className="text-3xl font-heading">{t('title')}</h1>
                         <Link href="/feed">
                             <button className="text-2xl hover:scale-110 transition-transform">✕</button>
                         </Link>
@@ -255,9 +257,9 @@ export default function CreatePostPage() {
                     <form onSubmit={handleSubmit} className="space-y-6">
                         {/* Post Type */}
                         <div>
-                            <label className="block font-bold mb-3">Was möchtest du teilen?</label>
+                            <label className="block font-bold mb-3">{t('whatToShare')}</label>
                             <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
-                                {POST_TYPES.map((type) => (
+                                {POST_TYPE_KEYS.map((type) => (
                                     <button
                                         key={type.value}
                                         type="button"
@@ -269,7 +271,7 @@ export default function CreatePostPage() {
                                         }`}
                                     >
                                         <span className="text-2xl">{type.icon}</span>
-                                        <p className="font-bold text-sm mt-1">{type.label}</p>
+                                        <p className="font-bold text-sm mt-1">{t(`postTypes.${type.labelKey}`)}</p>
                                     </button>
                                 ))}
                             </div>
@@ -277,11 +279,11 @@ export default function CreatePostPage() {
                         
                         {/* Text Content */}
                         <div>
-                            <label className="block font-bold mb-2">Dein Post *</label>
+                            <label className="block font-bold mb-2">{t('yourPost')} *</label>
                             <textarea
                                 value={text}
                                 onChange={(e) => setText(e.target.value)}
-                                placeholder="Was machst du gerade? Teile Gedanken, Updates, oder erzähle die Story hinter deinem Werk..."
+                                placeholder={t('postPlaceholder')}
                                 className="input-comic h-40 resize-none"
                                 maxLength={2000}
                                 required
@@ -294,7 +296,7 @@ export default function CreatePostPage() {
                         {/* Images */}
                         <div>
                             <label className="block font-bold mb-2">
-                                Bilder (max. 5)
+                                {t('images')}
                             </label>
                             
                             <input
@@ -312,7 +314,7 @@ export default function CreatePostPage() {
                                     <div className="flex items-center gap-2">
                                         <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-black"></div>
                                         <span className="text-sm font-bold">
-                                            Komprimiere {compressionProgress.current}/{compressionProgress.total}...
+                                            {t('compressing')} {compressionProgress.current}/{compressionProgress.total}...
                                         </span>
                                     </div>
                                 </div>
@@ -351,10 +353,10 @@ export default function CreatePostPage() {
                         {/* Link to Listing */}
                         <div>
                             <label className="block font-bold mb-2">
-                                💰 Mit Kunstwerk verknüpfen (optional)
+                                💰 {t('linkArtwork')}
                             </label>
                             <p className="text-sm text-gray-600 mb-3">
-                                Verknüpfe deinen Post mit einem deiner Kunstwerke - so können Fans direkt kaufen!
+                                {t('linkArtworkDesc')}
                             </p>
                             
                             {selectedListing ? (
@@ -382,7 +384,7 @@ export default function CreatePostPage() {
                                     onClick={() => setShowListingPicker(true)}
                                     className="w-full p-4 border-4 border-dashed border-gray-300 text-gray-500 hover:border-black hover:text-black transition-colors"
                                 >
-                                    + Kunstwerk auswählen
+                                    + {t('selectArtwork')}
                                 </button>
                             )}
                             
@@ -391,7 +393,7 @@ export default function CreatePostPage() {
                                 <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
                                     <div className="bg-white border-4 border-black max-w-lg w-full max-h-[80vh] overflow-y-auto">
                                         <div className="p-4 border-b-4 border-black flex justify-between items-center sticky top-0 bg-white">
-                                            <h3 className="font-heading text-xl">Kunstwerk wählen</h3>
+                                            <h3 className="font-heading text-xl">{t('chooseArtwork')}</h3>
                                             <button
                                                 type="button"
                                                 onClick={() => setShowListingPicker(false)}
@@ -403,7 +405,7 @@ export default function CreatePostPage() {
                                         <div className="p-4 space-y-3">
                                             {userListings.length === 0 ? (
                                                 <p className="text-center text-gray-500 py-8">
-                                                    Du hast noch keine aktiven Listings
+                                                    {t('noActiveListings')}
                                                 </p>
                                             ) : (
                                                 userListings.map((listing) => (
@@ -437,7 +439,7 @@ export default function CreatePostPage() {
                         {/* Tags */}
                         <div>
                             <label className="block font-bold mb-2">
-                                Tags (max. 5)
+                                {t('tags')}
                             </label>
                             <div className="flex gap-2 mb-2">
                                 <input
@@ -450,7 +452,7 @@ export default function CreatePostPage() {
                                             addTag();
                                         }
                                     }}
-                                    placeholder="Tag hinzufügen..."
+                                    placeholder={t('addTag')}
                                     className="input-comic flex-1"
                                     maxLength={30}
                                 />
@@ -485,7 +487,7 @@ export default function CreatePostPage() {
                         <div className="flex gap-4 pt-4 border-t-4 border-black">
                             <Link href="/feed" className="flex-1">
                                 <Button type="button" variant="secondary" className="w-full">
-                                    Abbrechen
+                                    {t('cancel')}
                                 </Button>
                             </Link>
                             <Button
@@ -494,7 +496,7 @@ export default function CreatePostPage() {
                                 disabled={loading || compressing || !text.trim()}
                                 className="flex-1 text-xl"
                             >
-                                {loading ? 'Wird gepostet...' : '✨ Posten'}
+                                {loading ? t('posting') : `✨ ${t('post')}`}
                             </Button>
                         </div>
                     </form>

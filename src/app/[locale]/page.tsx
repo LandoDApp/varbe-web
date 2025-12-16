@@ -14,6 +14,9 @@ export default function Home() {
     const tMobile = useTranslations('mobile.drawer');
     const tSearch = useTranslations('search');
     
+    const [currentSlide, setCurrentSlide] = useState(0);
+    const [drawerOpen, setDrawerOpen] = useState(false);
+    
     // Category icons for the horizontal scroll
     const categories = [
         { id: 'malerei', icon: '🎨', label: t('categories.malerei'), href: '/malerei' },
@@ -34,8 +37,6 @@ export default function Home() {
         { href: '/blog', icon: '📰', label: t('quickLinks.blog') },
         { href: '/kuenstler', icon: '🎨', label: t('quickLinks.artists') },
     ];
-    const [currentSlide, setCurrentSlide] = useState(0);
-    const [drawerOpen, setDrawerOpen] = useState(false);
 
     return (
         <main className="min-h-screen bg-transparent">

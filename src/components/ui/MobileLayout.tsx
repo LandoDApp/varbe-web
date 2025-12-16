@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import { Link, useRouter } from "@/i18n/routing";
 import { useAuth } from "@/context/AuthContext";
 import { Notifications } from "./Notifications";
+import { useTranslations } from 'next-intl';
 
 interface MobileLayoutProps {
     children: ReactNode;
@@ -32,6 +33,7 @@ export function MobileLayout({
     const router = useRouter();
     const { user } = useAuth();
     const [mounted, setMounted] = useState(false);
+    const t = useTranslations('search');
 
     useEffect(() => {
         setMounted(true);
@@ -128,7 +130,7 @@ export function MobileLayout({
                     <form onSubmit={handleSearch} className="relative">
                         <input
                             type="text"
-                            placeholder="Suche Kunst, Künstler..."
+                            placeholder={t('searchPlaceholder')}
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
                             className="search-bar w-full"
@@ -158,4 +160,5 @@ export function MobileLayout({
 }
 
 export default MobileLayout;
+
 

@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { Badge, BadgeRarity, UserAchievement } from "@/types";
-import { getBadgeById, getRarityStars, getRarityLabel, getCategoryLabel } from "@/lib/badges";
+import { getBadgeById, getRarityStars } from "@/lib/badges";
+import { useTranslations } from 'next-intl';
 
 // ========================================
 // SINGLE BADGE COMPONENT
@@ -19,6 +20,22 @@ interface BadgeItemProps {
 
 export function BadgeItem({ badge, unlocked, progress, size = 'md', showTooltip = true, onClick }: BadgeItemProps) {
     const [showDetails, setShowDetails] = useState(false);
+    const tBadges = useTranslations('badgeNames');
+    const t = useTranslations('badgesPage');
+    
+    // Get translated badge name and description - fallback to original if not found
+    let badgeName = badge.name;
+    let badgeDescription = badge.description;
+    try {
+        const translatedName = tBadges(`${badge.id}.name`);
+        const translatedDesc = tBadges(`${badge.id}.description`);
+        if (translatedName && !translatedName.includes(badge.id)) badgeName = translatedName;
+        if (translatedDesc && !translatedDesc.includes(badge.id)) badgeDescription = translatedDesc;
+    } catch {
+        // Keep original German text if translation not found
+    }
+    const categoryLabel = t(`categories.${badge.category}`);
+    const rarityLabel = t(`rarities.${badge.rarity}`);
     
     const sizeClasses = {
         sm: 'w-12 h-12 text-xl',
@@ -94,14 +111,14 @@ export function BadgeItem({ badge, unlocked, progress, size = 'md', showTooltip 
                     <div className="flex items-center gap-2 mb-2">
                         <span className="text-2xl">{badge.icon}</span>
                         <div>
-                            <h4 className="font-heading text-sm font-bold">{badge.name}</h4>
+                            <h4 className="font-heading text-sm font-bold">{badgeName}</h4>
                             <span className="text-xs">{getRarityStars(badge.rarity)}</span>
                         </div>
                     </div>
-                    <p className="text-xs text-gray-600 mb-2">{badge.description}</p>
+                    <p className="text-xs text-gray-600 mb-2">{badgeDescription}</p>
                     <div className="flex justify-between items-center text-xs">
                         <span className="bg-gray-100 px-2 py-0.5 border border-black">
-                            {getCategoryLabel(badge.category)}
+                            {categoryLabel}
                         </span>
                         <span className={`px-2 py-0.5 font-bold ${
                             badge.rarity === 'legendary' ? 'bg-yellow-400' :
@@ -109,13 +126,13 @@ export function BadgeItem({ badge, unlocked, progress, size = 'md', showTooltip 
                             badge.rarity === 'rare' ? 'bg-[#CCFF00]' :
                             'bg-gray-200'
                         }`}>
-                            {getRarityLabel(badge.rarity)}
+                            {rarityLabel}
                         </span>
                     </div>
                     {progress && (
                         <div className="mt-2 pt-2 border-t border-gray-200">
                             <div className="flex justify-between text-xs mb-1">
-                                <span>Fortschritt</span>
+                                <span>{t('progress')}</span>
                                 <span className="font-bold">{progress.current}/{progress.target}</span>
                             </div>
                             <div className="h-2 bg-gray-200 border border-black">
@@ -127,7 +144,7 @@ export function BadgeItem({ badge, unlocked, progress, size = 'md', showTooltip 
                         </div>
                     )}
                     <div className="mt-2 text-xs text-gray-500">
-                        🏆 {badge.points} Punkte
+                        🏆 {badge.points} {t('points')}
                     </div>
                     {/* Arrow */}
                     <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white border-r-4 border-b-4 border-black transform rotate-45" />
@@ -227,6 +244,23 @@ interface BadgeUnlockProps {
 }
 
 export function BadgeUnlockNotification({ badge, onClose }: BadgeUnlockProps) {
+    const tBadges = useTranslations('badgeNames');
+    const t = useTranslations('badgesPage');
+    
+    // Get translated badge name and description - fallback to original if not found
+    let badgeName = badge.name;
+    let badgeDescription = badge.description;
+    try {
+        const translatedName = tBadges(`${badge.id}.name`);
+        const translatedDesc = tBadges(`${badge.id}.description`);
+        if (translatedName && !translatedName.includes(badge.id)) badgeName = translatedName;
+        if (translatedDesc && !translatedDesc.includes(badge.id)) badgeDescription = translatedDesc;
+    } catch {
+        // Keep original German text if translation not found
+    }
+    const categoryLabel = t(`categories.${badge.category}`);
+    const rarityLabel = t(`rarities.${badge.rarity}`);
+    
     return (
         <div 
             className="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
@@ -257,12 +291,12 @@ export function BadgeUnlockNotification({ badge, onClose }: BadgeUnlockProps) {
                 onClick={e => e.stopPropagation()}
             >
                 <div className="text-6xl mb-4 animate-spin-slow">{badge.icon}</div>
-                <h2 className="font-heading text-3xl mb-2">🏆 BADGE FREIGESCHALTET!</h2>
-                <h3 className="font-heading text-xl mb-4 text-[#FF10F0]">{badge.name}</h3>
-                <p className="text-gray-600 mb-4">{badge.description}</p>
+                <h2 className="font-heading text-3xl mb-2">🏆 {t('unlocked')}</h2>
+                <h3 className="font-heading text-xl mb-4 text-[#FF10F0]">{badgeName}</h3>
+                <p className="text-gray-600 mb-4">{badgeDescription}</p>
                 <div className="flex justify-center gap-4 mb-4">
                     <span className="bg-gray-100 px-3 py-1 border-2 border-black text-sm">
-                        {getCategoryLabel(badge.category)}
+                        {categoryLabel}
                     </span>
                     <span className={`px-3 py-1 border-2 border-black text-sm font-bold ${
                         badge.rarity === 'legendary' ? 'bg-yellow-400' :
@@ -270,16 +304,16 @@ export function BadgeUnlockNotification({ badge, onClose }: BadgeUnlockProps) {
                         badge.rarity === 'rare' ? 'bg-[#CCFF00]' :
                         'bg-gray-200'
                     }`}>
-                        {getRarityStars(badge.rarity)} {getRarityLabel(badge.rarity)}
+                        {getRarityStars(badge.rarity)} {rarityLabel}
                     </span>
                 </div>
-                <p className="text-lg font-bold text-[#CCFF00]">+{badge.points} Punkte</p>
+                <p className="text-lg font-bold text-[#CCFF00]">+{badge.points} {t('points')}</p>
                 
                 <button
                     onClick={onClose}
                     className="mt-6 px-8 py-3 bg-black text-white font-heading text-lg hover:bg-gray-800 transition-colors"
                 >
-                    AWESOME! 🎉
+                    {t('awesome')} 🎉
                 </button>
             </div>
             
@@ -314,8 +348,23 @@ interface BadgeProgressCardProps {
 }
 
 export function BadgeProgressCard({ badge, progress }: BadgeProgressCardProps) {
+    const tBadges = useTranslations('badgeNames');
+    const t = useTranslations('badgesPage');
     const percentage = Math.min((progress.current / progress.target) * 100, 100);
     const isComplete = percentage >= 100;
+    
+    // Get translated badge name and description - fallback to original if not found
+    let badgeName = badge.name;
+    let badgeDescription = badge.description;
+    try {
+        const translatedName = tBadges(`${badge.id}.name`);
+        const translatedDesc = tBadges(`${badge.id}.description`);
+        if (translatedName && !translatedName.includes(badge.id)) badgeName = translatedName;
+        if (translatedDesc && !translatedDesc.includes(badge.id)) badgeDescription = translatedDesc;
+    } catch {
+        // Keep original German text if translation not found
+    }
+    const rarityLabel = t(`rarities.${badge.rarity}`);
     
     return (
         <div 
@@ -325,14 +374,14 @@ export function BadgeProgressCard({ badge, progress }: BadgeProgressCardProps) {
             <div className="flex items-center gap-3 mb-3">
                 <span className={`text-3xl ${isComplete ? '' : 'grayscale'}`}>{badge.icon}</span>
                 <div className="flex-1">
-                    <h4 className="font-heading text-lg">{badge.name}</h4>
-                    <p className="text-xs text-gray-500">{badge.description}</p>
+                    <h4 className="font-heading text-lg">{badgeName}</h4>
+                    <p className="text-xs text-gray-500">{badgeDescription}</p>
                 </div>
             </div>
             
             <div className="mb-2">
                 <div className="flex justify-between text-sm mb-1">
-                    <span>Fortschritt</span>
+                    <span>{t('progress')}</span>
                     <span className="font-bold">{progress.current}/{progress.target}</span>
                 </div>
                 <div className="h-3 bg-gray-200 border-2 border-black">
@@ -344,8 +393,8 @@ export function BadgeProgressCard({ badge, progress }: BadgeProgressCardProps) {
             </div>
             
             <div className="flex justify-between items-center text-xs">
-                <span className="text-gray-500">{getRarityStars(badge.rarity)} {getRarityLabel(badge.rarity)}</span>
-                <span className="font-bold">🏆 {badge.points} Punkte</span>
+                <span className="text-gray-500">{getRarityStars(badge.rarity)} {rarityLabel}</span>
+                <span className="font-bold">🏆 {badge.points} {t('points')}</span>
             </div>
         </div>
     );
@@ -365,6 +414,7 @@ interface BadgePageProps {
 export function BadgePage({ allBadges, userAchievements, totalPoints, currentStreak }: BadgePageProps) {
     const [selectedCategory, setSelectedCategory] = useState<string>('all');
     const [showLocked, setShowLocked] = useState(true);
+    const t = useTranslations('badgesPage');
     
     const unlockedIds = userAchievements
         .filter(a => a.progress.current >= a.progress.target)
@@ -378,12 +428,12 @@ export function BadgePage({ allBadges, userAchievements, totalPoints, currentStr
     });
     
     const categories = [
-        { id: 'all', label: 'Alle', icon: '🌟' },
-        { id: 'artist', label: 'Künstler', icon: '🎨' },
-        { id: 'buyer', label: 'Käufer', icon: '🛍️' },
-        { id: 'community', label: 'Community', icon: '👥' },
-        { id: 'special', label: 'Spezial', icon: '✨' },
-        { id: 'easter_egg', label: 'Easter Eggs', icon: '🕹️' },
+        { id: 'all', label: t('all'), icon: '🌟' },
+        { id: 'artist', label: t('categories.artist'), icon: '🎨' },
+        { id: 'buyer', label: t('categories.buyer'), icon: '🛍️' },
+        { id: 'community', label: t('categories.community'), icon: '👥' },
+        { id: 'special', label: t('categories.special'), icon: '✨' },
+        { id: 'easter_egg', label: t('categories.easter_egg'), icon: '🕹️' },
     ];
     
     return (
@@ -393,26 +443,26 @@ export function BadgePage({ allBadges, userAchievements, totalPoints, currentStr
                 className="bg-gradient-to-r from-[#CCFF00]/20 to-[#FF10F0]/20 border-4 border-black p-6"
                 style={{ boxShadow: '4px 4px 0px #000' }}
             >
-                <h2 className="font-heading text-2xl mb-4">🏆 DEINE ACHIEVEMENTS</h2>
+                <h2 className="font-heading text-2xl mb-4">🏆 {t('yourAchievements')}</h2>
                 <div className="grid grid-cols-3 gap-4 text-center">
                     <div>
                         <div className="text-3xl font-heading">{unlockedIds.length}</div>
-                        <div className="text-sm text-gray-600">Badges</div>
+                        <div className="text-sm text-gray-600">{t('badges')}</div>
                     </div>
                     <div>
                         <div className="text-3xl font-heading text-[#CCFF00]">{totalPoints}</div>
-                        <div className="text-sm text-gray-600">Punkte</div>
+                        <div className="text-sm text-gray-600">{t('points')}</div>
                     </div>
                     <div>
                         <div className="text-3xl font-heading text-[#FF10F0]">🔥 {currentStreak}</div>
-                        <div className="text-sm text-gray-600">Tage Streak</div>
+                        <div className="text-sm text-gray-600">{t('daysStreak')}</div>
                     </div>
                 </div>
                 
                 {/* Progress bar */}
                 <div className="mt-4">
                     <div className="flex justify-between text-sm mb-1">
-                        <span>Gesamtfortschritt</span>
+                        <span>{t('totalProgress')}</span>
                         <span>{unlockedIds.length}/{allBadges.filter(b => !b.hidden).length}</span>
                     </div>
                     <div className="h-4 bg-white border-2 border-black">
@@ -447,7 +497,7 @@ export function BadgePage({ allBadges, userAchievements, totalPoints, currentStr
                         onChange={(e) => setShowLocked(e.target.checked)}
                         className="w-4 h-4"
                     />
-                    <span className="text-sm">Gesperrte zeigen</span>
+                    <span className="text-sm">{t('showLocked')}</span>
                 </label>
             </div>
             
@@ -471,6 +521,7 @@ export function BadgePage({ allBadges, userAchievements, totalPoints, currentStr
         </div>
     );
 }
+
 
 
 

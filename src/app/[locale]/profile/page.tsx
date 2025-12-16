@@ -33,6 +33,8 @@ export default function MyProfilePage() {
     const { user, profile, loading, refreshProfile } = useAuth();
     const router = useRouter();
     const t = useTranslations('profile');
+    const tMyProfile = useTranslations('profile.myProfile');
+    const tBadges = useTranslations('badgeNames');
     const fileInputRef = useRef<HTMLInputElement>(null);
     
     // Profile customization
@@ -183,14 +185,14 @@ export default function MyProfilePage() {
 
     const timeAgo = (timestamp: number) => {
         const seconds = Math.floor((Date.now() - timestamp) / 1000);
-        if (seconds < 60) return 'gerade eben';
+        if (seconds < 60) return tMyProfile('justNow');
         const minutes = Math.floor(seconds / 60);
         if (minutes < 60) return `${minutes}m`;
         const hours = Math.floor(minutes / 60);
         if (hours < 24) return `${hours}h`;
         const days = Math.floor(hours / 24);
         if (days < 7) return `${days}d`;
-        return new Date(timestamp).toLocaleDateString('de-DE');
+        return new Date(timestamp).toLocaleDateString();
     };
 
     // Loading State
@@ -379,11 +381,11 @@ export default function MyProfilePage() {
                 <div className="flex gap-2 mb-4">
                     <Link href="/profile/settings" className="flex-1">
                         <Button variant="secondary" className="w-full text-sm py-2">
-                            Profil bearbeiten
+                            {tMyProfile('editProfile')}
                         </Button>
                     </Link>
                     <Button variant="ghost" className="text-sm py-2 px-4" onClick={handleLogout}>
-                        Logout
+                        {tMyProfile('logout')}
                     </Button>
                 </div>
                 
@@ -393,11 +395,17 @@ export default function MyProfilePage() {
                         {showcasedBadgeIds.slice(0, 5).map(badgeId => {
                             const badge = getBadgeById(badgeId);
                             if (!badge) return null;
+                            // Get translated badge name
+                            let badgeName = badge.name;
+                            try {
+                                const translatedName = tBadges(`${badge.id}.name`);
+                                if (translatedName && !translatedName.includes(badge.id)) badgeName = translatedName;
+                            } catch { /* Keep original */ }
                             return (
                                 <div 
                                     key={badgeId}
                                     className="w-10 h-10 rounded-full border-2 border-black flex items-center justify-center text-lg bg-white flex-shrink-0"
-                                    title={badge.name}
+                                    title={badgeName}
                                 >
                                     {badge.icon}
                                 </div>
@@ -470,11 +478,11 @@ export default function MyProfilePage() {
                         <div className="flex gap-2 flex-shrink-0">
                             <Link href="/profile/settings">
                                 <Button variant="secondary" className="text-xs px-3 py-1.5">
-                                    ⚙️ Einstellungen
+                                    ⚙️ {t('settings')}
                                 </Button>
                             </Link>
                             <Button variant="ghost" className="text-xs px-3 py-1.5" onClick={handleLogout}>
-                                Logout
+                                {tMyProfile('logout')}
                             </Button>
                         </div>
                         
@@ -521,7 +529,7 @@ export default function MyProfilePage() {
                             <Link href="/feed/create" className="block mb-4">
                                 <div className="card-comic p-4 flex items-center gap-4 hover:bg-gray-50 transition-colors">
                                     <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-xl">✏️</div>
-                                    <span className="font-heading text-sm">NEUEN POST ERSTELLEN</span>
+                                    <span className="font-heading text-sm">{tMyProfile('createPost')}</span>
                                 </div>
                             </Link>
                         )}
@@ -529,15 +537,15 @@ export default function MyProfilePage() {
                         {posts.length === 0 ? (
                             <div className="card-comic p-8 text-center">
                                 <span className="text-5xl mb-4 block">📝</span>
-                                <p className="font-heading text-lg mb-2">Noch keine Posts</p>
+                                <p className="font-heading text-lg mb-2">{tMyProfile('noPosts')}</p>
                                 <p className="text-sm text-gray-600 mb-4">
                                     {profile.verificationStatus === 'verified' 
-                                        ? 'Teile deinen ersten Post mit der Community!'
-                                        : 'Verifiziere dich als Künstler um Posts zu erstellen.'}
+                                        ? tMyProfile('shareFirst')
+                                        : tMyProfile('verifyToPost')}
                                 </p>
                                 {profile.verificationStatus !== 'verified' && (
                                     <Link href="/artist/verify">
-                                        <Button variant="accent" size="sm">Künstler werden →</Button>
+                                        <Button variant="accent" size="sm">{tMyProfile('becomeArtist')}</Button>
                                     </Link>
                                 )}
                             </div>
@@ -580,8 +588,8 @@ export default function MyProfilePage() {
                         {boards.length === 0 ? (
                             <div className="card-comic p-8 text-center">
                                 <span className="text-5xl mb-4 block">📌</span>
-                                <p className="font-heading text-lg mb-2">Keine Boards</p>
-                                <p className="text-sm text-gray-600">Speichere Inspiration in Boards!</p>
+                                <p className="font-heading text-lg mb-2">{tMyProfile('noBoards')}</p>
+                                <p className="text-sm text-gray-600">{tMyProfile('saveBoardsHint')}</p>
                             </div>
                         ) : (
                             <div className="grid grid-cols-2 gap-3">
@@ -616,11 +624,11 @@ export default function MyProfilePage() {
                             <div className="flex justify-between items-center">
                                 <div>
                                     <p className="font-heading text-2xl">{userBadges.length}</p>
-                                    <p className="text-xs text-gray-600">Badges gesammelt</p>
+                                    <p className="text-xs text-gray-600">{tMyProfile('badgesCollected')}</p>
                                 </div>
                                 <div>
                                     <p className="font-heading text-2xl">{profile.achievementData?.stats?.totalPoints || 0}</p>
-                                    <p className="text-xs text-gray-600">Punkte</p>
+                                    <p className="text-xs text-gray-600">{t('points')}</p>
                                 </div>
                             </div>
                         </div>
@@ -628,10 +636,10 @@ export default function MyProfilePage() {
                         {userBadges.length === 0 ? (
                             <div className="card-comic p-8 text-center">
                                 <span className="text-5xl mb-4 block">🏆</span>
-                                <p className="font-heading text-lg mb-2">Noch keine Badges</p>
-                                <p className="text-sm text-gray-600 mb-4">Sammle Badges durch Aktivität!</p>
+                                <p className="font-heading text-lg mb-2">{tMyProfile('noBadges')}</p>
+                                <p className="text-sm text-gray-600 mb-4">{tMyProfile('collectBadges')}</p>
                                 <Link href="/badges">
-                                    <Button variant="accent" size="sm">Alle Badges ansehen</Button>
+                                    <Button variant="accent" size="sm">{tMyProfile('viewAllBadges')}</Button>
                                 </Link>
                             </div>
                         ) : (
@@ -639,13 +647,19 @@ export default function MyProfilePage() {
                                 {userBadges.map((achievement) => {
                                     const badge = getBadgeById(achievement.badgeId);
                                     if (!badge) return null;
+                                    // Get translated badge name
+                                    let badgeName = badge.name;
+                                    try {
+                                        const translatedName = tBadges(`${badge.id}.name`);
+                                        if (translatedName && !translatedName.includes(badge.id)) badgeName = translatedName;
+                                    } catch { /* Keep original */ }
                                     return (
                                         <div 
                                             key={achievement.badgeId}
                                             className="card-comic p-3 text-center"
                                         >
                                             <span className="text-3xl block mb-2">{badge.icon}</span>
-                                            <p className="font-heading text-xs truncate">{badge.name}</p>
+                                            <p className="font-heading text-xs truncate">{badgeName}</p>
                                         </div>
                                     );
                                 })}
@@ -660,10 +674,10 @@ export default function MyProfilePage() {
                         {allEvents.length === 0 ? (
                             <div className="card-comic p-8 text-center">
                                 <span className="text-5xl mb-4 block">📅</span>
-                                <p className="font-heading text-lg mb-2">Keine Events</p>
-                                <p className="text-sm text-gray-600 mb-4">Entdecke lokale Kunst-Events!</p>
+                                <p className="font-heading text-lg mb-2">{tMyProfile('noEvents')}</p>
+                                <p className="text-sm text-gray-600 mb-4">{tMyProfile('discoverEvents')}</p>
                                 <Link href="/local">
-                                    <Button variant="accent" size="sm">Events entdecken</Button>
+                                    <Button variant="accent" size="sm">{tMyProfile('discoverEventsBtn')}</Button>
                                 </Link>
                             </div>
                         ) : (
@@ -706,15 +720,15 @@ export default function MyProfilePage() {
                     <div className="space-y-4">
                         {/* Bio */}
                         <div className="card-comic p-4">
-                            <h3 className="font-heading text-sm mb-2">BIO</h3>
+                            <h3 className="font-heading text-sm mb-2">{tMyProfile('bio')}</h3>
                             <p className="text-sm text-gray-700">
-                                {profile.bio || 'Noch keine Bio hinzugefügt.'}
+                                {profile.bio || tMyProfile('noBioYet')}
                             </p>
                         </div>
                         
                         {/* Details */}
                         <div className="card-comic p-4">
-                            <h3 className="font-heading text-sm mb-3">DETAILS</h3>
+                            <h3 className="font-heading text-sm mb-3">{tMyProfile('details')}</h3>
                             <div className="space-y-2 text-sm">
                                 {profile.location && (
                                     <div className="flex items-center gap-2">
@@ -746,7 +760,7 @@ export default function MyProfilePage() {
                         {/* Chatrooms */}
                         {userChatrooms.length > 0 && (
                             <div className="card-comic p-4">
-                                <h3 className="font-heading text-sm mb-3">CHATROOMS</h3>
+                                <h3 className="font-heading text-sm mb-3">{tMyProfile('chatrooms')}</h3>
                                 <div className="flex flex-wrap gap-2">
                                     {userChatrooms.slice(0, 5).map((room) => (
                                         <Link 
@@ -763,14 +777,14 @@ export default function MyProfilePage() {
                         
                         {/* Guestbook */}
                         <div className="card-comic p-4">
-                            <h3 className="font-heading text-sm mb-3">📝 GÄSTEBUCH</h3>
+                            <h3 className="font-heading text-sm mb-3">📝 {tMyProfile('guestbook')}</h3>
                             
                             {/* Comment Input */}
                             <div className="mb-4">
                                 <textarea
                                     value={newComment}
                                     onChange={(e) => setNewComment(e.target.value)}
-                                    placeholder="Schreibe einen Kommentar..."
+                                    placeholder={tMyProfile('writeComment')}
                                     className="w-full p-3 border-3 border-black text-sm resize-none"
                                     rows={2}
                                     maxLength={200}
@@ -784,14 +798,14 @@ export default function MyProfilePage() {
                                         disabled={!newComment.trim() || submittingComment}
                                         loading={submittingComment}
                                     >
-                                        Posten
+                                        {tMyProfile('post')}
                                     </Button>
                                 </div>
                             </div>
                             
                             {profileComments.length === 0 ? (
                                 <p className="text-sm text-center text-gray-500 py-4">
-                                    Noch keine Kommentare
+                                    {tMyProfile('noComments')}
                                 </p>
                             ) : (
                                 <div className="space-y-3">
@@ -839,13 +853,13 @@ export default function MyProfilePage() {
                                 <div className="flex items-center justify-between mb-4">
                                     <h3 className="font-heading">📅 EVENTS</h3>
                                     <Link href="/local" className="text-xs hover:underline" style={{ color: accentColor }}>
-                                        Alle →
+                                        {tMyProfile('allLink')}
                                     </Link>
                                 </div>
                                 
                                 {allEvents.length === 0 ? (
                                     <p className="text-sm text-center py-4 text-gray-500">
-                                        Keine Events
+                                        {tMyProfile('noEvents')}
                                     </p>
                                 ) : (
                                     <div className="space-y-3">
@@ -890,9 +904,9 @@ export default function MyProfilePage() {
                                 
                                 {userBadges.length === 0 ? (
                                     <div className="text-center py-4">
-                                        <p className="text-sm text-gray-500">Noch keine Badges</p>
+                                        <p className="text-sm text-gray-500">{tMyProfile('noBadges')}</p>
                                         <Link href="/badges" className="text-xs mt-2 inline-block underline" style={{ color: accentColor }}>
-                                            Badges entdecken →
+                                            {tMyProfile('discoverBadges')}
                                         </Link>
                                     </div>
                                 ) : (
@@ -908,11 +922,11 @@ export default function MyProfilePage() {
                                         <div className="grid grid-cols-2 gap-2 text-center">
                                             <div className="p-2 border bg-gray-50">
                                                 <p className="font-heading text-lg">{userBadges.length}</p>
-                                                <p className="text-xs text-gray-500">Gesammelt</p>
+                                                <p className="text-xs text-gray-500">{t('collected')}</p>
                                             </div>
                                             <div className="p-2 border bg-gray-50">
                                                 <p className="font-heading text-lg">{profile.achievementData?.stats?.totalPoints || 0}</p>
-                                                <p className="text-xs text-gray-500">Punkte</p>
+                                                <p className="text-xs text-gray-500">{t('points')}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -931,7 +945,7 @@ export default function MyProfilePage() {
                                 
                                 {boards.length === 0 ? (
                                     <p className="text-sm text-center py-4 text-gray-500">
-                                        Keine Boards
+                                        {tMyProfile('noBoards')}
                                     </p>
                                 ) : (
                                     <div className="grid grid-cols-2 gap-2">
@@ -960,14 +974,14 @@ export default function MyProfilePage() {
                                 className="border-4 border-black shadow-comic p-4 relative overflow-hidden bg-white"
                                 style={{ borderTopWidth: '6px', borderTopColor: accentColor }}
                             >
-                                <h3 className="font-heading mb-4">📝 GÄSTEBUCH</h3>
+                                <h3 className="font-heading mb-4">📝 {tMyProfile('guestbook')}</h3>
                                 
                                 {/* Comment Input */}
                                 <div className="mb-4">
                                     <textarea
                                         value={newComment}
                                         onChange={(e) => setNewComment(e.target.value)}
-                                        placeholder="Schreibe einen Kommentar..."
+                                        placeholder={tMyProfile('writeComment')}
                                         className="w-full p-2 border-2 border-black text-sm resize-none"
                                         rows={2}
                                         maxLength={200}
@@ -980,14 +994,14 @@ export default function MyProfilePage() {
                                             onClick={handleAddComment}
                                             disabled={!newComment.trim() || submittingComment}
                                         >
-                                            {submittingComment ? '...' : 'Posten'}
+                                            {submittingComment ? '...' : tMyProfile('post')}
                                         </Button>
                                     </div>
                                 </div>
                                 
                                 {profileComments.length === 0 ? (
                                     <p className="text-sm text-center py-2 text-gray-500">
-                                        Noch keine Kommentare
+                                        {tMyProfile('noComments')}
                                     </p>
                                 ) : (
                                     <div className="space-y-3 max-h-[300px] overflow-y-auto">
@@ -1024,10 +1038,10 @@ export default function MyProfilePage() {
                                 style={{ borderTopWidth: '6px', borderTopColor: accentColor }}
                             >
                                 <div className="flex items-center justify-between">
-                                    <h2 className="font-heading text-xl">TIMELINE</h2>
+                                    <h2 className="font-heading text-xl">{tMyProfile('timeline')}</h2>
                                     {profile.verificationStatus === 'verified' && (
                                         <Link href="/feed/create">
-                                            <Button variant="accent" className="text-xs">✏️ Neuer Post</Button>
+                                            <Button variant="accent" className="text-xs">✏️ {tMyProfile('newPost')}</Button>
                                         </Link>
                                     )}
                                 </div>
@@ -1037,15 +1051,15 @@ export default function MyProfilePage() {
                             {posts.length === 0 ? (
                                 <div className="border-4 border-black shadow-comic p-12 text-center bg-white">
                                     <span className="text-6xl">📝</span>
-                                    <p className="mt-4 font-heading text-xl">Noch keine Posts</p>
+                                    <p className="mt-4 font-heading text-xl">{tMyProfile('noPosts')}</p>
                                     <p className="mt-2 text-gray-500">
                                         {profile.verificationStatus === 'verified' 
-                                            ? 'Teile deinen ersten Post mit der Community!'
-                                            : 'Verifiziere dich als Künstler um Posts zu erstellen.'}
+                                            ? tMyProfile('shareFirstPost')
+                                            : tMyProfile('verifyToPost')}
                                     </p>
                                     {profile.verificationStatus !== 'verified' && (
                                         <Link href="/artist/verify">
-                                            <Button variant="accent" className="mt-4">Künstler werden →</Button>
+                                            <Button variant="accent" className="mt-4">{tMyProfile('becomeArtist')}</Button>
                                         </Link>
                                     )}
                                 </div>
