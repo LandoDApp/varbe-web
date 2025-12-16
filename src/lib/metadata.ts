@@ -66,8 +66,8 @@ export function generateOrganizationSchema() {
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "Varbe",
-        "url": "https://varbe.art",
-        "logo": "https://varbe.art/logo.png",
+        "url": "https://varbe.org",
+        "logo": "https://varbe.org/logo.png",
         "description": "Kunstmarktplatz für unabhängige Künstler",
         "address": {
             "@type": "PostalAddress",
@@ -104,7 +104,7 @@ export function generateProductSchema(artwork: {
             "price": artwork.price.toString(),
             "priceCurrency": "EUR",
             "availability": "https://schema.org/InStock",
-            "url": `https://varbe.art/marketplace/${artwork.id}`
+            "url": `https://varbe.org/marketplace/${artwork.id}`
         }
     };
 }
