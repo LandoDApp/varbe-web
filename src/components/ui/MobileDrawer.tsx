@@ -2,7 +2,7 @@
 
 import { Link, useRouter } from "@/i18n/routing";
 import { useAuth } from "@/context/AuthContext";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { auth } from "@/lib/firebase";
 import { signOut } from "firebase/auth";
@@ -24,40 +24,43 @@ interface NavSection {
     }[];
 }
 
-const navSections: NavSection[] = [
-    {
-        items: [
-            { href: "/", icon: "🏠", label: "Homepage" },
-            { href: "/search", icon: "🔍", label: "Suchen & Entdecken" },
-            { href: "/kuenstler", icon: "🎨", label: "Künstler" },
-        ],
-    },
-    {
-        title: "Community",
-        items: [
-            { href: "/local", icon: "📍", label: "Local Radar" },
-            { href: "/challenges", icon: "🏆", label: "Challenges" },
-            { href: "/commissions", icon: "💼", label: "Kommissionen" },
-            { href: "/jobs", icon: "💼", label: "Jobs" },
-            { href: "/chatrooms", icon: "💬", label: "Chatrooms" },
-        ],
-    },
-    {
-        title: "Mehr",
-        items: [
-            { href: "/blog", icon: "📰", label: "Blog" },
-            { href: "/badges", icon: "🏅", label: "Badges" },
-            { href: "/faq", icon: "❓", label: "FAQ" },
-            { href: "/kontakt", icon: "📧", label: "Kontakt" },
-        ],
-    },
-];
+// navSections will be created inside component to use translations
 
 export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
     const { user, profile, loading } = useAuth();
     const locale = useLocale();
     const router = useRouter();
+    const t = useTranslations('mobile.drawer');
     const [isChangingLocale, setIsChangingLocale] = useState(false);
+
+    const navSections: NavSection[] = [
+        {
+            items: [
+                { href: "/", icon: "🏠", label: t('homepage') },
+                { href: "/search", icon: "🔍", label: t('search') },
+                { href: "/kuenstler", icon: "🎨", label: t('artists') },
+            ],
+        },
+        {
+            title: t('community'),
+            items: [
+                { href: "/local", icon: "📍", label: t('localRadar') },
+                { href: "/challenges", icon: "🏆", label: t('challenges') },
+                { href: "/commissions", icon: "💼", label: t('commissions') },
+                { href: "/jobs", icon: "💼", label: t('jobs') },
+                { href: "/chatrooms", icon: "💬", label: t('chatrooms') },
+            ],
+        },
+        {
+            title: t('more'),
+            items: [
+                { href: "/blog", icon: "📰", label: t('blog') },
+                { href: "/badges", icon: "🏅", label: t('badges') },
+                { href: "/faq", icon: "❓", label: t('faq') },
+                { href: "/kontakt", icon: "📧", label: t('contact') },
+            ],
+        },
+    ];
 
     // Close drawer on escape key
     useEffect(() => {
@@ -136,7 +139,7 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                 <button
                     onClick={onClose}
                     className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center hover:bg-gray-100 transition-colors"
-                    aria-label="Schließen"
+                    aria-label={t('close')}
                 >
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M18 6L6 18M6 6l12 12" strokeLinecap="round" strokeLinejoin="round"/>
@@ -182,14 +185,14 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                                 onClick={onClose}
                                 className="block w-full py-3 px-4 bg-accent border-4 border-black font-heading text-center uppercase shadow-comic-sm hover:shadow-comic-hover hover:translate-x-[2px] hover:translate-y-[2px] transition-all"
                             >
-                                ANMELDEN
+                                {t('login')}
                             </Link>
                             <Link 
                                 href="/auth/register" 
                                 onClick={onClose}
                                 className="block w-full py-3 px-4 bg-white border-4 border-black font-heading text-center uppercase shadow-comic-sm hover:shadow-comic-hover hover:translate-x-[2px] hover:translate-y-[2px] transition-all"
                             >
-                                REGISTRIEREN
+                                {t('register')}
                             </Link>
                         </div>
                     )}
@@ -235,7 +238,7 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                             className="flex items-center gap-4 px-6 py-3 hover:bg-red-50 transition-colors text-red-600"
                         >
                             <span className="text-xl w-8 text-center">⚙️</span>
-                            <span className="font-heading text-base uppercase">Admin Dashboard</span>
+                            <span className="font-heading text-base uppercase">{t('adminDashboard')}</span>
                         </Link>
                     )}
                 </div>
@@ -251,10 +254,10 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                         <span className="text-xl">{locale === "de" ? "🇩🇪" : "🇬🇧"}</span>
                         <span className="font-body">
                             {isChangingLocale 
-                                ? "Loading..." 
+                                ? t('loading')
                                 : locale === "de" 
-                                    ? "Switch to English" 
-                                    : "Zu Deutsch wechseln"
+                                    ? t('switchLanguage')
+                                    : t('switchLanguageDe')
                             }
                         </span>
                     </button>
@@ -267,7 +270,7 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                             className="flex items-center gap-4 px-4 py-3 border-2 border-black hover:bg-gray-100 transition-colors"
                         >
                             <span className="text-xl">⚙️</span>
-                            <span className="font-body">Einstellungen</span>
+                            <span className="font-body">{t('settings')}</span>
                         </Link>
                     )}
 
@@ -278,22 +281,22 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                             className="w-full flex items-center gap-4 px-4 py-3 border-2 border-black hover:bg-red-50 transition-colors text-red-600"
                         >
                             <span className="text-xl">👋</span>
-                            <span className="font-body">Logout</span>
+                            <span className="font-body">{t('logout')}</span>
                         </button>
                     )}
 
                     {/* Legal Links */}
                     <div className="pt-4 border-t border-gray-200 flex flex-wrap gap-2 text-xs text-gray-500">
                         <Link href="/legal/impressum" onClick={onClose} className="hover:text-black">
-                            Impressum
+                            {t('imprint')}
                         </Link>
                         <span>•</span>
                         <Link href="/legal/datenschutz" onClick={onClose} className="hover:text-black">
-                            Datenschutz
+                            {t('privacy')}
                         </Link>
                         <span>•</span>
                         <Link href="/legal/agb" onClick={onClose} className="hover:text-black">
-                            AGB
+                            {t('terms')}
                         </Link>
                     </div>
                 </div>
@@ -307,4 +310,5 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
 // @keyframes slide-in-left { from { transform: translateX(-100%); } to { transform: translateX(0); } }
 
 export default MobileDrawer;
+
 

@@ -2532,6 +2532,49 @@
       "or": "oder kontaktiere uns unter"
     }
   },
+  "mobile": {
+    "bottomNav": {
+      "home": "Home",
+      "search": "Suchen",
+      "create": "Erstellen",
+      "chat": "Chat",
+      "profile": "Profil",
+      "createMenu": {
+        "title": "ERSTELLEN",
+        "newPost": "Neuer Post",
+        "blogPost": "Blog Artikel",
+        "event": "Event"
+      }
+    },
+    "drawer": {
+      "close": "Schließen",
+      "homepage": "Homepage",
+      "search": "Suchen & Entdecken",
+      "artists": "Künstler",
+      "community": "Community",
+      "localRadar": "Local Radar",
+      "challenges": "Challenges",
+      "commissions": "Kommissionen",
+      "jobs": "Jobs",
+      "chatrooms": "Chatrooms",
+      "more": "Mehr",
+      "blog": "Blog",
+      "badges": "Badges",
+      "faq": "FAQ",
+      "contact": "Kontakt",
+      "login": "ANMELDEN",
+      "register": "REGISTRIEREN",
+      "adminDashboard": "Admin Dashboard",
+      "settings": "Einstellungen",
+      "logout": "Logout",
+      "switchLanguage": "Zu Englisch wechseln",
+      "switchLanguageDe": "Zu Deutsch wechseln",
+      "loading": "Lädt...",
+      "imprint": "Impressum",
+      "privacy": "Datenschutz",
+      "terms": "AGB"
+    }
+  },
   "footer": {
     "tagline": "Der Kunstmarktplatz für unabhängige Künstler und Kunstliebhaber.",
     "categories": "Kategorien",

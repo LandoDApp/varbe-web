@@ -2,6 +2,7 @@
 
 import { Link, usePathname } from "@/i18n/routing";
 import { useAuth } from "@/context/AuthContext";
+import { useTranslations } from "next-intl";
 import { useState, useEffect } from "react";
 
 interface NavItem {
@@ -46,51 +47,54 @@ const ProfileIcon = ({ active }: { active?: boolean }) => (
     </svg>
 );
 
-const navItems: NavItem[] = [
-    {
-        href: "/",
-        icon: <HomeIcon />,
-        iconActive: <HomeIcon active />,
-        label: "Home",
-    },
-    {
-        href: "/search",
-        icon: <SearchIcon />,
-        iconActive: <SearchIcon active />,
-        label: "Suchen",
-    },
-    {
-        href: "/feed/create",
-        icon: <CreateIcon />,
-        iconActive: <CreateIcon active />,
-        label: "Erstellen",
-        requiresAuth: true,
-    },
-    {
-        href: "/messages",
-        icon: <MessagesIcon />,
-        iconActive: <MessagesIcon active />,
-        label: "Chat",
-        requiresAuth: true,
-    },
-    {
-        href: "/profile",
-        icon: <ProfileIcon />,
-        iconActive: <ProfileIcon active />,
-        label: "Profil",
-        requiresAuth: true,
-    },
-];
+// Nav items will be created inside component to use translations
 
 export function MobileBottomNav() {
     const pathname = usePathname();
     const { user } = useAuth();
+    const t = useTranslations('mobile.bottomNav');
     const [mounted, setMounted] = useState(false);
     const [showCreateMenu, setShowCreateMenu] = useState(false);
 
     useEffect(() => {
         setMounted(true);
     }, []);
+
+    const navItems: NavItem[] = [
+        {
+            href: "/",
+            icon: <HomeIcon />,
+            iconActive: <HomeIcon active />,
+            label: t('home'),
+        },
+        {
+            href: "/search",
+            icon: <SearchIcon />,
+            iconActive: <SearchIcon active />,
+            label: t('search'),
+        },
+        {
+            href: "/feed/create",
+            icon: <CreateIcon />,
+            iconActive: <CreateIcon active />,
+            label: t('create'),
+            requiresAuth: true,
+        },
+        {
+            href: "/messages",
+            icon: <MessagesIcon />,
+            iconActive: <MessagesIcon active />,
+            label: t('chat'),
+            requiresAuth: true,
+        },
+        {
+            href: "/profile",
+            icon: <ProfileIcon />,
+            iconActive: <ProfileIcon active />,
+            label: t('profile'),
+            requiresAuth: true,
+        },
+    ];
 
     if (!mounted) return null;
 
@@ -119,7 +123,7 @@ export function MobileBottomNav() {
                         onClick={e => e.stopPropagation()}
                     >
                         <div className="bg-white border-4 border-black shadow-comic-elevated p-4 min-w-[200px]">
-                            <h3 className="font-heading text-lg mb-4 text-center">ERSTELLEN</h3>
+                            <h3 className="font-heading text-lg mb-4 text-center">{t('createMenu.title')}</h3>
                             <div className="space-y-2">
                                 <Link 
                                     href="/feed/create" 
@@ -127,7 +131,7 @@ export function MobileBottomNav() {
                                     onClick={() => setShowCreateMenu(false)}
                                 >
                                     <span className="text-xl">📝</span>
-                                    <span className="font-body font-semibold">Neuer Post</span>
+                                    <span className="font-body font-semibold">{t('createMenu.newPost')}</span>
                                 </Link>
                                 <Link 
                                     href="/artist/blog/new" 
@@ -135,7 +139,7 @@ export function MobileBottomNav() {
                                     onClick={() => setShowCreateMenu(false)}
                                 >
                                     <span className="text-xl">📰</span>
-                                    <span className="font-body font-semibold">Blog Artikel</span>
+                                    <span className="font-body font-semibold">{t('createMenu.blogPost')}</span>
                                 </Link>
                                 <Link 
                                     href="/local/event/create" 
@@ -143,7 +147,7 @@ export function MobileBottomNav() {
                                     onClick={() => setShowCreateMenu(false)}
                                 >
                                     <span className="text-xl">📅</span>
-                                    <span className="font-body font-semibold">Event</span>
+                                    <span className="font-body font-semibold">{t('createMenu.event')}</span>
                                 </Link>
                             </div>
                         </div>
@@ -233,4 +237,5 @@ export function MobileBottomNav() {
 }
 
 export default MobileBottomNav;
+
 

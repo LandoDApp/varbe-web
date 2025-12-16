@@ -2537,6 +2537,49 @@
       "or": "or contact us at"
     }
   },
+  "mobile": {
+    "bottomNav": {
+      "home": "Home",
+      "search": "Search",
+      "create": "Create",
+      "chat": "Chat",
+      "profile": "Profile",
+      "createMenu": {
+        "title": "CREATE",
+        "newPost": "New Post",
+        "blogPost": "Blog Post",
+        "event": "Event"
+      }
+    },
+    "drawer": {
+      "close": "Close",
+      "homepage": "Homepage",
+      "search": "Search & Discover",
+      "artists": "Artists",
+      "community": "Community",
+      "localRadar": "Local Radar",
+      "challenges": "Challenges",
+      "commissions": "Commissions",
+      "jobs": "Jobs",
+      "chatrooms": "Chatrooms",
+      "more": "More",
+      "blog": "Blog",
+      "badges": "Badges",
+      "faq": "FAQ",
+      "contact": "Contact",
+      "login": "LOGIN",
+      "register": "REGISTER",
+      "adminDashboard": "Admin Dashboard",
+      "settings": "Settings",
+      "logout": "Logout",
+      "switchLanguage": "Switch to German",
+      "switchLanguageDe": "Switch to English",
+      "loading": "Loading...",
+      "imprint": "Imprint",
+      "privacy": "Privacy Policy",
+      "terms": "Terms & Conditions"
+    }
+  },
   "footer": {
     "tagline": "The art marketplace for independent artists and art lovers.",
     "categories": "Categories",
