@@ -31,16 +31,33 @@ export const viewport: Viewport = {
   userScalable: true,
 };
 
-export const metadata: Metadata = {
-  title: "Varbe - Original Kunst kaufen | Kunstmarktplatz Deutschland",
-  description: "Entdecke einzigartige Kunstwerke ab 10€ direkt von unabhängigen Künstlern. Faire Preise, Käuferschutz, schneller Versand. Jetzt stöbern!",
-  keywords: "kunst kaufen, original kunstwerke, künstler unterstützen, kunstmarktplatz, kunst online kaufen",
-  openGraph: {
-    title: "Varbe - Original Kunst kaufen | Kunstmarktplatz",
-    description: "Entdecke einzigartige Kunstwerke direkt von unabhängigen Künstlern. Faire Preise, Käuferschutz.",
-    type: "website",
-  },
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const baseMetadata = generateHomepageMetadata(locale);
+  
+  const baseUrl = 'https://varbe.org';
+  const deUrl = `${baseUrl}`;
+  const enUrl = `${baseUrl}/en`;
+  const currentUrl = locale === 'de' ? deUrl : enUrl;
+  
+  return {
+    ...baseMetadata,
+    alternates: {
+      canonical: currentUrl,
+      languages: {
+        'de': deUrl,
+        'en': enUrl,
+        'x-default': enUrl
+      }
+    },
+    openGraph: {
+      ...baseMetadata.openGraph,
+      url: currentUrl,
+      siteName: 'Varbe',
+      alternateLocale: locale === 'de' ? 'en' : 'de'
+    }
+  };
+}
 
 import { AuthProvider } from "@/context/AuthContext";
 
