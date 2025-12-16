@@ -47,6 +47,25 @@
       "discoverFeed": "DISCOVER FEED →",
       "becomeArtist": "BECOME AN ARTIST →"
     },
+    "categories": {
+      "title": "CATEGORIES",
+      "viewAll": "All →",
+      "malerei": "Painting",
+      "fotografie": "Photo",
+      "skulptur": "Sculpture",
+      "digital": "Digital",
+      "zeichnung": "Drawing",
+      "mixed": "Mixed",
+      "kunsthandwerk": "Craft"
+    },
+    "quickLinks": {
+      "local": "LOCAL",
+      "challenges": "CHALLENGES",
+      "chatrooms": "CHAT",
+      "jobs": "JOBS",
+      "blog": "BLOG",
+      "artists": "ARTISTS"
+    },
     "badges": {
       "noAi": "NO AI ART",
       "lowFees": "ONLY 10% FEES",

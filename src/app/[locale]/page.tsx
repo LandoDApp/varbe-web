@@ -9,29 +9,31 @@ import { Link } from "@/i18n/routing";
 import { useTranslations } from 'next-intl';
 import { useState } from "react";
 
-// Category icons for the horizontal scroll
-const categories = [
-    { id: 'malerei', icon: '🎨', label: 'Malerei', href: '/malerei' },
-    { id: 'fotografie', icon: '📷', label: 'Foto', href: '/fotografie' },
-    { id: 'skulptur', icon: '🗿', label: 'Skulptur', href: '/skulptur' },
-    { id: 'digital', icon: '💻', label: 'Digital', href: '/digital-art' },
-    { id: 'zeichnung', icon: '✏️', label: 'Zeichnung', href: '/zeichnung' },
-    { id: 'mixed', icon: '🎭', label: 'Mixed', href: '/mixed-media' },
-    { id: 'kunsthandwerk', icon: '🏺', label: 'Handwerk', href: '/kunsthandwerk' },
-];
-
-// Quick navigation links for mobile
-const quickLinks = [
-    { href: '/local', icon: '📍', label: 'LOCAL' },
-    { href: '/challenges', icon: '🏆', label: 'CHALLENGES' },
-    { href: '/chatrooms', icon: '💬', label: 'CHAT' },
-    { href: '/jobs', icon: '💼', label: 'JOBS' },
-    { href: '/blog', icon: '📰', label: 'BLOG' },
-    { href: '/kuenstler', icon: '🎨', label: 'KÜNSTLER' },
-];
-
 export default function Home() {
     const t = useTranslations('home');
+    const tMobile = useTranslations('mobile.drawer');
+    const tSearch = useTranslations('search');
+    
+    // Category icons for the horizontal scroll
+    const categories = [
+        { id: 'malerei', icon: '🎨', label: t('categories.malerei'), href: '/malerei' },
+        { id: 'fotografie', icon: '📷', label: t('categories.fotografie'), href: '/fotografie' },
+        { id: 'skulptur', icon: '🗿', label: t('categories.skulptur'), href: '/skulptur' },
+        { id: 'digital', icon: '💻', label: t('categories.digital'), href: '/digital-art' },
+        { id: 'zeichnung', icon: '✏️', label: t('categories.zeichnung'), href: '/zeichnung' },
+        { id: 'mixed', icon: '🎭', label: t('categories.mixed'), href: '/mixed-media' },
+        { id: 'kunsthandwerk', icon: '🏺', label: t('categories.kunsthandwerk'), href: '/kunsthandwerk' },
+    ];
+
+    // Quick navigation links for mobile
+    const quickLinks = [
+        { href: '/local', icon: '📍', label: t('quickLinks.local') },
+        { href: '/challenges', icon: '🏆', label: t('quickLinks.challenges') },
+        { href: '/chatrooms', icon: '💬', label: t('quickLinks.chatrooms') },
+        { href: '/jobs', icon: '💼', label: t('quickLinks.jobs') },
+        { href: '/blog', icon: '📰', label: t('quickLinks.blog') },
+        { href: '/kuenstler', icon: '🎨', label: t('quickLinks.artists') },
+    ];
     const [currentSlide, setCurrentSlide] = useState(0);
     const [drawerOpen, setDrawerOpen] = useState(false);
 
@@ -48,7 +50,7 @@ export default function Home() {
                 <button 
                     onClick={() => setDrawerOpen(true)}
                     className="w-10 h-10 flex items-center justify-center hover:bg-gray-100 transition-colors active:scale-95"
-                    aria-label="Menü öffnen"
+                    aria-label={tMobile('close')}
                 >
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                         <path d="M3 12h18M3 6h18M3 18h18" strokeLinecap="round" strokeLinejoin="round"/>
@@ -67,7 +69,7 @@ export default function Home() {
                 <Link 
                     href="/search"
                     className="w-10 h-10 flex items-center justify-center hover:bg-gray-100 transition-colors"
-                    aria-label="Suchen"
+                    aria-label={tSearch('title')}
                 >
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <circle cx="11" cy="11" r="8"/>
@@ -153,9 +155,9 @@ export default function Home() {
                 <div className="container mx-auto">
                     {/* Section Header */}
                     <div className="flex items-center justify-between px-4 mb-4">
-                        <h2 className="font-heading text-lg uppercase">KATEGORIEN</h2>
+                        <h2 className="font-heading text-lg uppercase">{t('categories.title')}</h2>
                         <Link href="/kategorien" className="text-sm font-heading text-accent hover:underline">
-                            Alle →
+                            {t('categories.viewAll')}
                         </Link>
                     </div>
 
