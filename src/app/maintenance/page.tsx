@@ -151,9 +151,9 @@ export default function MaintenancePage() {
               position: relative;
               padding: 2rem;
               background: 
-                radial-gradient(ellipse at 20% 50%, rgba(120, 0, 255, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 50%, rgba(255, 0, 100, 0.1) 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 100%, rgba(0, 200, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 20% 50%, rgba(204, 255, 0, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 50%, rgba(204, 255, 0, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 100%, rgba(204, 255, 0, 0.1) 0%, transparent 50%),
                 #000000;
             }
 
@@ -161,8 +161,8 @@ export default function MaintenancePage() {
               position: absolute;
               inset: 0;
               background-image: 
-                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+                linear-gradient(rgba(204,255,0,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(204,255,0,0.03) 1px, transparent 1px);
               background-size: 50px 50px;
               animation: gridMove 20s linear infinite;
             }
@@ -183,7 +183,7 @@ export default function MaintenancePage() {
               position: absolute;
               width: 4px;
               height: 4px;
-              background: rgba(255, 255, 255, 0.3);
+              background: rgba(204, 255, 0, 0.4);
               border-radius: 50%;
               bottom: -10px;
               animation: float linear infinite;
@@ -239,7 +239,7 @@ export default function MaintenancePage() {
             .logo-dot {
               font-size: 3rem;
               font-weight: 700;
-              color: #ff0066;
+              color: #CCFF00;
             }
 
             .loading-section {
@@ -272,10 +272,10 @@ export default function MaintenancePage() {
 
             .loading-bar {
               height: 100%;
-              background: linear-gradient(90deg, #ff0066, #7000ff, #00d4ff);
+              background: linear-gradient(90deg, #CCFF00, #9AE600, #CCFF00);
               border-radius: 2px;
               transition: width 0.1s linear;
-              box-shadow: 0 0 20px rgba(255, 0, 102, 0.5);
+              box-shadow: 0 0 20px rgba(204, 255, 0, 0.5);
             }
 
             .loading-glow {
@@ -283,7 +283,7 @@ export default function MaintenancePage() {
               top: 50%;
               width: 20px;
               height: 20px;
-              background: radial-gradient(circle, rgba(255, 0, 102, 0.8) 0%, transparent 70%);
+              background: radial-gradient(circle, rgba(204, 255, 0, 0.8) 0%, transparent 70%);
               transform: translate(-50%, -50%);
               pointer-events: none;
             }
@@ -309,8 +309,8 @@ export default function MaintenancePage() {
               align-items: center;
               gap: 0.5rem;
               padding: 0.5rem 1rem;
-              background: rgba(255, 0, 102, 0.1);
-              border: 1px solid rgba(255, 0, 102, 0.3);
+              background: rgba(204, 255, 0, 0.1);
+              border: 1px solid rgba(204, 255, 0, 0.3);
               border-radius: 100px;
               font-size: 0.7rem;
               letter-spacing: 0.2em;
@@ -320,7 +320,7 @@ export default function MaintenancePage() {
             .status-dot {
               width: 8px;
               height: 8px;
-              background: #ff0066;
+              background: #CCFF00;
               border-radius: 50%;
               animation: pulse 2s ease-in-out infinite;
             }
@@ -339,7 +339,7 @@ export default function MaintenancePage() {
             }
 
             .highlight {
-              background: linear-gradient(135deg, #ff0066, #7000ff);
+              background: linear-gradient(135deg, #CCFF00, #9AE600);
               -webkit-background-clip: text;
               -webkit-text-fill-color: transparent;
               background-clip: text;
@@ -374,7 +374,7 @@ export default function MaintenancePage() {
 
             .info-card:hover {
               background: rgba(255, 255, 255, 0.05);
-              border-color: rgba(255, 0, 102, 0.2);
+              border-color: rgba(204, 255, 0, 0.3);
               transform: translateY(-2px);
             }
 
