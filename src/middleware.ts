@@ -3,6 +3,12 @@ import { NextRequest, NextResponse } from 'next/server';
 import { routing } from './i18n/routing';
 import { germanSpeakingRegions } from './i18n/config';
 
+// ==========================================
+// MAINTENANCE MODE - Set to true to enable
+// ==========================================
+const MAINTENANCE_MODE = true;
+// ==========================================
+
 // Custom locale detection: Browser language first, then region
 function detectLocale(request: NextRequest): string {
   // 1. Try to detect from browser Accept-Language header
@@ -48,6 +54,23 @@ const intlMiddleware = createMiddleware({
 
 export default function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
+  
+  // ==========================================
+  // MAINTENANCE MODE REDIRECT
+  // Redirects ALL traffic to /maintenance
+  // This has the highest priority
+  // ==========================================
+  if (MAINTENANCE_MODE) {
+    // Allow the maintenance page itself to load
+    if (pathname === '/maintenance') {
+      return NextResponse.next();
+    }
+    
+    // Redirect everything else to maintenance
+    const maintenanceUrl = new URL('/maintenance', request.url);
+    return NextResponse.redirect(maintenanceUrl);
+  }
+  // ==========================================
   
   // Check if path already has a locale
   const pathHasLocale = routing.locales.some(

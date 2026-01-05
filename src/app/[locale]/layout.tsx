@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from "next";
+import type { Metadata } from "next";
 import { Bangers, Inter } from "next/font/google";
 import "../globals.css";
 import { cn } from "@/lib/utils";
@@ -8,9 +8,6 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { generateHomepageMetadata, generateOrganizationSchema } from "@/lib/metadata";
 import Script from "next/script";
-
-// Force dynamic rendering for all pages under [locale] to prevent SSR issues with auth/Firebase
-export const dynamic = 'force-dynamic';
 
 const bangers = Bangers({
   weight: "400",
@@ -23,44 +20,23 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-// Viewport must be exported separately in Next.js 14+
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
-  maximumScale: 5,
-  userScalable: true,
+export const metadata: Metadata = {
+  title: "Varbe - Original Kunst kaufen | Kunstmarktplatz Deutschland",
+  description: "Entdecke einzigartige Kunstwerke ab 10€ direkt von unabhängigen Künstlern. Faire Preise, Käuferschutz, schneller Versand. Jetzt stöbern!",
+  keywords: "kunst kaufen, original kunstwerke, künstler unterstützen, kunstmarktplatz, kunst online kaufen",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 5,
+  },
+  openGraph: {
+    title: "Varbe - Original Kunst kaufen | Kunstmarktplatz",
+    description: "Entdecke einzigartige Kunstwerke direkt von unabhängigen Künstlern. Faire Preise, Käuferschutz.",
+    type: "website",
+  },
 };
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
-  const { locale } = await params;
-  const baseMetadata = generateHomepageMetadata(locale);
-  
-  const baseUrl = 'https://varbe.org';
-  const deUrl = `${baseUrl}`;
-  const enUrl = `${baseUrl}/en`;
-  const currentUrl = locale === 'de' ? deUrl : enUrl;
-  
-  return {
-    ...baseMetadata,
-    alternates: {
-      canonical: currentUrl,
-      languages: {
-        'de': deUrl,
-        'en': enUrl,
-        'x-default': enUrl
-      }
-    },
-    openGraph: {
-      ...baseMetadata.openGraph,
-      url: currentUrl,
-      siteName: 'Varbe',
-      alternateLocale: locale === 'de' ? 'en' : 'de'
-    }
-  };
-}
-
 import { AuthProvider } from "@/context/AuthContext";
-import { LanguageSelector } from "@/components/ui/LanguageSelector";
 
 export default async function LocaleLayout({
   children,
@@ -86,15 +62,11 @@ export default async function LocaleLayout({
     <html lang={locale} suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen antialiased",
+          "min-h-screen bg-white antialiased",
           bangers.variable,
           inter.variable
         )}
-        style={{ backgroundColor: '#fafafa' }}
       >
-        {/* Animated Comic Halftone Background */}
-        <div className="comic-halftone-bg" aria-hidden="true" />
-        
         <Script
           id="organization-schema"
           type="application/ld+json"
@@ -103,9 +75,7 @@ export default async function LocaleLayout({
         />
         <NextIntlClientProvider messages={messages}>
           <AuthProvider>
-            <LanguageSelector>
-              {children}
-            </LanguageSelector>
+            {children}
           </AuthProvider>
         </NextIntlClientProvider>
       </body>

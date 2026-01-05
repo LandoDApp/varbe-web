@@ -1,52 +1,4 @@
 {
-  "badgeNames": {
-    "first_sale": { "name": "The Beginning", "description": "Sell your first artwork on Varbe" },
-    "ten_sales": { "name": "Ten in the Bag", "description": "Sold 10 artworks" },
-    "hot_artwork": { "name": "Hot Item", "description": "An artwork was favorited 50+ times" },
-    "founder": { "name": "Founder", "description": "One of the first 100 artists on Varbe" },
-    "century_work": { "name": "Masterpiece", "description": "Sell a work for over €1,000" },
-    "rocket": { "name": "Rocket", "description": "3 works sold in one week" },
-    "storyteller": { "name": "Storyteller", "description": "10 works uploaded with video story" },
-    "precise": { "name": "Precise", "description": "10 works sold without returns" },
-    "perfectionist": { "name": "Perfectionist", "description": "5-star average with 20+ reviews" },
-    "globetrotter": { "name": "Globetrotter", "description": "Works sold to 10 different cities" },
-    "hundred_sales": { "name": "Hundred!", "description": "100 artworks sold" },
-    "verified_artist": { "name": "Verified Artist", "description": "Verified as an artist on Varbe" },
-    "ki_free_verified": { "name": "AI-Free", "description": "Verified as 100% AI-free artist" },
-    "first_purchase": { "name": "Art Lover", "description": "Buy your first artwork" },
-    "collector": { "name": "Collector", "description": "Bought 10 artworks" },
-    "local_patron": { "name": "Local Patron", "description": "Bought 5 works from your city" },
-    "gift_giver": { "name": "Gift Giver", "description": "Give 3 artworks as gifts" },
-    "explorer": { "name": "Explorer", "description": "Follow 20 artists" },
-    "bargain_hunter": { "name": "Bargain Hunter", "description": "Win 3 auctions under starting price+10%" },
-    "critic": { "name": "Critic", "description": "Write 10 reviews" },
-    "patron": { "name": "Patron", "description": "Support an artist with a subscription" },
-    "mega_collector": { "name": "Mega Collector", "description": "Bought 50 artworks" },
-    "heart_giver": { "name": "Heart Giver", "description": "Give 100 likes in the feed" },
-    "chatterbox": { "name": "Chatterbox", "description": "Write 50 comments" },
-    "event_master": { "name": "Event Master", "description": "Visit 5 artist events/studios" },
-    "networker": { "name": "Networker", "description": "Share 20 artworks" },
-    "democrat": { "name": "Democrat", "description": "Participate in 10 community votes" },
-    "helper": { "name": "Helper", "description": "Help 5 artists with verification" },
-    "super_fan": { "name": "Super Fan", "description": "Follow 50 artists" },
-    "first_hundred": { "name": "First 100", "description": "One of the first 100 registered users" },
-    "beta_tester": { "name": "Beta Tester", "description": "Tested Varbe during beta phase" },
-    "first_artist": { "name": "First Artist", "description": "One of the first verified artists" },
-    "night_owl": { "name": "Night Owl", "description": "Active between 2-5 AM" },
-    "early_bird": { "name": "Early Bird", "description": "Active before 6 AM" },
-    "sunday_painter": { "name": "Sunday Painter", "description": "Upload on 10 Sundays" },
-    "marathoner": { "name": "Marathoner", "description": "Active for 365 consecutive days" },
-    "comeback": { "name": "Comeback", "description": "Return after 90+ days break" },
-    "trendsetter": { "name": "Trendsetter", "description": "Use a hashtag that becomes trending" },
-    "viral": { "name": "Viral", "description": "A post gets 1000+ views" },
-    "influencer": { "name": "Influencer", "description": "Get 1000 followers" },
-    "supportive": { "name": "Supportive", "description": "Comment on 100 posts by other artists" },
-    "easter_egg": { "name": "Easter Egg", "description": "Find a hidden feature" },
-    "report_hero": { "name": "Report Hero", "description": "Report 10 AI artworks correctly" },
-    "anniversary_1": { "name": "Anniversary", "description": "1 year on Varbe" },
-    "anniversary_2": { "name": "Veteran", "description": "2 years on Varbe" },
-    "legendary": { "name": "Legendary", "description": "Collect all other badges" }
-  },
   "common": {
     "loading": "Loading...",
     "error": "Error",
@@ -67,165 +19,129 @@
     "home": "Home",
     "buyArt": "Buy Art",
     "sellArt": "Sell Art",
-    "artists": "Artists",
     "admin": "Admin",
     "artistDashboard": "Artist Dashboard",
     "messages": "Messages",
     "login": "Login",
     "join": "Join",
     "profile": "Profile",
-    "searchPlaceholder": "Search art, posts, artists...",
-    "search": "SEARCH"
+    "searchPlaceholder": "Search artworks..."
   },
   "search": {
     "title": "Search",
-    "discover": "DISCOVER",
     "placeholder": "Search for artworks, artists, categories...",
-    "searchPlaceholder": "Search art, artists...",
-    "filterPlaceholder": "Filter by artists or posts...",
     "search": "Search",
     "results": "{count} results for \"{query}\"",
-    "resultsFor": "results for",
     "loading": "Searching...",
-    "loadingShort": "Loading...",
     "noResults": "No results found",
-    "noResultsTitle": "No results",
-    "noResultsDesc": "Try different search terms or browse our categories.",
-    "noResultsTryOther": "Try a different search term",
-    "resetSearch": "Reset search",
-    "clear": "Clear",
-    "filterAll": "All",
-    "filterAllEmoji": "🌟 All",
-    "filterArtists": "Artists",
-    "filterArtistsEmoji": "👤 Artists",
-    "filterPosts": "Posts",
-    "filterPostsEmoji": "📝 Posts",
-    "trending": "TRENDING",
-    "artists": "Artists",
-    "artistsEmoji": "👤 Artists",
-    "posts": "Posts",
-    "postsEmoji": "📝 Posts",
-    "verified": "Verified",
-    "showAllArtists": "Show all {count} artists →",
-    "showAllPosts": "Show all {count} posts →",
-    "artist": "Artist"
+    "noResultsDesc": "Try different search terms or browse our categories."
   },
   "home": {
     "hero": {
-      "line1": "DISCOVER ART.",
-      "line2": "SUPPORT ARTISTS.",
-      "line3": "NO AI BULLSHIT.",
-      "description": "The artist community where real art is celebrated. No algorithm bullshit. No AI theft. Just art, artists, and community.",
-      "joinNow": "JOIN NOW",
-      "discoverFeed": "DISCOVER FEED →",
-      "becomeArtist": "BECOME AN ARTIST →"
+      "badge": "The #1 Art Marketplace",
+      "title": "Buy & Sell",
+      "titleHighlight": "Authentic",
+      "titleEnd": "Artworks",
+      "description": "No fakes. No AI spam. Just real art from verified artists. Join the revolution today!",
+      "startExploring": "Start Exploring",
+      "sellYourArt": "Sell Your Art"
+    },
+    "featured": {
+      "title": "⭐ Featured Artworks",
+      "featured": "Featured",
+      "byArtist": "by Artist",
+      "price": "Price",
+      "comingSoon": "Coming soon"
+    },
+    "featuredArtists": {
+      "title": "⭐ Featured Artists",
+      "verified": "Verified",
+      "viewAll": "View All Artists"
+    },
+    "whyVarbe": {
+      "title": "Why Varbe?",
+      "verifiedArtists": {
+        "title": "Verified Artists",
+        "desc": "Every seller is manually vetted. No scams."
+      },
+      "securePayments": {
+        "title": "Secure Payments",
+        "desc": "Money is held safely until you get your art."
+      },
+      "comicStyle": {
+        "title": "Comic Style",
+        "desc": "Because boring marketplaces are boring."
+      }
     },
     "categories": {
-      "title": "CATEGORIES",
-      "viewAll": "All →",
+      "title": "Discover Art by Category",
       "malerei": "Painting",
-      "fotografie": "Photo",
-      "skulptur": "Sculpture",
-      "digital": "Digital",
+      "fotografie": "Photography",
+      "skulptur": "Sculpture & Ceramics",
+      "digitalArt": "Digital Art",
       "zeichnung": "Drawing",
-      "mixed": "Mixed",
-      "kunsthandwerk": "Craft"
+      "mixedMedia": "Mixed Media",
+      "kunsthandwerk": "Crafts"
     },
-    "quickLinks": {
-      "local": "LOCAL",
-      "challenges": "CHALLENGES",
-      "chatrooms": "CHAT",
-      "jobs": "JOBS",
-      "blog": "BLOG",
-      "artists": "ARTISTS"
-    },
-    "badges": {
-      "noAi": "NO AI ART",
-      "lowFees": "ONLY 10% FEES",
-      "artistOwned": "ARTIST-OWNED"
-    },
-    "problems": {
-      "title": "WHY ARTISTS ARE LEAVING INSTAGRAM, DEVIANTART & ETSY",
-      "ai": {
-        "title": "AI CRAP EVERYWHERE",
-        "desc": "DeviantArt promotes AI bots making $25k. Instagram trains on your art. Pinterest is full of AI slop. Your real work gets buried."
+    "howItWorks": {
+      "title": "How Varbe Works",
+      "step1": {
+        "title": "DISCOVER",
+        "desc": "Browse through hundreds of artworks from verified artists. Filter by category, style, or price."
       },
-      "algorithm": {
-        "title": "ALGORITHM HELL",
-        "desc": "Post daily or die. Instagram engagement down 70%. No control over visibility. You're a slave to the algorithm."
+      "step2": {
+        "title": "BUY",
+        "desc": "Secure payment via Stripe, 14-day buyer protection included. Choose between buy now or auction."
       },
-      "fees": {
-        "title": "RIPOFF FEES",
-        "desc": "Etsy takes 35-40%. PayPal takes another 3%. Print shops take 60%. In the end, you're left with crumbs."
+      "step3": {
+        "title": "ENJOY",
+        "desc": "Your artwork comes directly from the artist to your home. Or pick it up in person."
       }
     },
-    "butNotHere": "BUT NOT HERE.",
-    "solutions": {
-      "aiFree": {
-        "title": "100% AI-FREE",
-        "desc": "We automatically detect AI art. Zero tolerance. Every artist is verified. Here you'll only find real art from real humans."
+    "whyVarbeSection": {
+      "title": "Why Varbe?",
+      "fairPrices": {
+        "title": "✅ Fair Prices",
+        "desc": "90% goes to artists"
       },
-      "noAlgo": {
-        "title": "NO ALGORITHM MANIPULATION",
-        "desc": "Chronological feed + human curation. No \"post daily\" pressure. No hidden rules. Quality over quantity. Always."
+      "buyerProtection": {
+        "title": "✅ Buyer Protection",
+        "desc": "14-day money-back guarantee"
       },
-      "fairFees": {
-        "title": "FAIR 10% FEES",
-        "desc": "No hidden costs. No subscription requirements. You keep 90% of everything you sell. It's that simple."
+      "direct": {
+        "title": "✅ Direct from Artist",
+        "desc": "No middleman, authentic originals"
+      },
+      "curated": {
+        "title": "✅ Curated",
+        "desc": "Every artist is verified"
       }
     },
-    "features": {
-      "title": "WHAT MAKES VARBE DIFFERENT?",
-      "swipe": {
-        "title": "SWIPE DISCOVERY",
-        "desc": "TikTok-style feed. Swipe through art. Don't search, find.",
-        "link": "LEARN MORE →"
+    "testimonials": {
+      "title": "What Our Artists Say",
+      "testimonial1": {
+        "text": "Finally a platform that charges fair fees! 90% for me as an artist is simply fair.",
+        "author": "Anna, Painter from Bremen"
       },
-      "local": {
-        "title": "LOCAL RADAR",
-        "desc": "Art near you. Meet artists. Find local events.",
-        "link": "LEARN MORE →"
+      "testimonial2": {
+        "text": "My art now reaches people all over Germany. The verification process was quick and straightforward.",
+        "author": "Tom, Photographer from Hamburg"
       },
-      "story": {
-        "title": "STORY-DRIVEN",
-        "desc": "Every art has a story. Voice notes. Process. Context, not just images.",
-        "link": "LEARN MORE →"
-      },
-      "challenges": {
-        "title": "ART CHALLENGES",
-        "desc": "Weekly prompts. Community voting. Badges & recognition.",
-        "link": "LEARN MORE →"
-      }
+      "rating": "⭐⭐⭐⭐⭐",
+      "ratingText": "4.8/5 stars (127 reviews)"
     },
-    "promise": {
-      "title": "OUR PROMISE",
-      "noAi": {
-        "title": "0% AI CONTENT",
-        "desc": "Only real art from real humans. No compromises."
-      },
-      "forYou": {
-        "title": "90% FOR YOU",
-        "desc": "The fairest fees in the industry. You keep what's yours."
-      },
-      "community": {
-        "title": "COMMUNITY FIRST",
-        "desc": "Built by artists, for artists. No corporate bullshit."
-      },
-      "subtext": "We're building the platform we always wanted ourselves."
-    },
-    "cta": {
-      "title": "READY TO JOIN?",
-      "description": "Become part of the movement. No AI. No bullshit. Just real art from real humans.",
-      "emailPlaceholder": "your@email.com",
-      "joinButton": "JOIN NOW",
-      "registerButton": "SIGN UP NOW",
-      "discoverButton": "DISCOVER FEED →"
+    "newsletter": {
+      "title": "Don't Miss New Artworks",
+      "description": "Receive new art weekly directly in your inbox. Free.",
+      "placeholder": "your@email.com",
+      "button": "Subscribe",
+      "disclaimer": "Unsubscribe anytime. No spam."
     }
   },
   "marketplace": {
     "title": "Marketplace",
     "noListings": "No artworks found",
-    "searchPlaceholder": "Search art, posts, artists...",
+    "searchPlaceholder": "Search artworks...",
     "foundArtworks": "Found",
     "artworks": "artworks",
     "loadingArtworks": "Loading artworks...",
@@ -504,46 +420,6 @@
     "member": "Member",
     "verified": "Verified",
     "logOut": "Log Out",
-    "notFound": "Profile not found",
-    "notFoundDesc": "This profile does not exist.",
-    "toFeed": "To Feed →",
-    "editProfile": "Edit profile",
-    "settings": "Settings",
-    "follow": "Follow",
-    "following": "Following",
-    "unfollow": "Unfollow",
-    "loginToFollow": "Login to follow",
-    "login": "Login",
-    "posts": "Posts",
-    "followers": "Followers",
-    "followingCount": "Following",
-    "noPosts": "No posts yet",
-    "morePosts": "+ {count} more posts",
-    "noBoards": "No boards",
-    "noReposts": "No reposts",
-    "noLikes": "No likes",
-    "noEvents": "No events",
-    "noBadges": "No badges yet",
-    "moreBadges": "more badges",
-    "collected": "Collected",
-    "points": "Points",
-    "allLink": "All →",
-    "guestbook": "GUESTBOOK",
-    "writeComment": "Write a comment...",
-    "post": "Post",
-    "loginToComment": "Login to comment",
-    "noComments": "No comments yet",
-    "participations": "Participations",
-    "wins": "Wins",
-    "likes": "Likes",
-    "challengeBadges": "Challenge Badges",
-    "recentSubmissions": "Recent Submissions",
-    "noChallengeParticipations": "No challenge participations yet",
-    "joinNow": "Join now →",
-    "artistNoPostsYet": "This artist hasn't shared any posts yet.",
-    "timeline": "TIMELINE",
-    "host": "HOST",
-    "going": "GOING",
     "stats": {
       "activeListings": "Active Listings",
       "pending": "pending",
@@ -606,140 +482,6 @@
         "delivered": "Delivered",
         "cancelled": "Cancelled"
       }
-    },
-    "myProfile": {
-      "editProfile": "Edit profile",
-      "logout": "Logout",
-      "noPosts": "No posts yet",
-      "shareFirst": "Share your first post with the community!",
-      "verifyToPost": "Verify as an artist to create posts.",
-      "becomeArtist": "Become an artist →",
-      "createPost": "CREATE NEW POST",
-      "noBoards": "No boards",
-      "saveBoardsHint": "Save inspiration in boards!",
-      "badgesCollected": "Badges collected",
-      "noBadges": "No badges yet",
-      "collectBadges": "Collect badges through activity!",
-      "viewAllBadges": "View all badges",
-      "noEvents": "No events",
-      "discoverEvents": "Discover local art events!",
-      "discoverEventsBtn": "Discover events",
-      "bio": "BIO",
-      "noBioYet": "No bio added yet.",
-      "details": "DETAILS",
-      "chatrooms": "CHATROOMS",
-      "guestbook": "GUESTBOOK",
-      "writeComment": "Write a comment...",
-      "post": "Post",
-      "noComments": "No comments yet",
-      "allLink": "All →",
-      "discoverBadges": "Discover badges →",
-      "timeline": "TIMELINE",
-      "newPost": "New Post",
-      "shareFirstPost": "Share your first post with the community!",
-      "justNow": "just now"
-    },
-    "settingsPage": {
-      "loading": "Loading...",
-      "username": "USERNAME",
-      "yourUsername": "your_username",
-      "checking": "Checking...",
-      "available": "Available!",
-      "alreadyTaken": "Already taken",
-      "usernameChanged": "Username successfully changed!",
-      "basicInfo": "BASIC INFO",
-      "displayName": "Display name",
-      "yourName": "Your name",
-      "bioLabel": "Bio",
-      "tellUs": "Tell us something about yourself...",
-      "pronouns": "Pronouns",
-      "pronounsExample": "e.g. they/them",
-      "locationLabel": "Location",
-      "locationExample": "e.g. Berlin",
-      "visibleOnMap": "Visible on LOCAL map",
-      "websiteLabel": "Website",
-      "websiteExample": "https://your-website.com",
-      "themes": "THEMES",
-      "colors": "COLORS",
-      "backgroundColor": "Background color",
-      "accentColor": "Accent color",
-      "textColor": "Text color",
-      "linkColor": "Link color",
-      "coverPosition": "COVER POSITION",
-      "top": "Top",
-      "center": "Center",
-      "bottom": "Bottom",
-      "yourPosts": "YOUR POSTS",
-      "refresh": "Refresh",
-      "loadingPosts": "Loading posts...",
-      "noPostsYet": "You haven't created any posts yet.",
-      "createFirstPost": "Create first post",
-      "postsCount": "You have <strong>{count}</strong> posts. Here you can edit or delete them.",
-      "view": "View",
-      "edit": "Edit",
-      "delete": "Delete",
-      "save": "Save",
-      "cancel": "Cancel",
-      "noText": "No text",
-      "onlyFollowers": "Followers only",
-      "onlySubscribers": "Subscribers only",
-      "postStats": "POST STATISTICS",
-      "postsLabel": "Posts",
-      "likesLabel": "Likes",
-      "commentsLabel": "Comments",
-      "pointsLabel": "Points",
-      "yourBadges": "YOUR BADGES",
-      "noBadgesYet": "You don't have any badges yet. Collect them through activity!",
-      "visibility": "PROFILE VISIBILITY",
-      "visibilityDesc": "Choose which sections should be displayed on your profile. Hidden sections will be completely hidden.",
-      "profileHeader": "Profile Header",
-      "bioSection": "Bio",
-      "bioDesc": "Your short description",
-      "locationSection": "Location",
-      "locationDesc": "Your location is displayed",
-      "statsSection": "Stats",
-      "statsDesc": "Posts, Followers, Following",
-      "websiteSection": "Website",
-      "websiteDesc": "Your website link",
-      "sidebarTiles": "Sidebar Tiles",
-      "eventsSection": "Events",
-      "eventsDesc": "Events you're attending",
-      "challengesSection": "Challenges",
-      "challengesDesc": "Challenges you're participating in",
-      "badgesSection": "Badges",
-      "badgesDesc": "Your collected badges",
-      "chatroomsSection": "Chatrooms",
-      "chatroomsDesc": "Chatrooms you're in",
-      "boardsSection": "Boards",
-      "boardsDesc": "Your boards",
-      "visibilityTip": "Tip: Hidden sections are only hidden from you - other users still see them. No, just kidding! They are completely hidden 😉",
-      "saveAll": "SAVE ALL",
-      "saving": "Saving...",
-      "profileSaved": "Profile successfully saved!",
-      "saveError": "Error saving. Please try again.",
-      "changeCover": "Change cover",
-      "uploading": "Uploading...",
-      "reposition": "Reposition",
-      "remove": "Remove",
-      "viewProfile": "View profile",
-      "coverPositioned": "Cover image positioned!",
-      "colorPreview": "COLOR PREVIEW",
-      "accent": "Accent",
-      "text": "Text",
-      "links": "Links",
-      "tips": "Tips:",
-      "tip1": "Hover over the banner to change it",
-      "tip2": "Click on your profile picture to change it",
-      "tip3": "Choose an accent color that suits you",
-      "confirmDelete": "Are you sure you want to delete this post?",
-      "deleteError": "Error deleting the post",
-      "postEdited": "Post successfully edited!",
-      "editError": "Error editing the post",
-      "geolocationNotSupported": "Geolocation is not supported by your browser.",
-      "geocodingFailed": "Geocoding failed",
-      "locationNotDetermined": "Location could not be determined.",
-      "locationNameError": "Error retrieving location name.",
-      "locationDenied": "Location access denied."
     }
   },
   "artist": {
@@ -895,38 +637,7 @@
         "reports": "Reports",
         "verifications": "Verifications",
         "tracking": "Tracking",
-        "moderation": "Moderation",
-        "chatrooms": "Chatrooms",
-        "users": "Users",
         "statistics": "Statistics"
-      },
-      "users": {
-        "title": "All Users",
-        "searchPlaceholder": "Search name, email, username...",
-        "allRoles": "All Roles",
-        "roleUser": "User",
-        "roleArtist": "Artist",
-        "roleAdmin": "Admin",
-        "allVerification": "All Status",
-        "verified": "Verified",
-        "pending": "Pending",
-        "rejected": "Rejected",
-        "refresh": "Refresh",
-        "loading": "Loading users...",
-        "totalUsers": "Total Users",
-        "verifiedArtists": "Verified Artists",
-        "pendingVerification": "Pending Verification",
-        "admins": "Admins",
-        "noUsers": "No users found",
-        "table": {
-          "avatar": "Avatar",
-          "name": "Name",
-          "email": "Email",
-          "role": "Role",
-          "status": "Status",
-          "joined": "Joined",
-          "actions": "Actions"
-        }
       },
       "stats": {
         "pendingListings": "Pending Listings",
@@ -1058,821 +769,10 @@
       "title": "Terms and Conditions"
     },
     "datenschutz": {
-      "title": "Privacy Policy",
-      "asOf": "As of",
-      "date": "December 2024",
-      "lastUpdated": "Last updated",
-      "s1": {
-        "title": "1. Privacy at a Glance",
-        "general": {
-          "title": "General Information",
-          "p1": "The following information provides a simple overview of what happens to your personal data when you use Varbe. Personal data is any data that can be used to personally identify you.",
-          "p2": "We take the protection of your personal data very seriously. We treat your personal data confidentially and in accordance with statutory data protection regulations and this privacy policy. Varbe only collects data that is absolutely necessary for the operation of the platform. We do not sell data to third parties and do not use invasive tracking technologies."
-        },
-        "whatWeCollect": {
-          "title": "What do we collect?",
-          "current": "Currently (Early Access)",
-          "currentItems": {
-            "account": "Account data upon registration (email, encrypted password, username)",
-            "profile": "Profile information (bio, artist name, profile picture, location optional)",
-            "usage": "Usage behavior (likes, follows, comments, chat messages)",
-            "technical": "Technical data (IP address, browser type, device)"
-          },
-          "future": "Future (when features go live)",
-          "futureItems": {
-            "discovery": "Discovery Feed interactions (views, swipes, preferences)",
-            "marketplace": "Marketplace data (transactions, shipping addresses, payment information via Stripe)",
-            "location": "Location data (only when you use Local Art Radar and grant permission)"
-          }
-        },
-        "howWeUse": {
-          "title": "How do we use your data?",
-          "items": {
-            "platform": "Provision and operation of the platform",
-            "account": "Account management and authentication",
-            "personalization": "Personalization of the Discovery Feed (when active)",
-            "communication": "Communication (updates, feature launches, support)",
-            "transactions": "Processing transactions (once Marketplace is active)",
-            "improvement": "Improving the platform through usage analysis",
-            "protection": "Protection against misuse and fraud"
-          }
-        },
-        "yourRights": {
-          "title": "Your Rights",
-          "intro": "You have the right at any time to:",
-          "items": {
-            "access": "Access your stored data",
-            "correction": "Correct inaccurate data",
-            "deletion": "Delete your data",
-            "restriction": "Restrict processing",
-            "portability": "Data portability",
-            "objection": "Object to processing",
-            "complaint": "Lodge a complaint with a supervisory authority"
-          }
-        }
-      },
-      "s2": {
-        "title": "2. Responsible Party",
-        "intro": "The party responsible for data processing on this website is:",
-        "germany": "Germany",
-        "phone": "Phone",
-        "responsibility": "The responsible party decides alone or jointly with others on the purposes and means of processing personal data (e.g., names, email addresses, etc.)."
-      },
-      "s3": {
-        "title": "3. Hosting and Technical Infrastructure",
-        "firebase": {
-          "intro": "Varbe is hosted on Firebase (Google Cloud Platform). The provider is:",
-          "ireland": "Ireland",
-          "processing": "When you use Varbe, Firebase collects various log files including your IP address. This is technically necessary for the operation of the website. Firebase processes data on our behalf and is bound by a data processing agreement (DPA).",
-          "usaTransfer": "Data Transfer to the USA",
-          "usaTransferText": "Google is certified under the EU-US Data Privacy Framework. Data transfer to the USA is based on Standard Contractual Clauses of the EU Commission.",
-          "legalBasis": "Legal Basis",
-          "legalBasisText": "Art. 6(1)(f) GDPR (legitimate interest in reliable hosting)",
-          "moreInfo": "More Information",
-          "firebasePrivacy": "Firebase Privacy"
-        },
-        "firestore": "We use Cloud Firestore from Firebase to store user data, profiles, artworks, comments, and other content structures. The data is stored encrypted and is subject to Firebase's privacy policy.",
-        "storage": "Uploaded images and media are stored in Firebase Storage. The data is encrypted during transmission and storage."
-      },
-      "s4": {
-        "title": "4. Data Collection and Processing",
-        "legalBasis": "Legal Basis",
-        "storageDuration": "Storage Duration",
-        "registration": {
-          "title": "4.1 Registration and Account Creation",
-          "intro": "When you register with Varbe, we collect the following data:",
-          "required": "Required Information",
-          "requiredItems": {
-            "email": "Email address",
-            "password": "Password (stored encrypted, never in plain text)",
-            "username": "Username / Display Name"
-          },
-          "optional": "Optional",
-          "optionalItems": {
-            "profilePic": "Profile picture",
-            "bio": "Bio / Artist description",
-            "artistName": "Artist name",
-            "location": "Location (city/country) for Local Art Radar",
-            "social": "Links to social media profiles",
-            "background": "Artistic background (for verification)"
-          },
-          "legalBasisText": "Art. 6(1)(b) GDPR (contract performance)",
-          "storageDurationText": "Until account deletion or upon your request"
-        },
-        "auth": {
-          "title": "4.2 Firebase Authentication",
-          "intro": "We use Firebase Authentication for user authentication. Firebase stores:",
-          "items": {
-            "email": "Email address",
-            "password": "Encrypted password",
-            "userId": "User ID (unique identifier)",
-            "timestamps": "Timestamps of registration and last login"
-          },
-          "socialLogin": "When using Social Login (Google OAuth, if implemented), additional profile data provided by the provider (name, profile picture) is collected.",
-          "legalBasisText": "Art. 6(1)(b) GDPR (contract performance)"
-        },
-        "verification": {
-          "title": "4.3 Artist Verification",
-          "intro": "During artist verification, we additionally collect:",
-          "items": {
-            "artworks": "At least 3 sample artworks (images)",
-            "background": "Description of artistic background",
-            "details": "Information about technique, style, previous exhibitions",
-            "aiDetection": "AI detection results (automated)"
-          },
-          "review": "This data is manually reviewed by our team and partially deleted after verification (only relevant profile information is retained).",
-          "legalBasisText": "Art. 6(1)(b) GDPR (contract performance) and Art. 6(1)(f) GDPR (legitimate interest in an AI-free platform)"
-        },
-        "content": {
-          "title": "4.4 Content (Artworks, Posts, Comments)",
-          "intro": "When you upload content to Varbe, we store:",
-          "items": {
-            "media": "Images / Media",
-            "details": "Title, description, tags",
-            "voiceNotes": "Voice Notes (optional, as audio file)",
-            "processVideos": "Process Videos (optional)",
-            "metadata": "Metadata (upload time, resolution, file size)"
-          },
-          "visibility": "Public Visibility",
-          "visibilityText": "All uploaded artworks and posts are publicly visible by default. Comments are linked to your profile and public.",
-          "legalBasisText": "Art. 6(1)(b) GDPR (contract performance)"
-        },
-        "usage": {
-          "title": "4.5 Usage Behavior and Interactions",
-          "intro": "We collect your usage behavior to improve the platform and personalize the Discovery Feed:",
-          "items": {
-            "likes": "Likes and favorites",
-            "follows": "Follows (artists you follow)",
-            "comments": "Comments",
-            "views": "Views on artworks",
-            "swipes": "Swipe behavior in Discovery Feed (when active)",
-            "searches": "Search history"
-          },
-          "purpose": "This data is used to show you relevant content and generate recommendations.",
-          "legalBasisText": "Art. 6(1)(f) GDPR (legitimate interest in a personalized user experience)",
-          "optOut": "You can object to personalization at info@varbe.org. In this case, you will receive non-personalized content."
-        },
-        "chat": {
-          "title": "4.6 Chat and Direct Messages",
-          "intro": "Messages in chat areas and Direct Messages (when active) are stored to enable communication. We do not read your messages except in cases of reported violations of community guidelines.",
-          "legalBasisText": "Art. 6(1)(b) GDPR (contract performance)",
-          "storageDurationText": "Messages are stored until you delete them or close your account."
-        }
-      },
-      "s5": {
-        "title": "5. Future Features and Data Processing",
-        "notice": "The following data processing will only take effect when the corresponding features are active. You will be notified by email in advance.",
-        "discovery": {
-          "title": "5.1 Discovery Feed Personalization",
-          "intro": "Once the Discovery Feed goes live, we will analyze your usage behavior in more detail:",
-          "items": {
-            "viewTime": "Time spent on artworks",
-            "swipes": "Swipe directions (up/down)",
-            "preferences": "Preferences for categories, styles, techniques",
-            "stories": "Interaction with Stories (listening to Voice Notes, watching Process Videos)"
-          },
-          "purpose": "This data is used to personalize the \"For You\" feed. You can switch to non-personalized feeds at any time.",
-          "legalBasisText": "Art. 6(1)(f) GDPR (legitimate interest)"
-        },
-        "local": {
-          "title": "5.2 Local Art Radar",
-          "intro": "If you want to use the Local Art Radar, we need your location data:",
-          "items": {
-            "current": "Current location (GPS coordinates, only during active use)",
-            "saved": "Location preferences (saved places)"
-          },
-          "important": "Important: Location data is only collected if you explicitly grant permission and actively use the feature. You can revoke permission at any time in your device settings.",
-          "legalBasisText": "Art. 6(1)(a) GDPR (consent)"
-        },
-        "marketplace": {
-          "title": "5.3 Marketplace and Payments",
-          "intro": "Once the Marketplace is active, we additionally process:",
-          "sellers": "For Sellers (Artists)",
-          "sellerItems": {
-            "stripe": "Stripe Connect account data (bank details, tax ID)",
-            "transactions": "Transaction history (sales, payouts)",
-            "shipping": "Shipping information"
-          },
-          "buyers": "For Buyers",
-          "buyerItems": {
-            "address": "Shipping address",
-            "payment": "Payment information (only via Stripe, we do not store credit card data)",
-            "orders": "Order history",
-            "tracking": "Tracking numbers"
-          },
-          "stripeTitle": "Payment Processing by Stripe",
-          "stripeText": "All payments are processed by Stripe Inc. Stripe processes credit card data and payment information. We only receive confirmations of successful payments, never your complete credit card data.",
-          "stripePrivacy": "Stripe Privacy",
-          "legalBasisText": "Art. 6(1)(b) GDPR (contract performance)",
-          "storageDurationText": "Transaction data is stored according to legal retention periods (10 years for tax purposes)."
-        }
-      },
-      "s6": {
-        "title": "6. Cookies and Tracking",
-        "cookies": {
-          "title": "6.1 Cookies",
-          "intro": "Varbe uses cookies to ensure the functionality of the website. Cookies are small text files stored on your device.",
-          "necessary": "Technically Necessary Cookies",
-          "necessaryItems": {
-            "session": "Session cookies for authentication",
-            "preferences": "Preference cookies for language settings"
-          },
-          "necessaryNote": "These cookies are essential for the operation of the website and are set without your consent.",
-          "legalBasisText": "Art. 6(1)(f) GDPR (legitimate interest)",
-          "analytics": "Optional: Analytics Cookies (consent required)",
-          "analyticsText": "We may use Google Analytics or similar tools to analyze user behavior. These cookies are only set if you consent.",
-          "analyticsLegalBasis": "Art. 6(1)(a) GDPR (consent)",
-          "management": "You can manage or delete cookies in your browser settings. Disabling cookies may limit the functionality of the website."
-        },
-        "analytics": {
-          "title": "6.2 Tracking and Analytics",
-          "firebaseText": "We use Firebase Analytics to obtain aggregated statistics about platform usage (e.g., number of users, popular features, error reports). The data is collected anonymously.",
-          "ipAnonymization": "IP Anonymization",
-          "ipAnonymizationText": "IP addresses are truncated so that no tracing to individual users is possible.",
-          "legalBasisText": "Art. 6(1)(f) GDPR (legitimate interest in improving the platform)",
-          "objection": "Right to Object",
-          "objectionText": "You can object to analysis at info@varbe.org."
-        },
-        "noTrackers": {
-          "title": "6.3 No Invasive Trackers",
-          "intro": "Varbe does not use:",
-          "items": {
-            "thirdParty": "Third-party advertising trackers"
-          },
-          "respect": "We respect your privacy and only use the minimally necessary tracking technologies."
-        }
-      },
-      "s7": {
-        "title": "7. Data Sharing with Third Parties",
-        "intro": "We do not share your personal data with third parties, except:",
-        "processors": {
-          "title": "7.1 Data Processors",
-          "items": {
-            "firebase": "Google Firebase / Google Cloud Platform (hosting, database)",
-            "stripe": "Stripe (payment processing, only for Marketplace usage)"
-          },
-          "note": "These service providers process data exclusively on our behalf and are bound by data processing agreements (DPA)."
-        },
-        "legal": {
-          "title": "7.2 Legal Obligations",
-          "text": "We may disclose data if we are legally obligated to do so (e.g., official requests, court orders) or to enforce our rights."
-        },
-        "merger": {
-          "title": "7.3 Sale or Merger",
-          "text": "In the event of a sale or merger of Varbe, your data may be transferred to the acquirer. You will be notified in advance."
-        }
-      },
-      "s8": {
-        "title": "8. Data Transfer to Third Countries",
-        "text1": "By using Google Firebase, data may be transferred to the USA. Google is certified under the EU-US Data Privacy Framework, which ensures an adequate level of data protection.",
-        "text2": "Additionally, we use Standard Contractual Clauses of the EU Commission as the legal basis for data transfer."
-      },
-      "s9": {
-        "title": "9. Data Security",
-        "intro": "We implement technical and organizational measures to protect your data:",
-        "technical": {
-          "title": "Technical Measures",
-          "items": {
-            "ssl": "SSL/TLS encryption for all data transmissions",
-            "passwords": "Encrypted storage of passwords (bcrypt/scrypt)",
-            "firewall": "Firewall and access restrictions on Firebase",
-            "updates": "Regular security updates",
-            "backups": "Backups for data recovery"
-          }
-        },
-        "organizational": {
-          "title": "Organizational Measures",
-          "items": {
-            "access": "Access to data only for authorized employees",
-            "confidentiality": "Confidentiality obligations for employees",
-            "assessments": "Data protection impact assessments for new features",
-            "incident": "Incident response plan for security incidents"
-          }
-        },
-        "disclaimer": "Despite all security measures, no data transmission over the Internet can be 100% secure. You use Varbe at your own risk."
-      },
-      "s10": {
-        "title": "10. Storage Duration",
-        "intro": "We only store your data for as long as necessary for the respective purposes:",
-        "items": {
-          "account": "Account Data",
-          "accountText": "Until account deletion",
-          "content": "Content (Artworks, Posts)",
-          "contentText": "Until you delete them or close your account",
-          "comments": "Comments",
-          "commentsText": "Anonymized upon account deletion but not deleted (to preserve discussions)",
-          "transactions": "Transaction Data (Marketplace)",
-          "transactionsText": "10 years (legal retention period for tax purposes)",
-          "logs": "Log Files",
-          "logsText": "90 days",
-          "analytics": "Analytics Data",
-          "analyticsText": "26 months (anonymized)"
-        }
-      },
-      "s11": {
-        "title": "11. Your Rights as a Data Subject",
-        "intro": "Under the GDPR, you have the following rights:",
-        "request": "Request",
-        "access": {
-          "title": "11.1 Right to Access (Art. 15 GDPR)",
-          "intro": "You can request information about your stored personal data at any time. The information is free of charge and includes:",
-          "items": {
-            "what": "What data is stored about you",
-            "purpose": "For what purposes the data is processed",
-            "recipients": "To whom the data has been disclosed",
-            "duration": "How long the data will be stored"
-          }
-        },
-        "correction": {
-          "title": "11.2 Right to Rectification (Art. 16 GDPR)",
-          "text": "You can request the correction of inaccurate data. Most profile data can be corrected by yourself in your account settings."
-        },
-        "deletion": {
-          "title": "11.3 Right to Erasure (Art. 17 GDPR)",
-          "intro": "You can request the deletion of your data (\"right to be forgotten\"). We will delete your data if:",
-          "items": {
-            "noLongerNeeded": "The data is no longer needed for the original purposes",
-            "consent": "You withdraw your consent (for consent-based processing)",
-            "objection": "You object and there are no overriding legitimate grounds for processing",
-            "unlawful": "The data was processed unlawfully"
-          },
-          "exceptions": "Exceptions",
-          "exceptionsText": "We may refuse deletion if legal retention periods apply (e.g., transaction data) or the data is needed for legal proceedings.",
-          "accountDeletion": "Account Deletion",
-          "accountDeletionText": "We will delete all your data within 30 days."
-        },
-        "restriction": {
-          "title": "11.4 Right to Restriction of Processing (Art. 18 GDPR)",
-          "intro": "You can request restriction of processing if:",
-          "items": {
-            "accuracy": "The accuracy of the data is contested",
-            "unlawful": "The processing is unlawful but you do not want deletion",
-            "legal": "The data is no longer needed but you need it for legal claims"
-          }
-        },
-        "portability": {
-          "title": "11.5 Right to Data Portability (Art. 20 GDPR)",
-          "text": "You can receive your data in a structured, machine-readable format and have it transferred to another provider.",
-          "request": "Request Data Export",
-          "format": "We will provide your data in JSON or CSV format."
-        },
-        "objection": {
-          "title": "11.6 Right to Object (Art. 21 GDPR)",
-          "text": "You can object to the processing of your data based on legitimate interests (Art. 6(1)(f) GDPR) at any time. We will stop processing unless we can demonstrate compelling legitimate grounds.",
-          "special": "In particular",
-          "specialText": "You can object to the personalization of the Discovery Feed at any time."
-        },
-        "withdrawal": {
-          "title": "11.7 Right to Withdraw Consent (Art. 7(3) GDPR)",
-          "text": "If processing is based on your consent (e.g., analytics cookies, location data), you can withdraw it at any time. The lawfulness of processing carried out before the withdrawal remains unaffected."
-        }
-      },
-      "s12": {
-        "title": "12. Right to Complain to Supervisory Authority",
-        "intro": "You have the right to lodge a complaint with a data protection supervisory authority if you believe that the processing of your data is unlawful.",
-        "authority": "Competent Supervisory Authority for Bremen"
-      },
-      "s13": {
-        "title": "13. Changes to This Privacy Policy",
-        "text1": "We reserve the right to adapt this privacy policy to comply with changed legal requirements or changes to our services.",
-        "text2": "For significant changes, registered users will be notified by email (at least 14 days before entry into force). The current version is always available at varbe.org/datenschutz.",
-        "recommendation": "Recommendation",
-        "recommendationText": "Visit this page regularly to stay informed about changes."
-      },
-      "s14": {
-        "title": "14. Privacy Contact",
-        "intro": "For questions about data protection or to exercise your rights:",
-        "subject": "Subject",
-        "subjectText": "Privacy Request",
-        "response": "We usually respond within 7 days."
-      },
-      "s15": {
-        "title": "15. SSL/TLS Encryption",
-        "text1": "This website uses SSL/TLS encryption for security reasons and to protect the transmission of confidential content. You can recognize an encrypted connection by the browser address bar changing from \"http://\" to \"https://\" and the lock symbol in your browser bar.",
-        "text2": "When SSL/TLS encryption is activated, the data you transmit to us cannot be read by third parties."
-      },
-      "footer": {
-        "contact": "For questions or concerns about privacy, please contact us at"
-      }
+      "title": "Privacy Policy"
     },
     "impressum": {
-      "title": "Legal Notice",
-      "germany": "Germany",
-      "ireland": "Ireland",
-      "date": "December 2024",
-      "lastUpdated": "Last Updated",
-      "s1": {
-        "title": "Information according to § 5 TMG",
-        "operator": "Operator and responsible for content",
-        "contact": "Contact",
-        "responsible": "Responsible for content according to § 18 para. 2 MStV"
-      },
-      "s2": {
-        "title": "Website Information",
-        "status": {
-          "title": "Platform Status",
-          "text": "Varbe is currently in Early Access. The platform is continuously being developed. Not all announced features are available yet. Changes and extensions are made gradually."
-        },
-        "dispute": {
-          "title": "Alternative Dispute Resolution",
-          "text1": "The European Commission provides a platform for online dispute resolution (ODR platform):",
-          "text2": "We are neither obligated nor willing to participate in dispute resolution proceedings before a consumer arbitration board."
-        }
-      },
-      "s3": {
-        "title": "Disclaimer",
-        "content": {
-          "title": "Liability for Content",
-          "text1": "As a service provider, we are responsible for our own content on this website according to § 7 para. 1 TMG under general laws. According to §§ 8 to 10 TMG, however, we are not obligated to monitor transmitted or stored third-party information or to investigate circumstances that indicate illegal activity.",
-          "text2": "Obligations to remove or block the use of information under general laws remain unaffected. However, liability in this regard is only possible from the time of knowledge of a specific infringement. Upon becoming aware of such violations, we will remove this content immediately."
-        },
-        "userContent": {
-          "title": "Liability for User-Generated Content",
-          "text1": "Varbe is a community platform where users (artists and art lovers) can upload and share their own content. We are not responsible for content created by users. Users are responsible for their uploaded content and guarantee that they have all necessary rights.",
-          "text2": "We reserve the right to remove illegal content as soon as we become aware of it. If you discover illegal content on Varbe, please report it immediately to:"
-        },
-        "links": {
-          "title": "Liability for Links",
-          "text1": "Our offer contains links to external third-party websites over whose content we have no influence. Therefore, we cannot assume any liability for this external content. The respective provider or operator of the pages is always responsible for the content of the linked pages.",
-          "text2": "The linked pages were checked for possible legal violations at the time of linking. Illegal content was not recognizable at the time of linking. However, permanent content control of the linked pages is not reasonable without concrete evidence of a violation.",
-          "text3": "Upon becoming aware of legal violations, we will remove such links immediately."
-        }
-      },
-      "s4": {
-        "title": "Copyright",
-        "own": {
-          "title": "Own Content",
-          "text1": "The content and works created by the site operator on this website are subject to German copyright law. This includes in particular:",
-          "items": {
-            "texts": "Texts and descriptions",
-            "design": "Design and layout",
-            "logos": "Logos and trademarks",
-            "code": "Code and technical implementation"
-          },
-          "text2": "Reproduction, editing, distribution, and any kind of use beyond the limits of copyright law require the written consent of the author. Downloads and copies of this site are only permitted for private, non-commercial use.",
-          "text3": "Where content on this site was not created by the operator, the copyrights of third parties are respected. In particular, third-party content is marked as such. Should you nevertheless become aware of a copyright infringement, please inform us accordingly. Upon becoming aware of legal violations, we will remove such content immediately."
-        },
-        "user": {
-          "title": "User-Generated Content",
-          "text1": "All artworks, texts, images, and other content uploaded by users are subject to the copyright of the respective author (artist). The copyright remains with the artists. By uploading to Varbe, users only grant the platform a right of use for display and distribution within the platform (see Terms and Conditions).",
-          "text2": "Unauthorized use of artworks published on Varbe (e.g., download and commercial use without the artist's permission) is strictly prohibited and may be prosecuted."
-        }
-      },
-      "s5": {
-        "title": "Data Protection",
-        "text": "The protection of your personal data is important to us. Detailed information about the collection, processing, and use of your data can be found in our Privacy Policy:"
-      },
-      "s6": {
-        "title": "Trademark Law",
-        "text": "Varbe is a registered trademark (registration pending). All rights reserved. The use of the name \"Varbe\", the logo, and other brand elements without express permission is prohibited."
-      },
-      "s7": {
-        "title": "Technical Implementation",
-        "hosting": "Hosting",
-        "payments": "Payment Processing (future)"
-      },
-      "s8": {
-        "title": "Contact for Legal Inquiries",
-        "intro": "For legal inquiries, DMCA takedown requests, copyright infringements, or other legal matters:",
-        "subject": "Subject",
-        "subjectText": "Legal Inquiry",
-        "note": "Please describe your matter in detail and attach relevant evidence. We will process your inquiry as quickly as possible."
-      },
-      "s9": {
-        "title": "Image Credits",
-        "intro": "All images used on the Varbe website (except user-generated content) are either:",
-        "items": {
-          "own": "Own creations of the Varbe team",
-          "cc": "Licensed under Creative Commons (CC0, CC BY)",
-          "stock": "Stock photos from licensed providers (Unsplash, Pexels)"
-        },
-        "note": "Specific image credits are available upon request."
-      },
-      "s10": {
-        "title": "Note on Phone Number",
-        "text1": "According to § 5 TMG, an email address is sufficient for the legal notice requirement, provided that quick electronic contact and direct communication is enabled. We check our emails regularly and usually respond within 24 hours (on business days).",
-        "text2": "For urgent matters, please note \"Urgent\" in the subject line."
-      },
-      "footer": {
-        "scope": "This legal notice applies to all Varbe domains and subdomains as well as all official Varbe social media presences."
-      }
-    },
-    "cookies": {
-      "title": "Cookie Policy",
-      "asOf": "As of",
-      "date": "December 2024",
-      "lastUpdated": "Last updated",
-      "germany": "Germany",
-      "ireland": "Ireland",
-      "legalBasis": "Legal Basis",
-      "storageDuration": "Storage Duration",
-      "provider": "Provider",
-      "control": "Control",
-      "objectionRight": "Right to Object",
-      
-      "whatAreCookies": {
-        "title": "What are Cookies?",
-        "text1": "Cookies are small text files that are stored on your computer or mobile device by websites when you visit them. They are used to make websites functional, more efficient, and to enable certain features.",
-        "text2": "Cookies cannot be used to run programs or transfer viruses to your computer. They are not harmful to you as a user but help websites run smoothly and prevent you from having to log in again with every visit."
-      },
-      
-      "philosophy": {
-        "title": "Our Cookie Philosophy",
-        "subtitle": "Transparency and Minimalism:",
-        "text": "Varbe only uses cookies that are absolutely necessary for the operation of the platform or that significantly improve your user experience. We don't believe in invasive tracking or aggressive marketing cookies. Your privacy is important to us.",
-        "notUsed": "What we DO NOT use",
-        "notUsedItems": {
-          "facebook": "No Facebook Pixel",
-          "tiktok": "No TikTok Pixel",
-          "thirdParty": "No third-party advertising trackers",
-          "crossSite": "No cross-site tracking",
-          "fingerprinting": "No fingerprinting",
-          "selling": "No selling of cookie data"
-        }
-      },
-      
-      "howWeUse": {
-        "title": "How does Varbe use Cookies?",
-        "intro": "We use different types of cookies for different purposes:"
-      },
-      
-      "necessary": {
-        "title": "1. Necessary Cookies (Essential)",
-        "note": "These cookies are essential for the website to function and are set without your consent.",
-        "intro": "These cookies enable basic functions such as security, authentication, and network management. Without these cookies, Varbe would not work. You cannot disable these cookies without significantly affecting the functionality of the website.",
-        "whatWeStore": "What we store",
-        "auth": {
-          "title": "Authentication & Session",
-          "items": {
-            "session": "Session cookies so you stay logged in",
-            "token": "Authentication tokens (Firebase Authentication)",
-            "userId": "User ID for associating your content",
-            "loginStatus": "Login status (logged in/logged out)"
-          }
-        },
-        "security": {
-          "title": "Security",
-          "items": {
-            "csrf": "CSRF token for protection against Cross-Site Request Forgery",
-            "fraud": "Security tokens to prevent fraud",
-            "rateLimit": "Rate-limiting cookies for spam protection"
-          }
-        },
-        "technical": {
-          "title": "Technical Functionality",
-          "items": {
-            "language": "Language setting (DE/EN)",
-            "theme": "Theme preference (if implemented)",
-            "consent": "Cookie consent status (so we don't ask you constantly)"
-          }
-        },
-        "legalBasisText": "Art. 6(1)(f) GDPR (legitimate interest in operating the website)",
-        "storageDurationText": "Session cookies: until browser is closed; Persistent cookies: maximum 30 days"
-      },
-      
-      "functional": {
-        "title": "2. Functional Cookies (Optional)",
-        "note": "These cookies enable enhanced features and are only set with your consent.",
-        "intro": "Functional cookies remember your preferences and make using Varbe more comfortable. They are not strictly necessary but significantly improve your user experience.",
-        "preferences": {
-          "title": "Settings & Preferences",
-          "items": {
-            "display": "Display settings (Grid/List View)",
-            "filters": "Filter preferences in Discovery Feed (when active)",
-            "savedFilters": "Saved search filters",
-            "categories": "Favorite categories",
-            "sorting": "Sorting preferences"
-          }
-        },
-        "discovery": {
-          "title": "Discovery Feed (once active)",
-          "items": {
-            "recentlyViewed": "Recently viewed artworks (to avoid duplicates)",
-            "feedPosition": "Feed position (so you can continue where you left off)",
-            "feedModes": "Preferred feed modes (For You, Following, Local, Explore)"
-          }
-        },
-        "legalBasisText": "Art. 6(1)(a) GDPR (consent)",
-        "storageDurationText": "12 months",
-        "control": "You can disable these cookies in the cookie settings."
-      },
-      
-      "analytics": {
-        "title": "3. Analytical Cookies (Optional)",
-        "note": "These cookies help us improve Varbe and are only set with your consent.",
-        "intro": "Analytical cookies collect anonymized information about how visitors use our website. This data helps us identify problems, improve user experience, and develop new features.",
-        "whatWeAnalyze": "What we analyze",
-        "firebase": {
-          "items": {
-            "visitors": "Number of visitors (anonymized)",
-            "features": "Popular features and pages",
-            "duration": "Average time spent",
-            "errors": "Error reports and crashes",
-            "technical": "Technical data (browser, device, screen size)"
-          }
-        },
-        "important": {
-          "title": "Important",
-          "items": {
-            "ipAnonymization": "IP addresses are truncated (IP anonymization)",
-            "noTracking": "No tracing to individual users possible",
-            "aggregated": "Data is only used in aggregated and anonymized form",
-            "noLinking": "No linking with your account"
-          }
-        },
-        "google": {
-          "ifImplemented": "if implemented",
-          "items": {
-            "ipAnonymization": "Only with IP anonymization",
-            "noCrossSite": "No tracking across multiple websites",
-            "optOut": "Opt-out possible at any time"
-          }
-        },
-        "legalBasisText": "Art. 6(1)(a) GDPR (consent)",
-        "storageDurationText": "26 months (anonymized)",
-        "objectionText": "You can object to analysis at any time at info@varbe.org or in the cookie settings."
-      },
-      
-      "marketing": {
-        "title": "4. Marketing Cookies",
-        "noMarketing": "We currently DO NOT use any marketing cookies.",
-        "intro": "Varbe does not use invasive marketing or remarketing cookies. We believe in organic growth and respect your privacy. There are:",
-        "notUsed": {
-          "tracking": "No behavioral tracking across multiple websites",
-          "ads": "No personalized ads based on your browsing",
-          "socialPixels": "No social media pixels (Facebook, Instagram, TikTok)",
-          "remarketing": "No remarketing campaigns that follow you"
-        },
-        "socialSharing": {
-          "title": "Social Media Sharing (optional)",
-          "text": "If you want to share content on social media, connections to these platforms are only established when you actively click the \"Share\" button. There are no passive social media trackers on Varbe."
-        },
-        "future": {
-          "title": "Future (with your consent)",
-          "text": "If we use limited marketing cookies in the future (e.g., for targeted artist acquisition campaigns), you will be informed in advance and asked for explicit consent."
-        }
-      },
-      
-      "thirdParty": {
-        "title": "Third-Party Cookies",
-        "intro": "Some cookies are set by third-party providers whose services we use to operate Varbe. These providers process data on our behalf and are bound by data processing agreements.",
-        "purpose": "Purpose",
-        "privacy": "Privacy",
-        "firebase": {
-          "purpose": "Hosting, authentication, database",
-          "cookies": "Firebase Authentication Cookies, Firebase Session Cookies, Firebase Analytics Cookies (consent only)",
-          "legalBasis": "Art. 6(1)(f) GDPR (necessary cookies) / Art. 6(1)(a) GDPR (Analytics)"
-        },
-        "stripe": {
-          "future": "future, for Marketplace use",
-          "purpose": "Secure payment processing",
-          "cookies": "Stripe Session Cookies, Fraud Detection Cookies",
-          "legalBasis": "Art. 6(1)(b) GDPR (contract performance)",
-          "note": "Important: Stripe cookies are only set when you start the checkout process. No Stripe cookies are set when browsing Varbe normally."
-        }
-      },
-      
-      "manage": {
-        "title": "How can you manage Cookies?",
-        "intro": "You have full control over the use of cookies on Varbe.",
-        "option1": {
-          "title": "Option 1: Cookie Banner (on first visit)",
-          "text": "On your first visit to Varbe, a cookie banner appears where you can choose:",
-          "acceptAll": "Accept all",
-          "acceptAllDesc": "All cookies are set (necessary + functional + analytical)",
-          "onlyNecessary": "Only necessary",
-          "onlyNecessaryDesc": "Only essential cookies (minimal setting)",
-          "settings": "Settings",
-          "settingsDesc": "Detailed selection of which cookie categories you want to allow"
-        },
-        "option2": {
-          "title": "Option 2: Change Cookie Settings",
-          "text": "You can change your cookie preferences at any time:",
-          "items": {
-            "accountSettings": "In account settings under \"Privacy & Cookies\"",
-            "footerLink": "Via the footer link \"Cookie Settings\"",
-            "email": "By email to info@varbe.org"
-          }
-        },
-        "option3": {
-          "title": "Option 3: Browser Settings",
-          "text": "You can also manage or delete cookies directly in your browser:",
-          "chrome": "Settings → Privacy and Security → Cookies and other site data",
-          "firefox": "Settings → Privacy & Security → Cookies and Site Data",
-          "safari": "Settings → Privacy → Manage Website Data",
-          "edge": "Settings → Cookies and site permissions → Manage and delete cookies and site data",
-          "safariIos": "Settings → Safari → Block All Cookies",
-          "chromeAndroid": "Chrome → Settings → Site settings → Cookies"
-        },
-        "option4": {
-          "title": "Option 4: Browser Plugins",
-          "text": "You can install browser extensions that automatically block cookies:"
-        },
-        "warning": "Important: Disabling all cookies can significantly affect the functionality of Varbe. You may not be able to log in or use certain features."
-      },
-      
-      "impact": {
-        "title": "Impact of Disabling Cookies",
-        "onlyNecessary": {
-          "title": "Only necessary cookies",
-          "can": {
-            "login": "Log in and stay authenticated",
-            "basic": "Use basic functions",
-            "upload": "Upload and share content"
-          },
-          "cannot": {
-            "preferences": "Preferences are not saved",
-            "recommendations": "No personalized recommendations"
-          }
-        },
-        "allDisabled": {
-          "title": "All cookies disabled",
-          "cannot": {
-            "login": "Login not possible",
-            "session": "No session management",
-            "website": "Website does not work"
-          }
-        },
-        "recommendation": "We recommend allowing at least the necessary cookies to use Varbe."
-      },
-      
-      "overview": {
-        "title": "Cookie Overview (Technical Details)",
-        "table": {
-          "name": "Cookie Name",
-          "type": "Type",
-          "purpose": "Purpose",
-          "duration": "Duration"
-        },
-        "types": {
-          "necessary": "Necessary",
-          "functional": "Functional",
-          "analytics": "Analytical"
-        },
-        "purposes": {
-          "session": "Session management",
-          "auth": "Authentication",
-          "language": "Language setting",
-          "theme": "Theme preference",
-          "consent": "Cookie consent"
-        },
-        "days": "days",
-        "months": "months",
-        "hours": "hours",
-        "updateNote": "This list is updated when new cookies are added."
-      },
-      
-      "changes": {
-        "title": "Changes to this Cookie Policy",
-        "intro": "We may update this cookie policy from time to time to reflect changes in our practices or when new features are rolled out.",
-        "significantChanges": "For significant changes",
-        "items": {
-          "email": "You will be notified by email (if you are registered)",
-          "banner": "A new cookie banner will appear asking for consent",
-          "blog": "Changes will be announced on the blog"
-        },
-        "recommendation": "Recommendation",
-        "recommendationText": "Visit this page occasionally to stay informed about our cookie practices.",
-        "versionHistory": "Version History",
-        "firstVersion": "First version (Early Access)"
-      },
-      
-      "faq": {
-        "title": "Frequently Asked Questions (FAQ)",
-        "q1": {
-          "question": "Why does Varbe use cookies at all?",
-          "answer": "Cookies are necessary for you to log in and stay logged in. Without cookies, you would have to log in again with every page view, which would be very impractical."
-        },
-        "q2": {
-          "question": "Does Varbe sell my cookie data?",
-          "answer": "No, never. We do not sell any data to third parties. We only use cookies to make Varbe better for you."
-        },
-        "q3": {
-          "question": "Can I use Varbe without cookies?",
-          "answer": "The website requires at least the necessary cookies for authentication and session management. All other cookies are optional."
-        },
-        "q4": {
-          "question": "Are my likes and follows tracked?",
-          "answer": "Your interactions (likes, follows, comments) are stored to personalize the Discovery Feed – but these are not \"cookies\", they are data in your account. You can object to personalization at any time."
-        },
-        "q5": {
-          "question": "What's the difference from Instagram/Facebook?",
-          "answer": "Instagram and Facebook use aggressive tracking cookies that follow you across many websites and use them for targeted advertising. Varbe doesn't do that. We only track what happens on our own platform and don't use the data for advertising."
-        }
-      },
-      
-      "contact": {
-        "title": "Contact",
-        "intro": "For questions about our cookie policy or your cookie settings:",
-        "subject": "Subject",
-        "subjectText": "Cookie Question",
-        "postalAddress": "Postal Address",
-        "responseTime": "We usually respond within 24 hours (on business days)."
-      },
-      
-      "footer": {
-        "scope": "This cookie policy applies to all Varbe domains (varbe.org and subdomains) as well as the Varbe mobile app."
-      }
+      "title": "Imprint"
     },
     "backToHome": "← Back to Homepage"
   },
@@ -1942,16 +842,7 @@
     "writeMessage": "Write message...",
     "send": "Send",
     "sending": "...",
-    "noMessages": "No messages yet",
-    "searchConversations": "Search conversations...",
-    "noResults": "No results",
-    "tryOtherSearch": "Try a different search term.",
-    "startConversation": "Start a conversation with an artist!",
-    "discoverArtists": "Discover artists",
-    "unknownUser": "Unknown user",
-    "sendError": "Error sending message",
-    "newMessage": "New message",
-    "loading": "Loading..."
+    "noMessages": "No messages yet"
   },
   "auth": {
     "login": {
@@ -2007,22 +898,6 @@
       "createAccount": "Create Account",
       "popupClosed": "Registration cancelled: You closed the popup window.",
       "popupBlocked": "Popup was blocked. Please allow popups for this site.",
-      "errors": {
-        "emailInUse": "This email is already registered. Try logging in or use Google login.",
-        "weakPassword": "Password is too weak. Please use at least 6 characters.",
-        "invalidEmail": "Please enter a valid email address.",
-        "acceptTerms": "Please accept the terms and privacy policy."
-      },
-      "terms": {
-        "heading": "Before you continue:",
-        "accept": "I accept the",
-        "termsLink": "Terms of Service",
-        "and": "and",
-        "privacyLink": "Privacy Policy"
-      },
-      "newsletter": {
-        "subscribe": "Yes, I want to receive the Varbe newsletter (optional)"
-      },
       "emailVerification": {
         "sent": "✅ Verification email sent!",
         "checkEmail": "Please check your email inbox and click the link to verify your account.",
@@ -2031,62 +906,6 @@
         "resend": "Resend verification email",
         "resendSuccess": "Verification email has been resent!"
       }
-    },
-    "verifyEmail": {
-      "loading": "Verifying email...",
-      "success": {
-        "title": "Email Verified!",
-        "message": "Your email has been successfully verified. You can now log in.",
-        "loginButton": "Log in now"
-      },
-      "error": {
-        "title": "Verification Failed",
-        "expiredHint": "You can register again to receive a new verification email.",
-        "loginButton": "Go to Login",
-        "registerButton": "Create New Account"
-      },
-      "errors": {
-        "missingToken": "No verification token found.",
-        "invalidToken": "The verification link is invalid.",
-        "tokenExpired": "The verification link has expired.",
-        "tokenUsed": "This verification link has already been used.",
-        "userNotFound": "User not found.",
-        "verificationFailed": "Verification failed. Please try again."
-      }
-    },
-    "setupUsername": {
-      "title": "Choose your username",
-      "subtitle": "Your unique @-name on Varbe",
-      "description": "Your username is your identity on Varbe. Others can find and mention you with it.",
-      "inputLabel": "Username",
-      "inputPlaceholder": "your_username",
-      "inputPrefix": "@",
-      "checking": "Checking availability...",
-      "available": "✅ This username is available!",
-      "taken": "❌ This username is already taken.",
-      "rules": {
-        "title": "Username rules:",
-        "length": "3-20 characters",
-        "characters": "Only lowercase letters, numbers, and underscores",
-        "start": "Must start with a letter",
-        "end": "Cannot end with an underscore"
-      },
-      "errors": {
-        "username_too_short": "Username must be at least 3 characters.",
-        "username_too_long": "Username can be at most 20 characters.",
-        "username_invalid_characters": "Only lowercase letters, numbers, and underscores allowed.",
-        "username_invalid_start": "Must start with a letter.",
-        "username_invalid_end": "Cannot end with an underscore.",
-        "username_consecutive_underscores": "No consecutive underscores allowed.",
-        "username_reserved": "This username is reserved.",
-        "username_taken": "This username is already taken.",
-        "user_not_found": "User not found.",
-        "unknown_error": "An unknown error occurred."
-      },
-      "submit": "Set username",
-      "submitting": "Saving...",
-      "success": "🎉 Perfect! Your username has been saved.",
-      "skipInfo": "You can change your username anytime in the settings."
     }
   },
   "notifications": {
@@ -2350,140 +1169,28 @@
   "pages": {
     "ueberUns": {
       "title": "About Varbe",
-      "tagline": "By artists, for artists. The social platform for real art.",
-      "intro": "Varbe will be the first Art Discovery Platform that truly unites Social Media and Marketplace. While Instagram suffocates artists with algorithms, DeviantArt gets flooded with AI garbage, and Etsy takes 35-40% fees, we're building something different: A platform where you can swipe through artworks like on TikTok, discover local artists near you, and buy directly from the artist. Completely AI-free, fair with only 10% fees, and without algorithm manipulation.",
-      "earlyAccess": "We're currently in Early Access. This means the big launch with Discovery Feed, Marketplace, and all features is coming in the next months. But you can already be part of it, connect with other artists and art lovers in our chat areas, and actively shape the platform. As a founding member, you're in from the start and get special benefits like a \"Founding Member\" badge and reduced fees when the Marketplace goes live.",
-      
-      "mission": {
-        "title": "Our Mission",
-        "subtitle": "Making art discoverable. Making artists visible.",
-        "text1": "We founded Varbe in 2024 in Bremen because we were simply frustrated as artists and art lovers. As artists, we see only 5% of our followers reached on Instagram. Our posts disappear in the algorithm while AI-generated \"art\" goes viral. We post something that took us weeks of work and get three likes. Meanwhile, Etsy takes 35-40% fees and DeviantArt gets flooded with AI spam.",
-        "text2": "As buyers, it's become impossible to find real originals. You scroll through hundreds of AI-generated images before you see a real artwork. And when you find one, you either pay horrendous gallery markups or don't know if the seller is legitimate.",
-        "text3": "We believe art discovery should be an experience, not a fight against algorithms. That's why we're building Varbe – a platform that combines the best of social media (Discovery, Community, Stories) with the best of marketplaces (direct sales, fair prices, buyer protection). And most importantly: We work for artists, not against them."
+      "heroTitle": "By artists, for artists. And for everyone who loves real art.",
+      "heroDesc": "Varbe is the art marketplace that offers fair prices, buyer protection and genuine originals directly from independent artists. No fakes. No AI spam. Just real art.",
+      "missionTitle": "Our Mission",
+      "missionText1": "Varbe was founded to give artists a fair platform where they can sell their works directly to art lovers – without exorbitant fees or complicated intermediaries.",
+      "missionText2": "We believe art should be accessible to everyone. That's why you'll find artworks from €10 on Varbe – from emerging talents to established artists.",
+      "whyTitle": "Why Varbe is better",
+      "why": {
+        "fairPrices": { "title": "✅ Fair Prices", "desc": "90% of the money goes directly to the artists. We only take a small fee for the platform and buyer protection." },
+        "buyerProtection": { "title": "✅ Buyer Protection", "desc": "14-day money-back guarantee. If you're not satisfied, you'll get your money back." },
+        "direct": { "title": "✅ Direct from Artist", "desc": "No intermediary, no gallery fees. You buy directly from the artist and support them directly." },
+        "curated": { "title": "✅ Curated", "desc": "Every artist is manually verified. No fakes, no spam, just real art." },
+        "diverse": { "title": "✅ Diverse", "desc": "From painting to photography to digital art – find exactly what you're looking for." },
+        "secure": { "title": "✅ Secure", "desc": "Secure payments via Stripe, encrypted data transmission and transparent terms and conditions." }
       },
-      
-      "different": {
-        "title": "What makes Varbe different?",
-        "discovery": {
-          "title": "Discover art like on TikTok",
-          "text1": "Imagine scrolling through Instagram or TikTok – but instead of Reels, you see stunning artworks in full screen. That's exactly how our Discovery Feed will work. Swipe up for the next piece, double-tap to like, and get inspired by real art instead of being manipulated by algorithms.",
-          "text2": "The feed will be personalized, but without the games Instagram plays. When you follow an artist, you actually see their posts. No shadow bans, no artificial reach throttling, no \"post daily or die\" culture. Your Following feed is chronological, honest, and transparent. You can work at your own pace and don't have to worry about your reach dropping if you take a week off."
-        },
-        "stories": {
-          "title": "Every artwork tells a story",
-          "text1": "An artwork is more than just a pretty picture. Behind every piece is a process, an inspiration, a story. That's why artists on Varbe can record voice notes for each work – 30 seconds where they share how the piece was created, what it means, or which technique they used.",
-          "text2": "You'll be able to see behind-the-scenes process videos showing how a blank canvas became a finished artwork. Or read short text stories about the inspiration behind the piece. Art transforms from product to experience. You're not just buying an image, but a story, a connection to the artist, a piece of creative energy."
-        },
-        "local": {
-          "title": "Find art near you",
-          "text1": "Art doesn't just exist on screens. In your city, there are probably dozens of talented artists you've never discovered. Our Local Art Radar will show you on an interactive map where art is being created near you. You'll get notifications like \"New art posted 500m away\" and can discover local studios, Open Studio Events, and exhibitions.",
-          "text2": "Maybe you live just two streets from a painter whose style you love. Maybe there's a ceramics studio in your neighborhood you've never noticed. The Local Art Radar brings the online and offline art world together. Because ultimately, it's not just about buying, but about getting to know the real people behind the art."
-        },
-        "community": {
-          "title": "Community instead of just follower counts",
-          "text1": "Yes, there will be followers on Varbe – you can follow artists and they can follow you. But we don't believe success should be measured by follower counts. Instead, we're building features that create real connections instead of superficial engagement.",
-          "text2": "Artist Circles will be small private groups of up to ten artists who support each other, give constructive feedback, and grow together. No public comments, no likes, just honest critique among like-minded people. This is where real friendships and accountability partnerships form.",
-          "text3": "Our Weekly Art Challenges will bring the community together: A prompt is published, everyone has 48 hours to create something, and the community votes for their favorites. Winners get featured in the Main Feed and earn badges. It's not about posting daily or feeding the algorithm – it's about quality over quantity."
-        }
-      },
-      
-      "better": {
-        "title": "Why Varbe is better",
-        "aiFree": {
-          "title": "100% AI-Free Zone",
-          "text": "We have zero tolerance for AI-generated art. Every artist is manually verified. We use AI detection on every upload. All real artists get a \"Verified Human Artist\" badge. If AI is suspected, there's immediate suspension and permanent ban. We protect our community uncompromisingly. Your art won't be mixed with AI garbage and won't disappear among thousands of AI-generated images."
-        },
-        "fairFees": {
-          "title": "Fair conditions for artists",
-          "text1": "When our Marketplace goes live, we only take 10% fee per sale – maximum €10. No monthly fees, no listing fees, no hidden costs. In comparison: Etsy takes 35-40%, galleries often take 50%. With us, 90% of the money goes directly to you. Payout is automatic via Stripe Connect. Transparent, fair, honest.",
-          "text2": "But most importantly: You don't have to sell anything to be part of the community. Varbe is first and foremost a Discovery Platform. The Marketplace is optional. You can use Varbe to show your art, build a community, connect with other artists – completely without sales pressure."
-        },
-        "protection": {
-          "title": "Buyer protection and security",
-          "text": "Once the Marketplace launches, there's a 14-day money-back guarantee. Secure payment via Stripe. Tracking with every shipment. If there are problems: full purchase price back. You buy directly from the artist, not through intermediaries, but with the security you know from major platforms."
-        },
-        "noAlgorithm": {
-          "title": "No algorithm hell",
-          "text": "Your art, your control. The chronological feed for your followers shows everything you post. Featured Artists are curated, not \"promoted\". No shadow bans, no artificial reach throttling, no black-box algorithms. Transparent visibility. If you make good art and build a community, you'll be seen – regardless of how often you post or whether you spend money on ads."
-        }
-      },
-      
-      "story": {
-        "title": "Our Story",
-        "text1": "Varbe was founded in 2024 in Bremen by a team made up of artists and art lovers. We've experienced the frustration ourselves. We spent weeks on an artwork, posted it on Instagram, and got three likes while an AI-generated image went viral. We sold on Etsy and paid 40% fees. We tried to find real art on DeviantArt and had to scroll through hundreds of AI spam images.",
-        "text2": "At the same time, we've seen how platforms like TikTok and Instagram find new ways to discover content. How local communities on Meetup and Discord create real connections. How Patreon and Gumroad enable artists to live directly from their community.",
-        "text3": "We thought: Why isn't there a platform that combines all of this? A platform that makes art discovery as easy as TikTok but is as fair as Patreon. That connects local communities like Meetup but scales globally like Instagram. That consistently excludes AI and truly puts artists at the center.",
-        "text4": "So we built Varbe. Or rather: We're building it right now. Because we don't want to do this alone. We want to build Varbe together with the community – with artists who understand what's missing, and with art lovers who appreciate real art."
-      },
-      
-      "status": {
-        "title": "Current Status",
-        "intro": "We're in Early Access. This means many features are still coming in the next months.",
-        "text1": "The Discovery Feed is in development. The Marketplace is coming later. The Local Art Radar is being rolled out. But you can already be part of it.",
-        "text2": "Currently you can create a profile, register and get verified as an artist, follow updates in our blog, and connect with other founding members in the chat areas. You're in from the start. You can give feedback that flows directly into development. You get a \"Founding Member\" badge. And when the Marketplace goes live, you'll benefit from reduced fees in the first months. We could develop for two more years and then do a \"perfect\" launch. But we believe in Community-First. We want to build Varbe together with the people we're building it for. That's why we're opening the doors now, even if not everything is finished yet."
-      },
-      
-      "features": {
-        "title": "Features in Detail",
-        "discovery": {
-          "badge": "IN DEVELOPMENT",
-          "title": "Discovery Feed",
-          "text": "The vertical full-screen feed will have four modes: \"For You\" shows personalized art based on your likes. \"Following\" shows everything chronologically from artists you follow. \"Local\" shows art from your city or region. \"Explore\" shows curated highlights from the community. You can switch between modes and get exactly the type of content you want to see."
-        },
-        "profiles": {
-          "title": "Artist Profiles",
-          "text": "Your profile will show a timeline view of your artistic development. You can create portfolio collections for curated series. A \"Work in Progress\" section shows what you're currently working on. Your Artist DNA Profile visualizes your style through tags, techniques, and influences. Other artists can visit your profile, follow you, nominate you for Circles, or challenge you to Challenges."
-        },
-        "community": {
-          "title": "Community Features",
-          "text": "Comments will be substantial – no \"cool\" or \"nice\" one-worders. Minimum 15 characters so real conversations can happen. Artist Circles for private critique and support. Weekly Challenges for community engagement. A badge system that's not based on follower counts but on real participation. And Direct Messages once the chat system is rolled out."
-        },
-        "marketplace": {
-          "badge": "COMING LATER",
-          "title": "Marketplace",
-          "text": "When the Marketplace goes live, you can list artworks with just a few clicks. Set a price, specify shipping options, done. When sold, everything runs automatically: Payment via Stripe, notification to you, shipping with tracking, money release after buyer protection period, automatic payout on the 15th of the month. You don't have to worry about anything – except packing and shipping your artwork."
-        }
-      },
-      
-      "join": {
-        "title": "Become part of the Varbe Community",
-        "artists": {
-          "title": "For Artists",
-          "text": "Create your profile for free now. Get verified and become part of the founding community. Connect with other artists in the chat areas. Give feedback on platform development. And be ready when the Discovery Feed and Marketplace go live – then you can hit the ground running.",
-          "benefits": "As an Early Access member, you get the \"Founding Member\" badge, get featured preferentially, and receive reduced fees in the first months. You're not just a user, you're a co-creator."
-        },
-        "lovers": {
-          "title": "For Art Lovers",
-          "text": "Even if the Discovery Feed isn't live yet – you can already become part of the community. Get to know the first artists. Follow the blog for updates. Join discussions in the chat areas. And be ready when Varbe fully launches – then a world full of real, handmade art awaits you."
-        }
-      },
-      
-      "next": {
-        "title": "What's Next?",
-        "text": "In the coming weeks and months, we'll be rolling out step by step: Discovery Feed Beta for first users. Artist Circles and Challenge system. Local Art Radar with interactive map. Marketplace for sales with buyer protection. Mobile app for iOS and Android. And much more, based on your feedback.",
-        "updates": "We'll keep you updated via the blog and email. Every new feature will be announced and beta testers from the Early Access community get first access."
-      },
-      
-      "contact": {
-        "title": "Contact",
-        "subtitle": "Questions? Feedback? Ideas?",
-        "email": "Write us"
-      },
-      
-      "cta": {
-        "join": "JOIN NOW",
-        "blog": "READ BLOG",
-        "chat": "COMMUNITY CHAT",
-        "slogan": "Discover art. Support artists. No AI bullshit."
-      },
-      
-      "badges": {
-        "noAi": "NO AI ART",
-        "fees": "ONLY 10% FEES",
-        "owned": "ARTIST-OWNED",
-        "local": "LOCAL COMMUNITY",
-        "earlyAccess": "EARLY ACCESS NOW"
-      }
+      "storyTitle": "Our Story",
+      "storyText1": "Varbe was founded in 2024 in Bremen by a team that is itself made up of artists and art lovers. We've experienced the frustration that many artists have: too high fees, complicated processes and little control over their own sales.",
+      "storyText2": "At the same time, as buyers we've found it difficult to find genuine originals – without overpriced gallery prices or the risk of fakes.",
+      "storyText3": "Varbe is our solution: A platform that is fair, transparent and simple – for artists and buyers alike.",
+      "ctaTitle": "Become part of the Varbe community",
+      "ctaText": "Discover unique artworks or sell your own works.",
+      "ctaDiscover": "Discover Art",
+      "ctaSell": "Sell as Artist"
     },
     "kuenstler": {
       "title": "For Artists",
@@ -2564,8 +1271,18 @@
       "heroTitle": "Have questions? We're happy to help!",
       "heroDesc": "Contact us by email or use the contact form.",
       "emailTitle": "📧 Email",
-      "email": "info@varbe.org",
+      "email": "olandoheeke00@gmail.com",
       "emailDesc": "We usually respond within 24 hours.",
+      "phoneTitle": "📞 Phone",
+      "phone": "015227027977",
+      "phoneDesc": "Available Monday to Friday, 9:00 AM - 6:00 PM.",
+      "addressTitle": "📍 Address",
+      "address": "Fesenfeld 12, 28203 Bremen, Germany",
+      "addressDesc": "Visits by appointment only.",
+      "hoursTitle": "⏰ Support Hours",
+      "hoursDays": "Monday - Friday",
+      "hoursTime": "9:00 AM - 6:00 PM",
+      "hoursNote": "Weekends and holidays: Responses may take longer.",
       "formTitle": "Contact Form",
       "formName": "Name *",
       "formEmail": "Email *",
@@ -2600,554 +1317,7 @@
       "newsletterDesc": "Receive the latest articles weekly directly in your inbox.",
       "newsletterPlaceholder": "your@email.com",
       "newsletterButton": "Subscribe",
-      "loading": "Loading article...",
-      "pageTitle": "VARBE BLOG",
-      "pageSubtitle": "Tips, tutorials and insights from the art community",
-      "writePost": "WRITE YOUR OWN POST",
-      "allLanguages": "ALL LANGUAGES",
-      "allCategories": "ALL CATEGORIES",
-      "loadingPosts": "Loading posts...",
-      "noPosts": "NO POSTS YET",
-      "noPostsInCategory": "There are no posts in this category yet.",
-      "postsComingSoon": "Exciting blog posts will appear here soon!",
-      "writeFirstPost": "WRITE FIRST POST",
-      "minReadTime": "min read",
-      "stayInformed": "STAY INFORMED",
-      "newsletterInfo": "Get new blog posts and updates directly to your inbox.",
-      "subscribe": "SUBSCRIBE",
-      "categories": {
-        "tutorial": "TUTORIAL",
-        "tips": "TIPS & TRICKS",
-        "artist_spotlight": "ARTIST SPOTLIGHT",
-        "community": "COMMUNITY",
-        "news": "NEWS",
-        "announcement": "ANNOUNCEMENT"
-      }
-    }
-  },
-  "challenges": {
-    "hero": {
-      "badge": "Live Challenges",
-      "title": "ART",
-      "titleHighlight": "CHALLENGES",
-      "description": "Join daily & weekly challenges. Collect likes. Win badges.",
-      "activeArtists": "Active Artists",
-      "submissions": "Submissions",
-      "activeChallenges": "Active Challenges"
-    },
-    "daily": {
-      "badge": "24H Challenge",
-      "endsIn": "Ends in"
-    },
-    "weekly": {
-      "badge": "Weekly Challenge",
-      "endsIn": "Ends in"
-    },
-    "stats": {
-      "participants": "Participants",
-      "submissions": "Submissions"
-    },
-    "actions": {
-      "joinNow": "Join Now",
-      "submitted": "Submitted!",
-      "loginToJoin": "Login to Join"
-    },
-    "leaderboard": {
-      "title": "Leaderboard",
-      "sortedByLikes": "Sorted by Likes"
-    },
-    "empty": {
-      "title": "No submissions yet",
-      "description": "Be the first to show the community your work!",
-      "submitFirst": "Submit first entry"
-    },
-    "upload": {
-      "selectImage": "Select Image",
-      "dragHint": "Click or drag an image here",
-      "captionPlaceholder": "Add description (optional)",
-      "submit": "Submit",
-      "uploading": "Uploading...",
-      "errorImage": "Please select an image.",
-      "errorSize": "Image must be max 10MB.",
-      "errorAlready": "You already participated in this challenge!"
-    },
-    "comments": {
-      "title": "Comments",
-      "placeholder": "Write a comment...",
-      "empty": "No comments yet",
-      "beFirst": "Be the first!",
-      "ownSubmission": "You can't comment on your own submission",
-      "loginToComment": "Login to comment"
-    },
-    "badges": {
-      "title": "Collect Badges",
-      "description": "The more you participate and win, the more badges you collect!"
-    },
-    "loading": "Loading Challenges..."
-  },
-  "badgesPage": {
-    "title": "BADGES",
-    "description": "Collect badges through activity on Varbe. The rarer the badge, the more points!",
-    "ofBadges": "of {total} Badges",
-    "points": "Points",
-    "progress": "Progress",
-    "category": "Category",
-    "all": "All",
-    "rarity": "Rarity",
-    "onlyUnlocked": "Only Unlocked",
-    "badges": "Badges",
-    "noBadgesFound": "No badges found",
-    "tryOtherFilters": "Try other filters",
-    "howToEarn": "HOW DO I EARN BADGES?",
-    "rarityLevels": "RARITY LEVELS",
-    "unlockedOn": "Unlocked on",
-    "unlocked": "BADGE UNLOCKED!",
-    "awesome": "AWESOME!",
-    "showLocked": "Show locked",
-    "yourAchievements": "YOUR ACHIEVEMENTS",
-    "daysStreak": "Days Streak",
-    "totalProgress": "Total Progress",
-    "categories": {
-      "artist": "Artist",
-      "buyer": "Buyer",
-      "community": "Community",
-      "special": "Special",
-      "easter_egg": "Secret"
-    },
-    "categoryDescriptions": {
-      "artist": "Sell artworks, upload videos, get good reviews",
-      "buyer": "Buy art, write reviews, follow artists",
-      "community": "Like, comment, share and help others",
-      "easter_egg": "Hidden achievements - can you find them all?"
-    },
-    "rarities": {
-      "common": "Common",
-      "uncommon": "Uncommon",
-      "rare": "Rare",
-      "very_rare": "Very Rare",
-      "legendary": "Legendary"
-    },
-    "badgeNames": {
-      "first_sale": "The Beginning",
-      "ten_sales": "Ten in the Bag",
-      "hot_artwork": "Hot Item",
-      "founder": "Founder",
-      "century_work": "Century Work",
-      "rocket": "Rocket",
-      "storyteller": "Storyteller",
-      "precise": "Precise",
-      "perfectionist": "Perfectionist",
-      "globetrotter": "Globetrotter",
-      "hundred_sales": "Hundred!",
-      "verified_artist": "Verified Artist",
-      "ki_free_verified": "AI-Free",
-      "first_purchase": "Art Lover",
-      "collector": "Collector",
-      "local_patron": "Local Patron",
-      "gift_giver": "Gift Giver",
-      "explorer": "Explorer",
-      "bargain_hunter": "Bargain Hunter",
-      "critic": "Critic",
-      "patron": "Patron",
-      "mega_collector": "Mega Collector",
-      "heart_giver": "Heart Giver",
-      "chatterbox": "Chatterbox",
-      "event_master": "Event Master",
-      "networker": "Networker",
-      "democrat": "Democrat",
-      "helper": "Helper",
-      "super_fan": "Super Fan",
-      "birthday": "Birthday Kid",
-      "halloween": "Spooky Artist",
-      "christmas": "Christmas Shopper",
-      "pride": "Pride Supporter",
-      "beta_tester": "Beta Tester",
-      "first_hundred": "The First 100",
-      "early_bird": "Early Bird",
-      "first_artist": "Pioneer",
-      "champion": "Varbe Champion",
-      "streak_week": "Week Complete!",
-      "streak_month": "Month Done!",
-      "streak_year": "Year Champion",
-      "easter_egg_hunter": "Egg Hunter",
-      "night_owl": "Night Owl",
-      "lucky": "Lucky One",
-      "leet": "Leet",
-      "unicorn": "Unicorn",
-      "perfect_number": "Perfect Number"
-    },
-    "badgeDescriptions": {
-      "first_sale": "Sell your first artwork on Varbe",
-      "ten_sales": "10 artworks sold",
-      "hot_artwork": "One artwork was favorited over 50 times",
-      "founder": "One of the first 100 artists on Varbe",
-      "century_work": "Sell an artwork for over €1,000",
-      "rocket": "3 artworks sold in one week",
-      "storyteller": "Upload 10 artworks with video story",
-      "precise": "10 artworks sold without returns",
-      "perfectionist": "5-star average with 20+ reviews",
-      "globetrotter": "Artworks sold to 10 different cities",
-      "hundred_sales": "100 artworks sold",
-      "verified_artist": "Verified as artist on Varbe",
-      "ki_free_verified": "Verified as 100% AI-free artist",
-      "first_purchase": "Buy your first artwork",
-      "collector": "10 artworks purchased",
-      "local_patron": "5 artworks from your city purchased",
-      "gift_giver": "Gift 3 artworks",
-      "explorer": "Follow 20 artists",
-      "bargain_hunter": "Win 3 auctions under starting price +10%",
-      "critic": "Write 10 reviews",
-      "patron": "Support an artist with subscription",
-      "mega_collector": "50 artworks purchased",
-      "heart_giver": "Give 100 likes in the feed",
-      "chatterbox": "Write 50 comments",
-      "event_master": "Visit 5 artist events/studios",
-      "networker": "Share 20 artworks",
-      "democrat": "Participate in 10 community votes",
-      "helper": "Help 5 artists with verification",
-      "super_fan": "Follow 50 artists",
-      "birthday": "Be active on Varbe's birthday",
-      "halloween": "Sell an artwork in October with Halloween theme",
-      "christmas": "Buy 3 gifts in December",
-      "pride": "Support LGBTQ+ artists in Pride Month",
-      "beta_tester": "Was there during the beta",
-      "first_hundred": "One of the first 100 users on Varbe",
-      "early_bird": "Registered in 2024",
-      "first_artist": "One of the first 50 verified artists",
-      "champion": "Reach 50 achievements",
-      "streak_week": "7 days activity streak",
-      "streak_month": "30 days activity streak",
-      "streak_year": "365 days activity streak",
-      "easter_egg_hunter": "Find the hidden Easter Egg on the homepage",
-      "night_owl": "Buy an artwork between 2-4 AM",
-      "lucky": "Win the Varbe lottery",
-      "leet": "Your user ID ends in 1337",
-      "unicorn": "Find the secret unicorn artwork",
-      "perfect_number": "Spend exactly €100 on an artwork"
-    }
-  },
-  "appComingSoon": {
-    "title": "APP COMING SOON!",
-    "subtitle": "We're currently working on the VARBE App for iOS and Android. Swipe-Discovery, Offline-Mode and more - right in your pocket.",
-    "developmentStatus": "DEVELOPMENT STATUS",
-    "design": "Design",
-    "coreFeatures": "Core Features",
-    "testing": "Testing",
-    "release": "Release",
-    "done": "DONE",
-    "inProgress": "IN PROGRESS",
-    "soon": "SOON",
-    "percentDone": "DONE",
-    "whatToExpect": "WHAT TO EXPECT",
-    "swipeFeed": "SWIPE FEED",
-    "localRadar": "LOCAL RADAR",
-    "pushAlerts": "PUSH ALERTS",
-    "offlineMode": "OFFLINE MODE",
-    "useWebApp": "Until then, just use our web app:",
-    "registerNow": "REGISTER NOW",
-    "discoverFeed": "DISCOVER FEED →"
-  },
-  "feed": {
-    "loading": "Loading feed...",
-    "noPostsYet": "No posts yet",
-    "beTheFirst": "Be the first to post something!",
-    "createFirstPost": "Create first post",
-    "becomeArtist": "Become an artist",
-    "whatAreYouWorkingOn": "What are you working on?",
-    "post": "Post",
-    "newPost": "New Post",
-    "loadMore": "Load more",
-    "justNow": "Just now",
-    "pendingReview": "Under review",
-    "postDetail": {
-      "back": "Back",
-      "postNotFound": "Post not found",
-      "postNotFoundDesc": "This post does not exist or has been deleted.",
-      "toHomepage": "To Homepage",
-      "postUnderReview": "Post is under review",
-      "postUnderReviewDesc": "This post is currently being reviewed by an admin.",
-      "unknown": "Unknown",
-      "report": "Report",
-      "image": "Image",
-      "comments": "Comments",
-      "writeComment": "Write a comment...",
-      "sending": "Sending...",
-      "comment": "Comment",
-      "loginToComment": "Log in to comment.",
-      "login": "Log in",
-      "noComments": "No comments yet. Be the first!",
-      "fullscreen": "Fullscreen",
-      "reportPost": "Report Post",
-      "whyReport": "Why do you want to report this post?",
-      "inappropriateContent": "Inappropriate content",
-      "hateSpeech": "Hate speech or harassment",
-      "spam": "Spam",
-      "aiArt": "AI-generated art",
-      "copyright": "Copyright violation",
-      "other": "Other",
-      "describeProblem": "Please describe the problem...",
-      "cancel": "Cancel",
-      "reportSuccess": "Report submitted. Thank you for your help!",
-      "reportError": "Error reporting. Please try again.",
-      "reporting": "Reporting...",
-      "errorCommenting": "Error commenting"
-    }
-  },
-  "blogCreate": {
-    "title": "NEW BLOG POST",
-    "backToOverview": "Back to overview",
-    "editor": "EDITOR",
-    "preview": "PREVIEW",
-    "titleLabel": "TITLE",
-    "titlePlaceholder": "A meaningful title...",
-    "excerptLabel": "EXCERPT",
-    "excerptPlaceholder": "A short description for the preview (max. 200 characters)...",
-    "coverImage": "COVER IMAGE",
-    "uploading": "Uploading...",
-    "clickToUpload": "Click to upload",
-    "content": "CONTENT (MARKDOWN)",
-    "contentPlaceholder": "Write your content in Markdown here...",
-    "language": "LANGUAGE",
-    "category": "CATEGORY",
-    "tags": "TAGS",
-    "tagsPlaceholder": "art, tips, beginner (comma separated)",
-    "publish": "PUBLISH",
-    "saveDraft": "SAVE AS DRAFT",
-    "tips": "TIPS",
-    "tip1": "Use meaningful titles",
-    "tip2": "Add images for more engagement",
-    "tip3": "Share practical tips",
-    "tip4": "Markdown is automatically formatted",
-    "notLoggedIn": "NOT LOGGED IN",
-    "login": "LOGIN",
-    "onlyVerifiedArtists": "ONLY FOR VERIFIED ARTISTS",
-    "verifyNow": "VERIFY NOW",
-    "errorUploadingImage": "Error uploading image",
-    "errorTitle": "Please enter a title",
-    "errorExcerpt": "Please enter an excerpt",
-    "errorContent": "Please enter content",
-    "errorSaving": "Error saving post",
-    "bold": "bold",
-    "italic": "italic",
-    "heading": "Heading",
-    "subHeading": "Sub-Heading",
-    "list": "List"
-  },
-  "feedCreate": {
-    "title": "NEW POST",
-    "whatToShare": "What do you want to share?",
-    "yourPost": "Your Post",
-    "postPlaceholder": "What are you working on? Share thoughts, updates, or tell the story behind your work...",
-    "images": "Images (max. 5)",
-    "compressing": "Compressing",
-    "linkArtwork": "Link to artwork (optional)",
-    "linkArtworkDesc": "Link your post to one of your artworks - so fans can buy directly!",
-    "selectArtwork": "Select artwork",
-    "chooseArtwork": "Choose artwork",
-    "noActiveListings": "You don't have any active listings yet",
-    "tags": "Tags (max. 5)",
-    "addTag": "Add tag...",
-    "cancel": "Cancel",
-    "posting": "Posting...",
-    "post": "Post",
-    "onlyVerifiedArtists": "Only for verified artists",
-    "onlyVerifiedArtistsDesc": "You must be a verified artist to create posts in the feed.",
-    "verifyNow": "Verify now",
-    "error": "Error",
-    "errorCreating": "Error creating",
-    "postTypes": {
-      "artwork": "New Work",
-      "artworkDesc": "Show your latest artwork",
-      "process": "Process",
-      "processDesc": "Share your creative process",
-      "sketch": "Sketch",
-      "sketchDesc": "A sketch or work-in-progress",
-      "thought": "Thoughts",
-      "thoughtDesc": "Share thoughts on art & life",
-      "update": "Update",
-      "updateDesc": "General update",
-      "announcement": "Announcement",
-      "announcementDesc": "Important announcement"
-    }
-  },
-  "feedComingSoon": {
-    "title": "FEED COMING SOON!",
-    "testPhase": "TEST PHASE",
-    "subtitle": "We're still in the test phase! The social feed with swipe discovery, posts and more is in development. Soon you'll be able to discover art here like on TikTok.",
-    "whatsComing": "WHAT'S COMING",
-    "swipeDiscovery": "Swipe-Discovery like TikTok",
-    "postsLikesComments": "Posts, Likes & Comments",
-    "followersNotifications": "Followers & Notifications",
-    "boardsCollections": "Boards & Collections",
-    "repostsQuotes": "Reposts & Quotes",
-    "developmentProgress": "DEVELOPMENT PROGRESS"
-  },
-  "becomeArtist": {
-    "hero": {
-      "badge": "FOR REAL ARTISTS",
-      "title1": "BECOME A",
-      "title2": "VARBE ARTIST",
-      "description": "Share your art, participate in challenges, create events and connect with a community that celebrates real art – not AI slop."
-    },
-    "cta": {
-      "register": "REGISTER NOW",
-      "login": "LOG IN",
-      "become": "BECOME AN ARTIST →",
-      "registerFree": "REGISTER FOR FREE NOW",
-      "createPost": "CREATE YOUR FIRST POST →",
-      "startVerify": "START VERIFICATION →"
-    },
-    "status": {
-      "pending": "YOUR VERIFICATION IS BEING REVIEWED",
-      "pendingNote": "We'll get back to you in 1-3 business days",
-      "pendingShort": "Your verification is being reviewed...",
-      "verified": "YOU'RE ALREADY VERIFIED!",
-      "toProfile": "Go to your profile →"
-    },
-    "whatCanYouDo": {
-      "title": "WHAT CAN YOU DO AS AN ARTIST?",
-      "subtitle": "As a verified Varbe artist, you have access to all platform features"
-    },
-    "features": {
-      "posts": {
-        "title": "POSTS & BLOG",
-        "desc": "Share your artworks, work-in-progress images and write blog articles about your artistic journey. Show the community your perspective."
-      },
-      "challenges": {
-        "title": "CHALLENGES",
-        "desc": "Participate in community challenges, showcase your skills and earn badges & recognition. From weekly prompts to big competitions."
-      },
-      "events": {
-        "title": "CREATE EVENTS",
-        "desc": "Create local art events, open studio sessions or online workshops. Connect with the community near you."
-      },
-      "commissions": {
-        "title": "COMMISSIONS",
-        "desc": "Offer your services for commissioned work. Get found by people looking for exactly your style."
-      },
-      "marketplace": {
-        "title": "MARKETPLACE",
-        "desc": "Sell your original artworks directly to collectors. Only 10% fees – you keep 90% of your earnings."
-      }
-    },
-    "howTo": {
-      "title": "HOW TO BECOME AN",
-      "titleHighlight": "ARTIST",
-      "subtitle": "The verification process is simple and takes only a few minutes"
-    },
-    "steps": {
-      "account": {
-        "title": "Create Account",
-        "desc": "Register for free at Varbe. Takes only 30 seconds."
-      },
-      "verify": {
-        "title": "Start Verification",
-        "desc": "Fill out the verification form and upload 3-5 examples of your art."
-      },
-      "review": {
-        "title": "Team Review",
-        "desc": "Our team reviews your submission in 1-3 business days."
-      },
-      "start": {
-        "title": "Let's go!",
-        "desc": "After verification, you can immediately create posts, plan events and participate in challenges."
-      }
-    },
-    "benefits": {
-      "title": "YOUR BENEFITS",
-      "badge": {
-        "title": "Verified Artist Badge",
-        "desc": "Show the community that you're a real, verified artist"
-      },
-      "posts": {
-        "title": "Create Posts & Blog",
-        "desc": "Share your art and thoughts with the community"
-      },
-      "events": {
-        "title": "Create Events",
-        "desc": "Create local or online events and connect"
-      },
-      "challenges": {
-        "title": "Participate in Challenges",
-        "desc": "Show your skills in community challenges"
-      },
-      "noAi": {
-        "title": "No AI Competition",
-        "desc": "We don't allow AI-generated art here"
-      },
-      "fees": {
-        "title": "Fair Fees",
-        "desc": "Only 10% – not 35% like other platforms"
-      }
-    },
-    "whyVarbe": {
-      "title": "WHY VARBE?",
-      "noAi": {
-        "title": "NO AI ART",
-        "desc": "We don't allow AI-generated art. Period. Your real work won't be overshadowed by bots."
-      },
-      "fees": {
-        "title": "FAIR FEES",
-        "desc": "Only 10% on sales – not 35-40% like other platforms. You keep more of your earnings."
-      },
-      "community": {
-        "title": "REAL COMMUNITY",
-        "desc": "A community of real artists and art lovers. No algorithm manipulation, no engagement farming."
-      }
-    },
-    "finalCta": {
-      "title": "READY TO",
-      "titleHighlight": "GET STARTED",
-      "description": "Join a community that celebrates real art. No AI. No high fees. Just art, artists and community."
-    },
-    "faq": {
-      "questions": "Still have questions? Check our",
-      "or": "or contact us at"
-    }
-  },
-  "mobile": {
-    "bottomNav": {
-      "home": "Home",
-      "feed": "Feed",
-      "search": "Search",
-      "create": "Create",
-      "chat": "Chat",
-      "profile": "Profile",
-      "createMenu": {
-        "title": "CREATE",
-        "newPost": "New Post",
-        "blogPost": "Blog Post",
-        "event": "Event"
-      }
-    },
-    "drawer": {
-      "close": "Close",
-      "homepage": "Homepage",
-      "feed": "Feed",
-      "search": "Search & Discover",
-      "artists": "Artists",
-      "community": "Community",
-      "localRadar": "Local Radar",
-      "challenges": "Challenges",
-      "commissions": "Commissions",
-      "jobs": "Jobs",
-      "chatrooms": "Chatrooms",
-      "more": "More",
-      "blog": "Blog",
-      "badges": "Badges",
-      "faq": "FAQ",
-      "contact": "Contact",
-      "login": "LOGIN",
-      "register": "REGISTER",
-      "adminDashboard": "Admin Dashboard",
-      "settings": "Settings",
-      "logout": "Logout",
-      "switchLanguage": "Switch to German",
-      "switchLanguageDe": "Switch to English",
-      "loading": "Loading...",
-      "imprint": "Imprint",
-      "privacy": "Privacy Policy",
-      "terms": "Terms & Conditions"
+      "loading": "Loading article..."
     }
   },
   "footer": {
@@ -3166,8 +1336,7 @@
     "terms": "Terms & Conditions",
     "cancellation": "Cancellation",
     "cookies": "Cookies",
-    "copyright": "© 2025 Varbe · Made with ❤️ in Bremen",
-    "discover": "Discover"
+    "copyright": "© 2025 Varbe · Made with ❤️ in Bremen"
   }
 }
 
