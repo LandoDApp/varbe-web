@@ -15,6 +15,50 @@
     "yes": "Yes",
     "no": "No"
   },
+  "mobile": {
+    "drawer": {
+      "homepage": "Home",
+      "feed": "Feed",
+      "search": "Search",
+      "artists": "Artists",
+      "community": "Community",
+      "localRadar": "Local Radar",
+      "challenges": "Challenges",
+      "commissions": "Commissions",
+      "jobs": "Jobs",
+      "chatrooms": "Chatrooms",
+      "more": "More",
+      "blog": "Blog",
+      "badges": "Badges",
+      "faq": "FAQ",
+      "contact": "Contact",
+      "close": "Close",
+      "login": "Login",
+      "register": "Register",
+      "adminDashboard": "Admin Dashboard",
+      "loading": "Loading...",
+      "switchLanguage": "Switch to German",
+      "switchLanguageDe": "Switch to English",
+      "settings": "Settings",
+      "logout": "Logout",
+      "imprint": "Imprint",
+      "privacy": "Privacy",
+      "terms": "Terms"
+    },
+    "bottomNav": {
+      "feed": "Feed",
+      "search": "Search",
+      "create": "Create",
+      "chat": "Chat",
+      "profile": "Profile",
+      "createMenu": {
+        "title": "Create New",
+        "newPost": "New Post",
+        "blogPost": "Blog Post",
+        "event": "Event"
+      }
+    }
+  },
   "nav": {
     "home": "Home",
     "buyArt": "Buy Art",
