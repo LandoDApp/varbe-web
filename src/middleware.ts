@@ -58,7 +58,7 @@ export default function middleware(request: NextRequest) {
   // ==========================================
   // MAINTENANCE MODE REDIRECT
   // Redirects ALL traffic to /maintenance
-  // This has the highest priority
+  // EXCEPT: auth routes and admins with bypass cookie
   // ==========================================
   if (MAINTENANCE_MODE) {
     // Allow the maintenance page itself to load
@@ -66,7 +66,50 @@ export default function middleware(request: NextRequest) {
       return NextResponse.next();
     }
     
-    // Redirect everything else to maintenance
+    // Allow auth routes so users can still login
+    // This includes all locale variations of auth routes
+    const isAuthRoute = routing.locales.some(locale => 
+      pathname.startsWith(`/${locale}/auth/`)
+    ) || pathname.includes('/auth/');
+    
+    if (isAuthRoute) {
+      // Continue with normal routing for auth pages
+      const pathHasLocale = routing.locales.some(
+        (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
+      );
+      
+      if (!pathHasLocale) {
+        const locale = detectLocale(request);
+        const newPath = `/${locale}${pathname}`;
+        const newUrl = new URL(newPath, request.url);
+        return NextResponse.redirect(newUrl);
+      }
+      
+      return intlMiddleware(request);
+    }
+    
+    // Check for admin bypass cookie
+    const adminBypassCookie = request.cookies.get('varbe_admin_bypass');
+    const isAdmin = adminBypassCookie?.value === 'true';
+    
+    // If admin, let them through to normal site
+    if (isAdmin) {
+      // Continue with normal routing
+      const pathHasLocale = routing.locales.some(
+        (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
+      );
+
+      if (!pathHasLocale) {
+        const locale = detectLocale(request);
+        const newPath = pathname === '/' ? `/${locale}` : `/${locale}${pathname}`;
+        const newUrl = new URL(newPath, request.url);
+        return NextResponse.redirect(newUrl);
+      }
+
+      return intlMiddleware(request);
+    }
+    
+    // Redirect everyone else to maintenance
     const maintenanceUrl = new URL('/maintenance', request.url);
     return NextResponse.redirect(maintenanceUrl);
   }

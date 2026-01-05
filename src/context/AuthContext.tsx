@@ -7,6 +7,21 @@ import { getUserProfile } from "@/lib/db";
 import { UserProfile } from "@/types";
 import { checkAndAwardBadges } from "@/lib/badges";
 
+// Helper to set/remove admin bypass cookie
+const setAdminBypassCookie = (isAdmin: boolean) => {
+    if (typeof document === 'undefined') return;
+    
+    if (isAdmin) {
+        // Set cookie that expires in 7 days
+        const expires = new Date();
+        expires.setDate(expires.getDate() + 7);
+        document.cookie = `varbe_admin_bypass=true; path=/; expires=${expires.toUTCString()}; SameSite=Strict`;
+    } else {
+        // Remove cookie
+        document.cookie = 'varbe_admin_bypass=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+    }
+};
+
 interface AuthContextType {
     user: FirebaseUser | null;
     profile: UserProfile | null;
@@ -79,6 +94,9 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
                         if (userProfile) {
                             console.log("✅ User Profile Found:", userProfile);
                             
+                            // Set admin bypass cookie if user is admin
+                            setAdminBypassCookie(userProfile.role === 'admin');
+                            
                             // Check and award badges in background (only once per session per user)
                             const sessionKey = `${firebaseUser.uid}_${Date.now().toString().slice(0, -4)}`; // Changes every ~10 seconds
                             if (badgeCheckRef.current !== sessionKey) {
@@ -97,6 +115,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
                             }
                         } else {
                             console.log("⚠️ User Profile Not Found in Firestore (will be created on next action)");
+                            // Clear admin cookie if no profile
+                            setAdminBypassCookie(false);
                         }
                         
                         setProfile(userProfile);
@@ -110,6 +130,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
                     setUser(null);
                     setProfile(null);
                     setLoading(false);
+                    // Clear admin bypass cookie on logout
+                    setAdminBypassCookie(false);
                 }
                 
                 console.log("========================================");
