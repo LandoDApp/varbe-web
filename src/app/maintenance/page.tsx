@@ -5,6 +5,8 @@ import { useEffect, useState } from 'react';
 export default function MaintenancePage() {
   const [loadingProgress, setLoadingProgress] = useState(0);
   const [showMessage, setShowMessage] = useState(false);
+  const [userCount, setUserCount] = useState<number | null>(null);
+  const [showLoginModal, setShowLoginModal] = useState(false);
 
   useEffect(() => {
     // Animate loading bar
@@ -21,6 +23,19 @@ export default function MaintenancePage() {
 
     return () => clearInterval(interval);
   }, []);
+
+  // Fetch user count
+  useEffect(() => {
+    fetch('/api/stats/users')
+      .then(res => res.json())
+      .then(data => setUserCount(data.count))
+      .catch(() => setUserCount(null));
+  }, []);
+
+  // Format number with thousand separators
+  const formatNumber = (num: number) => {
+    return num.toLocaleString('de-DE');
+  };
 
   return (
     <html lang="en">
@@ -117,16 +132,51 @@ export default function MaintenancePage() {
                     </div>
                   </div>
 
+                  {/* User Count Stats */}
+                  {userCount !== null && (
+                    <div className="user-stats">
+                      <div className="stat-number">{formatNumber(userCount)}</div>
+                      <div className="stat-label">Artists & Collectors waiting</div>
+                    </div>
+                  )}
+
                   <div className="footer-message">
                     <p>Thank you for your patience. We&apos;ll be back shortly!</p>
                     <div className="social-hint">
                       Follow us for updates
                     </div>
                   </div>
+
+                  {/* Login Button */}
+                  <button 
+                    className="login-button"
+                    onClick={() => setShowLoginModal(true)}
+                  >
+                    Already have an account? Sign in
+                  </button>
                 </div>
               )}
             </div>
           </div>
+
+          {/* Login Modal */}
+          {showLoginModal && (
+            <div className="modal-overlay" onClick={() => setShowLoginModal(false)}>
+              <div className="modal-content" onClick={e => e.stopPropagation()}>
+                <button className="modal-close" onClick={() => setShowLoginModal(false)}>×</button>
+                <h2>Sign In</h2>
+                <p>Access your account during maintenance</p>
+                <div className="login-options">
+                  <a href="/en/auth/login" className="login-option-btn primary">
+                    English Login
+                  </a>
+                  <a href="/de/auth/login" className="login-option-btn">
+                    Deutsche Anmeldung
+                  </a>
+                </div>
+              </div>
+            </div>
+          )}
 
           <style jsx global>{`
             * {
@@ -409,6 +459,132 @@ export default function MaintenancePage() {
               font-size: 0.75rem;
               color: rgba(255, 255, 255, 0.4);
               letter-spacing: 0.1em;
+            }
+
+            .user-stats {
+              margin-bottom: 2rem;
+              padding: 1.5rem;
+              background: rgba(204, 255, 0, 0.05);
+              border: 1px solid rgba(204, 255, 0, 0.2);
+              border-radius: 12px;
+            }
+
+            .stat-number {
+              font-size: 3rem;
+              font-weight: 700;
+              color: #CCFF00;
+              line-height: 1;
+              margin-bottom: 0.5rem;
+            }
+
+            .stat-label {
+              font-size: 0.85rem;
+              color: rgba(255, 255, 255, 0.6);
+              letter-spacing: 0.1em;
+            }
+
+            .login-button {
+              margin-top: 2rem;
+              padding: 0.75rem 1.5rem;
+              background: transparent;
+              border: 1px solid rgba(255, 255, 255, 0.2);
+              border-radius: 8px;
+              color: rgba(255, 255, 255, 0.6);
+              font-family: 'Space Mono', monospace;
+              font-size: 0.8rem;
+              cursor: pointer;
+              transition: all 0.3s ease;
+            }
+
+            .login-button:hover {
+              border-color: #CCFF00;
+              color: #CCFF00;
+              background: rgba(204, 255, 0, 0.1);
+            }
+
+            .modal-overlay {
+              position: fixed;
+              inset: 0;
+              background: rgba(0, 0, 0, 0.9);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              z-index: 100;
+              animation: fadeIn 0.3s ease-out;
+            }
+
+            .modal-content {
+              background: #111;
+              border: 2px solid rgba(204, 255, 0, 0.3);
+              border-radius: 16px;
+              padding: 2rem;
+              max-width: 400px;
+              width: 90%;
+              text-align: center;
+              position: relative;
+            }
+
+            .modal-close {
+              position: absolute;
+              top: 1rem;
+              right: 1rem;
+              background: none;
+              border: none;
+              color: rgba(255, 255, 255, 0.5);
+              font-size: 1.5rem;
+              cursor: pointer;
+              transition: color 0.2s;
+            }
+
+            .modal-close:hover {
+              color: #CCFF00;
+            }
+
+            .modal-content h2 {
+              font-size: 1.5rem;
+              margin-bottom: 0.5rem;
+              color: #CCFF00;
+            }
+
+            .modal-content p {
+              color: rgba(255, 255, 255, 0.6);
+              margin-bottom: 1.5rem;
+              font-size: 0.9rem;
+            }
+
+            .login-options {
+              display: flex;
+              flex-direction: column;
+              gap: 0.75rem;
+            }
+
+            .login-option-btn {
+              display: block;
+              padding: 1rem;
+              border: 2px solid rgba(255, 255, 255, 0.2);
+              border-radius: 8px;
+              color: #fff;
+              text-decoration: none;
+              font-family: 'Space Mono', monospace;
+              font-size: 0.9rem;
+              transition: all 0.3s ease;
+            }
+
+            .login-option-btn:hover {
+              border-color: #CCFF00;
+              background: rgba(204, 255, 0, 0.1);
+            }
+
+            .login-option-btn.primary {
+              background: #CCFF00;
+              border-color: #CCFF00;
+              color: #000;
+              font-weight: 700;
+            }
+
+            .login-option-btn.primary:hover {
+              background: #b8e600;
+              border-color: #b8e600;
             }
 
             @media (max-width: 640px) {
