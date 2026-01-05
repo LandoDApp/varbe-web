@@ -1147,7 +1147,287 @@
       "title": "Privacy Policy"
     },
     "impressum": {
-      "title": "Imprint"
+      "title": "Imprint",
+      "germany": "Germany",
+      "ireland": "Ireland",
+      "s1": {
+        "title": "Information according to § 5 TMG",
+        "operator": "Platform Operator",
+        "contact": "Contact",
+        "responsible": "Responsible for content"
+      },
+      "s2": {
+        "title": "Website Information",
+        "status": {
+          "title": "Platform Status",
+          "text": "Varbe is currently in Early Access. Not all planned features are available yet. The platform is continuously being developed."
+        },
+        "dispute": {
+          "title": "Dispute Resolution",
+          "text1": "The European Commission provides a platform for online dispute resolution (OS):",
+          "text2": "We are not obligated and not willing to participate in dispute resolution proceedings before a consumer arbitration board."
+        }
+      },
+      "s3": {
+        "title": "Liability",
+        "content": {
+          "title": "Liability for Content",
+          "text1": "As a service provider, we are responsible for our own content on these pages according to general laws.",
+          "text2": "However, as a service provider, we are not obligated to monitor transmitted or stored third-party information."
+        },
+        "userContent": {
+          "title": "User Content",
+          "text1": "The content uploaded by users (artworks, descriptions, etc.) is the responsibility of the respective users.",
+          "text2": "Violations can be reported to"
+        },
+        "links": {
+          "title": "Liability for Links",
+          "text1": "Our website contains links to external websites over which we have no control.",
+          "text2": "We therefore cannot assume any liability for this external content.",
+          "text3": "If we become aware of legal violations, such links will be removed immediately."
+        }
+      },
+      "s4": {
+        "title": "Copyright",
+        "own": {
+          "title": "Our Content",
+          "text1": "The content and works created by us on these pages are subject to German copyright law.",
+          "text2": "Duplication, processing, distribution, and any kind of exploitation require our written consent.",
+          "text3": "Downloads and copies of this page are only permitted for private, non-commercial use.",
+          "items": {
+            "texts": "Texts and descriptions",
+            "design": "Layout and design",
+            "logos": "Logos and graphics",
+            "code": "Source code and programming"
+          }
+        },
+        "user": {
+          "title": "User Content",
+          "text1": "Users retain full copyright to their uploaded works.",
+          "text2": "By uploading, users grant Varbe a non-exclusive right to display the works on the platform."
+        }
+      },
+      "s5": {
+        "title": "Privacy",
+        "text": "Detailed information about data processing can be found in our"
+      },
+      "s6": {
+        "title": "Changes",
+        "text": "We reserve the right to change this imprint at any time. Please check this page regularly for updates."
+      },
+      "s7": {
+        "title": "Technical Provider",
+        "hosting": "Hosting & Infrastructure",
+        "payments": "Payments (coming)"
+      },
+      "s8": {
+        "title": "Legal Information",
+        "intro": "Varbe is currently operated as a private project. The following applies:",
+        "subject": "Subject to change",
+        "subjectText": "This imprint may be updated as the platform develops",
+        "note": "Legal form may change with full marketplace launch"
+      },
+      "s9": {
+        "title": "Image Credits",
+        "intro": "Images on this website come from:",
+        "items": {
+          "own": "Own creations and screenshots",
+          "cc": "CC0 licensed images",
+          "stock": "Stock photos from Unsplash"
+        },
+        "note": "Artist uploads remain the property of the respective artists."
+      },
+      "s10": {
+        "title": "Final Provisions",
+        "text1": "If individual provisions of this imprint are or become invalid, this does not affect the validity of the remaining provisions.",
+        "text2": "German law applies. Place of jurisdiction is Bremen, Germany."
+      },
+      "lastUpdated": "Last updated",
+      "date": "December 2025",
+      "footer": {
+        "scope": "This imprint applies to varbe.org and all subpages."
+      }
+    },
+    "cookies": {
+      "title": "Cookie Policy",
+      "asOf": "As of",
+      "date": "December 2025",
+      "whatAreCookies": {
+        "title": "What are Cookies?",
+        "text1": "Cookies are small text files that are stored on your device when you visit a website.",
+        "text2": "They help websites remember your preferences and improve your user experience."
+      },
+      "philosophy": {
+        "title": "Our Cookie Philosophy",
+        "subtitle": "Privacy First - We only use what's necessary",
+        "text": "At Varbe, we believe in minimal data collection. We only use cookies that are essential for the website to function or to improve your experience.",
+        "notUsed": "We do NOT use",
+        "notUsedItems": {
+          "facebook": "Facebook Pixel or tracking",
+          "tiktok": "TikTok Pixel or tracking",
+          "thirdParty": "Third-party advertising cookies",
+          "crossSite": "Cross-site tracking",
+          "fingerprinting": "Browser fingerprinting",
+          "selling": "Data selling to third parties"
+        }
+      },
+      "howWeUse": {
+        "title": "How does Varbe use Cookies?",
+        "intro": "We use cookies in the following categories:"
+      },
+      "necessary": {
+        "title": "1. Necessary Cookies",
+        "note": "These cookies are essential and cannot be disabled.",
+        "intro": "These cookies are required for basic website functionality.",
+        "whatWeStore": "What we store",
+        "auth": {
+          "title": "Authentication",
+          "items": {
+            "session": "Session ID for login",
+            "token": "Authentication token",
+            "userId": "User ID",
+            "loginStatus": "Login status"
+          }
+        },
+        "security": {
+          "title": "Security",
+          "items": {
+            "csrf": "CSRF protection token",
+            "fraud": "Fraud prevention",
+            "rateLimit": "Rate limiting"
+          }
+        },
+        "technical": {
+          "title": "Technical",
+          "items": {
+            "language": "Language preference",
+            "theme": "Dark/Light mode",
+            "consent": "Cookie consent status"
+          }
+        },
+        "legalBasisText": "Legitimate interest (Art. 6(1)(f) GDPR)",
+        "storageDurationText": "Session or up to 30 days"
+      },
+      "functional": {
+        "title": "2. Functional Cookies",
+        "note": "These cookies can be disabled but may affect functionality.",
+        "intro": "These cookies enhance your experience on the platform.",
+        "preferences": {
+          "title": "Preferences",
+          "items": {
+            "display": "Display settings",
+            "filters": "Filter preferences",
+            "savedFilters": "Saved search filters",
+            "categories": "Preferred categories",
+            "sorting": "Sorting preferences"
+          }
+        },
+        "discovery": {
+          "title": "Discovery",
+          "items": {
+            "recentlyViewed": "Recently viewed artworks",
+            "feedPosition": "Feed scroll position",
+            "feedModes": "Preferred feed modes"
+          }
+        },
+        "legalBasisText": "Consent (Art. 6(1)(a) GDPR)",
+        "storageDurationText": "Up to 1 year",
+        "control": "You can disable these in your browser settings"
+      },
+      "analytics": {
+        "title": "3. Analytics Cookies",
+        "note": "These cookies help us improve the platform.",
+        "intro": "We use analytics to understand how the platform is used.",
+        "whatWeAnalyze": "What we analyze",
+        "firebase": {
+          "items": {
+            "visitors": "Number of visitors",
+            "features": "Which features are used",
+            "duration": "Time spent on pages",
+            "errors": "Error reports",
+            "technical": "Technical information (browser, device)"
+          }
+        },
+        "important": {
+          "title": "Important",
+          "items": {
+            "ipAnonymization": "IP anonymization is enabled",
+            "noTracking": "No personal tracking",
+            "aggregated": "Data is aggregated",
+            "noLinking": "No linking to personal data"
+          }
+        },
+        "google": {
+          "ifImplemented": "if implemented",
+          "items": {
+            "ipAnonymization": "IP anonymization enabled",
+            "noCrossSite": "No cross-site tracking",
+            "optOut": "Opt-out available"
+          }
+        },
+        "legalBasisText": "Consent (Art. 6(1)(a) GDPR)",
+        "storageDurationText": "Up to 2 years",
+        "objectionText": "You can opt out at any time in your settings"
+      },
+      "marketing": {
+        "title": "4. Marketing Cookies",
+        "noMarketing": "We do NOT use marketing cookies!",
+        "intro": "Varbe does not use advertising or marketing cookies.",
+        "notUsed": {
+          "tracking": "Tracking pixels",
+          "ads": "Advertising networks",
+          "socialPixels": "Social media pixels",
+          "remarketing": "Remarketing cookies"
+        },
+        "socialSharing": {
+          "title": "Social Sharing",
+          "text": "When you share content, we use simple share links without tracking."
+        },
+        "future": {
+          "title": "Future",
+          "text": "If we ever add marketing features, we will update this policy and ask for your consent."
+        }
+      },
+      "thirdParty": {
+        "title": "Third-Party Services",
+        "intro": "We use the following third-party services:",
+        "purpose": "Purpose",
+        "privacy": "Privacy Policy",
+        "firebase": {
+          "purpose": "Authentication, database, hosting",
+          "cookies": "Authentication cookies, session management",
+          "legalBasis": "Contract fulfillment (Art. 6(1)(b) GDPR)"
+        },
+        "stripe": {
+          "future": "coming soon",
+          "purpose": "Payment processing",
+          "cookies": "Fraud prevention, payment session",
+          "legalBasis": "Contract fulfillment (Art. 6(1)(b) GDPR)",
+          "note": "Stripe cookies are only set during payment processes"
+        }
+      },
+      "manage": {
+        "title": "Managing Your Cookies",
+        "intro": "You have several options to control cookies:",
+        "option1": {
+          "title": "Browser Settings",
+          "text": "You can disable cookies in your browser settings. Note that this may affect website functionality."
+        },
+        "option2": {
+          "title": "Our Cookie Banner",
+          "text": "Use our cookie banner to manage your preferences when you first visit."
+        },
+        "option3": {
+          "title": "Account Settings",
+          "text": "Logged-in users can manage preferences in their account settings."
+        }
+      },
+      "legalBasis": "Legal Basis",
+      "storageDuration": "Storage Duration",
+      "provider": "Provider",
+      "control": "Control",
+      "objectionRight": "Right to Object",
+      "ireland": "Ireland"
     },
     "backToHome": "← Back to Homepage"
   },
