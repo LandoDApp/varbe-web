@@ -42,9 +42,94 @@
       "title": "Buy & Sell",
       "titleHighlight": "Authentic",
       "titleEnd": "Artworks",
-      "description": "No fakes. No AI spam. Just real art from verified artists. Join the revolution today!",
+      "line1": "ART BELONGS",
+      "line2": "TO ARTISTS.",
+      "line3": "NOT ALGORITHMS.",
+      "description": "The art marketplace that puts creators first. No AI spam. No algorithms. Just real art from real artists.",
       "startExploring": "Start Exploring",
-      "sellYourArt": "Sell Your Art"
+      "sellYourArt": "Sell Your Art",
+      "joinNow": "JOIN NOW – IT'S FREE",
+      "discoverFeed": "DISCOVER THE FEED"
+    },
+    "badges": {
+      "noAi": "100% AI-FREE",
+      "lowFees": "ONLY 10% FEES",
+      "artistOwned": "ARTIST-OWNED"
+    },
+    "problems": {
+      "title": "The Art Market Is Broken",
+      "ai": {
+        "title": "AI Flood",
+        "desc": "Platforms are drowning in AI-generated content. Real artists become invisible among millions of machine-made images."
+      },
+      "algorithm": {
+        "title": "Algorithm Dictates",
+        "desc": "The algorithm decides who sees your art. No followers = no reach. Your creativity becomes a number game."
+      },
+      "fees": {
+        "title": "Unfair Fees",
+        "desc": "Up to 50% fees on other platforms. After payment processing and taxes, barely anything remains for the artist."
+      }
+    },
+    "butNotHere": "BUT NOT HERE.",
+    "solutions": {
+      "aiFree": {
+        "title": "100% AI-FREE",
+        "desc": "Every artist is verified. Every artwork is real. We actively protect the community from AI spam."
+      },
+      "noAlgo": {
+        "title": "NO ALGORITHM",
+        "desc": "Chronological feed. Your followers see your art. Period. No pay-to-play, no shadowbans."
+      },
+      "fairFees": {
+        "title": "ONLY 10% FEES",
+        "desc": "Fair and transparent. 90% of every sale goes directly to you. Because your art is worth it."
+      }
+    },
+    "features": {
+      "title": "DISCOVER VARBE",
+      "swipe": {
+        "title": "SWIPE DISCOVERY",
+        "desc": "Discover art like on TikTok – swipe through artworks and find your new favorite pieces.",
+        "link": "Try the Feed →"
+      },
+      "local": {
+        "title": "LOCAL RADAR",
+        "desc": "Find artists and events near you. Support local talent and pick up art in person.",
+        "link": "Discover Locally →"
+      },
+      "story": {
+        "title": "STORY-DRIVEN",
+        "desc": "Every artwork has a story. Learn about the artist, the process, and the meaning behind each piece.",
+        "link": "Explore Stories →"
+      },
+      "challenges": {
+        "title": "ART CHALLENGES",
+        "desc": "Participate in weekly challenges. Win prizes and get your art featured to the community.",
+        "link": "View Challenges →"
+      }
+    },
+    "promise": {
+      "title": "OUR PROMISE",
+      "noAi": {
+        "title": "NO AI – EVER",
+        "desc": "We actively check and protect the platform from AI-generated content."
+      },
+      "forYou": {
+        "title": "90% FOR YOU",
+        "desc": "The fairest fees in the industry. Your art, your earnings."
+      },
+      "community": {
+        "title": "BY ARTISTS",
+        "desc": "Built by artists, for artists. Your voice matters."
+      },
+      "subtext": "We're not just another platform – we're a movement."
+    },
+    "cta": {
+      "title": "READY TO JOIN?",
+      "description": "Join thousands of artists who have already made the switch. Free forever for collectors.",
+      "registerButton": "CREATE FREE ACCOUNT",
+      "discoverButton": "BROWSE ARTWORKS"
     },
     "featured": {
       "title": "⭐ Featured Artworks",

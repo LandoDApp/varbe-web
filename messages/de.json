@@ -42,9 +42,94 @@
       "title": "Kaufen & Verkaufen",
       "titleHighlight": "Authentische",
       "titleEnd": "Kunstwerke",
-      "description": "Keine Fakes. Kein KI-Spam. Nur echte Kunst von verifizierten Künstlern. Werden Sie noch heute Teil der Revolution!",
+      "line1": "KUNST GEHÖRT",
+      "line2": "KÜNSTLERN.",
+      "line3": "NICHT ALGORITHMEN.",
+      "description": "Der Kunstmarktplatz, der Kreative an erste Stelle setzt. Kein KI-Spam. Keine Algorithmen. Nur echte Kunst von echten Künstlern.",
       "startExploring": "Jetzt entdecken",
-      "sellYourArt": "Ihre Kunst verkaufen"
+      "sellYourArt": "Ihre Kunst verkaufen",
+      "joinNow": "JETZT BEITRETEN – KOSTENLOS",
+      "discoverFeed": "FEED ENTDECKEN"
+    },
+    "badges": {
+      "noAi": "100% KI-FREI",
+      "lowFees": "NUR 10% GEBÜHREN",
+      "artistOwned": "VON KÜNSTLERN"
+    },
+    "problems": {
+      "title": "Der Kunstmarkt ist kaputt",
+      "ai": {
+        "title": "KI-Flut",
+        "desc": "Plattformen ertrinken in KI-generierten Inhalten. Echte Künstler werden unter Millionen von maschinengemachten Bildern unsichtbar."
+      },
+      "algorithm": {
+        "title": "Algorithmus diktiert",
+        "desc": "Der Algorithmus entscheidet, wer deine Kunst sieht. Keine Follower = keine Reichweite. Deine Kreativität wird zum Zahlenspiel."
+      },
+      "fees": {
+        "title": "Unfaire Gebühren",
+        "desc": "Bis zu 50% Gebühren auf anderen Plattformen. Nach Zahlungsabwicklung und Steuern bleibt kaum etwas für den Künstler."
+      }
+    },
+    "butNotHere": "ABER NICHT HIER.",
+    "solutions": {
+      "aiFree": {
+        "title": "100% KI-FREI",
+        "desc": "Jeder Künstler wird verifiziert. Jedes Kunstwerk ist echt. Wir schützen die Community aktiv vor KI-Spam."
+      },
+      "noAlgo": {
+        "title": "KEIN ALGORITHMUS",
+        "desc": "Chronologischer Feed. Deine Follower sehen deine Kunst. Punkt. Kein Pay-to-Play, keine Shadowbans."
+      },
+      "fairFees": {
+        "title": "NUR 10% GEBÜHREN",
+        "desc": "Fair und transparent. 90% jedes Verkaufs gehen direkt an dich. Weil deine Kunst es wert ist."
+      }
+    },
+    "features": {
+      "title": "ENTDECKE VARBE",
+      "swipe": {
+        "title": "SWIPE DISCOVERY",
+        "desc": "Entdecke Kunst wie auf TikTok – swipe durch Kunstwerke und finde deine neuen Lieblingsstücke.",
+        "link": "Feed ausprobieren →"
+      },
+      "local": {
+        "title": "LOKAL-RADAR",
+        "desc": "Finde Künstler und Events in deiner Nähe. Unterstütze lokale Talente und hole Kunst persönlich ab.",
+        "link": "Lokal entdecken →"
+      },
+      "story": {
+        "title": "STORY-DRIVEN",
+        "desc": "Jedes Kunstwerk hat eine Geschichte. Erfahre mehr über den Künstler, den Prozess und die Bedeutung.",
+        "link": "Stories erkunden →"
+      },
+      "challenges": {
+        "title": "ART CHALLENGES",
+        "desc": "Nimm an wöchentlichen Challenges teil. Gewinne Preise und lass deine Kunst von der Community featuren.",
+        "link": "Challenges ansehen →"
+      }
+    },
+    "promise": {
+      "title": "UNSER VERSPRECHEN",
+      "noAi": {
+        "title": "KEINE KI – NIEMALS",
+        "desc": "Wir prüfen aktiv und schützen die Plattform vor KI-generierten Inhalten."
+      },
+      "forYou": {
+        "title": "90% FÜR DICH",
+        "desc": "Die fairsten Gebühren der Branche. Deine Kunst, dein Verdienst."
+      },
+      "community": {
+        "title": "VON KÜNSTLERN",
+        "desc": "Gebaut von Künstlern, für Künstler. Deine Stimme zählt."
+      },
+      "subtext": "Wir sind nicht nur eine Plattform – wir sind eine Bewegung."
+    },
+    "cta": {
+      "title": "BEREIT MITZUMACHEN?",
+      "description": "Schließe dich tausenden Künstlern an, die bereits gewechselt haben. Für Sammler für immer kostenlos.",
+      "registerButton": "KOSTENLOSES KONTO ERSTELLEN",
+      "discoverButton": "KUNSTWERKE DURCHSTÖBERN"
     },
     "featured": {
       "title": "⭐ Ausgewählte Kunstwerke",
