@@ -59,6 +59,65 @@
       }
     }
   },
+  "challenges": {
+    "hero": {
+      "badge": "Art Challenges",
+      "title": "SHOW YOUR",
+      "titleHighlight": "SKILLS",
+      "description": "Join daily and weekly challenges, compete with artists worldwide, and win amazing prizes!",
+      "activeArtists": "Active Artists",
+      "submissions": "Submissions",
+      "activeChallenges": "Active Challenges"
+    },
+    "daily": {
+      "badge": "Daily Challenge",
+      "endsIn": "Ends in"
+    },
+    "weekly": {
+      "badge": "Weekly Challenge",
+      "endsIn": "Ends in"
+    },
+    "stats": {
+      "participants": "Participants",
+      "submissions": "Submissions"
+    },
+    "actions": {
+      "submitted": "Submitted!",
+      "joinNow": "Join Now",
+      "loginToJoin": "Login to Join"
+    },
+    "leaderboard": {
+      "title": "Leaderboard",
+      "sortedByLikes": "sorted by likes"
+    },
+    "empty": {
+      "title": "No submissions yet",
+      "description": "Be the first to submit your artwork!",
+      "submitFirst": "Submit First"
+    },
+    "loading": "Loading challenges...",
+    "badges": {
+      "title": "Earn Badges",
+      "description": "Win challenges and collect exclusive badges for your profile!"
+    },
+    "upload": {
+      "errorImage": "Please select an image file",
+      "errorSize": "Image must be smaller than 10MB",
+      "selectImage": "Select Image",
+      "dragHint": "or drag and drop",
+      "captionPlaceholder": "Add a caption (optional)",
+      "uploading": "Uploading...",
+      "submit": "Submit Entry"
+    },
+    "comments": {
+      "title": "Comments",
+      "empty": "No comments yet",
+      "beFirst": "Be the first to comment!",
+      "placeholder": "Write a comment...",
+      "ownSubmission": "You can't comment on your own submission",
+      "loginToComment": "Login to comment"
+    }
+  },
   "nav": {
     "home": "Home",
     "buyArt": "Buy Art",

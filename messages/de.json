@@ -59,6 +59,65 @@
       }
     }
   },
+  "challenges": {
+    "hero": {
+      "badge": "Art Challenges",
+      "title": "ZEIG DEIN",
+      "titleHighlight": "KÖNNEN",
+      "description": "Nimm an täglichen und wöchentlichen Challenges teil, tritt gegen Künstler weltweit an und gewinne tolle Preise!",
+      "activeArtists": "Aktive Künstler",
+      "submissions": "Einreichungen",
+      "activeChallenges": "Aktive Challenges"
+    },
+    "daily": {
+      "badge": "Tägliche Challenge",
+      "endsIn": "Endet in"
+    },
+    "weekly": {
+      "badge": "Wöchentliche Challenge",
+      "endsIn": "Endet in"
+    },
+    "stats": {
+      "participants": "Teilnehmer",
+      "submissions": "Einreichungen"
+    },
+    "actions": {
+      "submitted": "Eingereicht!",
+      "joinNow": "Jetzt mitmachen",
+      "loginToJoin": "Anmelden zum Mitmachen"
+    },
+    "leaderboard": {
+      "title": "Bestenliste",
+      "sortedByLikes": "sortiert nach Likes"
+    },
+    "empty": {
+      "title": "Noch keine Einreichungen",
+      "description": "Sei der Erste, der sein Kunstwerk einreicht!",
+      "submitFirst": "Als Erster einreichen"
+    },
+    "loading": "Lade Challenges...",
+    "badges": {
+      "title": "Badges verdienen",
+      "description": "Gewinne Challenges und sammle exklusive Badges für dein Profil!"
+    },
+    "upload": {
+      "errorImage": "Bitte wähle eine Bilddatei aus",
+      "errorSize": "Bild muss kleiner als 10MB sein",
+      "selectImage": "Bild auswählen",
+      "dragHint": "oder per Drag & Drop",
+      "captionPlaceholder": "Beschreibung hinzufügen (optional)",
+      "uploading": "Wird hochgeladen...",
+      "submit": "Beitrag einreichen"
+    },
+    "comments": {
+      "title": "Kommentare",
+      "empty": "Noch keine Kommentare",
+      "beFirst": "Sei der Erste, der kommentiert!",
+      "placeholder": "Schreibe einen Kommentar...",
+      "ownSubmission": "Du kannst deine eigene Einreichung nicht kommentieren",
+      "loginToComment": "Anmelden zum Kommentieren"
+    }
+  },
   "nav": {
     "home": "Startseite",
     "buyArt": "Kunst kaufen",
