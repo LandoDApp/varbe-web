@@ -118,6 +118,192 @@
       "loginToComment": "Login to comment"
     }
   },
+  "feed": {
+    "justNow": "just now",
+    "loading": "Loading...",
+    "whatAreYouWorkingOn": "What are you working on?",
+    "post": "Post",
+    "noPostsYet": "No posts yet",
+    "beTheFirst": "Be the first to share your artwork!",
+    "createFirstPost": "Create First Post",
+    "becomeArtist": "Become an Artist",
+    "pendingReview": "Pending Review",
+    "loadMore": "Load More",
+    "comments": "Comments",
+    "writeComment": "Write a comment...",
+    "send": "Send",
+    "noComments": "No comments yet",
+    "beFirstComment": "Be the first to comment!",
+    "loginToComment": "Login to comment",
+    "delete": "Delete",
+    "deleteConfirm": "Are you sure you want to delete this post?",
+    "deleted": "Post deleted",
+    "reported": "Post reported",
+    "report": "Report",
+    "share": "Share"
+  },
+  "feedCreate": {
+    "title": "Create Post",
+    "whatAreYouWorkingOn": "What are you working on?",
+    "addImages": "Add Images",
+    "addImagesDesc": "Share your artwork (max 4 images)",
+    "post": "Post",
+    "posting": "Posting...",
+    "success": "Post created!",
+    "error": "Failed to create post",
+    "imageError": "Failed to upload image",
+    "maxImages": "Maximum 4 images allowed",
+    "textPlaceholder": "Share your latest artwork, works in progress, or creative thoughts..."
+  },
+  "blogCreate": {
+    "title": "Create Blog Post",
+    "titlePlaceholder": "Enter a title...",
+    "contentPlaceholder": "Write your blog post...",
+    "coverImage": "Cover Image",
+    "addCoverImage": "Add Cover Image",
+    "tags": "Tags",
+    "tagsPlaceholder": "Add tags (comma separated)",
+    "publish": "Publish",
+    "publishing": "Publishing...",
+    "saveDraft": "Save Draft",
+    "success": "Blog post published!",
+    "error": "Failed to publish"
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Stories, tutorials, and insights from our community",
+    "readMore": "Read More",
+    "by": "by",
+    "minRead": "min read",
+    "noPosts": "No blog posts yet",
+    "noPostsDesc": "Check back later for stories and tutorials from our artists!",
+    "categories": {
+      "all": "All",
+      "tutorial": "Tutorials",
+      "story": "Stories",
+      "news": "News",
+      "interview": "Interviews"
+    }
+  },
+  "badgesPage": {
+    "title": "Badges & Achievements",
+    "description": "Collect badges by participating in the community, selling artworks, and completing challenges!",
+    "ofBadges": "of {total} badges",
+    "points": "Points",
+    "progress": "Progress",
+    "badges": "Badges",
+    "daysStreak": "Days Streak",
+    "totalProgress": "Total Progress",
+    "yourAchievements": "Your Achievements",
+    "awesome": "Awesome!",
+    "all": "All",
+    "showLocked": "Show Locked",
+    "filters": {
+      "all": "All",
+      "unlocked": "Unlocked",
+      "locked": "Locked"
+    },
+    "categories": {
+      "artist": "Artist",
+      "buyer": "Buyer",
+      "community": "Community",
+      "special": "Special",
+      "easter_egg": "Hidden"
+    },
+    "rarity": {
+      "common": "Common",
+      "uncommon": "Uncommon",
+      "rare": "Rare",
+      "very_rare": "Very Rare",
+      "legendary": "Legendary"
+    },
+    "unlocked": "Unlocked",
+    "locked": "Locked",
+    "howToUnlock": "How to unlock",
+    "unlockedOn": "Unlocked on"
+  },
+  "badgeNames": {
+    "first_sale": "First Sale",
+    "first_purchase": "First Purchase",
+    "profile_complete": "Profile Complete",
+    "first_listing": "First Listing",
+    "verified_artist": "Verified Artist",
+    "top_seller": "Top Seller",
+    "collector": "Collector",
+    "art_lover": "Art Lover",
+    "community_star": "Community Star",
+    "early_bird": "Early Bird",
+    "challenge_winner": "Challenge Winner",
+    "weekly_winner": "Weekly Winner",
+    "streak_3": "3 Day Streak",
+    "streak_7": "7 Day Streak",
+    "streak_30": "30 Day Streak",
+    "first_comment": "First Comment",
+    "first_like": "First Like",
+    "social_butterfly": "Social Butterfly",
+    "pioneer": "Pioneer",
+    "night_owl": "Night Owl",
+    "early_riser": "Early Riser"
+  },
+  "becomeArtist": {
+    "title": "Become an Artist",
+    "subtitle": "Join our community of verified artists and start selling your art",
+    "benefits": {
+      "title": "Benefits of becoming a verified artist",
+      "sell": "Sell your artworks on our marketplace",
+      "badge": "Get a verified artist badge",
+      "dashboard": "Access the artist dashboard",
+      "promote": "Promote your art to collectors"
+    },
+    "requirements": {
+      "title": "Requirements",
+      "portfolio": "At least 3 artworks to show",
+      "profile": "Complete profile information",
+      "original": "Original, non-AI artwork only"
+    },
+    "cta": "Apply Now",
+    "alreadyVerified": "You're already a verified artist!",
+    "goToDashboard": "Go to Dashboard"
+  },
+  "commissions": {
+    "title": "Commissions",
+    "subtitle": "Request custom artwork from talented artists",
+    "createRequest": "Create Request",
+    "noCommissions": "No commissions yet",
+    "noCommissionsDesc": "Be the first to request a custom artwork!",
+    "status": {
+      "open": "Open",
+      "in_progress": "In Progress",
+      "completed": "Completed",
+      "cancelled": "Cancelled"
+    },
+    "budget": "Budget",
+    "deadline": "Deadline",
+    "apply": "Apply",
+    "applications": "applications",
+    "viewDetails": "View Details"
+  },
+  "local": {
+    "title": "Local Radar",
+    "subtitle": "Discover artists and art events near you",
+    "enableLocation": "Enable Location",
+    "enableLocationDesc": "Allow location access to find artists near you",
+    "noArtists": "No artists found nearby",
+    "noArtistsDesc": "Be the first artist in your area!",
+    "distance": "km away",
+    "events": "Events",
+    "artists": "Artists"
+  },
+  "settings": {
+    "data": {
+      "title": "Data & Privacy",
+      "downloadData": "Download My Data",
+      "downloadDataDesc": "Download all your data including profile, artworks, and activity",
+      "deleteAccount": "Delete Account",
+      "deleteAccountDesc": "Permanently delete your account and all associated data",
+      "deleteConfirm": "Are you sure? This action cannot be undone."
+    }
+  },
   "nav": {
     "home": "Home",
     "buyArt": "Buy Art",
@@ -128,7 +314,8 @@
     "login": "Login",
     "join": "Join",
     "profile": "Profile",
-    "searchPlaceholder": "Search artworks..."
+    "searchPlaceholder": "Search artworks...",
+    "search": "Search"
   },
   "search": {
     "title": "Search",
@@ -1518,6 +1705,7 @@
     "contact": "Contact",
     "aboutVarbe": "About Varbe",
     "aboutUs": "About Us",
+    "discover": "Discover",
     "legal": "Legal",
     "imprint": "Imprint",
     "privacy": "Privacy Policy",

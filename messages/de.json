@@ -118,6 +118,192 @@
       "loginToComment": "Anmelden zum Kommentieren"
     }
   },
+  "feed": {
+    "justNow": "gerade eben",
+    "loading": "Lädt...",
+    "whatAreYouWorkingOn": "Woran arbeitest du?",
+    "post": "Posten",
+    "noPostsYet": "Noch keine Posts",
+    "beTheFirst": "Sei der Erste, der seine Kunst teilt!",
+    "createFirstPost": "Ersten Post erstellen",
+    "becomeArtist": "Künstler werden",
+    "pendingReview": "Wird geprüft",
+    "loadMore": "Mehr laden",
+    "comments": "Kommentare",
+    "writeComment": "Schreibe einen Kommentar...",
+    "send": "Senden",
+    "noComments": "Noch keine Kommentare",
+    "beFirstComment": "Sei der Erste, der kommentiert!",
+    "loginToComment": "Anmelden zum Kommentieren",
+    "delete": "Löschen",
+    "deleteConfirm": "Bist du sicher, dass du diesen Post löschen möchtest?",
+    "deleted": "Post gelöscht",
+    "reported": "Post gemeldet",
+    "report": "Melden",
+    "share": "Teilen"
+  },
+  "feedCreate": {
+    "title": "Post erstellen",
+    "whatAreYouWorkingOn": "Woran arbeitest du?",
+    "addImages": "Bilder hinzufügen",
+    "addImagesDesc": "Teile deine Kunst (max. 4 Bilder)",
+    "post": "Posten",
+    "posting": "Wird gepostet...",
+    "success": "Post erstellt!",
+    "error": "Post konnte nicht erstellt werden",
+    "imageError": "Bild konnte nicht hochgeladen werden",
+    "maxImages": "Maximal 4 Bilder erlaubt",
+    "textPlaceholder": "Teile deine neuesten Kunstwerke, Work in Progress oder kreative Gedanken..."
+  },
+  "blogCreate": {
+    "title": "Blog-Beitrag erstellen",
+    "titlePlaceholder": "Titel eingeben...",
+    "contentPlaceholder": "Schreibe deinen Blog-Beitrag...",
+    "coverImage": "Titelbild",
+    "addCoverImage": "Titelbild hinzufügen",
+    "tags": "Tags",
+    "tagsPlaceholder": "Tags hinzufügen (kommagetrennt)",
+    "publish": "Veröffentlichen",
+    "publishing": "Wird veröffentlicht...",
+    "saveDraft": "Entwurf speichern",
+    "success": "Blog-Beitrag veröffentlicht!",
+    "error": "Veröffentlichung fehlgeschlagen"
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Geschichten, Tutorials und Einblicke aus unserer Community",
+    "readMore": "Weiterlesen",
+    "by": "von",
+    "minRead": "Min. Lesezeit",
+    "noPosts": "Noch keine Blog-Beiträge",
+    "noPostsDesc": "Schau später nochmal vorbei für Geschichten und Tutorials von unseren Künstlern!",
+    "categories": {
+      "all": "Alle",
+      "tutorial": "Tutorials",
+      "story": "Geschichten",
+      "news": "Neuigkeiten",
+      "interview": "Interviews"
+    }
+  },
+  "badgesPage": {
+    "title": "Badges & Erfolge",
+    "description": "Sammle Badges durch Community-Teilnahme, Kunstverkäufe und Challenges!",
+    "ofBadges": "von {total} Badges",
+    "points": "Punkte",
+    "progress": "Fortschritt",
+    "badges": "Badges",
+    "daysStreak": "Tage Streak",
+    "totalProgress": "Gesamtfortschritt",
+    "yourAchievements": "Deine Erfolge",
+    "awesome": "Großartig!",
+    "all": "Alle",
+    "showLocked": "Gesperrte anzeigen",
+    "filters": {
+      "all": "Alle",
+      "unlocked": "Freigeschaltet",
+      "locked": "Gesperrt"
+    },
+    "categories": {
+      "artist": "Künstler",
+      "buyer": "Käufer",
+      "community": "Community",
+      "special": "Spezial",
+      "easter_egg": "Versteckt"
+    },
+    "rarity": {
+      "common": "Gewöhnlich",
+      "uncommon": "Ungewöhnlich",
+      "rare": "Selten",
+      "very_rare": "Sehr Selten",
+      "legendary": "Legendär"
+    },
+    "unlocked": "Freigeschaltet",
+    "locked": "Gesperrt",
+    "howToUnlock": "Wie freischalten",
+    "unlockedOn": "Freigeschaltet am"
+  },
+  "badgeNames": {
+    "first_sale": "Erster Verkauf",
+    "first_purchase": "Erster Kauf",
+    "profile_complete": "Profil komplett",
+    "first_listing": "Erstes Listing",
+    "verified_artist": "Verifizierter Künstler",
+    "top_seller": "Top-Verkäufer",
+    "collector": "Sammler",
+    "art_lover": "Kunstliebhaber",
+    "community_star": "Community-Star",
+    "early_bird": "Frühaufsteher",
+    "challenge_winner": "Challenge-Gewinner",
+    "weekly_winner": "Wochengewinner",
+    "streak_3": "3-Tage-Streak",
+    "streak_7": "7-Tage-Streak",
+    "streak_30": "30-Tage-Streak",
+    "first_comment": "Erster Kommentar",
+    "first_like": "Erstes Like",
+    "social_butterfly": "Sozialer Schmetterling",
+    "pioneer": "Pionier",
+    "night_owl": "Nachteule",
+    "early_riser": "Frühaufsteher"
+  },
+  "becomeArtist": {
+    "title": "Künstler werden",
+    "subtitle": "Werde Teil unserer verifizierten Künstler-Community und verkaufe deine Kunst",
+    "benefits": {
+      "title": "Vorteile als verifizierter Künstler",
+      "sell": "Verkaufe deine Kunstwerke auf unserem Marktplatz",
+      "badge": "Erhalte ein verifiziertes Künstler-Badge",
+      "dashboard": "Zugang zum Künstler-Dashboard",
+      "promote": "Präsentiere deine Kunst Sammlern"
+    },
+    "requirements": {
+      "title": "Anforderungen",
+      "portfolio": "Mindestens 3 Kunstwerke zum Vorzeigen",
+      "profile": "Vollständige Profilinformationen",
+      "original": "Nur originale, nicht-KI-generierte Kunst"
+    },
+    "cta": "Jetzt bewerben",
+    "alreadyVerified": "Du bist bereits ein verifizierter Künstler!",
+    "goToDashboard": "Zum Dashboard"
+  },
+  "commissions": {
+    "title": "Auftragsarbeiten",
+    "subtitle": "Fordere individuelle Kunstwerke von talentierten Künstlern an",
+    "createRequest": "Anfrage erstellen",
+    "noCommissions": "Noch keine Aufträge",
+    "noCommissionsDesc": "Sei der Erste, der ein individuelles Kunstwerk anfragt!",
+    "status": {
+      "open": "Offen",
+      "in_progress": "In Bearbeitung",
+      "completed": "Abgeschlossen",
+      "cancelled": "Abgebrochen"
+    },
+    "budget": "Budget",
+    "deadline": "Deadline",
+    "apply": "Bewerben",
+    "applications": "Bewerbungen",
+    "viewDetails": "Details ansehen"
+  },
+  "local": {
+    "title": "Lokal-Radar",
+    "subtitle": "Entdecke Künstler und Kunst-Events in deiner Nähe",
+    "enableLocation": "Standort aktivieren",
+    "enableLocationDesc": "Erlaube Standortzugriff, um Künstler in deiner Nähe zu finden",
+    "noArtists": "Keine Künstler in der Nähe gefunden",
+    "noArtistsDesc": "Sei der erste Künstler in deiner Gegend!",
+    "distance": "km entfernt",
+    "events": "Events",
+    "artists": "Künstler"
+  },
+  "settings": {
+    "data": {
+      "title": "Daten & Privatsphäre",
+      "downloadData": "Meine Daten herunterladen",
+      "downloadDataDesc": "Lade alle deine Daten herunter, inkl. Profil, Kunstwerke und Aktivitäten",
+      "deleteAccount": "Konto löschen",
+      "deleteAccountDesc": "Lösche dein Konto und alle zugehörigen Daten dauerhaft",
+      "deleteConfirm": "Bist du sicher? Diese Aktion kann nicht rückgängig gemacht werden."
+    }
+  },
   "nav": {
     "home": "Startseite",
     "buyArt": "Kunst kaufen",
@@ -128,7 +314,8 @@
     "login": "Anmelden",
     "join": "Registrieren",
     "profile": "Profil",
-    "searchPlaceholder": "Kunstwerke suchen..."
+    "searchPlaceholder": "Kunstwerke suchen...",
+    "search": "Suchen"
   },
   "search": {
     "title": "Suche",
@@ -1513,6 +1700,7 @@
     "contact": "Kontakt",
     "aboutVarbe": "Über Varbe",
     "aboutUs": "Über uns",
+    "discover": "Entdecken",
     "legal": "Rechtliches",
     "imprint": "Impressum",
     "privacy": "Datenschutz",
